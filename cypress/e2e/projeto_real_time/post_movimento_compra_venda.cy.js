@@ -1,4 +1,4 @@
-describe('Fisco/Contábil - POST - /v3/movimento_compra_venda/', () => {
+describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
     const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_movimento_compra_venda';
   
     it('POST - /v3/movimento_compra_venda/ - Resposta 200', () => {

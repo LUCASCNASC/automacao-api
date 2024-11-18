@@ -1,4 +1,4 @@
-describe('Fisco/Contábil - POST - /v3/estoque/', () => {
+describe('Projeto Real Time - POST - /v3/estoque/', () => {
     const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_estoque';
   
     it('POST - /v3/estoque/ - Resposta 200', () => {
