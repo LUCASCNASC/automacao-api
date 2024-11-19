@@ -1,7 +1,0 @@
-{
-    "env": {
-        "API_BASE_URL": "http://localhost:8091/sabium#/"
-    },
-    "pluginsFile": false,
-    "SupportFile": false
-}
