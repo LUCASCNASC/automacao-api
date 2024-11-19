@@ -10,6 +10,9 @@ describe('Projeto Real Time - POST - /v3/estoque/', () => {
       cy.request('POST', url, requestBody)
         .then((response) => {
           expect(response.status).to.eq(200);
+          // Validação das propriedades da resposta
+          expect(response.body.cnpj).to.eq('77941490000589'); // Verifica se o "id" foi retornado
+          expect(response.body.data).to.eq('15/10/2024');
         });
     });
   });

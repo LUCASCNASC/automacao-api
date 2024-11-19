@@ -40,6 +40,7 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
       cy.request('POST', url, requestBody)
         .then((response) => {
           expect(response.status).to.eq(200);
+          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });
     });
   });

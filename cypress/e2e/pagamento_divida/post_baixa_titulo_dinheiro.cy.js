@@ -7,15 +7,15 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
          {
            "idfilialbaixa": 10050,
            "idfilial": 10050,
-           "idtitulo": 10038,
+           "idtitulo": 13923,
            "idparcelatitulo": 1,
            "idcobrador": 0,
            "formapagamento": {
              "dinheiro": {
                "dadospagamento": {
-                 "valorpago": 250.00,
+                 "valorpago": 100.00,
                  "valordesconto": 0,
-                 "databaixa": "2024-05-28"
+                 "databaixa": "2024-11-18"
                }
               }
            }
@@ -26,6 +26,9 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
       cy.request('POST', url, requestBody)
         .then((response) => {
           expect(response.status).to.eq(200);
+          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.body.body).to.eq(requestBody.body); // Verifica se o "body" está correto
+          expect(response.body.userId).to.eq(requestBody.userId); // Verifica se o "userId" está correto
         });
     });
   });
