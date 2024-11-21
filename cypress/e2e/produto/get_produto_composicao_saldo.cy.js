@@ -1,10 +1,10 @@
-// /api/version - Versão
-// Versão do sistema e banco.
+// /v3/produto_composicao_saldo - Composição de saldo
+// Composição de saldo do produto.
 
-describe('API - GET - /api/version', () => {
-    const url = 'http://localhost:8091/sabium#/API/api_version';
+describe('Produtos - GET - /v3/produto_composicao_saldo ', () => {
+    const url = 'http://localhost:8091/sabium#/Produto/v2_produto_composicao_saldo';
   
-    it('GET - /api/version - Resposta 200', () => {
+    it('GET - /v3/produto_composicao_saldo  - Resposta 200', () => {
       const requestBody = {}
       // Realiza a requisição GET
       cy.request('GET', url, requestBody)

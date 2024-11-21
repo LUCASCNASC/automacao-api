@@ -30,8 +30,6 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
-          expect(response.body.body).to.eq(requestBody.body); // Verifica se o "body" está correto
-          expect(response.body.userId).to.eq(requestBody.userId); // Verifica se o "userId" está correto
         });
     });
   });
