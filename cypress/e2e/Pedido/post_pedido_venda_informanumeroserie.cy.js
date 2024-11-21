@@ -1,0 +1,2 @@
+// /v3/pedido_venda_informanumeroserie/ - Dados dos números de série de um item do pedido de venda
+// Serviço utilizado para informar número de série para produtos que controlam serial ou solicitam serial na venda

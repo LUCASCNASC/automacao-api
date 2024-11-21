@@ -1,0 +1,2 @@
+// /v3/nota_devolucao_simulacao/{filial}/{solicitacao} - Simulação de Nota Devolução
+// Simulação da nota de devolução da solicitação. Retorna as notas que foram incluídas para simulação da solicitação da nota de devolução para avaliação interna da empresa.

@@ -1,3 +1,6 @@
+// /v3/nota_fiscal_consulta_nfe/ - Consulta NFE
+// Consulta NFE
+
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_nota_fiscal_consulta_nfe';
   

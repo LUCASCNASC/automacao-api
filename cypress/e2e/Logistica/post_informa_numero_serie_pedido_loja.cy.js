@@ -1,0 +1,2 @@
+// /v3/informa_numero_serie_pedido_loja - Dados dos números de série de um pedido de loja
+// Serviço utilizado para informar número de série para itens de pedido de loja que será posteriormente faturado.

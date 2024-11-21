@@ -1,3 +1,6 @@
+// /v3/pedido_baixar - Baixar pedido
+// Baixar pedido de venda. Antes de baixar o pedido, deve fechar o mesmo.
+
 describe('Pedido - POST - /v3/pedido_baixar', () => {
     const url = 'http://localhost:8091/sabium#/Pedido/v2_pedido_baixar';
   

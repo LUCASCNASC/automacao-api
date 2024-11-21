@@ -1,3 +1,6 @@
+// /v3/observacao - Observação
+// Lista de observação
+
 describe('Diversos - GET - /v3/observacao', () => {
   const url = 'http://localhost:8091/sabium#/Diversos/v3_diversos_observacao';
 

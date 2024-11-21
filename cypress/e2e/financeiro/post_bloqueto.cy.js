@@ -1,3 +1,6 @@
+// /v3/bloqueto - Inclusão de meio de cobrança
+// Incluir meio de cobrança
+
 describe('Financeiro - POST - /v3/bloqueto', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_bloqueto';
   

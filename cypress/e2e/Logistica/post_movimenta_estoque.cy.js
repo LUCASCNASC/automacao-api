@@ -1,0 +1,2 @@
+// /v3/movimenta_estoque - Movimenta a entrada e saída de produtos no estoque
+// Cria registros de entrada/saída de inventário, saída de imobilizados, deteriorados e de uso e consumo. Não gera nota fiscal. Não controla serial, gtin ou combustível.

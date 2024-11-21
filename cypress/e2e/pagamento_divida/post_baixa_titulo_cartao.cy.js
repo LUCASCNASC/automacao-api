@@ -1,3 +1,6 @@
+// /v3/baixa_titulo - Baixa título
+// Baixa título
+
 describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_baixa_titulo';
   

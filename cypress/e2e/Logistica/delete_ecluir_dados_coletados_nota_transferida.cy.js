@@ -1,0 +1,2 @@
+// /v3/excluir_dados_coletados_nota_transferida/{idFilialOrigem}/{idRegistroNotaOrigem} - Excluir dados coletados de Notas Transferidas
+// Exclui os dados coletados da nota transferida, zerando campo quantidade coletado e voltanto situação para A Coletar

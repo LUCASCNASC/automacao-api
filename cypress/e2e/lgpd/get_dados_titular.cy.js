@@ -1,0 +1,2 @@
+// /v3/dados_titular/{cpf} - Consulta de dados pessoais de titular
+// Esse serviço retorna os dados pessoais do titular com base no CPF consultado. Para isso, basta informar o CPF válido do titular que deseja obter essas informações.

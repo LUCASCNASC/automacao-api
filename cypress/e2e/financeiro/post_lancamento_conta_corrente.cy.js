@@ -1,0 +1,2 @@
+// /v3/lancamento_conta_corrente - Inclusão de lançamento conta corrente
+// Incluir lançamento de conta corrente no financeiro. Necessário ter preenchido os campos: idFilial, idContaCorrente e idHistoricoContaCorrente

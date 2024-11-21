@@ -1,3 +1,6 @@
+// /v3/baixa_pedido - Fechar e Baixar pedido
+// Fechar e Baixar pedido de venda pelo TOTEM
+
 describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_baixa_pedido';
   

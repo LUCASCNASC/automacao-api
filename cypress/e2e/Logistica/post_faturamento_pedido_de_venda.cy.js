@@ -1,3 +1,6 @@
+// /v3/faturamento_pedido_de_venda - Dados para faturamento
+// Fatura pedidos de venda de um cliente, que estão com situação fechado e não estão em nenhum mapa de carga. Pedido de venda poderá ser faturado completo ou parcial.
+
 describe('Logística - POST - /v3/faturamento_pedido_de_venda', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentopedidovendaporcliente';
   

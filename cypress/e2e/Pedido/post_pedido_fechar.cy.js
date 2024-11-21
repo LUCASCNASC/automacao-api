@@ -1,3 +1,6 @@
+// /v3/pedido_fechar - Fechar pedido
+// Fechar pedido de venda
+
 describe('Pedido - POST - /v3/pedido_fechar', () => {
     const url = 'http://localhost:8091/sabium#/Pedido/v2_pedido_fechar';
   

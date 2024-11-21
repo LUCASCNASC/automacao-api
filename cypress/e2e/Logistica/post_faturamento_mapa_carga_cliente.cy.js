@@ -1,3 +1,6 @@
+// /v3/faturamento_mapa_carga_cliente - Dados do mapa de carga cliente
+// Fatura pedidos de venda que estão em um mapa de carga cliente, cujo mapa está na situação carregado. Mapa poderá ser faturado completo ou parcial.
+
 describe('Logística - POST - /v3/faturamento_mapa_carga_cliente', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentomapacargacliente';
   

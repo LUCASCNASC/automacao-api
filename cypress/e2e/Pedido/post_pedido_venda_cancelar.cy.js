@@ -1,3 +1,6 @@
+// /v3/pedido_venda_cancelar/ - Efetua cancelamento pedido venda
+// Efetua cancelamento pedido venda total ou parcial
+
 describe('Pedido - POST - /v3/pedido_venda_cancelar/', () => {
   const url = 'http://localhost:8091/sabium#/Pedido/v3_post_pedido_venda_cancelar';
 

@@ -1,3 +1,6 @@
+// /v3/faturamento_mapa_carga_loja - Dados de mapa de carga loja
+// Faturar pedidos de loja que estão em um mapa de carga loja, cujo mapa está na situação carregado. Mapa poderá ser faturado completo ou parcial.
+
 describe('Logística - POST - /v3/faturamento_mapa_carga_loja', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentomapacargaloja';
   

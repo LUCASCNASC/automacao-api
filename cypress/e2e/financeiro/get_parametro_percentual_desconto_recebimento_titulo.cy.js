@@ -1,0 +1,2 @@
+// /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial} - Lista parâmetro (1055 - percentual desconto no recebimento de título)
+// Listar o valor do parâmetro 1055 - percentual máximo de desconto no recebimento de títulos do caixa.

@@ -1,3 +1,6 @@
+// /v3/estoque/ - Dados Estoque
+// Retorna o estoque
+
 describe('Projeto Real Time - POST - /v3/estoque/', () => {
     const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_estoque';
   

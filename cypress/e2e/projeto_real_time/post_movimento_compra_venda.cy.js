@@ -1,3 +1,6 @@
+// /v3/movimento_compra_venda/ - Dados Movimento
+// Retorna os movimentos de entrada e saída dos produtos
+
 describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
     const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_movimento_compra_venda';
   
