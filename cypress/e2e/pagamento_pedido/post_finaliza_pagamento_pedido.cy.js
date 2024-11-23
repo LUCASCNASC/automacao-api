@@ -3,12 +3,103 @@
 
 describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_finaliza_pagamento_pedido';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/finaliza_pagamento_pedido - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "idfilial": 0,
+        "idpedidovenda": 0,
+        "datapagamento": "string",
+        "copiarecibopagamento": "string",
+        "gerarpedidoloja": false,
+        "cartoes": [
+          {
+            "idtipotef": 0,
+            "nsu": "string",
+            "nsuhost": "string",
+            "copiarecibo": "string",
+            "valor": 0,
+            "autorizacao": "string",
+            "modalidade": "string",
+            "instituicao": "string",
+            "bandeira": "string",
+            "operadora": "string",
+            "operacaoTef": 0
+          }
+        ],
+        "carteiradigital": [
+          {
+            "idtipotef": 0,
+            "idcarteiradigital": 0,
+            "valor": 0,
+            "nsu": "string",
+            "nsuhost": "string",
+            "copiarecibo": "string",
+            "autorizacao": "string",
+            "modalidade": "string",
+            "instituicao": "string",
+            "bandeira": "string",
+            "operadora": "string",
+            "operacaoTef": 0
+          }
+        ],
+        "cheques": [
+          {
+            "iditemabatimento": 0,
+            "numeroparcela": 0,
+            "banco": "string",
+            "agencia": "string",
+            "conta": "string",
+            "cheque": "string",
+            "cmc7": "string"
+          }
+        ],
+        "parcial": [
+          {
+            "iditembase": 0
+          }
+        ],
+        "itensServico": [
+          {
+            "idItemServico": 0,
+            "cartaoValePresente": "string",
+            "cartao": {
+              "idtipotef": 0,
+              "nsu": "string",
+              "nsuhost": "string",
+              "copiarecibo": "string",
+              "valor": 0,
+              "autorizacao": "string",
+              "modalidade": "string",
+              "instituicao": "string",
+              "bandeira": "string",
+              "operadora": "string",
+              "operacaoTef": 0
+            },
+            "carteiradigital": {
+              "idtipotef": 0,
+              "idcarteiradigital": 0,
+              "valor": 0,
+              "nsu": "string",
+              "nsuhost": "string",
+              "copiarecibo": "string",
+              "autorizacao": "string",
+              "modalidade": "string",
+              "instituicao": "string",
+              "bandeira": "string",
+              "operadora": "string",
+              "operacaoTef": 0
+            }
+          }
+        ]
+      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

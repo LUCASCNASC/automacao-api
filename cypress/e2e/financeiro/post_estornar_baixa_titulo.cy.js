@@ -3,6 +3,7 @@
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_estornar_baixa_titulo';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/estornar_baixa_titulo - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +15,12 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
         "estornoParcial": true
       }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
         });

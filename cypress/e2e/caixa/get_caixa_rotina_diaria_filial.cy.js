@@ -3,12 +3,20 @@
 
 describe('Caixa - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}', () => {
     const url = 'http://localhost:8091/sabium#/Caixa/v3_caixa_rotina_diaria_filial_get';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura} - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        idFilial: '10050',
+        dataAbertura: '2024-11-22'
+      }
       // Realiza a requisição GET
-      cy.request('GET', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'GET',
+        url,
+        //headers: { authorization },
+        requestBody
+      }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

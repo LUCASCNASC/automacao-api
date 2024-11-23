@@ -3,6 +3,7 @@
 
 describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_baixa_pedido';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/baixa_pedido - Resposta 200', () => {
       const requestBody = {
@@ -26,8 +27,13 @@ describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
        ]
      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
+      .then((response) => {
           expect(response.status).to.eq(200);
         });
     });

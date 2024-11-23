@@ -3,6 +3,7 @@
 
 describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
     const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_movimento_compra_venda';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/movimento_compra_venda/ - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +14,12 @@ describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
         "hora_final": "18:00"
       }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
         });

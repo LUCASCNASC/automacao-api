@@ -3,11 +3,26 @@
 
 describe('Trial - POST - /v3/trial', () => {
     const url = 'http://localhost:8091/sabium#/Trial/v2_trial_get_post2';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/trial - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "pedidoVenda": 0,
+        "autorizado": true,
+        "loginSupervisor": "string",
+        "senhaSupervisor": "string",
+        "justificativa": "string",
+        "idFilial": 0,
+        "idTrial": 0,
+        "sku": "string"
+      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

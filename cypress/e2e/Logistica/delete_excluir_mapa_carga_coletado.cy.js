@@ -3,11 +3,21 @@
 
 describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga}', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_delete_mapa_carga_coletado';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga} - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        idFilial: "",
+        idMapaCarga: "",
+        TipoMapaCarga: ""
+      }
       // Realiza a requisição DELETE
-      cy.request('DELETE', url, requestBody)
+      cy.request({
+        method: 'DELETE', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

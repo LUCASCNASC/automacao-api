@@ -3,12 +3,33 @@
 
 describe('Proposta crédito - POST - /v3/proposta_credito', () => {
     const url = 'http://localhost:8091/sabium#/Proposta%20cr%C3%A9dito/v2_proposta_credito_post';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/proposta_credito - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "item": 0,
+        "filial": 0,
+        "propostaCredito": 0,
+        "idSituacaoProposta": 0,
+        "processovenda": "string",
+        "processoareceber": "string",
+        "pedidovenda": "string",
+        "cliente": "string",
+        "idvendedor": "string",
+        "quantidadeparcelas": 0,
+        "identidadefinanceira": 0,
+        "situacaopedidovenda": "string",
+        "vencimentospedidovenda": "string",
+        "fiador": "string",
+        "idmensagempadraopropostacredito": 0
+      }
       // Realiza a requisição POST
-      cy.request('GET', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'GET', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

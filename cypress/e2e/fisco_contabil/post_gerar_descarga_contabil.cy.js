@@ -3,11 +3,31 @@
 
 describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_gerar_descarga_contabil';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/gerar_descarga_contabil - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "Numero_Empresa": "1",
+        "Numeros_Filiais": [
+          "string"
+        ],
+        "Numeros_Descargas": [
+          "string"
+        ],
+        "Data_Inicial": "string",
+        "Data_Final": "string",
+        "Ativa_Retorno_Descarga": "0",
+        "Usuario": "1",
+        "Data_Agendamento": "string",
+        "Hora_Agendamento": "string"
+      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

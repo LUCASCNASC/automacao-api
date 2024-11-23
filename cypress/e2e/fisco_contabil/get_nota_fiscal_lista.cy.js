@@ -3,11 +3,23 @@
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF}', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_nota_fiscal_lista';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF} - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        Filial: "",
+        Registro_Nota: "",
+        Data_Inicial: "",
+        Data_Final: "",
+        CNPJ_CPF: ""
+      }
       // Realiza a requisição GET
-      cy.request('GET', url, requestBody)
+      cy.request({
+        method: 'GET', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

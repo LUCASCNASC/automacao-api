@@ -3,11 +3,36 @@
 
 describe('Financeiro - PUT - /v3/referenciabancaria', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_referencia_bancaria2';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('PUT - /v3/referenciabancaria - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "idReferenciaBancaria": 0,
+        "cnpjCpf": "string",
+        "banco": 0,
+        "agencia": "string",
+        "conta": "string",
+        "dataAbertura": "string",
+        "ddd": "string",
+        "telefone": "string",
+        "gerente": "string",
+        "boleto": true,
+        "email": "string",
+        "idTipoConta": 0,
+        "idFormaPagamento": 0,
+        "cnpjCpfCorrentista": "string",
+        "nomeCorrentista": "string",
+        "operacaoBancaria": "string",
+        "idtipochavepix": "1 - Telefone, 2 - Email, 3 - CPF CNPJ, 4 - Aleatória",
+        "chavepix": "string"
+      }
       // Realiza a requisição PUT
-      cy.request('PUT', url, requestBody)
+      cy.request({
+        method: 'PUT', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

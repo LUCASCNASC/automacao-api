@@ -3,11 +3,32 @@
 
 describe('Logística - POST - /v3/movimenta_estoque', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_movimenta_estoque';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/movimenta_estoque - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "idFilial": 0,
+        "idProcesso": 0,
+        "dataMovimento": "string",
+        "idLocalSaldo": 0,
+        "produtos": [
+          {
+            "idProduto": 0,
+            "idGradeX": 0,
+            "idGradeY": 0,
+            "quantidade": 0,
+            "centroCusto": "string",
+            "observacao": "string"
+          }
+        ]
+      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

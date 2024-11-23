@@ -3,11 +3,29 @@
 
 describe('Inventário - POST - /v3/finaliza_inventario', () => {
     const url = 'http://localhost:8091/sabium#/Invent%C3%A1rio/v3_post_finaliza_inventario';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/finaliza_inventario - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "idFilial": 0,
+        "idInventario": 0,
+        "finalizaInventario": 0,
+        "itensInventario": [
+          {
+            "idProduto": 0,
+            "idGradeX": 0,
+            "idGradeY": 0,
+            "saldoInventario": 0
+          }
+        ]
+      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

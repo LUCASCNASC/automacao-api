@@ -3,6 +3,7 @@
 
 describe('Projeto Real Time - POST - /v3/estoque/', () => {
     const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_estoque';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/estoque/ - Resposta 200', () => {
       const requestBody = {
@@ -10,7 +11,12 @@ describe('Projeto Real Time - POST - /v3/estoque/', () => {
         "data": "15/10/2024"
       }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           // Validação das propriedades da resposta

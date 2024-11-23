@@ -3,11 +3,33 @@
 
 describe('Financeiro - POST - /v3/lancamento_conta_corrente', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_lancamento_conta_corrente';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/lancamento_conta_corrente - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        "idFilial": 0,
+        "idContaCorrente": 0,
+        "idHistoricoContaCorrente": 0,
+        "cnpjCpf": "string",
+        "valor": 0,
+        "complemento": "string",
+        "documento": "string",
+        "observacao": "string",
+        "CentroCustos": [
+          {
+            "Debito_Credito": "string",
+            "Classificacao_Centro_Custo": "string",
+            "Valor": 0
+          }
+        ]
+      }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

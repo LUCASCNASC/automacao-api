@@ -3,6 +3,7 @@
 
 describe('Diversos - GET - /v3/observacao', () => {
   const url = 'http://localhost:8091/sabium#/Diversos/v3_diversos_observacao';
+  const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
 
   it('GET - /v3/observacao - Resposta 200', () => {
     const requestBody = {
@@ -10,8 +11,12 @@ describe('Diversos - GET - /v3/observacao', () => {
       "descricao": "TESTE CAMPO OBSERVAÇÃO"
     }
     // Realiza a requisição GET
-    cy.request('POST', url, requestBody)
-      .then((response) => {
+    cy.request({
+      method: 'POST', 
+      url, 
+      //headers: { authorization },
+      requestBody
+    }).then((response) => {
         expect(response.status).to.eq(200);
       });
   });

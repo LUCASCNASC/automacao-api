@@ -3,12 +3,20 @@
 
 describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
     const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v2_sessao_login';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/login/{usuario}/{senha} - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        usuario: 'sabium.automacao',
+        senha: '123.automacao'
+      }
       // Realiza a requisição GET
-      cy.request('GET', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'GET', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

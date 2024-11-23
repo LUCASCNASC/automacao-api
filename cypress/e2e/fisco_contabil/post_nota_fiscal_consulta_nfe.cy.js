@@ -3,6 +3,7 @@
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_nota_fiscal_consulta_nfe';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/nota_fiscal_consulta_nfe/ - Resposta 200', () => {
       const requestBody = {
@@ -16,7 +17,12 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
         "Conectar_Servidor_Filial": false
       }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
         });

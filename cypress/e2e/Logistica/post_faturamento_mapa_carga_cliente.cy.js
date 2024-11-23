@@ -3,6 +3,7 @@
 
 describe('Logística - POST - /v3/faturamento_mapa_carga_cliente', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentomapacargacliente';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('POST - /v3/faturamento_mapa_carga_cliente - Resposta 200', () => {
       const requestBody = {
@@ -22,7 +23,12 @@ describe('Logística - POST - /v3/faturamento_mapa_carga_cliente', () => {
         ]
     }
       // Realiza a requisição POST
-      cy.request('POST', url, requestBody)
+      cy.request({
+        method: 'POST', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      })
         .then((response) => {
           expect(response.status).to.eq(200);
         });

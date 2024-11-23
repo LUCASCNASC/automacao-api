@@ -3,12 +3,19 @@
 
 describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', () => {
     const url = 'http://localhost:8091/sabium#/Cliente/v3_cliente_por_cnpj_cpf_ou_nome';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor} - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        valor: ""
+      }
       // Realiza a requisição GET
-      cy.request('GET', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'GET', 
+        url, 
+        //headers: { authorization },
+        requestBody
+      }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

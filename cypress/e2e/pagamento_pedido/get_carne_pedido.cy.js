@@ -3,12 +3,19 @@
 
 describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v3_pag_pedido_carne_pedido';
+    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/carne_pedido/{filial}/{pedido} - Resposta 200', () => {
-      const requestBody = {}
+      const requestBody = {
+        filial: "",
+        pedido: ""
+      }
       // Realiza a requisição GET
-      cy.request('GET', url, requestBody)
-        .then((response) => {
+      cy.request({
+        method: 'GET', 
+        url, 
+        //headers: { authorization },
+        requestBody}).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });
