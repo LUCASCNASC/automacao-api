@@ -3,7 +3,7 @@
 
 describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto} ', () => {
     const url = 'http://localhost:8091/sabium#/Produto/v2_produto_detalhe_promocao';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/produto_detalhe_promocao/{produto}  - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto} ', () => {
       cy.request({
         method: 'GET', 
         url,
-        //headers: { authorization }, 
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

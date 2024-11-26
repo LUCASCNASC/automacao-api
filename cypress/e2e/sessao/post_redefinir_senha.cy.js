@@ -3,7 +3,7 @@
 
 describe('Sessão - POST - /v3/redefinir_senha', () => {
     const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v3_post_redefinir_senha';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/redefinir_senha - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Sessão - POST - /v3/redefinir_senha', () => {
       cy.request({
         method: 'GET',
         url,
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

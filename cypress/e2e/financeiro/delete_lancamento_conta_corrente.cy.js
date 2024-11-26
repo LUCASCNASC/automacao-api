@@ -3,7 +3,7 @@
 
 describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente}', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_lancamento_conta_corrente_delete';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente} - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLanc
       cy.request({
         method: 'DELETE', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

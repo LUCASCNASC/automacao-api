@@ -3,7 +3,7 @@
 
 describe('Pedido - POST - /v3/pedido_forma_pagamento_servico_vinculado', () => {
     const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_forma_pagamento_servico_vinculado';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_forma_pagamento_servico_vinculado - Resposta 200', () => {
       const requestBody = {
@@ -22,7 +22,7 @@ describe('Pedido - POST - /v3/pedido_forma_pagamento_servico_vinculado', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

@@ -3,7 +3,7 @@
 
 describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_historicocontacorrente';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/historico_conta_corrente/{idTipoContaCorrente} - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

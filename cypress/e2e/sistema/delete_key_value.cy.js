@@ -3,7 +3,7 @@
 
 describe('Sistema - DELETE - /v3/key_value/{key}', () => {
     const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_key_value_delete';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/key_value/{key} - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Sistema - DELETE - /v3/key_value/{key}', () => {
       cy.request({
         method: 'DELETE',
         url,
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

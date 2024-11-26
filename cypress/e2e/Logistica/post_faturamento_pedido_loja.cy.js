@@ -3,7 +3,7 @@
 
 describe('Logística - POST - /v3/faturamento_pedido_loja', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentopedidolojaporfilial';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/faturamento_pedido_loja - Resposta 200', () => {
       const requestBody = {
@@ -26,7 +26,7 @@ describe('Logística - POST - /v3/faturamento_pedido_loja', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

@@ -3,7 +3,7 @@
 
 describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_gravar_itens_nota_transferida_coletados';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gravar_itens_nota_transferida_coletados - Resposta 200', () => {
       const requestBody = [
@@ -22,7 +22,7 @@ describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () =
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

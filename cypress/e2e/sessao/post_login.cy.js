@@ -3,7 +3,7 @@
 
 describe('Sessão - POST - /v3/login', () => {
     const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v3_sessao_login_post';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/login - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Sessão - POST - /v3/login', () => {
         method: 'GET',
         url,
         requestBody,
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
       }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms

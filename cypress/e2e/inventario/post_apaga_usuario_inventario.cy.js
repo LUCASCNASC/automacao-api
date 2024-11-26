@@ -3,7 +3,7 @@
 
 describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario}', () => {
     const url = 'http://localhost:8091/sabium#/Invent%C3%A1rio/v3_post_apaga_usuario_inventario';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario} - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInvent
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

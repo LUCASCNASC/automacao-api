@@ -3,7 +3,7 @@
 
 describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/previsao_entrega_mapa_carga_cliente - Resposta 200', () => {
       const requestBody = {
@@ -25,7 +25,7 @@ describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

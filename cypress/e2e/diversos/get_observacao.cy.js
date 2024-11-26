@@ -3,7 +3,8 @@
 
 describe('Diversos - GET - /v3/observacao', () => {
   const url = 'http://localhost:8091/sabium#/Diversos/v3_diversos_observacao';
-  const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+  const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+  
 
   it('GET - /v3/observacao - Resposta 200', () => {
     const requestBody = {
@@ -14,7 +15,7 @@ describe('Diversos - GET - /v3/observacao', () => {
     cy.request({
       method: 'POST', 
       url, 
-      //headers: { authorization },
+      headers: { Authorization: `Bearer ${token}` },
       requestBody
     }).then((response) => {
         expect(response.status).to.eq(200);

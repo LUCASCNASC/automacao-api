@@ -3,7 +3,7 @@
 
 describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_excluir_titulo_areceber_apagar';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/excluir_titulo_areceber_apagar - Resposta 200', () => {
       const requestBody = {
@@ -17,7 +17,7 @@ describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

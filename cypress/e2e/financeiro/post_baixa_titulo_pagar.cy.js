@@ -3,7 +3,7 @@
 
 describe('Financeiro - POST - /v3/baixa_titulo_pagar', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_baixa_titulo_pagar';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/baixa_titulo_pagar - Resposta 200', () => {
       const requestBody = {
@@ -99,7 +99,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_pagar', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

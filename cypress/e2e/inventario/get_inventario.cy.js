@@ -3,7 +3,7 @@
 
 describe('Inventário - GET - /v3/inventario', () => {
     const url = 'http://localhost:8091/sabium#/Invent%C3%A1rio/v3_get_inventario';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/inventario - Resposta 200', () => {
       const requestBody = {
@@ -30,7 +30,8 @@ describe('Inventário - GET - /v3/inventario', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        
+headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

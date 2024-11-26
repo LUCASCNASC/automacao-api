@@ -2,7 +2,7 @@
 // Retorna os dados da recarga efetuada
 
 describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
-    const url = 'http://localhost:8091/sabium#/Recarga/v3_get_recarga';
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/recarga/{idFilial}/{idItemServico} - Resposta 200', () => {
@@ -14,7 +14,7 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

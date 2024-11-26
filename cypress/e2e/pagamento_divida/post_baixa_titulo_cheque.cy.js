@@ -3,7 +3,7 @@
 
 describe('Financeiro - POST - /v3/baixa_titulo_cheque', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_baixa_titulo_cheque';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/baixa_titulo_cheque - Resposta 200', () => {
       const requestBody = {
@@ -34,7 +34,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_cheque', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

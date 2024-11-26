@@ -3,7 +3,7 @@
 
 describe('Pós-venda - GET - /v3/pesquisa_satisfacao', () => {
     const url = 'http://localhost:8091/sabium#/P%C3%B3s-venda/v3_pesquisa_satisfacao';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pesquisa_satisfacao - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Pós-venda - GET - /v3/pesquisa_satisfacao', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

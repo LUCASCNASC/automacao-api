@@ -3,7 +3,7 @@
 
 describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial}', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial} - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

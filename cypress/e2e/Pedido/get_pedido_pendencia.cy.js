@@ -3,7 +3,7 @@
 
 describe('Pedido - GET - /v3/pedido_pendencia', () => {
     const url = 'http://localhost:8091/sabium#/Pedido/v2_pedido_pendencia';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pedido_pendencia - Resposta 200', () => {
       const requestBody = {
@@ -15,7 +15,7 @@ describe('Pedido - GET - /v3/pedido_pendencia', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

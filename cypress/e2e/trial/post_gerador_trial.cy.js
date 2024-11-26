@@ -3,7 +3,7 @@
 
 describe('Trial - POST - /v3/gerador_trial', () => {
     const url = 'http://localhost:8091/sabium#/Trial/v3_post_gerador_trial';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gerador_trial - Resposta 200', () => {
       const requestBody = {
@@ -22,7 +22,7 @@ describe('Trial - POST - /v3/gerador_trial', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

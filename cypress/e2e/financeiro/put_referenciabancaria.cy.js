@@ -3,7 +3,7 @@
 
 describe('Financeiro - PUT - /v3/referenciabancaria', () => {
     const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_referencia_bancaria2';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/referenciabancaria - Resposta 200', () => {
       const requestBody = {
@@ -30,7 +30,7 @@ describe('Financeiro - PUT - /v3/referenciabancaria', () => {
       cy.request({
         method: 'PUT', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

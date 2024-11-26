@@ -3,7 +3,7 @@
 
 describe('Financeiro - POST - /v3/estornar_baixa_pedido', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_estornar_baixa_pedido';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/estornar_baixa_pedido - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_pedido', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

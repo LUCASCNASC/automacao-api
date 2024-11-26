@@ -3,7 +3,7 @@
 
 describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
     const url = 'http://localhost:8091/sabium#/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_delete';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/intencao_compra/{codigo} - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
       cy.request({
         method: 'DELETE', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

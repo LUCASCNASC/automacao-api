@@ -3,7 +3,7 @@
 
 describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', () => {
     const url = 'http://localhost:8091/sabium#/Filial/v3_get_filial_por_tipo';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo} - Resposta 200', () => {
       const requestBody = {
@@ -15,7 +15,7 @@ describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

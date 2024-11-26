@@ -3,7 +3,7 @@
 
 describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
     const url = 'http://localhost:8091/sabium#/LGPD/v3_get_lgpd_dados_titular';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/dados_titular/{cpf} - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

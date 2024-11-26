@@ -3,7 +3,7 @@
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_departamento_incluir', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_departamento_post';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/regra_fiscal_departamento_incluir - Resposta 200', () => {
       const requestBody = {
@@ -79,7 +79,7 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_departamento_incluir', () =>
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

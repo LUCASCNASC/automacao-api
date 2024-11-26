@@ -3,7 +3,7 @@
 
 describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
     const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v3_pag_pedidos_pendentes';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pedidos_pendentes/{filial} - Resposta 200', () => {
       const requestBody = {
@@ -18,7 +18,7 @@ describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

@@ -3,7 +3,7 @@
 
 describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
     const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v2_sessao_login';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/login/{usuario}/{senha} - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

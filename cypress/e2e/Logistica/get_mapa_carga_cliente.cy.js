@@ -3,7 +3,8 @@
 
 describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal}', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_cliente';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+
   
     it('GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal} - Resposta 200', () => {
       const requestBody = {
@@ -16,7 +17,7 @@ describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCa
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

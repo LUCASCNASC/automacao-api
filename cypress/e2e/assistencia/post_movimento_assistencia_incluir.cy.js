@@ -3,7 +3,7 @@
 
 describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
     const url = 'http://localhost:8091/sabium#/Assistencia/v3_post_movimento_assistencia_incluir';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/movimento_assistencia_incluir/ - Resposta 200', () => {
       const requestBody = {
@@ -42,7 +42,7 @@ describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

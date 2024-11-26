@@ -3,7 +3,7 @@
 
 describe('API - GET - /api/session', () => {
     const url = 'http://localhost:8091/sabium#/API/api_session';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /api/session - Resposta 200', () => {
       const requestBody = {}
@@ -11,7 +11,7 @@ describe('API - GET - /api/session', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

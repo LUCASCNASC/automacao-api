@@ -3,7 +3,7 @@
 
 describe('Financeiro - PUT - /v3/regra_fiscal_uf_alterar', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_uf_put';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/regra_fiscal_uf_alterar - Resposta 200', () => {
       const requestBody = {
@@ -31,6 +31,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_uf_alterar', () => {
       cy.request({
         method: 'PUT', 
         url, 
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

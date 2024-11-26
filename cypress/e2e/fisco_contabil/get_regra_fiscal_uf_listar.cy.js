@@ -3,7 +3,7 @@
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto}', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_uf_get';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto} - Resposta 200', () => {
       const requestBody = {
@@ -14,7 +14,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemP
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

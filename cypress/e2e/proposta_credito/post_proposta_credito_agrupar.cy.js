@@ -3,7 +3,7 @@
 
 describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
     const url = 'http://localhost:8091/sabium#/Proposta%20cr%C3%A9dito/v2_proposta_credito_agrupar';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/proposta_credito_agrupar - Resposta 200', () => {
       const requestBody = {
@@ -31,7 +31,7 @@ describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
       cy.request({
         method: 'GET', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

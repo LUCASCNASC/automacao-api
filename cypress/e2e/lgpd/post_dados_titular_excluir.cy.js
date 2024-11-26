@@ -3,7 +3,7 @@
 
 describe('Titulo - POST - /v3/dados_titular_excluir', () => {
     const url = 'http://localhost:8091/sabium#/LGPD/v3_post_lgpd_dados_titular_excluir';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/dados_titular_excluir - Resposta 200', () => {
       const requestBody = {
@@ -96,7 +96,7 @@ describe('Titulo - POST - /v3/dados_titular_excluir', () => {
       cy.request({
         method: 'GET', 
         url,
-        //headers: { authorization }, 
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

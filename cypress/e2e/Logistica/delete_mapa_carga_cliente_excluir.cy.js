@@ -3,7 +3,7 @@
 
 describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_delete_logistica_mapa_carga_cliente';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga} - Resposta 200', () => {
       const requestBody = {
@@ -16,7 +16,7 @@ describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMap
       cy.request({
         method: 'DELETE', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

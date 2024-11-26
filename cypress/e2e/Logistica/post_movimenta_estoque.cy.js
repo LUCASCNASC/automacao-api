@@ -3,8 +3,7 @@
 
 describe('Logística - POST - /v3/movimenta_estoque', () => {
     const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_movimenta_estoque';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
-  
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     it('POST - /v3/movimenta_estoque - Resposta 200', () => {
       const requestBody = {
         "idFilial": 0,
@@ -26,7 +25,7 @@ describe('Logística - POST - /v3/movimenta_estoque', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

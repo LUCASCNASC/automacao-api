@@ -3,7 +3,7 @@
 
 describe('Diversos - GET - /v3/grupo', () => {
     const url = 'http://localhost:8091/sabium#/Diversos/v3_diversos_grupo';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/grupo - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Diversos - GET - /v3/grupo', () => {
       cy.request({
         method: 'GET', 
         url,
-        //headers: { authorization }, 
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

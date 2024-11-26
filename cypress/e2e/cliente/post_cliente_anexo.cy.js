@@ -3,7 +3,7 @@
 
 describe('Cliente - POST - /v3/cliente_anexo', () => {
     const url = 'http://localhost:8091/sabium#/Cliente/v3_cliente_anexo_post';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/cliente_anexo - Resposta 200', () => {
       const requestBody = {
@@ -17,7 +17,7 @@ describe('Cliente - POST - /v3/cliente_anexo', () => {
       cy.request({
         method: 'POST', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);

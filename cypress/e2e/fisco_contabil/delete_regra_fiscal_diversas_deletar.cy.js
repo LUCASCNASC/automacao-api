@@ -3,7 +3,7 @@
 
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFiscalDiversas}', () => {
     const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_diversas_delete';
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFiscalDiversas} - Resposta 200', () => {
       const requestBody = {
@@ -13,7 +13,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFi
       cy.request({
         method: 'DELETE', 
         url, 
-        //headers: { authorization },
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {
