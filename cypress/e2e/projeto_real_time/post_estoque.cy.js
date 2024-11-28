@@ -13,15 +13,16 @@ describe('Projeto Real Time - POST - /v3/estoque/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        //headers: { Authorization: `Bearer ${token}` },
+        body: requestBody
       })
         .then((response) => {
+          expect(response.body).to.have.property('retorno').and.to.be.an('array').and.to.have.lengthOf(2);
+
           expect(response.status).to.eq(200);
-          // Validação das propriedades da resposta
-          // expect(response.body.cnpj).to.eq('77941490000589'); // Verifica se o "id" foi retornado
-          // expect(response.body.data).to.eq('15/10/2024');
+          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.body.retorno[0]).to.have.property('CNPJ').and.to.eq('77941490000589');
         });
     });
   });
