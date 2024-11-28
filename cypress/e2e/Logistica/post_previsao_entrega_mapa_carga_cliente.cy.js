@@ -2,7 +2,6 @@
 // Serão listados os próximos mapas com a data de previsão de entrega maior ou igual a data de faturamento informada, validando a rota, cubagem e o peso do mapa de carga.
 
 describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/previsao_entrega_mapa_carga_cliente - Resposta 200', () => {
@@ -24,7 +23,7 @@ describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Lista de trial
 
 describe('Trial - GET - /v3/trial', () => {
-    const url = 'http://localhost:8091/sabium#/Trial/v2_trial_get_post1';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/trial - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Trial - GET - /v3/trial', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Trial/v2_trial_get_post1', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Gera uma nova senha provisória para o usuário do login
 
 describe('Sessão - POST - /v3/redefinir_senha', () => {
-    const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v3_post_redefinir_senha';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/redefinir_senha - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Sessão - POST - /v3/redefinir_senha', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'GET',
-        url,
+        url: '/Sess%C3%A3o/v3_post_redefinir_senha',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

@@ -2,7 +2,6 @@
 // Retorna as formas de pagamento disponíveis para os títulos informados.
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_formas_pagamento_titulos';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/formas_pagamento_titulos - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_formas_pagamento_titulos', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

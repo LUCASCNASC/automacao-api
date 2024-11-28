@@ -2,7 +2,6 @@
 // Previsão de entrega do produto.
 
 describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
-    const url = 'http://localhost:8091/sabium#/Produto/v2_produto_previsao_entrega';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -19,7 +18,7 @@ describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Produto/v2_produto_previsao_entrega', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

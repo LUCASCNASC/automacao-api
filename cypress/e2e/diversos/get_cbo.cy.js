@@ -2,7 +2,6 @@
 // Lista dos CBOs
 
 describe('Diversos - GET -/v3/cbo', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v2_diversos_cbo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/cbo - Resposta 200', () => {
@@ -15,7 +14,7 @@ describe('Diversos - GET -/v3/cbo', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Diversos/v2_diversos_cbo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

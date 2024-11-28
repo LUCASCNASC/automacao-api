@@ -2,7 +2,6 @@
 // Listar serviços vinculados a forma de pagamento do pedido mobile
 
 describe('Pedido - POST - /v3/pedido_forma_pagamento_servico_vinculado', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_forma_pagamento_servico_vinculado';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_forma_pagamento_servico_vinculado - Resposta 200', () => {
@@ -21,7 +20,7 @@ describe('Pedido - POST - /v3/pedido_forma_pagamento_servico_vinculado', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_pedido_forma_pagamento_servico_vinculado', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

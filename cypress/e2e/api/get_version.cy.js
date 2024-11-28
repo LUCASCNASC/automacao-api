@@ -2,7 +2,6 @@
 // Versão do sistema e banco.
 
 describe('API - GET - /api/version', () => {
-    const url = 'http://localhost:8091/sabium#/API/api_version';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /api/version - Resposta 200', () => {
@@ -10,7 +9,7 @@ describe('API - GET - /api/version', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/API/api_version', 
         //headers: { authorization },
         requestBody
       })

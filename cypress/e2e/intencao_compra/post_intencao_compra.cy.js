@@ -2,7 +2,6 @@
 // Incluir intenção de compra
 
 describe('Intenção compra - POST - /v3/intencao_compra', () => {
-    const url = 'http://localhost:8091/sabium#/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_get_post2';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/intencao_compra - Resposta 200', () => {
@@ -29,7 +28,7 @@ describe('Intenção compra - POST - /v3/intencao_compra', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_get_post2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

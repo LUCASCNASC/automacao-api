@@ -2,7 +2,6 @@
 // Retorna se o pedido foi feito para um Consumidor Final
 
 describe('Pedido - POST - /v3/pedido_consumo_final', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_consumo_final';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_consumo_final - Resposta 200', () => {
@@ -442,7 +441,7 @@ describe('Pedido - POST - /v3/pedido_consumo_final', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_pedido_consumo_final', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

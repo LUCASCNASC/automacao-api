@@ -2,7 +2,6 @@
 // Excluir cliente
 
 describe('Cliente - DELETE - /v3/cliente/{cliente}', () => {
-    const url = 'http://localhost:8091/sabium#/Cliente/v2_cliente_get_delete_delete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/cliente/{cliente} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Cliente - DELETE - /v3/cliente/{cliente}', () => {
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Cliente/v2_cliente_get_delete_delete', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

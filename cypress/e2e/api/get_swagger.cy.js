@@ -2,7 +2,6 @@
 // JSON com informações para criar pagina swagger
 
 describe('API - GET - /api/swagger', () => {
-    const url = 'http://localhost:8091/sabium#/API/api_swagger';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /api/swagger - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('API - GET - /api/swagger', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/API/api_swagger', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

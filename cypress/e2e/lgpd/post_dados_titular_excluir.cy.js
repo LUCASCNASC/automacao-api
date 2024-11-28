@@ -2,7 +2,6 @@
 // Exclusão dos dados do titular
 
 describe('Titulo - POST - /v3/dados_titular_excluir', () => {
-    const url = 'http://localhost:8091/sabium#/LGPD/v3_post_lgpd_dados_titular_excluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/dados_titular_excluir - Resposta 200', () => {
@@ -95,7 +94,7 @@ describe('Titulo - POST - /v3/dados_titular_excluir', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'GET', 
-        url,
+        url: '/LGPD/v3_post_lgpd_dados_titular_excluir',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

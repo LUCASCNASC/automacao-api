@@ -2,7 +2,6 @@
 // Excluir referência bancária baseado no CNPJ/CPF da pessoa e código da referência bancária
 
 describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_referencia_bancaria_delete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBa
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Financeiro/v3_financeiro_referencia_bancaria_delete', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

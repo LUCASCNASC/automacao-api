@@ -2,7 +2,6 @@
 // Cancelar nota fiscal autorizada Sefaz
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_cancelar/{Filial}/{RegistroNota}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_nota_fiscal_cancelar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/nota_fiscal_cancelar/{Filial}/{RegistroNota} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_cancelar/{Filial}/{RegistroNot
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_nota_fiscal_cancelar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Retorna os movimentos de entrada e saída dos produtos
 
 describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
-    const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time/v3_post_movimento_compra_venda';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/movimento_compra_venda/ - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Projeto%20Real%20Time/v3_post_movimento_compra_venda', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

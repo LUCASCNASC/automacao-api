@@ -2,7 +2,6 @@
 // Listar de cidades
 
 describe('Diversos - GET - /v3/cidade', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v2_diversos_cidade';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/cidade - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Diversos - GET - /v3/cidade', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Diversos/v2_diversos_cidade', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

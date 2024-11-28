@@ -2,7 +2,6 @@
 // Receber nota fiscal de transferência entre filiais
 
 describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_receber_transferencia';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/receber_transferencia - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_receber_transferencia', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Efetuar descarga contábil por filial e período
 
 describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_gerar_descarga_contabil';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -25,7 +24,7 @@ describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_gerar_descarga_contabil', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

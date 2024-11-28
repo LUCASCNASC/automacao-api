@@ -2,7 +2,6 @@
 // Consultar uma determinada chave e retornar o seu valor
 
 describe('Sistema - GET - /v3/key_value/{key}', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_key_value';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/key_value/{key} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Sistema - GET - /v3/key_value/{key}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET',
-        url, 
+        url: '/Sistema/v2_sistema_key_value', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

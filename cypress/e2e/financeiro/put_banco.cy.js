@@ -2,7 +2,6 @@
 // Alterar banco pelo código
 
 describe('Financeiro - PUT - /v3/banco', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_banco2';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/banco - Resposta 200', () => {
@@ -17,7 +16,7 @@ describe('Financeiro - PUT - /v3/banco', () => {
       // Realiza a requisição PUT
       cy.request({
         method: 'PUT', 
-        url, 
+        url: '/Financeiro/v3_financeiro_banco2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

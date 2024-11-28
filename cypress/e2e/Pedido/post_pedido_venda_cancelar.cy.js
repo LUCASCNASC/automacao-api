@@ -2,7 +2,6 @@
 // Efetua cancelamento pedido venda total ou parcial
 
 describe('Pedido - POST - /v3/pedido_venda_cancelar/', () => {
-  const url = 'http://localhost:8091/sabium#/Pedido/v3_post_pedido_venda_cancelar';
   const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
 
   it('POST - /v3/pedido_venda_cancelar/ - Resposta 200', () => {
@@ -41,7 +40,7 @@ describe('Pedido - POST - /v3/pedido_venda_cancelar/', () => {
     // Realiza a requisição POST
     cy.request({
       method: 'POST', 
-      url, 
+      url: '/Pedido/v3_post_pedido_venda_cancelar', 
       headers: { Authorization: `Bearer ${token}` },
       requestBody
     }).then((response) => {

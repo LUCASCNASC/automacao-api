@@ -2,7 +2,6 @@
 // Incluir nota fiscal, estoque e títulos, com base no XML
 
 describe('Fisco/Contábil - POST - /v3/nota_incluir/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_nota_incluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/nota_incluir/ - Resposta 200', () => {
@@ -34,7 +33,7 @@ describe('Fisco/Contábil - POST - /v3/nota_incluir/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_nota_incluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

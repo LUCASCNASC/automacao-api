@@ -2,7 +2,6 @@
 // Indicadores do vendedor por período
 
 describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal}', () => {
-    const url = 'http://localhost:8091/sabium#/Indicadores/v3_indicador_vendedor_periodo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{data
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Indicadores/v3_indicador_vendedor_periodo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

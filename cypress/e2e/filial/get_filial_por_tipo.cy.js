@@ -2,7 +2,6 @@
 // Retorna uma lista das filiais de acordo com os parâmetros informados
 
 describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', () => {
-    const url = 'http://localhost:8091/sabium#/Filial/v3_get_filial_por_tipo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo} - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Filial/v3_get_filial_por_tipo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

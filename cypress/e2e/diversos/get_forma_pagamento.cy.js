@@ -2,7 +2,6 @@
 // Lista formas de pagamento
 
 describe('Diversos - GET - /v3/forma_pagamento', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v2_diversos_forma_pagamento';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/forma_pagamento - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Diversos - GET - /v3/forma_pagamento', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Diversos/v2_diversos_forma_pagamento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

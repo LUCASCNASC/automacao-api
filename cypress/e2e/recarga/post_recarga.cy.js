@@ -2,7 +2,6 @@
 // Efetivar Recarga Telefone
 
 describe('Titulo - POST - /v3/recarga', () => {
-    const url = 'http://localhost:8091/sabium#/Recarga/v3_post_recarga';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/recarga - Resposta 200', () => {
@@ -32,7 +31,7 @@ describe('Titulo - POST - /v3/recarga', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Recarga/v3_post_recarga', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

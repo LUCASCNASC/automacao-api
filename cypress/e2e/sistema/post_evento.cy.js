@@ -2,7 +2,6 @@
 // Utilizado para registrar os eventos de movimentação dentro do Mobile
 
 describe('Sistema - POST - /v3/evento', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_evento';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/evento - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Sistema - POST - /v3/evento', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Sistema/v2_sistema_evento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

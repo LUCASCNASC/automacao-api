@@ -2,7 +2,6 @@
 // Totalizadores do pedido mobile
 
 describe('Pedido - POST - /v3/pedido_totalizadores', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_totalizadores';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_totalizadores - Resposta 200', () => {
@@ -442,7 +441,7 @@ describe('Pedido - POST - /v3/pedido_totalizadores', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_pedido_totalizadores', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

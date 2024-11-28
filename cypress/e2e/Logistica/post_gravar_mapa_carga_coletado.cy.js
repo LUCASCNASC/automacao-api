@@ -2,7 +2,6 @@
 // Finaliza a coleta do mapa de carga e/ou atualiza os itens coletados
 
 describe('Logística - POST - /v3/gravar_mapa_carga_coletado', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_gravar_mapa_carga_coletado';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gravar_mapa_carga_coletado - Resposta 200', () => {
@@ -24,7 +23,7 @@ describe('Logística - POST - /v3/gravar_mapa_carga_coletado', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_gravar_mapa_carga_coletado', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

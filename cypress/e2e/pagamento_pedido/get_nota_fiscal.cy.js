@@ -2,7 +2,6 @@
 // Nota fiscal
 
 describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_nota_fiscal';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -15,7 +14,7 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Pagamento%20pedido/v2_pag_pedido_nota_fiscal', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

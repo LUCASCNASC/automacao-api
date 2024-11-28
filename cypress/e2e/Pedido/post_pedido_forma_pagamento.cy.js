@@ -2,7 +2,6 @@
 // Listar formas de pagamento para o pedido mobile
 
 describe('Pedido - POST - /v3/pedido_forma_pagamento', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_forma_pagamento';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_forma_pagamento - Resposta 200', () => {
@@ -442,7 +441,7 @@ describe('Pedido - POST - /v3/pedido_forma_pagamento', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_pedido_forma_pagamento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

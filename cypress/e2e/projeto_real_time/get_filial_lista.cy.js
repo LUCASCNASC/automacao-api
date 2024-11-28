@@ -2,7 +2,6 @@
 // Retorna uma lista das filiais
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
-    const url = 'http://localhost:8091/sabium#/Projeto%20Real%20Time';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/filial_lista/ - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Projeto%20Real%20Time', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

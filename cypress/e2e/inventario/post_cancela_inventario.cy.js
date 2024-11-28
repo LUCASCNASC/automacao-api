@@ -2,7 +2,6 @@
 // Exclui toda a contagem já realizado de um inventário que não esteja finalizado, disponibilizando-o para outros usuários.
 
 describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}', () => {
-    const url = 'http://localhost:8091/sabium#/Invent%C3%A1rio/v3_post_cancela_inventario';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/cancela_inventario/{idFilial}/{idInventario} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}'
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Invent%C3%A1rio/v3_post_cancela_inventario', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

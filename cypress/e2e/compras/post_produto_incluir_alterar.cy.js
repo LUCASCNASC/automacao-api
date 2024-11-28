@@ -2,7 +2,6 @@
 // Inclui e Altera Produto
 
 describe('Compras - POST - /v3/produto_incluir_alterar', () => {
-    const url = 'http://localhost:8091/sabium#/Compras/v3_post_produto_incluir_alterar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/produto_incluir_alterar - Resposta 200', () => {
@@ -61,7 +60,7 @@ describe('Compras - POST - /v3/produto_incluir_alterar', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Compras/v3_post_produto_incluir_alterar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

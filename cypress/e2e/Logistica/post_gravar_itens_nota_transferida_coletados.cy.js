@@ -2,7 +2,6 @@
 // Insere e atualiza a tabela de itembase nota transferida com os dados coledatos
 
 describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_gravar_itens_nota_transferida_coletados';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gravar_itens_nota_transferida_coletados - Resposta 200', () => {
@@ -21,7 +20,7 @@ describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () =
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_gravar_itens_nota_transferida_coletados', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

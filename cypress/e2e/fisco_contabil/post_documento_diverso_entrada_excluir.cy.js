@@ -2,7 +2,6 @@
 // Excluir documento diverso de entrada
 
 describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_excluir/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/documento_diverso_entrada_excluir/ - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_excluir/', () =
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Faz o estorno da última parcial baixada ou de todas as parciais de um título.
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_estornar_baixa_titulo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/estornar_baixa_titulo - Resposta 200', () => {
@@ -17,7 +16,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_estornar_baixa_titulo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

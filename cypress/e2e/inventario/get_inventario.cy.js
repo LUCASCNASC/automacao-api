@@ -2,7 +2,6 @@
 // Lista os inventários em aberto e que não estejam com a data limite da contagem expirada. Se usuário for gerente, lista os inventários de todos os usuários
 
 describe('Inventário - GET - /v3/inventario', () => {
-    const url = 'http://localhost:8091/sabium#/Invent%C3%A1rio/v3_get_inventario';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/inventario - Resposta 200', () => {
@@ -29,9 +28,8 @@ describe('Inventário - GET - /v3/inventario', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
-        
-headers: { Authorization: `Bearer ${token}` },
+        url: '/Invent%C3%A1rio/v3_get_inventario', 
+        headers: { Authorization: `Bearer ${token}` },
         requestBody
       })
         .then((response) => {

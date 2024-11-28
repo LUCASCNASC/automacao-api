@@ -2,7 +2,6 @@
 // Listar histórico de conta corrente
 
 describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_historicocontacorrente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/historico_conta_corrente/{idTipoContaCorrente} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Financeiro/v3_financeiro_historicocontacorrente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Incluir lançamento de conta corrente no financeiro. Necessário ter preenchido os campos: idFilial, idContaCorrente e idHistoricoContaCorrente
 
 describe('Financeiro - POST - /v3/lancamento_conta_corrente', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_lancamento_conta_corrente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/lancamento_conta_corrente - Resposta 200', () => {
@@ -26,7 +25,7 @@ describe('Financeiro - POST - /v3/lancamento_conta_corrente', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_lancamento_conta_corrente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

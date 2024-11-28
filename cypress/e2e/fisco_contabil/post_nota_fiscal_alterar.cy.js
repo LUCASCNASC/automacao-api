@@ -2,7 +2,6 @@
 // Alterar nota fiscal do tipo manual
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_alterar/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_nota_fiscal_alterar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/nota_fiscal_alterar/ - Resposta 200', () => {
@@ -99,7 +98,7 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_alterar/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_nota_fiscal_alterar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

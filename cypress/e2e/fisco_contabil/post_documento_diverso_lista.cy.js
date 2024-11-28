@@ -2,7 +2,6 @@
 // Retorna uma lista de documentos diversos
 
 describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_documento_diverso_lista';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/documento_diverso_lista/ - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_documento_diverso_lista', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

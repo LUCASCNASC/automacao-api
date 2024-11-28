@@ -2,7 +2,6 @@
 // lista de títulos a receber do cliente
 
 describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_cliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/divida_cliente/{filial}/{cliente} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', () =>
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Pagamento%20divida/v2_divida_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

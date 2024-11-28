@@ -2,7 +2,6 @@
 // Todo os itens do pedido de venda podem ser incluídos no mapa de carga, ou o pedido de venda pode ser incluído parcialmente, informando os itembases.
 
 describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_inclui_pedido_venda_mapa_carga_cliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/inclui_pedido_venda_mapa_carga_cliente - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', () =>
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_inclui_pedido_venda_mapa_carga_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

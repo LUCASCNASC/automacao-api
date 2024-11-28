@@ -2,7 +2,6 @@
 // Incluir meio de cobrança
 
 describe('Financeiro - POST - /v3/bloqueto', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_bloqueto';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/bloqueto - Resposta 200', () => {
@@ -28,7 +27,7 @@ describe('Financeiro - POST - /v3/bloqueto', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_bloqueto', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

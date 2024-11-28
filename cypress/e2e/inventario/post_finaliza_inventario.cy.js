@@ -2,7 +2,6 @@
 // Finaliza a contagem de inventário, podendo ser finalizado definitivo ou não
 
 describe('Inventário - POST - /v3/finaliza_inventario', () => {
-    const url = 'http://localhost:8091/sabium#/Invent%C3%A1rio/v3_post_finaliza_inventario';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/finaliza_inventario - Resposta 200', () => {
@@ -22,7 +21,7 @@ describe('Inventário - POST - /v3/finaliza_inventario', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Invent%C3%A1rio/v3_post_finaliza_inventario', 
         headers: { Authorization: `Bearer ${token}` },
         
         requestBody

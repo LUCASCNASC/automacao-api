@@ -2,7 +2,6 @@
 // Listar banco
 
 describe('Financeiro - GET - /v3/banco', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_banco3';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/banco - Resposta 200', () => {
@@ -10,7 +9,7 @@ describe('Financeiro - GET - /v3/banco', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Financeiro/v3_financeiro_banco3', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

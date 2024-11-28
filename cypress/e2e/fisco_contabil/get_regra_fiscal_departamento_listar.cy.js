@@ -2,7 +2,6 @@
 // Listar base fiscal de departamento
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{UF}/{CFOP}/{OrigemProduto}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_departamento_get';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{UF}/{CFOP}/{OrigemProduto} - Resposta 200', () => {
@@ -15,7 +14,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_departamento_get', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Fatura pedidos de venda que estão em um mapa de carga cliente, cujo mapa está na situação carregado. Mapa poderá ser faturado completo ou parcial.
 
 describe('Logística - POST - /v3/faturamento_mapa_carga_cliente', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentomapacargacliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/faturamento_mapa_carga_cliente - Resposta 200', () => {
@@ -25,7 +24,7 @@ describe('Logística - POST - /v3/faturamento_mapa_carga_cliente', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_logistica_faturamentomapacargacliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

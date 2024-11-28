@@ -2,7 +2,6 @@
 // Lista de Tipo Saldo Detalhado do Produto
 
 describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
-    const url = 'http://localhost:8091/sabium#/Produto/v3_produto_tipo_saldo_detalhe';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/produto_tipo_saldo_detalhe  - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Produto/v3_produto_tipo_saldo_detalhe', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

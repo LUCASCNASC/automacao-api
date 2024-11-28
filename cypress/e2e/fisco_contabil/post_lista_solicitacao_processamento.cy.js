@@ -2,7 +2,6 @@
 // Retornar lista com as solicitações de processamento
 
 describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_lista_solicitacao_processamento';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/lista_solicitacao_processamento - Resposta 200', () => {
@@ -25,7 +24,7 @@ describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_lista_solicitacao_processamento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

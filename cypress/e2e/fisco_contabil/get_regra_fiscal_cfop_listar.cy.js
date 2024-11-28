@@ -2,7 +2,6 @@
 // Listar base fiscal de CFOP
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_cfop_listar/{UFOrigem}/{UFDestino}/{UFTomador}/{OrigemProduto}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_cfop_get';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -16,7 +15,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_cfop_listar/{UFOrigem}/{UFDes
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_cfop_get', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

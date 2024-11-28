@@ -2,7 +2,6 @@
 // Cria registros de entrada/saída de inventário, saída de imobilizados, deteriorados e de uso e consumo. Não gera nota fiscal. Não controla serial, gtin ou combustível.
 
 describe('Logística - POST - /v3/movimenta_estoque', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_movimenta_estoque';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     it('POST - /v3/movimenta_estoque - Resposta 200', () => {
       const requestBody = {
@@ -24,7 +23,7 @@ describe('Logística - POST - /v3/movimenta_estoque', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_movimenta_estoque', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

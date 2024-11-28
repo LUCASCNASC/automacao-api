@@ -2,7 +2,6 @@
 // Executa rotinas diárias da filial: Exclusão de pedidos e baixa de automática de títulos por perca, de acordo com os parâmetros de dias máximo, configurados em cada filial
 
 describe('Caixa - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}', () => {
-    const url = 'http://localhost:8091/sabium#/Caixa/v3_caixa_rotina_diaria_filial_get';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Caixa - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}
       // Realiza a requisição GET
       cy.request({
         method: 'GET',
-        url,
+        url: '/Caixa/v3_caixa_rotina_diaria_filial_get',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

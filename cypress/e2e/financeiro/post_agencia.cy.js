@@ -2,7 +2,6 @@
 // Incluir agência
 
 describe('Financeiro - POST - /v3/agencia', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_agencia1';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/agencia - Resposta 200', () => {
@@ -18,7 +17,7 @@ describe('Financeiro - POST - /v3/agencia', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_agencia1', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

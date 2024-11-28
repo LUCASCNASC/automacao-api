@@ -2,7 +2,6 @@
 // Indicadores do vendedor
 
 describe('Trial - POST - /v3/trial', () => {
-    const url = 'http://localhost:8091/sabium#/Trial/v2_trial_get_post2';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/trial - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Trial - POST - /v3/trial', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Trial/v2_trial_get_post2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

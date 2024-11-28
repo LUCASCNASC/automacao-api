@@ -2,7 +2,6 @@
 // Listar rotas por cidade
 
 describe('Diversos - GET - /v3/rota_cidade', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v3_diversos_rota_cidade';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/rota_cidade - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Diversos - GET - /v3/rota_cidade', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url,
+        url: '/Diversos/v3_diversos_rota_cidade',
         headers: { Authorization: `Bearer ${token}` }, 
         requestBody
       }).then((response) => {

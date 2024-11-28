@@ -2,7 +2,6 @@
 // Gerar relatório em base64
 
 describe('Diversos - POST - /v3/gerar_relatorio', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v2_diversos_gerar_relatorio';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gerar_relatorio - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Diversos - POST - /v3/gerar_relatorio', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Diversos/v2_diversos_gerar_relatorio', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

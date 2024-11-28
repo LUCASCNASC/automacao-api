@@ -2,7 +2,6 @@
 // Lista dos CNAEs
 
 describe('Diversos - GET - /v3/cnae', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v2_diversos_cnae';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/cnae - Resposta 200', () => {
@@ -15,7 +14,7 @@ describe('Diversos - GET - /v3/cnae', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url,
+        url: '/Diversos/v2_diversos_cnae',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

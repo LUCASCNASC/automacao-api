@@ -2,7 +2,6 @@
 // De acordo com o filtro informado é retornado o resultado conforme cadastro
 
 describe('Sistema - POST - /v3/executar_filtro', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_executar_filtro';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/executar_filtro - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Sistema - POST - /v3/executar_filtro', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Sistema/v2_sistema_executar_filtro', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

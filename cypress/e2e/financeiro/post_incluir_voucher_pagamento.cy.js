@@ -2,7 +2,6 @@
 // Validar dados do voucher e incluir título a pagar para o cliente vinculado ao voucher.
 
 describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_incluir_voucher_pagamento';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/incluir_voucher_pagamento - Resposta 200', () => {
@@ -15,7 +14,7 @@ describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_incluir_voucher_pagamento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

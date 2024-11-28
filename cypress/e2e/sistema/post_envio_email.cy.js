@@ -2,7 +2,6 @@
 // Enviar Email
 
 describe('Sistema - POST - /v3/envio_email', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v3_sistema_envio_email_post';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/envio_email - Resposta 200', () => {
@@ -22,7 +21,7 @@ describe('Sistema - POST - /v3/envio_email', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST',
-        url,
+        url: '/Sistema/v3_sistema_envio_email_post',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

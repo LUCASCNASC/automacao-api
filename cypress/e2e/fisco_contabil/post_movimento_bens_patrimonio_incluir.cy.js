@@ -2,7 +2,6 @@
 // Incluir Movimento Patrimonio
 
 describe('Fisco/Contábil - POST - /v3/movimento_bens_patrimonio_incluir/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_movimento_patrimonio';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/movimento_bens_patrimonio_incluir/ - Resposta 200', () => {
@@ -60,7 +59,7 @@ describe('Fisco/Contábil - POST - /v3/movimento_bens_patrimonio_incluir/', () =
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_movimento_patrimonio', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

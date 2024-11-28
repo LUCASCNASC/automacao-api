@@ -2,7 +2,6 @@
 // Produto bloqueado.
 
 describe('Produtos - GET - /v3/produto_bloqueio', () => {
-    const url = 'http://localhost:8091/sabium#/Produto/v2_produto_bloqueio';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/produto_bloqueio - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Produtos - GET - /v3/produto_bloqueio', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Produto/v2_produto_bloqueio', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

@@ -2,7 +2,6 @@
 // Incluir dados do arquivo de importação de inventário
 
 describe('Fisco/Contábil - POST - /v3/incluir_dados_inventario', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_inventario_incluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/incluir_dados_inventario - Resposta 200', () => {
@@ -26,7 +25,7 @@ describe('Fisco/Contábil - POST - /v3/incluir_dados_inventario', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_inventario_incluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

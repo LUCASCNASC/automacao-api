@@ -2,7 +2,6 @@
 // Efetuar o estorno da baixa do título a receber, gerando um novo título a pagar
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_post_estornar_baixa_titulo_areceber';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/estornar_baixa_titulo_areceber - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_post_estornar_baixa_titulo_areceber', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Retornar lista das notas fiscais consultadas
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_nota_fiscal_lista';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF} - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_nota_fiscal_lista', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

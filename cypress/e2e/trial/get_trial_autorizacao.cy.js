@@ -2,7 +2,6 @@
 // Retorna a lista de trial e a chave ou supervisor para autorizar
 
 describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', () => {
-    const url = 'http://localhost:8091/sabium#/Trial/v3_get_trial_autorizacao';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais} - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', 
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Trial/v3_get_trial_autorizacao', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

@@ -2,7 +2,6 @@
 // Incluir/Alterar cliente simplificado
 
 describe('Cliente - POST - /v3/cliente_simples', () => {
-    const url = 'http://localhost:8091/sabium#/Cliente/v3_cliente_simples_post';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/cliente_simples - Resposta 200', () => {
@@ -60,7 +59,7 @@ describe('Cliente - POST - /v3/cliente_simples', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Cliente/v3_cliente_simples_post', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

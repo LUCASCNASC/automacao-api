@@ -2,7 +2,6 @@
 // Fecha o pedido caso necessário, e se forem adicionados itens para baixar efetua a baixa tanto integral quanto parcial
 
 describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_fechar_baixar_caixa - Resposta 200', () => {
@@ -114,7 +113,7 @@ describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url,
+        url: '/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

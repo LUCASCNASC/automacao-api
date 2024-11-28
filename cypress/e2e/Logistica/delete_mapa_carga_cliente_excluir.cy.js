@@ -2,7 +2,6 @@
 // Excluir mapa de carga cliente e/ou retirar pedido do mapa de carga
 
 describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_delete_logistica_mapa_carga_cliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga} - Resposta 200', () => {
@@ -15,7 +14,7 @@ describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMap
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Log%C3%ADstica/v3_delete_logistica_mapa_carga_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

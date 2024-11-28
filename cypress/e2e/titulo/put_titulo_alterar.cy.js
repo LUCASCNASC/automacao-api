@@ -2,7 +2,6 @@
 // Alteracao A Receber/Pagar de Titulo e Parcelas
 
 describe('Titulo - PUT - /v3/titulo_alterar', () => {
-    const url = 'http://localhost:8091/sabium#/Titulo/v3_put_titulo_alterar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/titulo_alterar - Resposta 200', () => {
@@ -37,7 +36,7 @@ describe('Titulo - PUT - /v3/titulo_alterar', () => {
       // Realiza a requisição PUT
       cy.request({
         method: 'PUT', 
-        url, 
+        url: '/Titulo/v3_put_titulo_alterar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

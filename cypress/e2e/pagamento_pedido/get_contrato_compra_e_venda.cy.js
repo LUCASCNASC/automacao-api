@@ -2,7 +2,6 @@
 // Contrato da compra e venda
 
 describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/contrato_compra_e_venda/{filial}/{pedido} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Utilizar este recurso quando o usuário supervisor desejar gerar uma senha de autorização de trial.
 
 describe('Trial - POST - /v3/gerador_trial', () => {
-    const url = 'http://localhost:8091/sabium#/Trial/v3_post_gerador_trial';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gerador_trial - Resposta 200', () => {
@@ -21,7 +20,7 @@ describe('Trial - POST - /v3/gerador_trial', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Trial/v3_post_gerador_trial', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

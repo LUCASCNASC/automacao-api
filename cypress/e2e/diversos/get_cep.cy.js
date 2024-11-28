@@ -2,7 +2,6 @@
 // Dados do CEP
 
 describe('Diversos - GET - /v3/cep/{cep}', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v2_diversos_cep';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/cep/{cep} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Diversos - GET - /v3/cep/{cep}', () => {
       // Realiza a requisição GET
       cy.request({
         method:'GET', 
-        url, 
+        url: '/Diversos/v2_diversos_cep', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

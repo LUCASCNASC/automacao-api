@@ -2,7 +2,6 @@
 // Divide o(s) abatimento(s) em valor(es) mantendo a quantidade de parcela e processo iguais.
 
 describe('Pedido - POST - /v3/pedido_parcela_base_divisao', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_parcela_base_divisao';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_parcela_base_divisao - Resposta 200', () => {
@@ -23,7 +22,7 @@ describe('Pedido - POST - /v3/pedido_parcela_base_divisao', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_pedido_parcela_base_divisao', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
         }).then((response) => {

@@ -2,7 +2,6 @@
 // Lista pedidos para pagamento no TOTEM
 
 describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_divida';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pedido_divida/{filial} - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Pagamento%20pedido/v2_pag_pedido_divida', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

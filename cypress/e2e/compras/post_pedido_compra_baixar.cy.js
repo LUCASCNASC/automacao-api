@@ -2,7 +2,6 @@
 // Baixa pedido de compra simplificado, somente frete CIF
 
 describe('Compras - POST - /v3/pedido_compra_baixar', () => {
-    const url = 'http://localhost:8091/sabium#/Compras/v3_post_pedido_compra_baixar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_compra_baixar - Resposta 200', () => {
@@ -64,7 +63,7 @@ describe('Compras - POST - /v3/pedido_compra_baixar', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Compras/v3_post_pedido_compra_baixar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

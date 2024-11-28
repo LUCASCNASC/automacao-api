@@ -2,7 +2,6 @@
 // Indicadores do vendedor
 
 describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
-    const url = 'http://localhost:8091/sabium#/Indicadores/v3_indicador_vendedor';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
 
   
@@ -15,7 +14,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Indicadores/v3_indicador_vendedor', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

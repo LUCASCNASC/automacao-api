@@ -2,7 +2,6 @@
 // Corrigir saldo e custo médio de produtos nas filiais
 
 describe('Fisco/Contábil - POST - /v3/corrigir_saldo_medio_produtos', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_corrigir_saldo_medio_produtos';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/corrigir_saldo_medio_produtos - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Fisco/Contábil - POST - /v3/corrigir_saldo_medio_produtos', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_corrigir_saldo_medio_produtos', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

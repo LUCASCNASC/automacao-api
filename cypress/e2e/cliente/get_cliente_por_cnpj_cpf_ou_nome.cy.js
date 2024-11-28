@@ -2,7 +2,6 @@
 // Dados do cliente simplificado
 
 describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', () => {
-    const url = 'http://localhost:8091/sabium#/Cliente/v3_cliente_por_cnpj_cpf_ou_nome';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Cliente/v3_cliente_por_cnpj_cpf_ou_nome', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

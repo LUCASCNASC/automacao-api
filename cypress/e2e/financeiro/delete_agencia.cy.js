@@ -2,7 +2,6 @@
 // Excluir agência pelo código do banco e agência
 
 describe('Financeiro - DELETE - /v3/agencia/{codigoBanco}/{codigoAgencia}', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_agencia_delete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -14,7 +13,7 @@ describe('Financeiro - DELETE - /v3/agencia/{codigoBanco}/{codigoAgencia}', () =
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Financeiro/v3_financeiro_agencia_delete', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

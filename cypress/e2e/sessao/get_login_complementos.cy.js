@@ -2,7 +2,6 @@
 // Carregar dados do funcionário e vendedor com base no usuário conectado
 
 describe('Sessão - GET - /v3/login_complementos', () => {
-    const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v2_sessao_login_complementos';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/login_complementos - Resposta 200', () => {
@@ -10,7 +9,7 @@ describe('Sessão - GET - /v3/login_complementos', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET',
-        url,
+        url: '/Sess%C3%A3o/v2_sessao_login_complementos',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

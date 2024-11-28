@@ -2,7 +2,6 @@
 // Estabelece uma comunicação com o sistema com base no usuário. Login do usuário no sistema
 
 describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
-    const url = 'http://localhost:8091/sabium#/Sess%C3%A3o/v2_sessao_login';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/login/{usuario}/{senha} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Sess%C3%A3o/v2_sessao_login', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

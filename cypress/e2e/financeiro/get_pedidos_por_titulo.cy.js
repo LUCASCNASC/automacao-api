@@ -2,7 +2,6 @@
 // Retornar lista de pedidos que originaram o título
 
 describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_pedidos_por_titulo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo} - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Financeiro/v3_financeiro_pedidos_por_titulo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

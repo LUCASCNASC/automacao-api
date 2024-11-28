@@ -2,7 +2,6 @@
 // Incluir solicitação de processamento para gerar o SPED fiscal
 
 describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_gerar_sped_fiscal';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/gerar_sped_fiscal - Resposta 200', () => {
@@ -57,7 +56,7 @@ describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_gerar_sped_fiscal', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

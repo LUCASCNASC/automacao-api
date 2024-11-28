@@ -2,7 +2,6 @@
 // Efetivar propostas de abatimento do sistema de gestão de devolução.
 
 describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', () => {
-    const url = 'http://localhost:8091/sabium#/Gest%C3%A3o%20Devolu%C3%A7%C3%A3o/v2_gestao_devolucao_efetivar_proposta_abatimento';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/efetivar_proposta_abatimento - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', () => 
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Gest%C3%A3o%20Devolu%C3%A7%C3%A3o/v2_gestao_devolucao_efetivar_proposta_abatimento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

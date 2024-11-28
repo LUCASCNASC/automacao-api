@@ -2,7 +2,6 @@
 // Excluir base fiscal de departamento
 
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBaseFiscalDepartamento}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_departamento_delete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/regra_fiscal_departamento_deletar/{idBaseFiscalDepartamento} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBa
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_departamento_delete', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

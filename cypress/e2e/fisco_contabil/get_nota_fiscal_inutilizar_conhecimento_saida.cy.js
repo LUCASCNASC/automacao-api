@@ -2,7 +2,6 @@
 // Inutilizar nota fiscal de conhecimento, registrado no sistema
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_inutilizar_conhecimento_saida/{Filial}/{RegistroNota}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_nota_fiscal_inutilizar_conhecimento_saida';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -14,7 +13,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_inutilizar_conhecimento_saida/
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_nota_fiscal_inutilizar_conhecimento_saida', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

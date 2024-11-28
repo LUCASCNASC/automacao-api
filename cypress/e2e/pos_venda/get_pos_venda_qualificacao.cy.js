@@ -2,7 +2,6 @@
 // listas de qualificações da pós-venda
 
 describe('Pós-venda - GET - /v3/pos_venda_qualificacao', () => {
-    const url = 'http://localhost:8091/sabium#/P%C3%B3s-venda/v2_pos_venda_qualificacao';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pos_venda_qualificacao - Resposta 200', () => {
@@ -10,7 +9,7 @@ describe('Pós-venda - GET - /v3/pos_venda_qualificacao', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/P%C3%B3s-venda/v2_pos_venda_qualificacao', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

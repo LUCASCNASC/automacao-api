@@ -13,7 +13,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Log%C3%ADstica/v3_delete_excluir_dado_coletado_nota_transferida', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

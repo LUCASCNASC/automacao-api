@@ -2,7 +2,6 @@
 // Lista informações de parâmetros da empresa
 
 describe('Sistema - GET - /v3/parametros_sitema', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_parametro_sistema';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/parametros_sitema - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Sistema - GET - /v3/parametros_sitema', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET',
-        url,
+        url: '/Sistema/v2_sistema_parametro_sistema',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

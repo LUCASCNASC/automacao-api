@@ -2,7 +2,6 @@
 // Listar títulos a receber de cliente
 
 describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_dividas_a_receber';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj} - Resposta 200', () => {
@@ -16,9 +15,8 @@ describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', () =>
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Financeiro/v3_financeiro_dividas_a_receber', 
         headers: { Authorization: `Bearer ${token}` },
-        
         requestBody
       })
         .then((response) => {

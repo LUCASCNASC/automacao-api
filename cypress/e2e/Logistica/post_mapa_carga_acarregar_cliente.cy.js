@@ -2,7 +2,6 @@
 // Retorna os mapas de carga cliente com coleta liberada, na situação A Carregar se TipoVisaoMapa for Por Mapa, ou na situação A Carregar e Em Carga se TipoVisaoMapa for Por Usuario e o id do usuário da coleta for igual ao id do usuário informado
 
 describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_mapa_carga_acarregar_cliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/mapa_carga_acarregar_cliente - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_mapa_carga_acarregar_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

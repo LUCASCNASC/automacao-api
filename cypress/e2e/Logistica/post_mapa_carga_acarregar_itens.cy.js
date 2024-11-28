@@ -2,7 +2,6 @@
 // Retorna os itens do mapa de carga com as informações da coleta, atualiza o usuário da coleta para o usuário informado e atualiza a situação do mapa de carga para Em Carga.
 
 describe('Logística - POST - /v3/mapa_carga_acarregar_itens', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_mapa_carga_acarregar_itens';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/mapa_carga_acarregar_itens - Resposta 200', () => {
@@ -15,7 +14,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_itens', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_mapa_carga_acarregar_itens', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

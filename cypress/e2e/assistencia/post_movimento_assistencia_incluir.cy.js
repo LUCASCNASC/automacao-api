@@ -2,7 +2,6 @@
 // Incluir Movimento de Assistência Estoque, Patrimonio e Cliente.
 
 describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
-    const url = 'http://localhost:8091/sabium#/Assistencia/v3_post_movimento_assistencia_incluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/movimento_assistencia_incluir/ - Resposta 200', () => {
@@ -41,7 +40,7 @@ describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Assistencia/v3_post_movimento_assistencia_incluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

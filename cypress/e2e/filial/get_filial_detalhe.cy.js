@@ -2,7 +2,6 @@
 // Retorna dados cadastrais da filial.
 
 describe('Filial - GET - /v3/filial_detalhe/{filial}', () => {
-    const url = 'http://localhost:8091/sabium#/Filial/v2_filial_detalhe';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/filial_detalhe/{filial} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Filial - GET - /v3/filial_detalhe/{filial}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Filial/v2_filial_detalhe', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

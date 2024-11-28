@@ -2,7 +2,6 @@
 // Processar proxima baixa pendente
 
 describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_processar_proxima_baixa_pendente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/processar_proxima_baixa_pendente - Resposta 200', () => {
@@ -10,7 +9,7 @@ describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pagamento%20divida/v2_divida_processar_proxima_baixa_pendente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

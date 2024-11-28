@@ -2,7 +2,7 @@
 // Retorna o serviço e as formas de pagamento configurados para recarga de celular via TEF
 
 describe('Recarga - GET - /v3/configuracao_recarga', () => {
-  const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
   
     it('GET - /v3/configuracao_recarga - Resposta 200', () => {
@@ -10,7 +10,7 @@ describe('Recarga - GET - /v3/configuracao_recarga', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Recarga/v3_configuracao_recarga', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

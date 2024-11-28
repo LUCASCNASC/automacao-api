@@ -2,7 +2,6 @@
 // Excluir base fiscal de UF
 
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_uf_delete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
 
     
@@ -13,7 +12,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_uf_delete', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Autorizar trial
 
 describe('Trial - POST - /v3/trial_autorizacao', () => {
-    const url = 'http://localhost:8091/sabium#/Trial/v3_post_trial_autorizacao';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/trial_autorizacao - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Trial - POST - /v3/trial_autorizacao', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Trial/v3_post_trial_autorizacao', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

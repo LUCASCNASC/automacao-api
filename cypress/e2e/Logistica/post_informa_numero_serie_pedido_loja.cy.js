@@ -2,7 +2,6 @@
 // Serviço utilizado para informar número de série para itens de pedido de loja que será posteriormente faturado.
 
 describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_informanumeroseriepedidoloja';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
 
     it('POST - /v3/informa_numero_serie_pedido_loja - Resposta 200', () => {
@@ -23,7 +22,7 @@ describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_logistica_informanumeroseriepedidoloja', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

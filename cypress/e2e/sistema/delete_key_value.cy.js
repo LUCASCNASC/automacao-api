@@ -2,7 +2,6 @@
 // Excluir um determindo valor pela sua chave
 
 describe('Sistema - DELETE - /v3/key_value/{key}', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_key_value_delete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/key_value/{key} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Sistema - DELETE - /v3/key_value/{key}', () => {
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE',
-        url,
+        url: '/Sistema/v2_sistema_key_value_delete',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

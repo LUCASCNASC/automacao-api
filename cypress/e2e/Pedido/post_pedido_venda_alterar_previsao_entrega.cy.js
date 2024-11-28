@@ -2,7 +2,6 @@
 // Alteração da previsão de entrega do pedido de venda.
 
 describe('Pedido - POST - /v3/pedido_venda_alterar_previsao_entrega/', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_post_pedido_venda_previsao_entrega';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_venda_alterar_previsao_entrega/ - Resposta 200', () => {
@@ -19,7 +18,7 @@ describe('Pedido - POST - /v3/pedido_venda_alterar_previsao_entrega/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_post_pedido_venda_previsao_entrega', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

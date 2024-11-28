@@ -2,7 +2,6 @@
 // Consultar os anexos do cliente
 
 describe('Cliente - GET -/v3/cliente_anexo/{idcnpj_cpf}', () => {
-    const url = 'http://localhost:8091/sabium#/Cliente/v3_cliente_anexo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/cliente_anexo/{idcnpj_cpf} - Resposta 200', () => {
@@ -14,7 +13,7 @@ describe('Cliente - GET -/v3/cliente_anexo/{idcnpj_cpf}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Cliente/v3_cliente_anexo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

@@ -2,7 +2,6 @@
 // Incluir base fiscal de CFOP
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_cfop_incluir', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_cfop_post';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/regra_fiscal_cfop_incluir - Resposta 200', () => {
@@ -63,7 +62,7 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_cfop_incluir', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_cfop_post', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

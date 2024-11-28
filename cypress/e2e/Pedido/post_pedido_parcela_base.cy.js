@@ -2,7 +2,6 @@
 // Parcela base
 
 describe('Pedido - POST - /v3/pedido_parcela_base', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v2_pedido_parcela_base';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_parcela_base - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Pedido - POST - /v3/pedido_parcela_base', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v2_pedido_parcela_base', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

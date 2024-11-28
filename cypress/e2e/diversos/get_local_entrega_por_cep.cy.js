@@ -2,7 +2,6 @@
 // Listar locais de entrega por CEP
 
 describe('Diversos - GET - /v3/local_entrega_por_cep', () => {
-    const url = 'http://localhost:8091/sabium#/Diversos/v3_diversos_local_entrega_por_cep';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/local_entrega_por_cep - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Diversos - GET - /v3/local_entrega_por_cep', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url,
+        url: '/Diversos/v3_diversos_local_entrega_por_cep',
         headers: { Authorization: `Bearer ${token}` }, 
         requestBody
       }).then((response) => {

@@ -2,7 +2,6 @@
 // Carregar itens notas a receber transferidas com as quantidades e produtos a serem coletados
 
 describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_mapa_carga_acarregar_itens';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/carregar_itens_nota_transferida_coletor - Resposta 200', () => {
@@ -18,7 +17,7 @@ describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', () =
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_mapa_carga_acarregar_itens', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

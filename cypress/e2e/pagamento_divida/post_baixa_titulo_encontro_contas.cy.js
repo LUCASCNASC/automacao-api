@@ -2,7 +2,6 @@
 // Baixa título por encontro de contas
 
 describe('Financeiro - POST - /v3/baixa_titulo_encontro_contas', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_baixa_titulo_encontro_contas';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/baixa_titulo_encontro_contas - Resposta 200', () => {
@@ -33,7 +32,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_encontro_contas', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pagamento%20divida/v2_divida_baixa_titulo_encontro_contas', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

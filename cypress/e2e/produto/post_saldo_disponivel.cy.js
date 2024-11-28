@@ -2,7 +2,6 @@
 // Recebe uma lista de produtos e retorna uma lista com os produtos e o saldo disponível
 
 describe('Produtos - POST - /v3/saldo_disponivel', () => {
-  const url = 'http://localhost:8091/sabium#/Produto/v3_produto_saldo_disponivel';
   const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
 
   it('POST - /v3/saldo_disponivel - Resposta 200', () => {
@@ -20,7 +19,7 @@ describe('Produtos - POST - /v3/saldo_disponivel', () => {
     // Realiza a requisição POST
     cy.request({
       method: 'POST', 
-      url,
+      url: '/Produto/v3_produto_saldo_disponivel',
       headers: { Authorization: `Bearer ${token}` },
       requestBody
     }).then((response) => {

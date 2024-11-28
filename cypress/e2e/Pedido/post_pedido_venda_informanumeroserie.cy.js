@@ -2,7 +2,6 @@
 // Serviço utilizado para informar número de série para produtos que controlam serial ou solicitam serial na venda
 
 describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_post_pedido_venda_informanumeroserie';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_venda_informanumeroserie/ - Resposta 200', () => {
@@ -24,7 +23,7 @@ describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_post_pedido_venda_informanumeroserie', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

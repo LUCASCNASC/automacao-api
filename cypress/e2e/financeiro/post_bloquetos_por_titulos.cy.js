@@ -2,7 +2,6 @@
 // Imprimir meio de cobrança em PDF (codificação Base64)
 
 describe('Financeiro - POST - /v3/bloquetos_por_titulo', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_bloquetos_por_titulo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/bloquetos_por_titulo - Resposta 200', () => {
@@ -23,7 +22,7 @@ describe('Financeiro - POST - /v3/bloquetos_por_titulo', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_financeiro_bloquetos_por_titulo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

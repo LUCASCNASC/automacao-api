@@ -2,7 +2,6 @@
 // Alterar conta bancária pelo código do banco, código da agência e código da conta
 
 describe('Financeiro - PUT - /v3/contabancaria', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_conta_bancaria2';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/contabancaria - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Financeiro - PUT - /v3/contabancaria', () => {
       // Realiza a requisição PUT
       cy.request({
         method: 'PUT', 
-        url, 
+        url: '/Financeiro/v3_financeiro_conta_bancaria2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Efetuar a exclusão de título a receber ou a pagar
 
 describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_excluir_titulo_areceber_apagar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/excluir_titulo_areceber_apagar - Resposta 200', () => {
@@ -16,7 +15,7 @@ describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Financeiro/v3_excluir_titulo_areceber_apagar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Baixa título
 
 describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_baixa_titulo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/baixa_titulo - Resposta 200', () => {
@@ -29,7 +28,7 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pagamento%20divida/v2_divida_baixa_titulo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

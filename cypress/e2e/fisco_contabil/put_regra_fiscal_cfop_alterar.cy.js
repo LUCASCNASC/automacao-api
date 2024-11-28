@@ -2,7 +2,6 @@
 // Alterar base fiscal de CFOP
 
 describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_cfop_put';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/regra_fiscal_cfop_alterar - Resposta 200', () => {
@@ -63,7 +62,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', () => {
       // Realiza a requisição PUT
       cy.request({
         method: 'PUT', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_cfop_put', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

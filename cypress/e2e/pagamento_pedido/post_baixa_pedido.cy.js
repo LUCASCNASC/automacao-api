@@ -2,7 +2,6 @@
 // Fechar e Baixar pedido de venda pelo TOTEM
 
 describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_baixa_pedido';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/baixa_pedido - Resposta 200', () => {
@@ -29,7 +28,7 @@ describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pagamento%20pedido/v2_pag_pedido_baixa_pedido', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

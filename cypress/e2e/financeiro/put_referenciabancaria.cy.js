@@ -2,7 +2,6 @@
 // Alterar referência bancária pelo CNPJ/CPF da pessoa e código da referência bancária
 
 describe('Financeiro - PUT - /v3/referenciabancaria', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_referencia_bancaria2';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('PUT - /v3/referenciabancaria - Resposta 200', () => {
@@ -29,7 +28,7 @@ describe('Financeiro - PUT - /v3/referenciabancaria', () => {
       // Realiza a requisição PUT
       cy.request({
         method: 'PUT', 
-        url, 
+        url: '/Financeiro/v3_financeiro_referencia_bancaria2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

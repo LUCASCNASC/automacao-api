@@ -2,7 +2,6 @@
 // Finalizar pagamento do pedido de venda pelo TOTEM. Pagamento feito no cartão. Utiliza o parâmetro de Empresa 422 - Conciliador TEF
 
 describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20pedido/v2_pag_pedido_finaliza_pagamento_pedido';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/finaliza_pagamento_pedido - Resposta 200', () => {
@@ -96,7 +95,7 @@ describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pagamento%20pedido/v2_pag_pedido_finaliza_pagamento_pedido', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

@@ -2,7 +2,6 @@
 // produtos relacionados.
 
 describe('Produtos - GET - /v3/produto_relacionado ', () => {
-    const url = 'http://localhost:8091/sabium#/Produto/v2_produto_relacionado';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/produto_relacionado  - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Produtos - GET - /v3/produto_relacionado ', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Produto/v2_produto_relacionado', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

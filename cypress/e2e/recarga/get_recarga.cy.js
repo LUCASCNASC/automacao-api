@@ -13,7 +13,7 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Recarga/v3_get_recarga', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

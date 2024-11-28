@@ -2,7 +2,6 @@
 // Incluir manifesto de documento fiscal
 
 describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/manifesto_documento_fiscal_incluir - Resposta 200', () => {
@@ -52,7 +51,7 @@ describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', () =
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

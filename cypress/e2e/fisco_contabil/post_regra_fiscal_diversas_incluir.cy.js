@@ -2,7 +2,6 @@
 // Incluir base fiscal diversas
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_diversas_incluir', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_diversas_post';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
     
   
@@ -85,7 +84,7 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_diversas_incluir', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_diversas_post', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

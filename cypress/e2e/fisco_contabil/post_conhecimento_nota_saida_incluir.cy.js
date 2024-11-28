@@ -2,7 +2,6 @@
 // Incluir conhecimento de nota de saída. Efetua apenas o registro do documento, não efetua a comunicação com a Sefaz
 
 describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/conhecimento_nota_saida_incluir/ - Resposta 200', () => {
@@ -35,7 +34,7 @@ describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', () => 
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

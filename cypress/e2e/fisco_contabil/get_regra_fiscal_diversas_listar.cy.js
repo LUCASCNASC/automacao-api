@@ -2,7 +2,6 @@
 // Listar base fiscal diversas
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_regra_fiscal_diversas_get';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto} - Resposta 200', () => {
@@ -17,7 +16,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{C
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_regra_fiscal_diversas_get', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

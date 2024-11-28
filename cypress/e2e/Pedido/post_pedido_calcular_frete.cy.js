@@ -2,7 +2,6 @@
 // Calcular valor do frete para pedido mobile
 
 describe('Pedido - POST - /v3/pedido_calcular_frete', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_calcular_frete';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_calcular_frete - Resposta 200', () => {
@@ -442,7 +441,7 @@ describe('Pedido - POST - /v3/pedido_calcular_frete', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v3_pedido_calcular_frete', 
         headers: { Authorization: `Bearer ${token}` },
         
         requestBody

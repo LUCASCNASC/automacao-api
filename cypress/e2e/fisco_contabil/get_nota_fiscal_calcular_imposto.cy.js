@@ -2,7 +2,6 @@
 // Calcular impostos da nota fiscal
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{RegistroNota}', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_nota_fiscal_calcular_imposto';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{RegistroNota} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{Reg
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Fisco/Contabil/v3_nota_fiscal_calcular_imposto', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

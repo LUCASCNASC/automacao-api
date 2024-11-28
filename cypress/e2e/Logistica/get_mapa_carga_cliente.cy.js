@@ -2,7 +2,6 @@
 // Retorna uma lista com os mapas de carga cliente, de acordo com o preenchimento dos parâmetros de entrada:
 
 describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal}', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_cliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
 
   
@@ -16,7 +15,7 @@ describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCa
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

@@ -2,7 +2,6 @@
 // Listar o valor do parâmetro 1055 - percentual máximo de desconto no recebimento de títulos do caixa.
 
 describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial}', () => {
-    const url = 'http://localhost:8091/sabium#/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

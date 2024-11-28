@@ -2,7 +2,6 @@
 // Consulta NFE
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_gerar_rateio_centro_custo';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/nota_fiscal_consulta_nfe/ - Resposta 200', () => {
@@ -28,7 +27,7 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_gerar_rateio_centro_custo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

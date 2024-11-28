@@ -2,7 +2,6 @@
 // Fechar pedido de venda
 
 describe('Pedido - POST - /v3/pedido_fechar', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v2_pedido_fechar';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/pedido_fechar - Resposta 200', () => {
@@ -21,7 +20,7 @@ describe('Pedido - POST - /v3/pedido_fechar', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pedido/v2_pedido_fechar', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

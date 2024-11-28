@@ -2,7 +2,6 @@
 // Baixa multiplas título
 
 describe('Financeiro - POST - /v3/baixa_titulo_multiplos', () => {
-    const url = 'http://localhost:8091/sabium#/Pagamento%20divida/v2_divida_baixa_titulo_multiplos';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/baixa_titulo_multiplos - Resposta 200', () => {
@@ -115,7 +114,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_multiplos', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Pagamento%20divida/v2_divida_baixa_titulo_multiplos', 
         headers: { Authorization: `Bearer ${token}` },
         
         requestBody

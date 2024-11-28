@@ -2,7 +2,6 @@
 // listas de históricos da pós-venda
 
 describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
-    const url = 'http://localhost:8091/sabium#/P%C3%B3s-venda/v2_pos_venda_Historico';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pos_venda_Historico/{codigo} - Resposta 200', () => {
@@ -12,7 +11,7 @@ describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/P%C3%B3s-venda/v2_pos_venda_Historico', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

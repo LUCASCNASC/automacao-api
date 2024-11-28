@@ -19,7 +19,7 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Fisco/Contabil/v3_post_nota_fiscal_consulta_nfe', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

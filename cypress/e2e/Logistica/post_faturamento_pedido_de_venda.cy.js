@@ -2,7 +2,6 @@
 // Fatura pedidos de venda de um cliente, que estão com situação fechado e não estão em nenhum mapa de carga. Pedido de venda poderá ser faturado completo ou parcial.
 
 describe('Logística - POST - /v3/faturamento_pedido_de_venda', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentopedidovendaporcliente';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/faturamento_pedido_de_venda - Resposta 200', () => {
@@ -25,7 +24,7 @@ describe('Logística - POST - /v3/faturamento_pedido_de_venda', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_logistica_faturamentopedidovendaporcliente', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

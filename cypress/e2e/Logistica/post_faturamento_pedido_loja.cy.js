@@ -2,7 +2,6 @@
 // Fatura pedidos de loja de uma filial origem para uma filial destino que não estão em nenhum mapa de carga loja. Poderão ser faturados todos os pedidos de loja ou alguns, se especificado.
 
 describe('Logística - POST - /v3/faturamento_pedido_loja', () => {
-    const url = 'http://localhost:8091/sabium#/Log%C3%ADstica/v3_post_logistica_faturamentopedidolojaporfilial';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/faturamento_pedido_loja - Resposta 200', () => {
@@ -25,7 +24,7 @@ describe('Logística - POST - /v3/faturamento_pedido_loja', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Log%C3%ADstica/v3_post_logistica_faturamentopedidolojaporfilial', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

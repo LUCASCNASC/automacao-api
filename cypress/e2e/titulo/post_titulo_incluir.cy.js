@@ -2,7 +2,6 @@
 // Inclusão A Receber/Pagar de Título, Parcela e Cartão
 
 describe('Titulo - POST - /v3/titulo_incluir', () => {
-    const url = 'http://localhost:8091/sabium#/Titulo/v3_post_titulo_incluir';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/titulo_incluir - Resposta 200', () => {
@@ -48,7 +47,7 @@ describe('Titulo - POST - /v3/titulo_incluir', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Titulo/v3_post_titulo_incluir', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

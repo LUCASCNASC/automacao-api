@@ -2,7 +2,6 @@
 // Retorna a lista do que pode ser impresso em um pedido de venda.
 
 describe('Pedido - GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoVenda}', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v3_pedido_impressoes_disponiveis';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoVenda} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Pedido - GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoV
       // Realiza a requisição GET
       cy.request({
         method: 'GET', 
-        url, 
+        url: '/Pedido/v3_pedido_impressoes_disponiveis', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       })

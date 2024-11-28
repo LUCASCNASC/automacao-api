@@ -2,7 +2,6 @@
 // Excluir pedido de venda
 
 describe('Pedido - DELETE - /v3/pedido/{codigo}', () => {
-    const url = 'http://localhost:8091/sabium#/Pedido/v2_pedido_get_delete2';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('DELETE - /v3/pedido/{codigo} - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Pedido - DELETE - /v3/pedido/{codigo}', () => {
       // Realiza a requisição DELETE
       cy.request({
         method: 'DELETE', 
-        url, 
+        url: '/Pedido/v2_pedido_get_delete2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {

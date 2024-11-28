@@ -2,7 +2,6 @@
 // Incluir/Alterar chave e valor
 
 describe('Sistema - POST - /v3/key_value', () => {
-    const url = 'http://localhost:8091/sabium#/Sistema/v2_sistema_key_value_post';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
     it('POST - /v3/key_value - Resposta 200', () => {
@@ -13,7 +12,7 @@ describe('Sistema - POST - /v3/key_value', () => {
       // Realiza a requisição POST
       cy.request({
         method: 'POST', 
-        url, 
+        url: '/Sistema/v2_sistema_key_value_post', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
