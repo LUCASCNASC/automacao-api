@@ -1,0 +1,11 @@
+{
+    "Numero_Empresa": 0,
+    "Departamento_Inicial": "string",
+    "Departamento_Final": "string",
+    "Produto_Inicial": "string",
+    "Produto_Final": "string",
+    "Data_Inicial": "string",
+    "Data_Final": "string",
+    "Data_Agendamento": "string",
+    "Hora_Agendamento": "string"
+  }

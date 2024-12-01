@@ -1,0 +1,19 @@
+{
+    "cnpjCpf": "string",
+    "banco": 0,
+    "agencia": "string",
+    "conta": "string",
+    "dataAbertura": "string",
+    "ddd": "string",
+    "telefone": "string",
+    "gerente": "string",
+    "boleto": true,
+    "email": "string",
+    "idTipoConta": 0,
+    "idFormaPagamento": 0,
+    "cnpjCpfCorrentista": "string",
+    "nomeCorrentista": "string",
+    "operacaoBancaria": "string",
+    "idtipochavepix": "1 - Telefone, 2 - Email, 3 - CPF CNPJ, 4 - Aleatória",
+    "chavepix": "string"
+  }

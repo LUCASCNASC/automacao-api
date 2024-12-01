@@ -1,0 +1,10 @@
+{
+    "data": "string",
+    "evento": "string",
+    "detalhes": [
+      {
+        "parametro": "string",
+        "valor": "string"
+      }
+    ]
+  }

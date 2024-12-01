@@ -1,0 +1,20 @@
+{
+    "cliente_idcnpj_cpf": 0,
+    "motivo_codigo": "1 para Saldo indisponível, 2 para Preço e 3 para Condição de pagamento",
+    "nome": "string",
+    "email": "string",
+    "telefone": "string",
+    "observacao": "string",
+    "produtos": [
+      {
+        "codigo": "string",
+        "valor": 0
+      }
+    ],
+    "servicos": [
+      {
+        "codigo": "string",
+        "valor": 0
+      }
+    ]
+  }

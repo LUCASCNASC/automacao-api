@@ -1,29 +1,21 @@
 // /v3/gerar_relatorio - Relatório
 // Gerar relatório em base64
 
+import reqBody_post_gerar_relatorio from '../../fixtures/diversos/post_gerar_relatorio.json'
+
 describe('Diversos - POST - /v3/gerar_relatorio', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/gerar_relatorio - Resposta 200', () => {
-      const requestBody = {
-        "idContexto": 0,
-        "idmodelorelatorio": 0,
-        "filtros": [
-          {
-            "nome": "string",
-            "valor": "string"
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Diversos/v2_diversos_gerar_relatorio', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_gerar_relatorio
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

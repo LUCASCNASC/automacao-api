@@ -1,0 +1,10 @@
+{
+    "idFilial": 0,
+    "idPedidoVenda": 0,
+    "produtos": [
+      {
+        "idItemBase": 0,
+        "previsaoEntrega": "string"
+      }
+    ]
+  }

@@ -1,0 +1,21 @@
+{
+    "propostaCredito": [
+      {
+        "item": 0,
+        "filial": 0,
+        "propostaCredito": 0,
+        "idSituacaoProposta": 0,
+        "processoVenda": "string",
+        "processoAReceber": "string",
+        "pedidoVenda": "string",
+        "cliente": "string",
+        "idVendedor": "string",
+        "quantidadeParcelas": 0,
+        "idEntidadeFinanceira": 0,
+        "situacaoPedidoVenda": "string",
+        "vencimentosPedidoVenda": "string",
+        "fiador": "string",
+        "idmensagempadraopropostacredito": 0
+      }
+    ]
+  }

@@ -1,24 +1,18 @@
 // /v3/estornar_baixa_titulo - Estorno de baixa de título
 // Faz o estorno da última parcial baixada ou de todas as parciais de um título.
 
+import reqBody_post_estornar_baixa_titulo from '../../fixtures/financeiro/post_estornar_baixa_titulo.json'
+
 describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');  
   
-    it('POST - /v3/estornar_baixa_titulo - Resposta 200', () => {
-      const requestBody = {
-        "idFilialEstorno": 10050,
-        "idFilial": 10050,
-        "idTitulo": 13624,
-        "idTipoTitulo": 1,
-        "idParcelaTitulo": 1,
-        "estornoParcial": true
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Financeiro/v3_financeiro_estornar_baixa_titulo', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_estornar_baixa_titulo
       })
         .then((response) => {
           expect(response.status).to.eq(200);

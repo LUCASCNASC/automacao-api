@@ -2,9 +2,9 @@
 // Incluir Anexo
 
 describe('Cliente - POST - /v3/cliente_anexo', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/cliente_anexo - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         "idcnpj_cpf": "string",
         "idtipoanexo": 0,
@@ -12,7 +12,7 @@ describe('Cliente - POST - /v3/cliente_anexo', () => {
         "descricao": "string",
         "arquivo": "string"
       }
-      // Realiza a requisição POST
+
       cy.request({
         method: 'POST', 
         url: '/Cliente/v3_cliente_anexo_post', 
@@ -20,7 +20,7 @@ describe('Cliente - POST - /v3/cliente_anexo', () => {
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

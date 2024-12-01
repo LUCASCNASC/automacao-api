@@ -1,24 +1,22 @@
 // /v3/documento_diverso_entrada_excluir/ - Exclusão de documento diverso (entrada)
 // Excluir documento diverso de entrada
 
+import reqBody_post_documento_diverso_entrada_excluir from '../../fixtures/fisco_contabil/post_corrigir_saldo_medio_produtos.json'
+
 describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_excluir/', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/documento_diverso_entrada_excluir/ - Resposta 200', () => {
-      const requestBody = {
-        "CNPJ_Filial_Documento": "string",
-        "Id_Documento_Diverso": 0
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_documento_diverso_entrada_excluir
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

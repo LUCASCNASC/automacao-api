@@ -1,0 +1,20 @@
+{
+    "titulos": [
+     {
+       "idfilialbaixa": 10050,
+       "idfilial": 10050,
+       "idtitulo": 13923,
+       "idparcelatitulo": 1,
+       "idcobrador": 0,
+       "formapagamento": {
+         "dinheiro": {
+           "dadospagamento": {
+             "valorpago": 100.00,
+             "valordesconto": 0,
+             "databaixa": "2024-11-18"
+           }
+          }
+       }
+     }
+   ]
+ }

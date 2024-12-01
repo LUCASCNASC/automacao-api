@@ -2,13 +2,13 @@
 // Cancelar a intenção de compra
 
 describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('DELETE - /v3/intencao_compra/{codigo} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         codigo: ""
       }
-      // Realiza a requisição DELETE
+
       cy.request({
         method: 'DELETE', 
         url: '/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_delete', 
@@ -16,7 +16,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

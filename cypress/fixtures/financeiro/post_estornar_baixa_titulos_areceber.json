@@ -1,0 +1,10 @@
+{
+    "Numero_Empresa": 0,
+    "Numero_Filial": 0,
+    "Numero_Titulo": 0,
+    "Numero_Parcelas": [
+      null
+    ],
+    "Todas_Parcelas": true,
+    "CNPJ_CPF_Titulo_APagar": "string"
+  }

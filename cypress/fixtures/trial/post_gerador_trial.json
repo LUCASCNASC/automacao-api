@@ -1,0 +1,12 @@
+{
+    "chaveTrial": "string",
+    "supervisor": {
+      "idUsuario": 0,
+      "senha": "string"
+    },
+    "triais": [
+      {
+        "idTrial": 0
+      }
+    ]
+  }

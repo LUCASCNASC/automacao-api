@@ -1,34 +1,22 @@
 // /v3/bloquetos_por_titulo - Impressão meio de cobrança
 // Imprimir meio de cobrança em PDF (codificação Base64)
 
+import reqBody_post_bloqueto_por_titulo from '../../fixtures/financeiro/post_bloquetos_por_titulos.json'
+
 describe('Financeiro - POST - /v3/bloquetos_por_titulo', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/bloquetos_por_titulo - Resposta 200', () => {
-      const requestBody = {
-        "titulos": [
-          {
-            "idfilial": 0,
-            "idtitulo": 0,
-            "idParcelaTitulo": 0,
-            "idParcialTitulo": 0,
-            "modeloRelatorio": {
-              "idContextoModeloRelatorio": 0,
-              "idModeloRelatorio": 0
-            }
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Financeiro/v3_financeiro_bloquetos_por_titulo', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_bloqueto_por_titulo
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

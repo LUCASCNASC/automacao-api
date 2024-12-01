@@ -1,27 +1,18 @@
 // /v3/saldo_disponivel - Saldo Disponível
 // Recebe uma lista de produtos e retorna uma lista com os produtos e o saldo disponível
 
-describe('Produtos - POST - /v3/saldo_disponivel', () => {
-  const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+import reqBody_post_saldo_disponivel from '../../fixtures/produto/post_saldo_disponivel.json'
 
-  it('POST - /v3/saldo_disponivel - Resposta 200', () => {
-    const requestBody = {
-      "produtos": [
-        {
-          "idFilial": 10050,
-          "idProduto": 5,
-          "idGradeX": 0,
-          "idGradeY": 0,
-          "idLocalSaldo": 1
-        }
-      ]
-    }
-    // Realiza a requisição POST
+describe('Produtos - POST - /v3/saldo_disponivel', () => {
+  const token = Cypress.env('AUTH_TOKEN'); 
+
+  it('Resposta 200', () => {
+
     cy.request({
       method: 'POST', 
       url: '/Produto/v3_produto_saldo_disponivel',
       headers: { Authorization: `Bearer ${token}` },
-      requestBody
+      body: reqBody_post_saldo_disponivel
     }).then((response) => {
         expect(response.status).to.eq(200);
       });

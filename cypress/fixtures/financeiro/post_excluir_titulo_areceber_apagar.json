@@ -1,0 +1,7 @@
+{
+    "Numero_Empresa": 0,
+    "Numero_Filial": 0,
+    "Numero_Titulo": 0,
+    "AReceber_ou_APagar": 0,
+    "CNPJ_CPF": "string"
+  }

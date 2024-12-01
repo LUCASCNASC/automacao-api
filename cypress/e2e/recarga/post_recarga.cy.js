@@ -1,43 +1,22 @@
 // /v3/recarga - Recarga Telefone
 // Efetivar Recarga Telefone
 
+import reqBody_post_recarga from '../../fixtures//recarga/post_recarga.json'
+
 describe('Titulo - POST - /v3/recarga', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/recarga - Resposta 200', () => {
-      const requestBody = {
-        "idFilial": 0,
-        "idUsuario": 0,
-        "idTerminalCaixa": 0,
-        "cnpjCpf": "string",
-        "nomeCliente": "string",
-        "idOperadoraTelefone": 0,
-        "numeroTelefone": "string",
-        "tipoPagamento": "string",
-        "valor": 0,
-        "dadosTEF": {
-          "nsu": "string",
-          "nsuHost": "string",
-          "copiaRecibo": "string",
-          "valor": 0,
-          "autorizacao": "string",
-          "modalidade": "string",
-          "instituicao": "string",
-          "bandeira": "string",
-          "operadora": "string",
-          "operacaoTEF": 0
-        }
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'GET', 
         url: '/Recarga/v3_post_recarga', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_recarga
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

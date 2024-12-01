@@ -1,39 +1,21 @@
 // /v3/intencao_compra - Intenção compra
 // Incluir intenção de compra
 
+import reqBody_post_intencao_compra from '../../fixtures/intencao_compra/post_intencao_compra.json'
+
 describe('Intenção compra - POST - /v3/intencao_compra', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');  
   
-    it('POST - /v3/intencao_compra - Resposta 200', () => {
-      const requestBody = {
-        "cliente_idcnpj_cpf": 0,
-        "motivo_codigo": "1 para Saldo indisponível, 2 para Preço e 3 para Condição de pagamento",
-        "nome": "string",
-        "email": "string",
-        "telefone": "string",
-        "observacao": "string",
-        "produtos": [
-          {
-            "codigo": "string",
-            "valor": 0
-          }
-        ],
-        "servicos": [
-          {
-            "codigo": "string",
-            "valor": 0
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_get_post2', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_intencao_compra
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

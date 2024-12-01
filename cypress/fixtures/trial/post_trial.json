@@ -1,0 +1,10 @@
+{
+    "pedidoVenda": 0,
+    "autorizado": true,
+    "loginSupervisor": "string",
+    "senhaSupervisor": "string",
+    "justificativa": "string",
+    "idFilial": 0,
+    "idTrial": 0,
+    "sku": "string"
+  }

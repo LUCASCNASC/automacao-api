@@ -1,28 +1,23 @@
 // /v3/banco - Inclusão de banco
 // Incluir cadastro de banco
 
+import reqBody_post_banco  from '../../fixtures/financeiro/post_banco.json'
+
 describe('Financeiro - POST - /v3/banco', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/banco - Resposta 200', () => {
-      const requestBody = {
-        "codigo": 0,
-        "nome": "string",
-        "numeroDigitosConta": 0,
-        "agenciaPossuiDv": true,
-        "cip": "string",
-        "numeroDigitosDvConta": 0
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+      const requestBody = 
+
       cy.request({
         method: 'POST', 
         url: '/Financeiro/v3_financeiro_banco1', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_banco
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

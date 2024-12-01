@@ -2,13 +2,13 @@
 // Esse serviço retorna os dados pessoais do titular com base no CPF consultado. Para isso, basta informar o CPF válido do titular que deseja obter essas informações.
 
 describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('GET - /v3/dados_titular/{cpf} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         cpf: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/LGPD/v3_get_lgpd_dados_titular', 
@@ -16,7 +16,7 @@ describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

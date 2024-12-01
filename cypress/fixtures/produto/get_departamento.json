@@ -1,0 +1,12 @@
+{
+    "codigo": 0,
+    "nome": "string",
+    "imagem": "string",
+    "departamento": [
+      {
+        "codigo": 0,
+        "nome": "string",
+        "imagem": "string"
+      }
+    ]
+  }

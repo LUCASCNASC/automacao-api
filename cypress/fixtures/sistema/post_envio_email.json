@@ -1,0 +1,13 @@
+{
+    "idUsuarioRemetente": 0,
+    "nomeDestinatario": "string",
+    "emailDestinatario": "string",
+    "assunto": "string",
+    "texto": "string",
+    "anexos": [
+      {
+        "nomeArquivo": "string",
+        "arquivo": "string"
+      }
+    ]
+  }

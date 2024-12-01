@@ -1,0 +1,10 @@
+{
+    "idContexto": 0,
+    "idmodelorelatorio": 0,
+    "filtros": [
+      {
+        "nome": "string",
+        "valor": "string"
+      }
+    ]
+  }

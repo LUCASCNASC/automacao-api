@@ -1,0 +1,15 @@
+{
+    "idFilial": 0,
+    "idItemBase": 0,
+    "serialPorUnidade": [
+      {
+        "serialPorProduto": [
+          {
+            "numeroSerie": "string",
+            "ddd": "string",
+            "numeroCelular": "string"
+          }
+        ]
+      }
+    ]
+  }

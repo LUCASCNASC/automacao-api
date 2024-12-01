@@ -1,36 +1,19 @@
 // /v3/baixa_pedido - Fechar e Baixar pedido
 // Fechar e Baixar pedido de venda pelo TOTEM
 
+import reqBody_post_baixa_pedido from '../../fixtures/pagamento_pedido/post_baixa_pedido.json'
+
 describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/baixa_pedido - Resposta 200', () => {
-      const requestBody = {
-        "titulos": [
-         {
-           "idfilialbaixa": 10050,
-           "idfilial": 10050,
-           "idtitulo": 10038,
-           "idparcelatitulo": 1,
-           "idcobrador": 0,
-           "formapagamento": {
-             "dinheiro": {
-               "dadospagamento": {
-                 "valorpago": 250.00,
-                 "valordesconto": 0,
-                 "databaixa": "2024-05-28"
-               }
-              }
-           }
-         }
-       ]
-     }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+      const requestBody = 
+
       cy.request({
         method: 'POST', 
         url: '/Pagamento%20pedido/v2_pag_pedido_baixa_pedido', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_baixa_pedido
       })
       .then((response) => {
           expect(response.status).to.eq(200);

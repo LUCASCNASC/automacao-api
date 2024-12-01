@@ -1,0 +1,8 @@
+{
+    "codigo": 0,
+    "nome": "string",
+    "numeroDigitosConta": 0,
+    "agenciaPossuiDv": true,
+    "cip": "string",
+    "numeroDigitosDvConta": 0
+  }

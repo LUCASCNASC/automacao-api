@@ -1,0 +1,13 @@
+{
+    "idPosVenda": 0,
+    "observacao": "string",
+    "idQualificacao": 0,
+    "finalizar": true,
+    "dataAgendamento": "string",
+    "pesquisaSatisfacao": [
+      {
+        "idPesquisaSatisfacao": 0,
+        "idGrauSatisfacao": "1 - Muito insatisfeito, 2 - Insatisfeito, 3 - Indiferente, 4 - Satisfeito, 5 - Muito satisfeito"
+      }
+    ]
+  }

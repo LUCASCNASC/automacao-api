@@ -1,26 +1,17 @@
-// /v3/trial_autorizacao - Autorizar trial
-// Autorizar trial
+// /v3/trial_autorizacao - Autorizar trial - Autorizar trial
+
+import reqBody_post_trial_autorizacao from '../../fixtures/trial/post_trial_autorizacao.json'
 
 describe('Trial - POST - /v3/trial_autorizacao', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/trial_autorizacao - Resposta 200', () => {
-      const requestBody = {
-        "chaveTrial": 0,
-        "idUsuario": 0,
-        "senha": "string",
-        "trial": [
-          {
-            "idTrial": 0
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => { 
+
       cy.request({
         method: 'POST', 
         url: '/Trial/v3_post_trial_autorizacao', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_trial_autorizacao
       })
         .then((response) => {
           expect(response.status).to.eq(200);

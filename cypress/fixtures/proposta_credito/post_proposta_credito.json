@@ -1,0 +1,17 @@
+{
+    "item": 0,
+    "filial": 0,
+    "propostaCredito": 0,
+    "idSituacaoProposta": 0,
+    "processovenda": "string",
+    "processoareceber": "string",
+    "pedidovenda": "string",
+    "cliente": "string",
+    "idvendedor": "string",
+    "quantidadeparcelas": 0,
+    "identidadefinanceira": 0,
+    "situacaopedidovenda": "string",
+    "vencimentospedidovenda": "string",
+    "fiador": "string",
+    "idmensagempadraopropostacredito": 0
+  }

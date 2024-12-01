@@ -1,0 +1,19 @@
+{
+    "titulos": [
+      {
+        "idfilial": 10050,
+        "idtitulo": 13663,
+        "idParcelaTitulo": 1,
+        "idParcialTitulo": 1,
+        "dataVencimento": "2024-10-18",
+        "gerarJuros": false,
+        "banco": {
+          "idBanco": 341,
+          "idAgencia": 3716,
+          "idContaBancaria": "011589",
+          "idInstrucaoBancaria": 10
+        },
+        "modeloRelatorio": {}
+      }
+    ]
+  }

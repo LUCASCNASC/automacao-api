@@ -2,14 +2,14 @@
 // Listar histórico de conta corrente
 
 describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('GET - /v3/historico_conta_corrente/{idTipoContaCorrente} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         idTipoContaCorrente: "",
         idContaCorrente: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Financeiro/v3_financeiro_historicocontacorrente', 
@@ -18,7 +18,7 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

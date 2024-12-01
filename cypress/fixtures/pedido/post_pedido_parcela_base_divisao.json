@@ -1,0 +1,14 @@
+{
+    "idfilial": 0,
+    "idpedidovenda": 0,
+    "abatimento": [
+      {
+        "item": 0,
+        "divisao": [
+          {
+            "valorparcela": 0
+          }
+        ]
+      }
+    ]
+  }

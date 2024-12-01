@@ -1,31 +1,22 @@
 // /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
 // Retorna as formas de pagamento disponíveis para os títulos informados.
 
+import reqBody_post_formas_pagamento_titulos from '../../fixtures/financeiro/post_excluir_titulo_areceber_apagar.json'
+
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/formas_pagamento_titulos - Resposta 200', () => {
-      const requestBody = {
-        "titulos": [
-          {
-            "idFilial": 0,
-            "idTitulo": 0,
-            "idTipoTitulo": 0,
-            "idParcelaTitulo": 0,
-            "idParcialTitulo": 0
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Financeiro/v3_financeiro_formas_pagamento_titulos', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_formas_pagamento_titulos
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

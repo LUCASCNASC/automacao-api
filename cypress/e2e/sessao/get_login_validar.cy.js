@@ -2,19 +2,19 @@
 // Valida o pragma da sessão.
 
 describe('Sessão - GET - /v3/login_validar', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('GET - /v3/login_validar - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {}
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET',
         url: '/Sess%C3%A3o/v3_sessao_login_validar',
-        headers: { Authorization: `Bearer ${token}` },
+        //headers: { Authorization: `Bearer ${token}` },
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

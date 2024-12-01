@@ -1,0 +1,11 @@
+{
+    "usaintencaocompra": true,
+    "usaposvenda": true,
+    "maximodiasprevisaoentrega": true,
+    "visualizarmgc": true,
+    "maximodiaspropostacredito": true,
+    "url_ecommerce": "string",
+    "idusuarioremetente": true,
+    "trialremoverinfocomplementarcadastrocliente": 0,
+    "trialremoveranexocadastrocliente": 0
+  }

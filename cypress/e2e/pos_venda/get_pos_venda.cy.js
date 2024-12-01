@@ -2,14 +2,14 @@
 // Listas de pós-venda
 
 describe('Pós-venda - GET - /v3/pos_venda', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');  
   
-    it('GET - /v3/pos_venda - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         datainicial: "",
         datafinal: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         mehtod: 'GET', 
         url: '/P%C3%B3s-venda/v3_pos_venda_get_post1', 
@@ -18,7 +18,7 @@ describe('Pós-venda - GET - /v3/pos_venda', () => {
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

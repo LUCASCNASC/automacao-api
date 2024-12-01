@@ -2,15 +2,15 @@
 // Excluir conta bancária pelo código do banco, agência e conta
 
 describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         codigoBanco: "",
         codigoAgencia: "",
         codigoConta: ""
       }
-      // Realiza a requisição DELETE
+
       cy.request({
         method: 'DELETE', 
         url: '/Financeiro/v3_financeiro_conta_bancaria_delete', 
@@ -19,7 +19,7 @@ describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

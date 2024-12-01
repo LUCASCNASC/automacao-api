@@ -1,0 +1,7 @@
+{
+    "data_inicial": "string",
+    "data_final": "string",
+    "cnpj": "string",
+    "iddocumento": 0,
+    "idfilial": "string"
+  }

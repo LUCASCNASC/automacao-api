@@ -2,13 +2,13 @@
 // Carrega as notas transferidas para filial destino para coletor de dados
 
 describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('GET - /v3/nota_receber_transferida_coletor/{idFilial} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         idFilial: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Log%C3%ADstica/v3_get_carregar_nota_transferida_coletor', 
@@ -17,7 +17,7 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', (
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

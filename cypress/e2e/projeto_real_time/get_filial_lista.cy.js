@@ -1,27 +1,17 @@
-// /v3/filial_lista/ - Dados Filial
-// Retorna uma lista das filiais
+// /v3/filial_lista/ - Dados Filial - Retorna uma lista das filiais
+
+import reqBody_get_filial_lista from '../../fixtures/projeto_real_time/get_filial_lista.json'
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('GET - /v3/filial_lista/ - Resposta 200', () => {
-      const requestBody = {
-        "EMPRESA": "string",
-        "CNPJ": "string",
-        "RAZAO_SOCIAL": "string",
-        "LOGRADOURO": "string",
-        "NUMERO": "string",
-        "COMPLEMENTO": "string",
-        "CIDADE": "string",
-        "UF": "string",
-        "CEP": "string"
-      }
-      // Realiza a requisição GET
+    it('Resposta 200', () => {
+      
       cy.request({
         method: 'GET', 
         url: '/Projeto%20Real%20Time', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_get_filial_lista
       })
         .then((response) => {
           expect(response.status).to.eq(200);

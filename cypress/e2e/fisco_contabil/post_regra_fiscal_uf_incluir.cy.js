@@ -1,41 +1,22 @@
 // /v3/regra_fiscal_uf_incluir - Incluisão de base fiscal (UF)
 // Incluir base fiscal de UF
 
+import reqBody_post_regra_fiscal_uf_incluir  from '../../fixtures/fisco_contabil/post_regra_fiscal_uf_incluir.json'
+
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_uf_incluir', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/regra_fiscal_uf_incluir - Resposta 200', () => {
-      const requestBody = {
-        "UF_Origem": "string",
-        "UF_Destino": "string",
-        "Id_Tipo_Imposto": 0,
-        "Aliquota": 0,
-        "Percentual_Base": 0,
-        "Zerar_Livro": true,
-        "Percentual_Diferido": 0,
-        "Id_Usuario": 0,
-        "Data_Hora_Alteracao": "string",
-        "Id_Base_Fiscal_UF": 0,
-        "Id_Empresa": 0,
-        "Data_Inicial": "string",
-        "Desoneracao": true,
-        "Id_Motivo_Desoneracao": 0,
-        "Id_Situacao_Origem": 0,
-        "Id_Situacao_Tributaria": "string",
-        "Id_Tipo_Pessoa": 0,
-        "Id_Tipo_Calculo_Diferimento": 0,
-        "Data_Final": "string"
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Fisco/Contabil/v3_regra_fiscal_uf_post', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_regra_fiscal_uf_incluir
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

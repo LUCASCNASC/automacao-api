@@ -2,16 +2,16 @@
 // Nota fiscal
 
 describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
     
   
-    it('GET - /v3/nota_fiscal/{filial} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         filial: "",
         pedido: "",
         registro_nota: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Pagamento%20pedido/v2_pag_pedido_nota_fiscal', 
@@ -19,7 +19,7 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

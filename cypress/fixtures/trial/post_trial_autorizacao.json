@@ -1,0 +1,10 @@
+{
+    "chaveTrial": 0,
+    "idUsuario": 0,
+    "senha": "string",
+    "trial": [
+      {
+        "idTrial": 0
+      }
+    ]
+  }

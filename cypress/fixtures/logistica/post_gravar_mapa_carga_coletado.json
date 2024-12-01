@@ -1,0 +1,15 @@
+{
+    "Filial": 0,
+    "Mapa Carga": 0,
+    "Tipo Mapa Carga": 0,
+    "Tipo Gravacao": 0,
+    "Itens Coletados": [
+      {
+        "idfilial": 0,
+        "iditembase": 0,
+        "idmapacarga": 0,
+        "qtdeitembase": 0,
+        "qtdecoletado": 0
+      }
+    ]
+  }

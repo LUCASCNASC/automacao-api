@@ -1,27 +1,18 @@
 // /v3/nota_fiscal_consulta_nfe/ - Consulta NFE
 // Consulta NFE
 
+import reqBody_post_nota_fiscal_consulta_nfe from '../../fixtures/fisco_contabil/post_nota_fiscal_consulta_nfe.json'
+
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
-    const url = 'http://localhost:8091/sabium#/Fisco/Contabil/v3_post_nota_fiscal_consulta_nfe';
     const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
   
-    it('POST - /v3/nota_fiscal_consulta_nfe/ - Resposta 200', () => {
-      const requestBody = {
-        "ID_Filiais": [
-          10050
-        ],
-        "Registro_Nota_Inicial": 1,
-        "Registro_Nota_Final": 999999,
-        "Data_Inicial": "01/10/2024",
-        "Data_Final": "31/12/2024",
-        "Conectar_Servidor_Filial": false
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Fisco/Contabil/v3_post_nota_fiscal_consulta_nfe', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_nota_fiscal_consulta_nfe
       })
         .then((response) => {
           expect(response.status).to.eq(200);

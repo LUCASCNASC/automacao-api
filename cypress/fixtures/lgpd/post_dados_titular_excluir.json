@@ -1,0 +1,86 @@
+{
+    "cnpj_cpf": "string",
+    "excluirtodosdados": true,
+    "identificacao": {
+      "nome": true,
+      "rg": true,
+      "orgaoemissorrg": true,
+      "dataemissaorg": true,
+      "emancipado": true,
+      "aposentado": true,
+      "sexo": true,
+      "pensionista": true,
+      "estadocivil": true,
+      "ocupacao": true,
+      "tiporesidencia": true,
+      "exposicaopolitica": true,
+      "nacionalidade": true,
+      "datanascimento": true,
+      "cnh": true,
+      "dataexpiracaocnh": true,
+      "cidadenaturalidade": true,
+      "categoriacnh": true,
+      "numerocarteiraprofissional": true,
+      "seriecarteiraprofissional": true,
+      "ufcarteiraprofissional": true,
+      "numeroinscricaotrabalhador": true,
+      "numeroconselhoprofissional": true
+    },
+    "enderecos": [
+      {
+        "idtipoendereco": 0,
+        "logradouro": "string"
+      }
+    ],
+    "contatos": {
+      "telefones": [
+        {
+          "telefone": "string"
+        }
+      ],
+      "emails": [
+        {
+          "email": "string"
+        }
+      ]
+    },
+    "dependentes": [
+      {
+        "nome": "string"
+      }
+    ],
+    "vinculoempregaticio": {
+      "empresas": [
+        {
+          "empresa": "string"
+        }
+      ],
+      "nivelformacao": true
+    },
+    "financeiro": {
+      "outrasrendas": true,
+      "faturamentoanual": true,
+      "prolabore": true,
+      "valorpatrimonio": true,
+      "veiculoquitado": true,
+      "valoraluguel": true
+    },
+    "referenciaspessoais": [
+      {
+        "nome": "string"
+      }
+    ],
+    "referenciasbancarias": [
+      {
+        "agencia": "string",
+        "banco": "string",
+        "conta": "string",
+        "tipoconta": "string"
+      }
+    ],
+    "outros": {
+      "placaveiculo": true,
+      "residente": true,
+      "renavam": true
+    }
+  }

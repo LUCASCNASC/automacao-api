@@ -1,0 +1,11 @@
+{
+    "produtos": [
+      {
+        "idFilial": 10050,
+        "idProduto": 5,
+        "idGradeX": 0,
+        "idGradeY": 0,
+        "idLocalSaldo": 1
+      }
+    ]
+  }

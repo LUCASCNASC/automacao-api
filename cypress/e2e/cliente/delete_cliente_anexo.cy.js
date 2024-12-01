@@ -2,14 +2,14 @@
 // Excluir um anexo pelo idcnpj_cpf e idpessoaanexo
 
 describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');  
   
-    it('DELETE - /v3/cliente_anexo/{idcnpj_cpf} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         idcnpj_cpf: "",
         idpessoaanexo: ""
       }
-      // Realiza a requisição DELETE
+
       cy.request({
         method: 'DELETE', 
         url: '/Cliente/v3_cliente_anexo_delete', 
@@ -17,7 +17,7 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000); 
         });
     });
   });

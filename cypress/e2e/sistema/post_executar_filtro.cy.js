@@ -1,29 +1,21 @@
 // /v3/executar_filtro - Dados de retorno do filtro
 // De acordo com o filtro informado é retornado o resultado conforme cadastro
 
+import reqBody_post_executar_filtro from '../../fixtures/sistema/post_executar_filtro.json'
+
 describe('Sistema - POST - /v3/executar_filtro', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/executar_filtro - Resposta 200', () => {
-      const requestBody = {
-        "idfiltro": 0,
-        "idcontexto": 0,
-        "parametros": [
-          {
-            "parametro": "string",
-            "valorparametro": "string"
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Sistema/v2_sistema_executar_filtro', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_executar_filtro
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

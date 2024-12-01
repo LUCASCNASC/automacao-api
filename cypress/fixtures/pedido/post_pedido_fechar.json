@@ -1,0 +1,12 @@
+{
+    "idfilial": 10006,
+    "idpedidovenda": 532,
+    "datapagamento": "2024-10-15",
+    "copiarecibopagamento": "teste",
+    "gerarpedidoloja": false,
+    "cartoes": [],
+    "carteiradigital": [],
+    "cheques": [],
+    "parcial": [],
+    "itensServico": []
+  }

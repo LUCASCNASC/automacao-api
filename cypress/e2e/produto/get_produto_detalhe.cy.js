@@ -2,15 +2,15 @@
 // Detalhes do produto.
 
 describe('Produtos - GET - /v3/produto_detalhe/{produto} ', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('GET - /v3/produto_detalhe/{produto}  - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         produto: "",
         pesquisagtin: "",
         pedido: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Produto/v2_produto_detalhe', 

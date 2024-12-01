@@ -2,11 +2,11 @@
 // Processar proxima baixa pendente
 
 describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/processar_proxima_baixa_pendente - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {}
-      // Realiza a requisição POST
+
       cy.request({
         method: 'POST', 
         url: '/Pagamento%20divida/v2_divida_processar_proxima_baixa_pendente', 
@@ -14,7 +14,7 @@ describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', () => {
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

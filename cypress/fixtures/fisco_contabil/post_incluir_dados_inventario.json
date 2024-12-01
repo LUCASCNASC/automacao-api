@@ -1,0 +1,17 @@
+{
+    "CNPJ_Filial": "string",
+    "Codigo_Inventario_PDA": 0,
+    "Data_Inventario": "string",
+    "Dados_Inventario": [
+      {
+        "ID_Produto": 0,
+        "ID_Grade_X": 0,
+        "ID_Grade_Y": 0,
+        "ID_Local_Saldo": 0,
+        "Qtde_Saldo_Filial": 0,
+        "Qtde_Saldo_Inventario": 0,
+        "ID_Tipo_Divergencia": 0,
+        "ID_Tipo_Inventario": 0
+      }
+    ]
+  }

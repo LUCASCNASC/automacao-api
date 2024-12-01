@@ -1,0 +1,14 @@
+{
+    "idFilial": 0,
+    "idPedidoLoja": 0,
+    "reiterarSerial": 0,
+    "serialPorUnidade": [
+      {
+        "serialPorProduto": [
+          {
+            "numeroSerie": "string"
+          }
+        ]
+      }
+    ]
+  }

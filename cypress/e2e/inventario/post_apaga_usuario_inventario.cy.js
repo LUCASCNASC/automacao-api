@@ -2,14 +2,14 @@
 // Apaga o usuário do inventário se não existir nenhuma contagem existente.
 
 describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         idFilial: "",
         idInventario: ""
       }
-      // Realiza a requisição POST
+
       cy.request({
         method: 'POST', 
         url: '/Invent%C3%A1rio/v3_post_apaga_usuario_inventario', 
@@ -18,7 +18,7 @@ describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInvent
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

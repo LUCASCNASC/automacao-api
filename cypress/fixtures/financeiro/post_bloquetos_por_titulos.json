@@ -1,0 +1,14 @@
+{
+    "titulos": [
+      {
+        "idfilial": 0,
+        "idtitulo": 0,
+        "idParcelaTitulo": 0,
+        "idParcialTitulo": 0,
+        "modeloRelatorio": {
+          "idContextoModeloRelatorio": 0,
+          "idModeloRelatorio": 0
+        }
+      }
+    ]
+  }

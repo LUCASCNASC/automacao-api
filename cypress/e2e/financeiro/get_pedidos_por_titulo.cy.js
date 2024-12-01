@@ -2,15 +2,15 @@
 // Retornar lista de pedidos que originaram o título
 
 describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         idFilial: "",
         idTitulo: "",
         idTipoTitulo: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Financeiro/v3_financeiro_pedidos_por_titulo', 
@@ -19,7 +19,7 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

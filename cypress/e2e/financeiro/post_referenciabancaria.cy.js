@@ -1,39 +1,22 @@
 // /v3/referenciabancaria - Inclusão de refência bancária
 // Incluir referência bancária
 
+import reqBody_post_referenciabancaria from '../../fixtures/financeiro/post_referenciabancaria.json'
+
 describe('Financeiro - POST - /v3/referenciabancaria', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/referenciabancaria - Resposta 200', () => {
-      const requestBody = {
-        "cnpjCpf": "string",
-        "banco": 0,
-        "agencia": "string",
-        "conta": "string",
-        "dataAbertura": "string",
-        "ddd": "string",
-        "telefone": "string",
-        "gerente": "string",
-        "boleto": true,
-        "email": "string",
-        "idTipoConta": 0,
-        "idFormaPagamento": 0,
-        "cnpjCpfCorrentista": "string",
-        "nomeCorrentista": "string",
-        "operacaoBancaria": "string",
-        "idtipochavepix": "1 - Telefone, 2 - Email, 3 - CPF CNPJ, 4 - Aleatória",
-        "chavepix": "string"
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Financeiro/v3_financeiro_referencia_bancaria1', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_referenciabancaria
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

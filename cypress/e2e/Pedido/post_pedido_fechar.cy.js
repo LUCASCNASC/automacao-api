@@ -1,28 +1,18 @@
 // /v3/pedido_fechar - Fechar pedido
 // Fechar pedido de venda
 
+import reqBody_post_pedido_fechar from '../../fixtures/pedido/post_pedido_fechar.json'
+
 describe('Pedido - POST - /v3/pedido_fechar', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/pedido_fechar - Resposta 200', () => {
-      const requestBody = {
-        "idfilial": 10006,
-        "idpedidovenda": 532,
-        "datapagamento": "2024-10-15",
-        "copiarecibopagamento": "teste",
-        "gerarpedidoloja": false,
-        "cartoes": [],
-        "carteiradigital": [],
-        "cheques": [],
-        "parcial": [],
-        "itensServico": []
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Pedido/v2_pedido_fechar', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_pedido_fechar
       }).then((response) => {
           expect(response.status).to.eq(200);
         });

@@ -2,14 +2,14 @@
 // Retorna uma lista usuários que pode autorizar o trial
 
 describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         idTrial: "",
         QuantidadeNivel: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Trial/v3_get_trial_nivel_usuario', 
@@ -17,7 +17,7 @@ describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', ()
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

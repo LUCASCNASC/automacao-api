@@ -1,40 +1,21 @@
 // /v3/proposta_credito_agrupar - Proposta crédito
 // Agrupar proposta crédito
 
+import reqBody_post_proposta_credito_agrupar from '../../fixtures/proposta_credito/post_proposta_credito_agrupar.json'
+
 describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');
   
-    it('POST - /v3/proposta_credito_agrupar - Resposta 200', () => {
-      const requestBody = {
-        "propostaCredito": [
-          {
-            "item": 0,
-            "filial": 0,
-            "propostaCredito": 0,
-            "idSituacaoProposta": 0,
-            "processoVenda": "string",
-            "processoAReceber": "string",
-            "pedidoVenda": "string",
-            "cliente": "string",
-            "idVendedor": "string",
-            "quantidadeParcelas": 0,
-            "idEntidadeFinanceira": 0,
-            "situacaoPedidoVenda": "string",
-            "vencimentosPedidoVenda": "string",
-            "fiador": "string",
-            "idmensagempadraopropostacredito": 0
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'GET', 
         url: '/Proposta%20cr%C3%A9dito/v2_proposta_credito_agrupar', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        body: reqBody_post_proposta_credito_agrupar
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

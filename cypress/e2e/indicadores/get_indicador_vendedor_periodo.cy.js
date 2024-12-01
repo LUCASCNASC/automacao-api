@@ -2,14 +2,14 @@
 // Indicadores do vendedor por período
 
 describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN');  
   
-    it('GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal} - Resposta 200', () => {
+    it('Resposta 200', () => {
       const requestBody = {
         datainicial: "",
         datafinal: ""
       }
-      // Realiza a requisição GET
+
       cy.request({
         method: 'GET', 
         url: '/Indicadores/v3_indicador_vendedor_periodo', 
@@ -17,7 +17,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{data
         requestBody
       }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

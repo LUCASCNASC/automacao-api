@@ -2,15 +2,15 @@
 // Lista de observação
 
 describe('Diversos - GET - /v3/observacao', () => {
-  const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+  const token = Cypress.env('AUTH_TOKEN');
   
 
-  it('GET - /v3/observacao - Resposta 200', () => {
+  it('Resposta 200', () => {
     const requestBody = {
       "idobservacao": 1110,
       "descricao": "TESTE CAMPO OBSERVAÇÃO"
     }
-    // Realiza a requisição GET
+
     cy.request({
       method: 'POST', 
       url: '/Diversos/v3_diversos_observacao', 

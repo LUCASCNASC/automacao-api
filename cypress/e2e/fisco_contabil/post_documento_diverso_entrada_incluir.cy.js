@@ -1,73 +1,22 @@
 // /v3/documento_diverso_entrada_incluir/ - Inclusão de documento diverso (entrada)
 // Incluir documento diverso de entrada
 
+import reqBody_post_documento_diverso_entrada_excluir from '../../fixtures/fisco_contabil/post_documento_diverso_entrada_incluir.json'
+
 describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_incluir/', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+    const token = Cypress.env('AUTH_TOKEN'); 
   
-    it('POST - /v3/documento_diverso_entrada_incluir/ - Resposta 200', () => {
-      const requestBody = {
-        "CNPJ_Filial": "01001001000101",
-        "CNPJ_CPF_Fornecedor": "01001001000101 ou 00100100101",
-        "Processo_Mestre": 0,
-        "Conta_Corrente": 0,
-        "Data_Emissao": "string",
-        "Data_Movimento": "string",
-        "Numero_Documento": "string",
-        "Numero_Serie": "string",
-        "Tipo_Documento_Fiscal": 0,
-        "Numero_Observacao_Fiscal": 0,
-        "Total_Frete_Despesa": 0,
-        "Total_Outras_Diversas": 0,
-        "Total_Deducao_ISS": 0,
-        "Total_Documento": 0,
-        "CNPJ_CPF_Destino": "01001001000101 ou 00100100101",
-        "CNPJ_CPF_Remetente": "01001001000101 ou 00100100101",
-        "Numero_Veiculo": 0,
-        "Observacao": "string",
-        "Descricao": "string",
-        "Indicador_Prestacao_Servico_Reinf": 0,
-        "Classificacao_Servico_Prestado_Reinf": 0,
-        "Tipo_Repasse_Reinf": 0,
-        "Cadastro_Nacional_Obras": "string",
-        "Documento_Referenciado": "string",
-        "Forma_Pagamento": 0,
-        "Chave_NFe": "string",
-        "Servico_Realizado_Municipio_Prestador": true,
-        "ISSQN_Retido_Base_Calculo": 0,
-        "ISSQN_Retido_Aliquota": 0,
-        "IRPF_Base_Calculo": 0,
-        "IRPF_Aliquota": 0,
-        "IRPF_Deducao": 0,
-        "XMLNota_Base64": "string",
-        "Parcelas": [
-          {
-            "Numero_Parcela": 0,
-            "Data_Vencimento": "string",
-            "Valor_Parcela": 0,
-            "Valor_Juros_Multa": 0,
-            "Codigo_Barras": "string"
-          }
-        ],
-        "CentroCustos": [
-          {
-            "Debito_Credito": "string",
-            "Classificacao_Centro_Custo": "string",
-            "Codigo_Tipo_Imposto": 0,
-            "Valor": 0
-          }
-        ]
-      }
-      // Realiza a requisição POST
+    it('Resposta 200', () => {
+
       cy.request({
         method: 'POST', 
         url: '/Fisco/Contabil/v3_post_documento_diverso_entrada_incluir', 
         headers: { Authorization: `Bearer ${token}` },
-        
-        requestBody
+        body: reqBody_post_documento_diverso_entrada_excluir
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
         });
     });
   });
