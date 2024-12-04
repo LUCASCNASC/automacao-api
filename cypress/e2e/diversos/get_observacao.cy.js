@@ -16,7 +16,8 @@ describe('Diversos - GET - /v3/observacao', () => {
       url: '/Diversos/v3_diversos_observacao', 
       headers: { Authorization: `Bearer ${token}` },
       requestBody
-    }).then((response) => {
+    })
+      .then((response) => {
         expect(response.status).to.eq(200);
       });
   });

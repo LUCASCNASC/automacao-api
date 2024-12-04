@@ -15,7 +15,8 @@ describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
         url: '/Sess%C3%A3o/v2_sessao_login', 
         //headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

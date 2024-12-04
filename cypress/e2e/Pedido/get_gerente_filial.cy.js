@@ -14,7 +14,8 @@ describe('Pedido - GET - /v3/gerente_filial/{idFilial}', () => {
         url: '/Pedido/v3_gerente_filial', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

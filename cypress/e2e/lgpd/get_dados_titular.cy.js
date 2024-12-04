@@ -14,7 +14,8 @@ describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
         url: '/LGPD/v3_get_lgpd_dados_titular', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

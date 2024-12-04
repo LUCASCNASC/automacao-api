@@ -13,7 +13,8 @@ describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
         url: '/Proposta%20cr%C3%A9dito/v2_proposta_credito_agrupar', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_proposta_credito_agrupar
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

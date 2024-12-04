@@ -17,6 +17,7 @@ describe('Financeiro - POST - /v3/bloqueto', () => {
       })
         .then((response) => {
           expect(response.status).to.eq(200);
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

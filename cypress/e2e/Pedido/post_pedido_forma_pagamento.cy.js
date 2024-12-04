@@ -13,7 +13,8 @@ describe('Pedido - POST - /v3/pedido_forma_pagamento', () => {
         url: '/Pedido/v3_pedido_forma_pagamento', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_pedido_forma_pagamento
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

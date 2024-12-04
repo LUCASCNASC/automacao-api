@@ -13,7 +13,8 @@ describe('Produtos - GET - /v3/departamento', () => {
         url: '/Produto/v2_produto_departamento', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_get_departamento
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

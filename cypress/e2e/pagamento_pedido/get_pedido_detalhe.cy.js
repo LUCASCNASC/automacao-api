@@ -15,7 +15,8 @@ describe('Pagamento pedido - GET - /v3/pedido_detalhe/{filial}/{pedido}', () => 
         url: '/Pagamento%20pedido/v3_pag_pedido_detalhe', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

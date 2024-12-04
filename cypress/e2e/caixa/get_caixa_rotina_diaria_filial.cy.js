@@ -15,7 +15,8 @@ describe('Caixa - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}
         url: '/Caixa/v3_caixa_rotina_diaria_filial_get',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

@@ -14,7 +14,8 @@ describe('Titulo - POST - /v3/dados_titular_excluir', () => {
         url: '/LGPD/v3_post_lgpd_dados_titular_excluir',
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_dados_titular_excluir
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

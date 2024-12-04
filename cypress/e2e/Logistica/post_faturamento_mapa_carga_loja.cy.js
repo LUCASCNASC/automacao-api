@@ -17,6 +17,7 @@ describe('Logística - POST - /v3/faturamento_mapa_carga_loja', () => {
       })
         .then((response) => {
           expect(response.status).to.eq(200);
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

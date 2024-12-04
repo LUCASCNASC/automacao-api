@@ -16,7 +16,8 @@ describe('Diversos - GET - /v3/rota_cidade', () => {
         url: '/Diversos/v3_diversos_rota_cidade',
         headers: { Authorization: `Bearer ${token}` }, 
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

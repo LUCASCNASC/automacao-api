@@ -15,7 +15,9 @@ describe('Sessão - POST - /v3/sessao_login_altera_senha', () => {
         method: 'GET',
         url: '/Sess%C3%A3o/v3_post_sessao_login_altera_senha',
         headers: { Authorization: `Bearer ${token}` },
-        requestBody}).then((response) => {
+        requestBody
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

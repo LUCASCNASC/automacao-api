@@ -14,7 +14,8 @@ describe('Cliente - GET - /v3/cliente/{cliente}', () => {
         url: '/Cliente/v2_cliente_get_delete_get', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

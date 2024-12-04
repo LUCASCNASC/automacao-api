@@ -15,8 +15,9 @@ describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_baixa_pedido
       })
-      .then((response) => {
+        .then((response) => {
           expect(response.status).to.eq(200);
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

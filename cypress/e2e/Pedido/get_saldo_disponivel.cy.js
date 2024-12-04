@@ -15,7 +15,8 @@ describe('Pedido - GET - /v3/saldo_disponivel/{idFilial}/{idPedidoVenda}', () =>
         url: '/Pedido/v3_pedido_saldo_disponivel', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

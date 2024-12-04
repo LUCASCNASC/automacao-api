@@ -18,7 +18,8 @@ describe('Cliente - POST - /v3/cliente_anexo', () => {
         url: '/Cliente/v3_cliente_anexo_post', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

@@ -14,7 +14,8 @@ describe('Produtos - GET - /v3/produto_relacionado ', () => {
         url: '/Produto/v2_produto_relacionado', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

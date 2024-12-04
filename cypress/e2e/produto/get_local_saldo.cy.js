@@ -16,7 +16,8 @@ describe('Produtos - GET - /v3/local_saldo', () => {
         url: '/Produto/v2_produto_local_saldo', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

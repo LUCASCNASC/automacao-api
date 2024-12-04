@@ -14,7 +14,8 @@ describe('Sistema - DELETE - /v3/key_value/{key}', () => {
         url: '/Sistema/v2_sistema_key_value_delete',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

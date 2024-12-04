@@ -12,7 +12,8 @@ describe('Diversos - GET - /v3/operacoes_tef', () => {
         url: '/Diversos/v3_diversos_operacoes_tef', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

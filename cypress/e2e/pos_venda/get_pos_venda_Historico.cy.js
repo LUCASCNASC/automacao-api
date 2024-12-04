@@ -14,7 +14,8 @@ describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
         url: '/P%C3%B3s-venda/v2_pos_venda_Historico', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

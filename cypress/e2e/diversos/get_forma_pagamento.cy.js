@@ -15,7 +15,8 @@ describe('Diversos - GET - /v3/forma_pagamento', () => {
         url: '/Diversos/v2_diversos_forma_pagamento', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

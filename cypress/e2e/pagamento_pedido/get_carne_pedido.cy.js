@@ -14,7 +14,9 @@ describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', () => {
         method: 'GET', 
         url: '/Pagamento%20pedido/v3_pag_pedido_carne_pedido', 
         headers: { Authorization: `Bearer ${token}` },
-        requestBody}).then((response) => {
+        requestBody
+      })  
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

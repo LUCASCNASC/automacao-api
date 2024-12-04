@@ -16,7 +16,8 @@ describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
         url: '/Indicadores/v3_indicador_vendedor', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

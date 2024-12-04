@@ -13,7 +13,8 @@ describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', () => {
         url: '/Cliente/v2_cliente_renovacao', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

@@ -17,7 +17,8 @@ describe('Diversos - GET - /v3/vendedor', () => {
         url: '/Diversos/v2_diversos_vendedor', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

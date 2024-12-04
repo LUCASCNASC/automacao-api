@@ -12,7 +12,8 @@ describe('Trial - POST - /v3/gerador_trial', () => {
         url: '/Trial/v3_post_gerador_trial', 
         //headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_gerador_trial
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

@@ -12,7 +12,8 @@ describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
         url: '/Pedido/v3_pedido_validar_cliente', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_pedido_validar_cliente
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

@@ -15,7 +15,8 @@ describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', ()
         url: '/Trial/v3_get_trial_nivel_usuario', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })  
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

@@ -13,7 +13,8 @@ describe('Financeiro - POST - /v3/baixa_titulo_cheque', () => {
         url: '/Pagamento%20divida/v2_divida_baixa_titulo_cheque', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_baixa_titulo_cheque
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

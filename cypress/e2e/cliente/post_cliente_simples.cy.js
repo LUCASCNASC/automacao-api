@@ -13,7 +13,8 @@ describe('Cliente - POST - /v3/cliente_simples', () => {
         url: '/Cliente/v3_cliente_simples_post', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_cliente_simples
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

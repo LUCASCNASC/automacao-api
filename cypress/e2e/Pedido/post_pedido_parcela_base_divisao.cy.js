@@ -13,7 +13,8 @@ describe('Pedido - POST - /v3/pedido_parcela_base_divisao', () => {
         url: '/Pedido/v3_pedido_parcela_base_divisao', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_pedido_parcela_base_divisao
-        }).then((response) => {
+        })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

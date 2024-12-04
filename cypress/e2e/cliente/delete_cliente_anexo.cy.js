@@ -15,7 +15,8 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
         url: '/Cliente/v3_cliente_anexo_delete', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

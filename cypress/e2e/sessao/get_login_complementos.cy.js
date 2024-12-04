@@ -12,7 +12,8 @@ describe('Sessão - GET - /v3/login_complementos', () => {
         url: '/Sess%C3%A3o/v2_sessao_login_complementos',
 
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

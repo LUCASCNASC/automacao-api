@@ -15,7 +15,8 @@ describe('Pagamento divida - GET - /v3/divida_cliente_vinculado/{filial}/{client
         url: '/Pagamento%20divida/v2_divida_cliente_vinculado', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

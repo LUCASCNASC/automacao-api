@@ -15,7 +15,8 @@ describe('Pedido - DELETE - /v3/pedido/{codigo}', () => {
         url: '/Pedido/v2_pedido_get_delete2', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

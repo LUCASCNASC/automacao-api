@@ -16,6 +16,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
       })
         .then((response) => {
           expect(response.status).to.eq(200);
+          expect(response.duration).to.be.below(2000);
         });
     });
   });

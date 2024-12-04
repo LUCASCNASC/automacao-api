@@ -13,7 +13,8 @@ describe('Sistema - POST - /v3/envio_email', () => {
         url: '/Sistema/v3_sistema_envio_email_post',
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_envio_email
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

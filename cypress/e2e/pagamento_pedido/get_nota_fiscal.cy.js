@@ -17,7 +17,8 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
         url: '/Pagamento%20pedido/v2_pag_pedido_nota_fiscal', 
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

@@ -13,7 +13,8 @@ describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', () => {
         url: '/Pagamento%20pedido/v2_pag_pedido_finaliza_pagamento_pedido', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_finaliza_pagamento_pedido
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

@@ -13,7 +13,8 @@ describe('Sessão - POST - /v3/redefinir_senha', () => {
         url: '/Sess%C3%A3o/v3_post_redefinir_senha',
         //headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_redefinir_senha
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

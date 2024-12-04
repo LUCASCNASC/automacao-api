@@ -13,7 +13,8 @@ describe('Diversos - POST - /v3/gerar_relatorio', () => {
         url: '/Diversos/v2_diversos_gerar_relatorio', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_gerar_relatorio
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

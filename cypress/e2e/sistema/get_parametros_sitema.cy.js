@@ -13,7 +13,8 @@ describe('Sistema - GET - /v3/parametros_sitema', () => {
         url: '/Sistema/v2_sistema_parametro_sistema',
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_get_parametros_sitema
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

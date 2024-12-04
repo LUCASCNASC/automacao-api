@@ -13,8 +13,10 @@ describe('Produtos - POST - /v3/saldo_disponivel', () => {
       url: '/Produto/v3_produto_saldo_disponivel',
       headers: { Authorization: `Bearer ${token}` },
       body: reqBody_post_saldo_disponivel
-    }).then((response) => {
+    })
+      .then((response) => {
         expect(response.status).to.eq(200);
+        expect(response.duration).to.be.below(2000);
       });
   });
 });

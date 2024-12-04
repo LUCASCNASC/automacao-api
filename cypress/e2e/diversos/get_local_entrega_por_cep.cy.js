@@ -14,7 +14,8 @@ describe('Diversos - GET - /v3/local_entrega_por_cep', () => {
         url: '/Diversos/v3_diversos_local_entrega_por_cep',
         headers: { Authorization: `Bearer ${token}` }, 
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

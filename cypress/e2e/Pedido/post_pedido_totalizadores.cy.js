@@ -13,7 +13,8 @@ describe('Pedido - POST - /v3/pedido_totalizadores', () => {
         url: '/Pedido/v3_pedido_totalizadores', 
         headers: { Authorization: `Bearer ${token}` },
         bod: reqBody_post_pedido_totalizadores
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

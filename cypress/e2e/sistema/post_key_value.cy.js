@@ -13,7 +13,8 @@ describe('Sistema - POST - /v3/key_value', () => {
         url: '/Sistema/v2_sistema_key_value_post', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_key_value
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

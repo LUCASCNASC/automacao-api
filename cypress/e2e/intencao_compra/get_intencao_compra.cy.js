@@ -13,7 +13,8 @@ describe('Intenção compra - GET - /v3/intencao_compra', () => {
         url: '/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_get_post1', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_get_intencao_compra
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

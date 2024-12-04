@@ -14,7 +14,8 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
         url: '/Trial/v3_get_lista_trial_usuario', 
         //headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

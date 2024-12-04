@@ -13,7 +13,8 @@ describe('Sistema - POST - /v3/executar_filtro', () => {
         url: '/Sistema/v2_sistema_executar_filtro', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_executar_filtro
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

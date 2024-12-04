@@ -14,7 +14,8 @@ describe('Pedido - POST - /v3/pedido_baixar', () => {
         url: '/Pedido/v2_pedido_baixar', 
         headers: { Authorization: `Bearer ${token}` },
         body: reqBody_post_pedido_baixar
-      }).then((response) => {
+      })  
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

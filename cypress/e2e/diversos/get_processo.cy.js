@@ -12,7 +12,8 @@ describe('Diversos - GET - /v3/processo', () => {
         url: '/Diversos/v2_diversos_processo',
         headers: { Authorization: `Bearer ${token}` },
         requestBody
-      }).then((response) => {
+      })
+        .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });
