@@ -3,6 +3,7 @@
 
 import reqBody_post_titulo_incluir from '../../fixtures/titulo/post_titulo_incluir.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Titulo - POST - /v3/titulo_incluir', () => {
   const url = '/Titulo/v3_post_titulo_incluir';
@@ -14,6 +15,7 @@ describe('Titulo - POST - /v3/titulo_incluir', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

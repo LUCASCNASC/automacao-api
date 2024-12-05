@@ -2,6 +2,7 @@
 // Lista pedidos para pagamento
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
   const url = '/Pagamento%20pedido/v3_pag_pedidos_pendentes';
@@ -21,6 +22,7 @@ describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

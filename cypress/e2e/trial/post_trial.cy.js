@@ -2,6 +2,7 @@
 
 import reqBody_post_trial from '../../fixtures/trial/post_trial.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Trial - POST - /v3/trial', () => {
   const url = '/Trial/v2_trial_get_post2';
@@ -13,6 +14,7 @@ describe('Trial - POST - /v3/trial', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

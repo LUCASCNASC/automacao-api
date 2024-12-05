@@ -2,6 +2,7 @@
 // Excluir base fiscal de UF
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF}', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_uf_delete';
@@ -17,6 +18,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

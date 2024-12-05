@@ -3,6 +3,7 @@
 
 import reqBody_post_baixa_pedido from '../../fixtures/pagamento_pedido/post_baixa_pedido.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
   const url = '/Pagamento%20pedido/v2_pag_pedido_baixa_pedido';
@@ -15,6 +16,7 @@ describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

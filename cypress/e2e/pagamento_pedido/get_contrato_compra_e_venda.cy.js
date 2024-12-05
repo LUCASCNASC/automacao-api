@@ -2,6 +2,7 @@
 // Contrato da compra e venda
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}', () => {
   const url = '/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda';
@@ -17,6 +18,7 @@ describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

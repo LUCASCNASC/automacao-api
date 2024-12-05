@@ -3,6 +3,7 @@
 
 import reqBody_post_finaliza_pagamento_pedido from '../../fixtures/pagamento_pedido/post_finaliza_pagamento_pedido.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', () => {
   const url = '/Pagamento%20pedido/v2_pag_pedido_finaliza_pagamento_pedido';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

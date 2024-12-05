@@ -3,6 +3,7 @@
 
 import reqBody_post_lista_solicitacao_processamento from '../../fixtures/fisco_contabil/post_lista_solicitacao_processamento.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 
 describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
@@ -15,6 +16,7 @@ describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

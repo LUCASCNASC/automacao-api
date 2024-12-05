@@ -3,6 +3,7 @@
 
 import reqBody_post_dados_titular_excluir from '../../fixtures/lgpd/post_dados_titular_excluir.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Titulo - POST - /v3/dados_titular_excluir', () => {
   const url = '/LGPD/v3_post_lgpd_dados_titular_excluir';
@@ -15,6 +16,7 @@ describe('Titulo - POST - /v3/dados_titular_excluir', () => {
         method: 'GET', 
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

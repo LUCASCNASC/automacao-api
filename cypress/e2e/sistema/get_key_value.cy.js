@@ -2,6 +2,7 @@
 // Consultar uma determinada chave e retornar o seu valor
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sistema - GET - /v3/key_value/{key}', () => {
   const url = '/Sistema/v2_sistema_key_value';
@@ -16,6 +17,7 @@ describe('Sistema - GET - /v3/key_value/{key}', () => {
         method: 'GET',
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

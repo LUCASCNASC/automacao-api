@@ -2,6 +2,7 @@
 // Retorna o saldo dispinível dos ítens do pedido de venda
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - GET - /v3/saldo_disponivel/{idFilial}/{idPedidoVenda}', () => {
   const url = '/Pedido/v3_pedido_saldo_disponivel';
@@ -17,6 +18,7 @@ describe('Pedido - GET - /v3/saldo_disponivel/{idFilial}/{idPedidoVenda}', () =>
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

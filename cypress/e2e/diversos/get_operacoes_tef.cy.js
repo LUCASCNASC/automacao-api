@@ -2,6 +2,7 @@
 // Retorna as operações tef configuradas
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Diversos - GET - /v3/operacoes_tef', () => {
   const url = '/Diversos/v3_diversos_operacoes_tef';
@@ -14,6 +15,7 @@ describe('Diversos - GET - /v3/operacoes_tef', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

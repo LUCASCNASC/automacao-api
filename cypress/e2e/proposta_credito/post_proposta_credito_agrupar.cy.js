@@ -3,6 +3,7 @@
 
 import reqBody_post_proposta_credito_agrupar from '../../fixtures/proposta_credito/post_proposta_credito_agrupar.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
     const url = '/Proposta%20cr%C3%A9dito/v2_proposta_credito_agrupar';
@@ -14,6 +15,7 @@ describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

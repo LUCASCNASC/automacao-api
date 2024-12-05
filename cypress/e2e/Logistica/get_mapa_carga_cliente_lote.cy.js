@@ -2,6 +2,7 @@
 // Retorna uma lista com os mapas de carga cliente na situação(1 - A Carregar), de acordo com o preenchimento dos parâmetros de entrada:
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - GET - /v3/mapa_carga_cliente_lote/{idFilial}/{idMapaCargaInicial}/{idMapaCargaFinal}', () => {
     const url = '/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_loja';
@@ -18,6 +19,7 @@ describe('Logística - GET - /v3/mapa_carga_cliente_lote/{idFilial}/{idMapaCarga
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

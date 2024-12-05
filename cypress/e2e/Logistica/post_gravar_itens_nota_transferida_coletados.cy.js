@@ -3,6 +3,7 @@
 
 import reqBody_post_gravar_itens_nota_transferida_coletados from '../../fixtures/logistica/post_gravar_itens_nota_transferida_coletados.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () => {
   const url = '/Log%C3%ADstica/v3_post_gravar_itens_nota_transferida_coletados';
@@ -14,6 +15,7 @@ describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () =
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

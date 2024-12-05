@@ -2,6 +2,7 @@
 // Carrega as notas transferidas para filial destino para coletor de dados
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', () => {
     const url = '/Log%C3%ADstica/v3_get_carregar_nota_transferida_coletor';
@@ -16,6 +17,7 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', (
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

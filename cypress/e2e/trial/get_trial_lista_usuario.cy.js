@@ -2,6 +2,7 @@
 // Retorna uma lista de triais que o usuário informado tem permissão de acesso, com base nos triais vinculados na tela: nivel trial
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
   const url = '/Trial/v3_get_lista_trial_usuario';
@@ -16,6 +17,7 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

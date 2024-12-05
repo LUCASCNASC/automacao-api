@@ -18,6 +18,7 @@ describe('Produtos - GET - /v3/produto_detalhe/{produto} ', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

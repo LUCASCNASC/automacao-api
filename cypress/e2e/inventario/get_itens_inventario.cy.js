@@ -2,6 +2,7 @@
 // Lista os itens do inventários.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', () => {
   const url = '/Invent%C3%A1rio/v3_get_itens_inventario';
@@ -17,6 +18,7 @@ describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', (
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

@@ -3,6 +3,7 @@
 
 import reqBody_post_titulo_alterar from '../../fixtures/titulo/put_titulo_alterar.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Titulo - PUT - /v3/titulo_alterar', () => {
   const url = '/Titulo/v3_put_titulo_alterar'
@@ -15,6 +16,7 @@ describe('Titulo - PUT - /v3/titulo_alterar', () => {
         method: 'PUT', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

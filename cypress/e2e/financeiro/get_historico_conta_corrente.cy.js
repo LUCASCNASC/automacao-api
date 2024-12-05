@@ -2,6 +2,7 @@
 // Listar histórico de conta corrente
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', () => {
   const url = '/Financeiro/v3_financeiro_historicocontacorrente';
@@ -16,7 +17,8 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
+        headers: {
+          Pragma: pragma_token, 
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

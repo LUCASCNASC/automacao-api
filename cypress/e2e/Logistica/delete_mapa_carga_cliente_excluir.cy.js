@@ -2,6 +2,7 @@
 // Excluir mapa de carga cliente e/ou retirar pedido do mapa de carga
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', () => {
   const url = '/Log%C3%ADstica/v3_delete_logistica_mapa_carga_cliente';
@@ -19,6 +20,7 @@ describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMap
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

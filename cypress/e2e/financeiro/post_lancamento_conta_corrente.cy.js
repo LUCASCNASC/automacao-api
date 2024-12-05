@@ -3,6 +3,7 @@
 
 import reqBody_post_lancamento_conta_corrente from '../../fixtures/financeiro/post_lancamento_conta_corrente..json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/lancamento_conta_corrente', () => {
   const url = '/Financeiro/v3_financeiro_lancamento_conta_corrente';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/lancamento_conta_corrente', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

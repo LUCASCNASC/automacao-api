@@ -3,6 +3,7 @@
 
 import reqBody_post_bloqueto from '../../fixtures/financeiro/post_bloqueto.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/bloqueto', () => {
   const url = '/Financeiro/v3_financeiro_bloqueto';
@@ -15,6 +16,7 @@ describe('Financeiro - POST - /v3/bloqueto', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

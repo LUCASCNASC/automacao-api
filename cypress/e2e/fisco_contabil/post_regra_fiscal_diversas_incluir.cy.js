@@ -3,6 +3,7 @@
 
 import reqBody_post_regra_fiscal_diversas_incluir  from '../../fixtures/fisco_contabil/post_regra_fiscal_diversas_incluir.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_diversas_incluir', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_diversas_post';
@@ -15,6 +16,7 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_diversas_incluir', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

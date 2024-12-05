@@ -2,6 +2,7 @@
 // Retorna os dados da recarga efetuada
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
   const url = '/Recarga/v3_get_recarga';
@@ -17,6 +18,7 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

@@ -2,6 +2,7 @@
 // JSON com informações para criar pagina swagger
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('API - GET - /api/swagger', () => {
   const url = '/API/api_swagger';
@@ -16,6 +17,7 @@ describe('API - GET - /api/swagger', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

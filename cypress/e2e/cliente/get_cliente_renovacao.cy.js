@@ -2,6 +2,7 @@
 // Renovações de serviços disponiveis para o cliente
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', () => {
   const url = '/Cliente/v2_cliente_renovacao';
@@ -15,6 +16,7 @@ describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', () => {
       cy.request({method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

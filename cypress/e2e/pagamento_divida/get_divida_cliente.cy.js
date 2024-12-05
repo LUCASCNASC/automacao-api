@@ -2,6 +2,7 @@
 // lista de títulos a receber do cliente
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', () => {
   const url = '/Pagamento%20divida/v2_divida_cliente';
@@ -17,6 +18,7 @@ describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', () =>
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

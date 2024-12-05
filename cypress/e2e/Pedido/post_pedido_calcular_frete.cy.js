@@ -3,6 +3,7 @@
 
 import reqBody_post_pedido_calcular_frete from '../../fixtures/pedido/post_pedido_calcular_frete.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - POST - /v3/pedido_calcular_frete', () => {
   const url = '/Pedido/v3_pedido_calcular_frete';
@@ -14,6 +15,7 @@ describe('Pedido - POST - /v3/pedido_calcular_frete', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

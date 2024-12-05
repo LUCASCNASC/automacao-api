@@ -3,6 +3,7 @@
 
 import reqBody_post_envio_email from '../../fixtures/sistema/post_envio_email.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sistema - POST - /v3/envio_email', () => {
   const url = '/Sistema/v3_sistema_envio_email_post';
@@ -14,6 +15,7 @@ describe('Sistema - POST - /v3/envio_email', () => {
         method: 'POST',
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

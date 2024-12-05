@@ -3,6 +3,7 @@
 
 import reqBody_post_pedido_baixar from '../../fixtures/pedido/post_pedido_baixar.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - POST - /v3/pedido_baixar', () => {
   const url = '/Pedido/v2_pedido_baixar';
@@ -15,6 +16,7 @@ describe('Pedido - POST - /v3/pedido_baixar', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

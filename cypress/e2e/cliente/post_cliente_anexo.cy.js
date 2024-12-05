@@ -3,6 +3,7 @@
 
 import reqBody_post_cliente_anexo from '../../fixtures/cliente/post_cliente_anexo.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Cliente - POST - /v3/cliente_anexo', () => {
   const url = '/Cliente/v3_cliente_anexo_post';
@@ -15,6 +16,7 @@ describe('Cliente - POST - /v3/cliente_anexo', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -3,6 +3,7 @@
 
 import reqBody_post_finaliza_inventario from '../../fixtures/inventario/post_finaliza_inventario.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Inventário - POST - /v3/finaliza_inventario', () => {
   const url = '/Invent%C3%A1rio/v3_post_finaliza_inventario';
@@ -14,6 +15,7 @@ describe('Inventário - POST - /v3/finaliza_inventario', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

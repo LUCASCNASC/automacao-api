@@ -3,6 +3,7 @@
 
 import reqBody_post_previsao_entrega_mapa_carga_cliente from '../../fixtures/logistica/post_previsao_entrega_mapa_carga_cliente.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
   const url = '/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente';
@@ -14,6 +15,7 @@ describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -2,6 +2,7 @@
 // Relacionamento dos produtos com base em vendas conjuntas concretizadas.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Produtos - GET - /v3/produto_tambem_compraram ', () => {
   const url = '/Produto/v2_produto_tambem_compraram';
@@ -16,6 +17,7 @@ describe('Produtos - GET - /v3/produto_tambem_compraram ', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

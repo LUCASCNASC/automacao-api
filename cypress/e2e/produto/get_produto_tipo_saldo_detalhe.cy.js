@@ -2,6 +2,7 @@
 // Lista de Tipo Saldo Detalhado do Produto
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
   const url = '/Produto/v3_produto_tipo_saldo_detalhe';
@@ -18,6 +19,7 @@ describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

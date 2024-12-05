@@ -2,6 +2,7 @@
 // Listar locais de entrega
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Diversos - GET - /v3/local_entrega', () => {
   const url = '/Diversos/v2_diversos_local_entrega';
@@ -16,6 +17,7 @@ describe('Diversos - GET - /v3/local_entrega', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

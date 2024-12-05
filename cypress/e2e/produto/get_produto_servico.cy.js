@@ -2,6 +2,7 @@
 // Preço do serviço
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Produtos - GET - /v3/produto_servico/{servico} ', () => {
   const url = '/Produto/v2_produto_servico';
@@ -16,6 +17,7 @@ describe('Produtos - GET - /v3/produto_servico/{servico} ', () => {
         method: 'GET', 
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

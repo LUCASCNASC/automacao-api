@@ -2,6 +2,7 @@
 // Promoções do produto.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto} ', () => {
   const url = '/Produto/v2_produto_detalhe_promocao';
@@ -17,6 +18,7 @@ describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto} ', () => {
         method: 'GET', 
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

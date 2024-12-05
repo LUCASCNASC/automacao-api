@@ -2,6 +2,7 @@
 // Excluir base fiscal de CFOP
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_cfop_deletar/{idBaseFiscalCFOP}', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_cfop_delete';
@@ -16,6 +17,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_cfop_deletar/{idBaseFiscal
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

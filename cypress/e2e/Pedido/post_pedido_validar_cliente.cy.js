@@ -3,6 +3,7 @@
 
 import reqBody_post_pedido_validar_cliente from '../../fixtures/pedido/post_pedido_validar_cliente.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
   const url = '/Pedido/v3_pedido_validar_cliente';
@@ -13,6 +14,7 @@ describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

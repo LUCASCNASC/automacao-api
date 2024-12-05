@@ -2,6 +2,7 @@
 // Listar grupos
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Diversos - GET - /v3/grupo', () => {
   const url = '/Diversos/v3_diversos_grupo';
@@ -16,6 +17,7 @@ describe('Diversos - GET - /v3/grupo', () => {
         method: 'GET', 
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

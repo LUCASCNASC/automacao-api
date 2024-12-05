@@ -3,6 +3,7 @@
 
 import reqBody_post_evento from '../../fixtures/sistema/post_evento.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sistema - POST - /v3/evento', () => {
   const url = '/Sistema/v2_sistema_evento';
@@ -14,6 +15,7 @@ describe('Sistema - POST - /v3/evento', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

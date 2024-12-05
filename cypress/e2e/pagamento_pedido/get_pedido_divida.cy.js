@@ -2,6 +2,7 @@
 // Lista pedidos para pagamento no TOTEM
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
   const url = '/Pagamento%20pedido/v2_pag_pedido_divida';
@@ -18,6 +19,7 @@ describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

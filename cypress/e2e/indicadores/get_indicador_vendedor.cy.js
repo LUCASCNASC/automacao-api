@@ -2,6 +2,7 @@
 // Indicadores do vendedor
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
   const url = '/Indicadores/v3_indicador_vendedor';
@@ -18,6 +19,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

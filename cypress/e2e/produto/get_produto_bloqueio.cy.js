@@ -2,6 +2,7 @@
 // Produto bloqueado.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Produtos - GET - /v3/produto_bloqueio', () => {
   const url = '/Produto/v2_produto_bloqueio';
@@ -18,6 +19,7 @@ describe('Produtos - GET - /v3/produto_bloqueio', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

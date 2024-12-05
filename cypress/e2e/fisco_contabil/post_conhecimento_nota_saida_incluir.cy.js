@@ -3,6 +3,7 @@
 
 import reqBody_post_conhecimento_nota_saida_incluir from '../../fixtures/fisco_contabil/post_conhecimento_nota_saida_incluir.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', () => {
   const url = '/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir';
@@ -14,6 +15,7 @@ describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', () => 
         method: 'POST', 
         url: rurl, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -2,6 +2,7 @@
 // Excluir pedido de venda
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - DELETE - /v3/pedido/{codigo}', () => {
   const url = '/Pedido/v2_pedido_get_delete2'
@@ -17,6 +18,7 @@ describe('Pedido - DELETE - /v3/pedido/{codigo}', () => {
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

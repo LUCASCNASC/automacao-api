@@ -3,6 +3,7 @@
 
 import reqBody_post_nota_fiscal_consulta_nfe from '../../fixtures/fisco_contabil/post_nota_fiscal_consulta_nfe.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
   const url = '/Fisco/Contabil/v3_post_nota_fiscal_consulta_nfe';
@@ -14,6 +15,7 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

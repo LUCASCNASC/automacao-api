@@ -3,6 +3,7 @@
 
 import reqBody_post_incluir_voucher_pagamento from '../../fixtures/financeiro/post_incluir_voucher_pagamento.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
   const url = '/Financeiro/v3_financeiro_incluir_voucher_pagamento';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

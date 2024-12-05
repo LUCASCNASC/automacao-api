@@ -3,6 +3,7 @@
 
 import reqBody_post_executar_filtro from '../../fixtures/sistema/post_executar_filtro.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sistema - POST - /v3/executar_filtro', () => {
   const url = '/Sistema/v2_sistema_executar_filtro';
@@ -14,6 +15,7 @@ describe('Sistema - POST - /v3/executar_filtro', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

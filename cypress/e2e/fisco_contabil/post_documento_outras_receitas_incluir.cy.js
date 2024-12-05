@@ -3,6 +3,7 @@
 
 import reqBody_post_documento_outras_receitas_incluir from '../../fixtures/fisco_contabil/post_documento_diverso_lista.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - POST - /v3/documento_outras_receitas_incluir', () => {
   const url = '/Fisco/Contabil/v3_post_documento_outras_receitas_incluir';
@@ -14,6 +15,7 @@ describe('Fisco/Contábil - POST - /v3/documento_outras_receitas_incluir', () =>
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

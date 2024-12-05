@@ -3,6 +3,7 @@
 
 import reqBody_post_excluir_titulo_areceber_apagar from '../../fixtures/financeiro/post_excluir_titulo_areceber_apagar.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
   const url = '/Financeiro/v3_excluir_titulo_areceber_apagar';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

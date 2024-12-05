@@ -3,6 +3,7 @@
 
 import reqBody_put_regra_fiscal_cfop_alterar  from '../../fixtures/fisco_contabil/put_regra_fiscal_cfop_alterar.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_cfop_put';
@@ -14,6 +15,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', () => {
         method: 'PUT', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

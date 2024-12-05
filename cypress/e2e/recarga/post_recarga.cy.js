@@ -3,6 +3,7 @@
 
 import reqBody_post_recarga from '../../fixtures//recarga/post_recarga.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Titulo - POST - /v3/recarga', () => {
   const url = '/Recarga/v3_post_recarga';
@@ -14,6 +15,7 @@ describe('Titulo - POST - /v3/recarga', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -2,6 +2,7 @@
 // Lista dos CNAEs
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Diversos - GET - /v3/cnae', () => {
   const url = '/Diversos/v2_diversos_cnae';
@@ -19,6 +20,7 @@ describe('Diversos - GET - /v3/cnae', () => {
         method: 'GET', 
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

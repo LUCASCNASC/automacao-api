@@ -2,6 +2,7 @@
 // Lista dos vendedores
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Diversos - GET - /v3/vendedor', () => {
   const url = '/Diversos/v2_diversos_vendedor';
@@ -19,6 +20,7 @@ describe('Diversos - GET - /v3/vendedor', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

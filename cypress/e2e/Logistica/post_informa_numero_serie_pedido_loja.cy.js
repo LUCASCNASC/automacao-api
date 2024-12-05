@@ -3,6 +3,7 @@
 
 import reqBody_post_informa_numero_serie_pedido_loja from '../../fixtures/logistica/post_informa_numero_serie_pedido_loja.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', () => {
   const url = '/Log%C3%ADstica/v3_post_logistica_informanumeroseriepedidoloja';
@@ -14,6 +15,7 @@ describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

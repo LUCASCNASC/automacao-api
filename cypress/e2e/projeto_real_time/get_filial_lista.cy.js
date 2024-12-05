@@ -2,6 +2,7 @@
 
 import reqBody_get_filial_lista from '../../fixtures/projeto_real_time/get_filial_lista.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
   const url ='/Projeto%20Real%20Time';
@@ -13,6 +14,7 @@ describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

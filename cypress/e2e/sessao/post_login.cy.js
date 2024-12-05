@@ -2,6 +2,7 @@
 // Estabelece uma comunicação com o sistema com base no usuário.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sessão - POST - /v3/login', () => {
   const url = '/Sess%C3%A3o/v3_sessao_login_post';
@@ -16,6 +17,7 @@ describe('Sessão - POST - /v3/login', () => {
         method: 'GET',
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

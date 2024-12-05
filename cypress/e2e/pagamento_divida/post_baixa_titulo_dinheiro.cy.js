@@ -3,6 +3,7 @@
 
 import reqBody_post_baixa_titulo from '../../fixtures/pagamento_divida/post_baixa_titulo_dinheiro.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
   const url = '/Pagamento%20divida/v2_divida_baixa_titulo';
@@ -14,6 +15,7 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -3,6 +3,7 @@
 
 import reqBody_put_agencia from '../../fixtures/financeiro/put_agencia.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - PUT - /v3/agencia', () => {
   const url = '/Financeiro/v3_financeiro_agencia2';
@@ -14,6 +15,7 @@ describe('Financeiro - PUT - /v3/agencia', () => {
         method: 'PUT', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -3,6 +3,7 @@
 
 import reqBody_post_movimento_assistencia_incluir from '../../fixtures/assistencia/post_movimento_assistencia_incluir.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
   const url = '/Assistencia/v3_post_movimento_assistencia_incluir';
@@ -15,6 +16,7 @@ describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

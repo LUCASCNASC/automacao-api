@@ -3,6 +3,7 @@
 
 import reqBody_post_receber_transferencia from '../../fixtures/fisco_contabil/post_receber_transferencia.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
   const url = '/Fisco/Contabil/v3_post_receber_transferencia';
@@ -14,6 +15,7 @@ describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

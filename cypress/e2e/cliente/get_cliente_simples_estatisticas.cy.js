@@ -2,6 +2,7 @@
 // Estatísticas do cliente simplificado
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', () => {
   const url = '/Cliente/v2_cliente_simples_estatisticas';
@@ -16,6 +17,7 @@ describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

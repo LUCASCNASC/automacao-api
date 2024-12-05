@@ -2,6 +2,7 @@
 // Cancelar a intenção de compra
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
   const url = '/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_delete';
@@ -16,6 +17,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

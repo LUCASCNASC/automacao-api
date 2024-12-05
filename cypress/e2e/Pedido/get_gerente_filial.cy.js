@@ -2,6 +2,7 @@
 // Retorna o gerente da filial informada
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - GET - /v3/gerente_filial/{idFilial}', () => {
   const url = '/Pedido/v3_gerente_filial';
@@ -16,6 +17,7 @@ describe('Pedido - GET - /v3/gerente_filial/{idFilial}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

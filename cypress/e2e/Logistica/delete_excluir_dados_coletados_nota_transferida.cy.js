@@ -2,6 +2,7 @@
 // Exclui os dados coletados da nota transferida, zerando campo quantidade coletado e voltanto situação para A Coletar
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga}', () => {
   const url = '/Log%C3%ADstica/v3_delete_excluir_dado_coletado_nota_transferida';
@@ -17,6 +18,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

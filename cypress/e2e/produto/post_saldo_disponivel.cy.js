@@ -3,6 +3,7 @@
 
 import reqBody_post_saldo_disponivel from '../../fixtures/produto/post_saldo_disponivel.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Produtos - POST - /v3/saldo_disponivel', () => {
   const url = '/Produto/v3_produto_saldo_disponivel';
@@ -14,6 +15,7 @@ describe('Produtos - POST - /v3/saldo_disponivel', () => {
       method: 'POST', 
       url: url,
       headers: { 
+        Pragma: pragma_token,
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       },

@@ -2,6 +2,7 @@
 // Listar rotas por cidade
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Diversos - GET - /v3/rota_cidade', () => {
   const url = '/Diversos/v3_diversos_rota_cidade';
@@ -18,6 +19,7 @@ describe('Diversos - GET - /v3/rota_cidade', () => {
         method: 'GET', 
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         }, 

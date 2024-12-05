@@ -3,6 +3,7 @@
 
 import reqBody_get_parametros_sitema from '../../fixtures/sistema/get_parametros_sitema.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sistema - GET - /v3/parametros_sitema', () => {
   const url = '/Sistema/v2_sistema_parametro_sistema';
@@ -14,6 +15,7 @@ describe('Sistema - GET - /v3/parametros_sitema', () => {
         method: 'GET',
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

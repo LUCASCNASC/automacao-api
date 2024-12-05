@@ -2,6 +2,7 @@
 // Excluir base fiscal de departamento
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBaseFiscalDepartamento}', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_departamento_delete';
@@ -16,6 +17,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBa
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

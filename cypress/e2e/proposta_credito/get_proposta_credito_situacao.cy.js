@@ -2,6 +2,7 @@
 // Situação da proposta crédito
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', () => {
   const url = '/Proposta%20cr%C3%A9dito/v2_proposta_credito_situacao';
@@ -16,6 +17,7 @@ describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', () 
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

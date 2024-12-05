@@ -2,6 +2,7 @@
 // listas de históricos da pós-venda
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
   const url = '/P%C3%B3s-venda/v2_pos_venda_Historico';
@@ -16,6 +17,7 @@ describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

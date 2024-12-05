@@ -3,6 +3,7 @@
 
 import reqBody_get_inventario from '../../fixtures/inventario/get_inventario.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Inventário - GET - /v3/inventario', () => {
   const url = '/Invent%C3%A1rio/v3_get_inventario';
@@ -14,6 +15,7 @@ describe('Inventário - GET - /v3/inventario', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

@@ -3,6 +3,7 @@
 
 import reqBody_post_mapa_carga_update_item_coletado from '../../fixtures/logistica/post_mapa_carga_update_item_coletado.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - POST - /v3/mapa_carga_update_item_coletado', () => {
   const url = '/Log%C3%ADstica/v3_post_mapa_carga_update_item_coletado';
@@ -14,6 +15,7 @@ describe('Logística - POST - /v3/mapa_carga_update_item_coletado', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

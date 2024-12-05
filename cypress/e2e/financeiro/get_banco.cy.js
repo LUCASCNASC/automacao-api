@@ -2,6 +2,7 @@
 // Listar banco
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - GET - /v3/banco', () => {
   const url = '/Financeiro/v3_financeiro_banco3';
@@ -14,6 +15,7 @@ describe('Financeiro - GET - /v3/banco', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

@@ -3,6 +3,7 @@
 
 import reqBody_post_referenciabancaria from '../../fixtures/financeiro/post_referenciabancaria.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/referenciabancaria', () => {
   const url = '/Financeiro/v3_financeiro_referencia_bancaria1';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/referenciabancaria', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

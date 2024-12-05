@@ -2,6 +2,7 @@
 // Listar base fiscal diversas
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto}', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_diversas_get';
@@ -21,6 +22,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{C
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

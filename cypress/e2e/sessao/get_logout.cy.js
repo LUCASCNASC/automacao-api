@@ -2,6 +2,7 @@
 // Finaliza a conexão estabelecida com o serviço.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sessão - GET - /v3/logout', () => {
   const url = '/Sess%C3%A3o/v2_sessao_logout';
@@ -14,6 +15,7 @@ describe('Sessão - GET - /v3/logout', () => {
         method: 'GET',
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

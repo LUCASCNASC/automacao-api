@@ -2,6 +2,7 @@
 // Sessões ativas.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('API - GET - /api/session', () => {
   const url = '/API/api_session';
@@ -14,6 +15,7 @@ describe('API - GET - /api/session', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

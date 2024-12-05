@@ -3,6 +3,7 @@
 
 import reqBody_post_pedido_venda_alterar_previsao_entrega from '../../fixtures/pedido/post_pedido_venda_alterar_previsao_entrega.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - POST - /v3/pedido_venda_alterar_previsao_entrega/', () => {
   const url = '/Pedido/v3_post_pedido_venda_previsao_entrega';
@@ -14,6 +15,7 @@ describe('Pedido - POST - /v3/pedido_venda_alterar_previsao_entrega/', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

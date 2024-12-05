@@ -2,6 +2,7 @@
 // Relatório do pedido de venda
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Pedido - GET - /v3/pedido_relatorio/{codigo}', () => {
   const url = '/Pedido/v2_pedido_relatorio';
@@ -16,6 +17,7 @@ describe('Pedido - GET - /v3/pedido_relatorio/{codigo}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

@@ -2,6 +2,7 @@
 // Listar o valor do parâmetro 1055 - percentual máximo de desconto no recebimento de títulos do caixa.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial}', () => {
   const url = '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo';
@@ -16,6 +17,7 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

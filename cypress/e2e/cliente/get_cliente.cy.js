@@ -2,6 +2,7 @@
 // Dados do cliente
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Cliente - GET - /v3/cliente/{cliente}', () => {
   const url = '/Cliente/v2_cliente_get_delete_get';
@@ -16,6 +17,7 @@ describe('Cliente - GET - /v3/cliente/{cliente}', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

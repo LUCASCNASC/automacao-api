@@ -3,6 +3,7 @@
 
 import reqBody_post_contabancaria from '../../fixtures/financeiro/post_contabancaria.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/contabancaria', () => {
   const url = '/Financeiro/v3_financeiro_conta_bancaria1';
@@ -13,7 +14,8 @@ describe('Financeiro - POST - /v3/contabancaria', () => {
       cy.request({
         method: 'POST',
         url: url, 
-        headers: { 
+        headers: {
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

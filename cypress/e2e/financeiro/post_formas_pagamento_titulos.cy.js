@@ -3,6 +3,7 @@
 
 import reqBody_post_formas_pagamento_titulos from '../../fixtures/financeiro/post_excluir_titulo_areceber_apagar.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
   const url = '/Financeiro/v3_financeiro_formas_pagamento_titulos';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

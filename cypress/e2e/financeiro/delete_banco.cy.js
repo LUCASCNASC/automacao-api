@@ -2,6 +2,7 @@
 // Excluir banco pelo código
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - DELETE - /v3/banco/{codigo}', () => {
   const url = '/Financeiro/v3_financeiro_banco_delete';
@@ -16,6 +17,7 @@ describe('Financeiro - DELETE - /v3/banco/{codigo}', () => {
         method: 'DELETE', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

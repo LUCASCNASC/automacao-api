@@ -1,6 +1,7 @@
 // /v3/trial - Trial - Lista de trial
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Trial - GET - /v3/trial', () => {
   const url = '/Trial/v2_trial_get_post1';
@@ -19,6 +20,7 @@ describe('Trial - GET - /v3/trial', () => {
         method: 'GET', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },

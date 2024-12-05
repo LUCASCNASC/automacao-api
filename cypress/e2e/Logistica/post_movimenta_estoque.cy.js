@@ -3,6 +3,7 @@
 
 import reqBody_post_movimenta_estoque from '../../fixtures/logistica/post_movimenta_estoque.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Logística - POST - /v3/movimenta_estoque', () => {
   const url = '/Log%C3%ADstica/v3_post_movimenta_estoque'
@@ -14,6 +15,7 @@ describe('Logística - POST - /v3/movimenta_estoque', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

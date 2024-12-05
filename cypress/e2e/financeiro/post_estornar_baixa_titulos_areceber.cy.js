@@ -3,6 +3,7 @@
 
 import reqBody_post_estornar_baixa_titulo_areceber from '../../fixtures/financeiro/post_estornar_baixa_titulos_areceber.json'
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', () => {
   const url = '/Financeiro/v3_post_estornar_baixa_titulo_areceber';
@@ -14,6 +15,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', () => {
         method: 'POST', 
         url: url, 
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },

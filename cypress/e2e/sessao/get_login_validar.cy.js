@@ -2,6 +2,7 @@
 // Valida o pragma da sessão.
 
 import acess_token from '../../fixtures/token.json'
+import pragma_token from '../../fixtures/pragma.json'
 
 describe('Sessão - GET - /v3/login_validar', () => {
   const url = '/Sess%C3%A3o/v3_sessao_login_validar';
@@ -14,6 +15,7 @@ describe('Sessão - GET - /v3/login_validar', () => {
         method: 'GET',
         url: url,
         headers: { 
+          Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
