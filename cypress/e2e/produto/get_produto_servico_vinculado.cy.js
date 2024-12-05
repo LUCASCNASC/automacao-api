@@ -20,7 +20,7 @@ describe('Produtos - GET - /v3/produto_servico_vinculado ', () => {
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

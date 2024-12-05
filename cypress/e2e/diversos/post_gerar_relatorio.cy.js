@@ -15,7 +15,7 @@ describe('Diversos - POST - /v3/gerar_relatorio', () => {
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: reqBody_post_gerar_relatorio,
         failOnStatusCode: false

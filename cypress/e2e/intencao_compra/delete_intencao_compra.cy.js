@@ -17,7 +17,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

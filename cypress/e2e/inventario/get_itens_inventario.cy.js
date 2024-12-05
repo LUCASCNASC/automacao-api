@@ -18,7 +18,7 @@ describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', (
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

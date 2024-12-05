@@ -15,7 +15,7 @@ describe('Recarga - GET - /v3/configuracao_recarga', () => {
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

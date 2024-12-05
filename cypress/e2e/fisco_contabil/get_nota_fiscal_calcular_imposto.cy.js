@@ -18,7 +18,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{Reg
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

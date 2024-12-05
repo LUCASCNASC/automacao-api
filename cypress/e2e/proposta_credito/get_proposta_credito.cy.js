@@ -21,7 +21,7 @@ describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', () => 
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

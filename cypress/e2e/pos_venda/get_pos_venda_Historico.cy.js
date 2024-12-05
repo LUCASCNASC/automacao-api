@@ -17,7 +17,7 @@ describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

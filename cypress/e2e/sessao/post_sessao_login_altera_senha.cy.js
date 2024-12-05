@@ -19,7 +19,7 @@ describe('Sessão - POST - /v3/sessao_login_altera_senha', () => {
         url: url,
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

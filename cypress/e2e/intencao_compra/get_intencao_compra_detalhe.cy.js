@@ -19,7 +19,7 @@ describe('Intenção compra - GET - /v3/intencao_compra_detalhe/{codigo}', () =>
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

@@ -18,7 +18,7 @@ describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInvent
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

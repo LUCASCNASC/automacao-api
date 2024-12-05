@@ -17,7 +17,7 @@ describe('Cliente - GET - /v3/cliente_simples/{cliente}', () => {
         url: url, 
         headers: { 
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
         requestBody,
         failOnStatusCode: false

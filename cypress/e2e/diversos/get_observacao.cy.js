@@ -7,7 +7,6 @@ describe('Diversos - GET - /v3/observacao', () => {
   const url = '/Diversos/v3_diversos_observacao';
   const token = acess_token
   
-
   it('Resposta 200', () => {
     const requestBody = {
       "idobservacao": 1110,
