@@ -1,8 +1,12 @@
 // /v3/mapa_carga_loja_lote/{idFilial}/{idMapaCargaLojaInicial}/{idMapaCargaLojaFinal} - Lista Mapa Carga Loja em lote
 // Retorna uma lista com os mapas de carga loja na situação(1 - A Carregar), de acordo com o preenchimento dos parâmetros de entrada:
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Logística - GET - /v3/mapa_carga_loja_lote/{idFilial}/{idMapaCargaLojaInicial}/{idMapaCargaLojaFinal}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+    const url = '/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_loja_lote';
+    const token = acess_token
+
     it('Resposta 200', () => {
       const requestBody = {
         idFilial: "",
@@ -12,9 +16,13 @@ describe('Logística - GET - /v3/mapa_carga_loja_lote/{idFilial}/{idMapaCargaLoj
 
       cy.request({
         method: 'GET', 
-        url: '/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_loja_lote', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

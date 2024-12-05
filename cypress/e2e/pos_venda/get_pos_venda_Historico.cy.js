@@ -1,8 +1,11 @@
 // /v3/pos_venda_Historico/{codigo} - histórico Pós-venda
 // listas de históricos da pós-venda
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/P%C3%B3s-venda/v2_pos_venda_Historico';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/P%C3%B3s-venda/v2_pos_venda_Historico', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

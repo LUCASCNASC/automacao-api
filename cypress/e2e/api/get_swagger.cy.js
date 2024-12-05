@@ -1,8 +1,11 @@
 // /api/swagger - Swagger
 // JSON com informações para criar pagina swagger
 
+import acess_token from '../../fixtures/token.json'
+
 describe('API - GET - /api/swagger', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/API/api_swagger';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('API - GET - /api/swagger', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/API/api_swagger', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

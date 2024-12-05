@@ -1,7 +1,10 @@
 // /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais} - Lista de Trial a autorizar - Retorna a lista de trial e a chave ou supervisor para autorizar
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+    const url = '/Trial/v3_get_trial_autorizacao';
+    const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', 
 
       cy.request({
         method: 'GET', 
-        url: '/Trial/v3_get_trial_autorizacao', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

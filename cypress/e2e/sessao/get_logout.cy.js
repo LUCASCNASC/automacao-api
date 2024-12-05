@@ -1,17 +1,24 @@
 // /v3/logout - Fechar conexão com o servidor
 // Finaliza a conexão estabelecida com o serviço.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Sessão - GET - /v3/logout', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Sess%C3%A3o/v2_sessao_logout';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {}
 
       cy.request({
         method: 'GET',
-        url: '/Sess%C3%A3o/v2_sessao_logout',
-        //headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url,
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

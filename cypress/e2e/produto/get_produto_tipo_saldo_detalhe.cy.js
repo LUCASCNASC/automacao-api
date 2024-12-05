@@ -1,8 +1,11 @@
 // /v3/produto_tipo_saldo_detalhe - Tipo Saldo Detalhe
 // Lista de Tipo Saldo Detalhado do Produto
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Produto/v3_produto_tipo_saldo_detalhe';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Produto/v3_produto_tipo_saldo_detalhe', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

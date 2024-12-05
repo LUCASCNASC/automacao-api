@@ -1,8 +1,11 @@
 // /v3/apaga_usuario_inventario/{idFilial}/{idInventario} - Apaga o usuário do inventário
 // Apaga o usuário do inventário se não existir nenhuma contagem existente.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Invent%C3%A1rio/v3_post_apaga_usuario_inventario';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInvent
 
       cy.request({
         method: 'POST', 
-        url: '/Invent%C3%A1rio/v3_post_apaga_usuario_inventario', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

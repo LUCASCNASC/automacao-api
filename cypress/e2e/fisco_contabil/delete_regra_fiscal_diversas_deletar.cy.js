@@ -1,8 +1,11 @@
 // /v3/regra_fiscal_diversas_deletar/{idBaseFiscalDiversas} - Exclusão de base fiscal (diversas)
 // Excluir base fiscal diversas
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFiscalDiversas}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Fisco/Contabil/v3_regra_fiscal_diversas_delete';
+  const token = acess_token 
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFi
 
       cy.request({
         method: 'DELETE', 
-        url: '/Fisco/Contabil/v3_regra_fiscal_diversas_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

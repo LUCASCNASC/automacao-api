@@ -1,8 +1,11 @@
 // /v3/pedidos_pendentes/{filial} - Pedidos
 // Lista pedidos para pagamento
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pagamento%20pedido/v3_pag_pedidos_pendentes';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -16,9 +19,13 @@ describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Pagamento%20pedido/v3_pag_pedidos_pendentes', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

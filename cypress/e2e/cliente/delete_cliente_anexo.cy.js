@@ -1,8 +1,11 @@
 // /v3/cliente_anexo/{idcnpj_cpf} - Excluir anexo
 // Excluir um anexo pelo idcnpj_cpf e idpessoaanexo
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Cliente/v3_cliente_anexo_delete';
+  const token = acess_token  
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
 
       cy.request({
         method: 'DELETE', 
-        url: '/Cliente/v3_cliente_anexo_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

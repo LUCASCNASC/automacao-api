@@ -1,8 +1,11 @@
 // /v3/vendedor - Vendedor
 // Lista dos vendedores
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Diversos - GET - /v3/vendedor', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Diversos/v2_diversos_vendedor';
+  const token = acess_token 
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -14,9 +17,13 @@ describe('Diversos - GET - /v3/vendedor', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Diversos/v2_diversos_vendedor', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

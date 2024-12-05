@@ -2,17 +2,23 @@
 // Serviço utilizado para informar número de série para produtos que controlam serial ou solicitam serial na venda
 
 import reqBody_post_pedido_venda_informanumeroserie from '../../fixtures/pedido/post_pedido_venda_informanumeroserie.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pedido/v3_post_pedido_venda_informanumeroserie';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Pedido/v3_post_pedido_venda_informanumeroserie', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_pedido_venda_informanumeroserie
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_pedido_venda_informanumeroserie,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

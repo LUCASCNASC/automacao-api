@@ -2,17 +2,23 @@
 // Inclusão A Receber/Pagar de Título, Parcela e Cartão
 
 import reqBody_post_titulo_incluir from '../../fixtures/titulo/post_titulo_incluir.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Titulo - POST - /v3/titulo_incluir', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Titulo/v3_post_titulo_incluir';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Titulo/v3_post_titulo_incluir', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_titulo_incluir
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_titulo_incluir,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

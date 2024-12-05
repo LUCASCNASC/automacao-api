@@ -1,17 +1,24 @@
 // /api/session - Sessões
 // Sessões ativas.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('API - GET - /api/session', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/API/api_session';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {}
 
       cy.request({
         method: 'GET', 
-        url: '/API/api_session', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

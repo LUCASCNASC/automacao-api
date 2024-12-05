@@ -2,17 +2,23 @@
 // Baixa pedido de compra simplificado, somente frete CIF
 
 import reqBody_post_pedido_compra_baixar from '../../fixtures/compras/post_pedido_compra_baixar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Compras - POST - /v3/pedido_compra_baixar', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Compras/v3_post_pedido_compra_baixar';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Compras/v3_post_pedido_compra_baixar', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_pedido_compra_baixar
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_pedido_compra_baixar,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

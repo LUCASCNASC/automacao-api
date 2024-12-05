@@ -1,8 +1,11 @@
 // /v3/forma_pagamento - Forma pagamento
 // Lista formas de pagamento
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Diversos - GET - /v3/forma_pagamento', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Diversos/v2_diversos_forma_pagamento';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Diversos - GET - /v3/forma_pagamento', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Diversos/v2_diversos_forma_pagamento', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

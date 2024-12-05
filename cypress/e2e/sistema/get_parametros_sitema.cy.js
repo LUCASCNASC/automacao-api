@@ -2,17 +2,23 @@
 // Lista informações de parâmetros da empresa
 
 import reqBody_get_parametros_sitema from '../../fixtures/sistema/get_parametros_sitema.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Sistema - GET - /v3/parametros_sitema', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Sistema/v2_sistema_parametro_sistema';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'GET',
-        url: '/Sistema/v2_sistema_parametro_sistema',
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_get_parametros_sitema
+        url: url,
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_get_parametros_sitema,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

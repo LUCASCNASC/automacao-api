@@ -1,8 +1,11 @@
 // /v3/excluir_dados_coletados_nota_transferida/{idFilialOrigem}/{idRegistroNotaOrigem} - Excluir dados coletados de Notas Transferidas
 // Exclui os dados coletados da nota transferida, zerando campo quantidade coletado e voltanto situação para A Coletar
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+  const url = '/Log%C3%ADstica/v3_delete_excluir_dado_coletado_nota_transferida';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
 
       cy.request({
         method: 'DELETE', 
-        url: '/Log%C3%ADstica/v3_delete_excluir_dado_coletado_nota_transferida', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

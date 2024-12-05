@@ -2,17 +2,24 @@
 // Parcela base
 
 import reqBody_post_pedido_parcela_base from '../../fixtures/pedido/post_pedido_parcela_base.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Pedido - POST - /v3/pedido_parcela_base', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Pedido/v2_pedido_parcela_base';
+  const token = acess_token  
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Pedido/v2_pedido_parcela_base', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_pedido_parcela_base
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+
+        body: reqBody_post_pedido_parcela_base,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

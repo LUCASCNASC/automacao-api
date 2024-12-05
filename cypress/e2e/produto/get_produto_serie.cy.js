@@ -1,8 +1,11 @@
 // /v3/produto_serie - Numero de serie
 // Lista número de série disponível do produto
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Produtos - GET - /v3/produto_serie ', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Produto/v2_produto_serie';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Produtos - GET - /v3/produto_serie ', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Produto/v2_produto_serie', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,8 +1,11 @@
 // /v3/filial_detalhe/{filial} - Dados da Filial
 // Retorna dados cadastrais da filial.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Filial - GET - /v3/filial_detalhe/{filial}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Filial/v2_filial_detalhe';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Filial - GET - /v3/filial_detalhe/{filial}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Filial/v2_filial_detalhe', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

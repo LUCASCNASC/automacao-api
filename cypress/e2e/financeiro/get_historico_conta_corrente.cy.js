@@ -1,8 +1,11 @@
 // /v3/historico_conta_corrente/{idTipoContaCorrente} - Lista histórico de conta corrente
 // Listar histórico de conta corrente
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Financeiro/v3_financeiro_historicocontacorrente';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
 
       cy.request({
         method: 'GET', 
-        url: '/Financeiro/v3_financeiro_historicocontacorrente', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

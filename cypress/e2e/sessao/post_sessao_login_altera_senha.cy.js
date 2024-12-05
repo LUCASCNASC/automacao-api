@@ -1,8 +1,11 @@
 // /v3/sessao_login_altera_senha - Altera senha de usuário
 // Altera senha para o usuário do sistema
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Sessão - POST - /v3/sessao_login_altera_senha', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Sess%C3%A3o/v3_post_sessao_login_altera_senha';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Sessão - POST - /v3/sessao_login_altera_senha', () => {
 
       cy.request({
         method: 'GET',
-        url: '/Sess%C3%A3o/v3_post_sessao_login_altera_senha',
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url,
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

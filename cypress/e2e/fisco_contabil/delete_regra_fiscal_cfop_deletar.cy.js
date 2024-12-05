@@ -1,8 +1,11 @@
 // /v3/regra_fiscal_cfop_deletar/{idBaseFiscalCFOP} - Exclusão de base fiscal (CFOP)
 // Excluir base fiscal de CFOP
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_cfop_deletar/{idBaseFiscalCFOP}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Fisco/Contabil/v3_regra_fiscal_cfop_delete';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_cfop_deletar/{idBaseFiscal
 
       cy.request({
         method: 'DELETE', 
-        url: '/Fisco/Contabil/v3_regra_fiscal_cfop_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

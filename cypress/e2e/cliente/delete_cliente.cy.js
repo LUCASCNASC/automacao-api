@@ -1,8 +1,11 @@
 // /v3/cliente/{cliente} - Dados do cliente
 // Excluir cliente
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Cliente - DELETE - /v3/cliente/{cliente}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Cliente/v2_cliente_get_delete_delete';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Cliente - DELETE - /v3/cliente/{cliente}', () => {
 
       cy.request({
         method: 'DELETE', 
-        url: '/Cliente/v2_cliente_get_delete_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

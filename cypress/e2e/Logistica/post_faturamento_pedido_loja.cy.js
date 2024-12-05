@@ -2,17 +2,23 @@
 // Fatura pedidos de loja de uma filial origem para uma filial destino que não estão em nenhum mapa de carga loja. Poderão ser faturados todos os pedidos de loja ou alguns, se especificado.
 
 import reqBody_post_faturamento_pedido_loja from '../../fixtures/logistica/post_faturamento_pedido_loja.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Logística - POST - /v3/faturamento_pedido_loja', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Log%C3%ADstica/v3_post_logistica_faturamentopedidolojaporfilial';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Log%C3%ADstica/v3_post_logistica_faturamentopedidolojaporfilial', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_faturamento_pedido_loja
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_faturamento_pedido_loja,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,9 +1,11 @@
 // /v3/recarga/{idFilial}/{idItemServico} - Dados Recarga Efetuada
 // Retorna os dados da recarga efetuada
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
-    const authorization = `Bearer ${Cypress.env('ACCESS_TOKEN')}`
+  const url = '/Recarga/v3_get_recarga';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +15,13 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Recarga/v3_get_recarga', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,8 +1,11 @@
 // /v3/observacao - Observação
 // Lista de observação
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Diversos - GET - /v3/observacao', () => {
-  const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Diversos/v3_diversos_observacao';
+  const token = acess_token
   
 
   it('Resposta 200', () => {
@@ -13,9 +16,13 @@ describe('Diversos - GET - /v3/observacao', () => {
 
     cy.request({
       method: 'POST', 
-      url: '/Diversos/v3_diversos_observacao', 
-      headers: { Authorization: `Bearer ${token}` },
-      requestBody
+      url: url, 
+      headers: { 
+        Authorization: `Bearer ${token}`,
+        //'Content-Type': 'application/json'
+      },
+      requestBody,
+      failOnStatusCode: false
     })
       .then((response) => {
         expect(response.status).to.eq(200);

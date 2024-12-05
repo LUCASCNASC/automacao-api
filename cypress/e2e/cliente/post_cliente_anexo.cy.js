@@ -1,23 +1,25 @@
 // /v3/cliente_anexo - Anexo do cliente
 // Incluir Anexo
 
+import reqBody_post_cliente_anexo from '../../fixtures/cliente/post_cliente_anexo.json'
+import acess_token from '../../fixtures/token.json'
+
 describe('Cliente - POST - /v3/cliente_anexo', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Cliente/v3_cliente_anexo_post';
+  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        "idcnpj_cpf": "string",
-        "idtipoanexo": 0,
-        "idpessoaanexo": "string",
-        "descricao": "string",
-        "arquivo": "string"
-      }
+      const requestBody = 
 
       cy.request({
         method: 'POST', 
-        url: '/Cliente/v3_cliente_anexo_post', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_cliente_anexo,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

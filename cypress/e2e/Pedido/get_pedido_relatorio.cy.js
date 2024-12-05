@@ -1,8 +1,11 @@
 // /v3/pedido_relatorio/{codigo} - Relatório
 // Relatório do pedido de venda
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pedido - GET - /v3/pedido_relatorio/{codigo}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pedido/v2_pedido_relatorio';
+  const token = acess_token
 
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Pedido - GET - /v3/pedido_relatorio/{codigo}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Pedido/v2_pedido_relatorio', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,8 +1,11 @@
 // /v3/indicador_vendedor/{ano} - Indicadores do Vendedor
 // Indicadores do vendedor
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Indicadores/v3_indicador_vendedor';
+  const token = acess_token
 
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Indicadores/v3_indicador_vendedor', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

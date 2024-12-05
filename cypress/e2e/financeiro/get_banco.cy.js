@@ -1,17 +1,24 @@
 // /v3/banco - Lista de banco
 // Listar banco
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - GET - /v3/banco', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Financeiro/v3_financeiro_banco3';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {}
 
       cy.request({
         method: 'GET', 
-        url: '/Financeiro/v3_financeiro_banco3', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

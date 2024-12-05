@@ -1,8 +1,11 @@
 // /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria} - Exclusão de referência bancária
 // Excluir referência bancária baseado no CNPJ/CPF da pessoa e código da referência bancária
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Financeiro/v3_financeiro_referencia_bancaria_delete';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBa
 
       cy.request({
         method: 'DELETE', 
-        url: '/Financeiro/v3_financeiro_referencia_bancaria_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -2,17 +2,23 @@
 // Baixar títulos a pagar.
 
 import reqBody_post_baixa_titulo_pagar  from '../../fixtures/financeiro/post_baixa_titulo_pagar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Financeiro - POST - /v3/baixa_titulo_pagar', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Financeiro/v3_financeiro_baixa_titulo_pagar';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Financeiro/v3_financeiro_baixa_titulo_pagar', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_baixa_titulo_pagar
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_baixa_titulo_pagar,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

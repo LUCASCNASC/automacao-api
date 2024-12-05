@@ -1,8 +1,11 @@
 // /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta} - Exclusão de conta bancária
 // Excluir conta bancária pelo código do banco, agência e conta
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Financeiro/v3_financeiro_conta_bancaria_delete';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/
 
       cy.request({
         method: 'DELETE', 
-        url: '/Financeiro/v3_financeiro_conta_bancaria_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

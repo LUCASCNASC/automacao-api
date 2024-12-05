@@ -1,8 +1,11 @@
 // /v3/regra_fiscal_departamento_deletar/{idBaseFiscalDepartamento} - Exclusão de base fiscal (departamento)
 // Excluir base fiscal de departamento
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBaseFiscalDepartamento}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Fisco/Contabil/v3_regra_fiscal_departamento_delete';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBa
 
       cy.request({
         method: 'DELETE', 
-        url: '/Fisco/Contabil/v3_regra_fiscal_departamento_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

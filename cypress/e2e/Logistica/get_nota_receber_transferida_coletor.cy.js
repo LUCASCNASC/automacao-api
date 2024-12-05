@@ -1,8 +1,11 @@
 // /v3/nota_receber_transferida_coletor/{idFilial} - Carrega de Notas Transferidas
 // Carrega as notas transferidas para filial destino para coletor de dados
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+    const url = '/Log%C3%ADstica/v3_get_carregar_nota_transferida_coletor';
+    const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', (
 
       cy.request({
         method: 'GET', 
-        url: '/Log%C3%ADstica/v3_get_carregar_nota_transferida_coletor', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

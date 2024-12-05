@@ -1,8 +1,11 @@
 // /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj} - Lista títulos (a Pagar)
 // Listar títulos a pagar de cliente ou fornecedor
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - GET - /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Financeiro/v3_financeiro_dividas_pagar';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Financeiro - GET - /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Financeiro/v3_financeiro_dividas_pagar', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

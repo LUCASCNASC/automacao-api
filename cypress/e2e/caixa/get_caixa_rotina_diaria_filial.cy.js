@@ -1,8 +1,11 @@
 // /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura} - Executar rotinas diárias da filial
 // Executa rotinas diárias da filial: Exclusão de pedidos e baixa de automática de títulos por perca, de acordo com os parâmetros de dias máximo, configurados em cada filial
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Caixa - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Caixa/v3_caixa_rotina_diaria_filial_get';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Caixa - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}
 
       cy.request({
         method: 'GET',
-        url: '/Caixa/v3_caixa_rotina_diaria_filial_get',
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url,
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

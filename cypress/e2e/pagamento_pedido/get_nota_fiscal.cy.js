@@ -1,9 +1,11 @@
 // /v3/nota_fiscal/{filial} - Nota fiscal
 // Nota fiscal
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
-    
+  const url = '/Pagamento%20pedido/v2_pag_pedido_nota_fiscal';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -14,9 +16,13 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Pagamento%20pedido/v2_pag_pedido_nota_fiscal', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

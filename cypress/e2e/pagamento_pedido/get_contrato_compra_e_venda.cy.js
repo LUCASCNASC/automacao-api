@@ -1,8 +1,11 @@
 // /v3/contrato_compra_e_venda/{filial}/{pedido} - Contrato compra/venda
 // Contrato da compra e venda
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}
 
       cy.request({
         method: 'GET', 
-        url: '/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

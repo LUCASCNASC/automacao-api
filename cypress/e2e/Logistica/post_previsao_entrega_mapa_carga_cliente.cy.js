@@ -2,17 +2,23 @@
 // Serão listados os próximos mapas com a data de previsão de entrega maior ou igual a data de faturamento informada, validando a rota, cubagem e o peso do mapa de carga.
 
 import reqBody_post_previsao_entrega_mapa_carga_cliente from '../../fixtures/logistica/post_previsao_entrega_mapa_carga_cliente.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente';
+  const token = acess_token
   
     it('Resposta 200', () => { 
 
       cy.request({
         method: 'POST', 
-        url: '/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_previsao_entrega_mapa_carga_cliente
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_previsao_entrega_mapa_carga_cliente,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

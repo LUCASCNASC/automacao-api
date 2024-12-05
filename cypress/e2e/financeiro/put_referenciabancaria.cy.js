@@ -2,17 +2,23 @@
 // Alterar referência bancária pelo CNPJ/CPF da pessoa e código da referência bancária
 
 import reqBody_put_referenciabancaria from '../../fixtures/financeiro/put_referenciabancaria.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Financeiro - PUT - /v3/referenciabancaria', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Financeiro/v3_financeiro_referencia_bancaria2';
+  const token = acess_token 
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'PUT', 
-        url: '/Financeiro/v3_financeiro_referencia_bancaria2', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_put_referenciabancaria
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_put_referenciabancaria,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

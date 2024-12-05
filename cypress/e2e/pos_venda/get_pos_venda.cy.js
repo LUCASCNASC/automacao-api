@@ -1,8 +1,11 @@
 // /v3/pos_venda - Pós-venda
 // Listas de pós-venda
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pós-venda - GET - /v3/pos_venda', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/P%C3%B3s-venda/v3_pos_venda_get_post1';
+  const token = acess_token 
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Pós-venda - GET - /v3/pos_venda', () => {
 
       cy.request({
         mehtod: 'GET', 
-        url: '/P%C3%B3s-venda/v3_pos_venda_get_post1', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

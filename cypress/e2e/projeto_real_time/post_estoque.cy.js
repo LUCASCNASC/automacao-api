@@ -1,17 +1,23 @@
 // /v3/estoque/ - Dados Estoque - Retorna o estoque
 
 import reqBody_post_estoque from '../../fixtures/projeto_real_time/post_estoque.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Projeto Real Time - POST - /v3/estoque/', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+    const url = '/Projeto%20Real%20Time/v3_post_estoque';
+    const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Projeto%20Real%20Time/v3_post_estoque', 
-        //headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_estoque
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_estoque,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

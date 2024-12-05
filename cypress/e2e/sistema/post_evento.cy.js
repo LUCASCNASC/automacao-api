@@ -2,17 +2,23 @@
 // Utilizado para registrar os eventos de movimentação dentro do Mobile
 
 import reqBody_post_evento from '../../fixtures/sistema/post_evento.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Sistema - POST - /v3/evento', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Sistema/v2_sistema_evento';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Sistema/v2_sistema_evento', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_evento
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_evento,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

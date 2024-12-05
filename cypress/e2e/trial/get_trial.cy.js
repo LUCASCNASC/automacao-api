@@ -1,7 +1,10 @@
 // /v3/trial - Trial - Lista de trial
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Trial - GET - /v3/trial', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Trial/v2_trial_get_post1';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -14,9 +17,13 @@ describe('Trial - GET - /v3/trial', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Trial/v2_trial_get_post1', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

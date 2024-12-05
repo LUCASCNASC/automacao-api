@@ -2,17 +2,23 @@
 // Efetua cancelamento pedido venda total ou parcial
 
 import reqBody_post_pedido_venda_cancelar from '../../fixtures/pedido/post_pedido_venda_cancelar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Pedido - POST - /v3/pedido_venda_cancelar/', () => {
-  const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Pedido/v3_post_pedido_venda_cancelar'
+  const token = acess_token
 
   it('Resposta 200', () => {
 
     cy.request({
       method: 'POST', 
-      url: '/Pedido/v3_post_pedido_venda_cancelar', 
-      headers: { Authorization: `Bearer ${token}` },
-      body: reqBody_post_pedido_venda_cancelar
+      url: url, 
+      headers: { 
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: reqBody_post_pedido_venda_cancelar,
+      failOnStatusCode: false
     })
       .then((response) => {
         expect(response.status).to.eq(200);

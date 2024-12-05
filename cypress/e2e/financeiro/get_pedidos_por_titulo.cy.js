@@ -1,8 +1,11 @@
 // /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo} - Lista pedidos por título
 // Retornar lista de pedidos que originaram o título
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Financeiro/v3_financeiro_pedidos_por_titulo';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
 
       cy.request({
         method: 'GET', 
-        url: '/Financeiro/v3_financeiro_pedidos_por_titulo', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,8 +1,11 @@
 // /v3/cliente_servico_vinculado/{cliente} - Serviço vinculado
 // Serviços vinculados disponíveis para o cliente
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url =  '/Cliente/v3_cliente_servico_vinculado';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Cliente/v3_cliente_servico_vinculado', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url:url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

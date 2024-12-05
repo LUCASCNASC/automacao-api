@@ -1,8 +1,11 @@
 // /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente} - Estorno de lançamento conta corrente
 // Estornar lançamento de conta corrente no financeiro.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Financeiro/v3_financeiro_lancamento_conta_corrente_delete';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLanc
  
       cy.request({
         method: 'DELETE', 
-        url: '/Financeiro/v3_financeiro_lancamento_conta_corrente_delete', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

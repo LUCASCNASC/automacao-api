@@ -1,8 +1,11 @@
 // /v3/login/{usuario}/{senha} - Login do sistema
 // Estabelece uma comunicação com o sistema com base no usuário. Login do usuário no sistema
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Sess%C3%A3o/v2_sessao_login';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Sess%C3%A3o/v2_sessao_login', 
-        //headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

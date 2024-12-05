@@ -2,17 +2,23 @@
 // Incluir/Alterar cliente
 
 import reqBody_post_cliente from '../../fixtures/cliente/post_cliente.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Cliente - POST - /v3/cliente', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Cliente/v3_cliente_post';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Cliente/v3_cliente_post', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_cliente
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_cliente,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

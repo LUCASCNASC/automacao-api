@@ -2,17 +2,23 @@
 // Finaliza a contagem de inventário, podendo ser finalizado definitivo ou não
 
 import reqBody_post_finaliza_inventario from '../../fixtures/inventario/post_finaliza_inventario.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Inventário - POST - /v3/finaliza_inventario', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Invent%C3%A1rio/v3_post_finaliza_inventario';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Invent%C3%A1rio/v3_post_finaliza_inventario', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_finaliza_inventario
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_finaliza_inventario,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

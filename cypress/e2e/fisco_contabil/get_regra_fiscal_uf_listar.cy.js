@@ -1,8 +1,11 @@
 // /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto} - Lista base fiscal (UF)
 // Listar base fiscal de UF
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Fisco/Contabil/v3_regra_fiscal_uf_get';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemP
 
       cy.request({
         method: 'GET', 
-        url: '/Fisco/Contabil/v3_regra_fiscal_uf_get', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

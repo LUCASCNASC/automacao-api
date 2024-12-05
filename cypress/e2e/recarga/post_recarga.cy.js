@@ -2,17 +2,23 @@
 // Efetivar Recarga Telefone
 
 import reqBody_post_recarga from '../../fixtures//recarga/post_recarga.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Titulo - POST - /v3/recarga', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Recarga/v3_post_recarga';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Recarga/v3_post_recarga', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_recarga
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_recarga,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

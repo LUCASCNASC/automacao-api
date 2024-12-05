@@ -2,17 +2,23 @@
 // Retorna as formas de pagamento disponíveis para os títulos informados.
 
 import reqBody_post_formas_pagamento_titulos from '../../fixtures/financeiro/post_excluir_titulo_areceber_apagar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Financeiro/v3_financeiro_formas_pagamento_titulos';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Financeiro/v3_financeiro_formas_pagamento_titulos', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_formas_pagamento_titulos
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_formas_pagamento_titulos,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

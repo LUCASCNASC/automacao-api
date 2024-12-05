@@ -2,17 +2,24 @@
 // Retornar lista com as solicitações de processamento
 
 import reqBody_post_lista_solicitacao_processamento from '../../fixtures/fisco_contabil/post_lista_solicitacao_processamento.json'
+import acess_token from '../../fixtures/token.json'
+
 
 describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Fisco/Contabil/v3_lista_solicitacao_processamento';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Fisco/Contabil/v3_lista_solicitacao_processamento', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_lista_solicitacao_processamento
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_lista_solicitacao_processamento,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

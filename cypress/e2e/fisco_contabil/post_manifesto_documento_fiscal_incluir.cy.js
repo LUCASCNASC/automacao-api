@@ -2,17 +2,23 @@
 // Incluir manifesto de documento fiscal
 
 import reqBody_post_manifesto_documento_fiscal_incluir from '../../fixtures/fisco_contabil/post_manifesto_documento_fiscal_incluir.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', () => {
-    const token = Cypress.env('AUTH_TOKEN');  // Recuperando o token do arquivo cypress.json
+  const url = '/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_manifesto_documento_fiscal_incluir
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_manifesto_documento_fiscal_incluir,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

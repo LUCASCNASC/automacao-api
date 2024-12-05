@@ -1,8 +1,11 @@
 // /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoVenda} - Impressoes Disponíveis Pedido
 // Retorna a lista do que pode ser impresso em um pedido de venda.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pedido - GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoVenda}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pedido/v3_pedido_impressoes_disponiveis';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Pedido - GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoV
 
       cy.request({
         method: 'GET', 
-        url: '/Pedido/v3_pedido_impressoes_disponiveis', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

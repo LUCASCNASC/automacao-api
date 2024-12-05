@@ -1,8 +1,11 @@
 // /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial} - Lista parâmetro (1055 - percentual desconto no recebimento de título)
 // Listar o valor do parâmetro 1055 - percentual máximo de desconto no recebimento de títulos do caixa.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
 
       cy.request({
         method: 'GET', 
-        url: '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

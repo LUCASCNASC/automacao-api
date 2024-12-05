@@ -1,8 +1,11 @@
 // /v3/cliente_anexo/{idcnpj_cpf} - Lista de anexos do cliente
 // Consultar os anexos do cliente
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Cliente - GET -/v3/cliente_anexo/{idcnpj_cpf}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Cliente/v3_cliente_anexo';
+  const token = acess_token 
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Cliente - GET -/v3/cliente_anexo/{idcnpj_cpf}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Cliente/v3_cliente_anexo', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

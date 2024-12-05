@@ -1,8 +1,11 @@
 // /v3/cancela_inventario/{idFilial}/{idInventario} - Cancelar inventário
 // Exclui toda a contagem já realizado de um inventário que não esteja finalizado, disponibilizando-o para outros usuários.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Invent%C3%A1rio/v3_post_cancela_inventario';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}'
 
       cy.request({
         method: 'POST', 
-        url: '/Invent%C3%A1rio/v3_post_cancela_inventario', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

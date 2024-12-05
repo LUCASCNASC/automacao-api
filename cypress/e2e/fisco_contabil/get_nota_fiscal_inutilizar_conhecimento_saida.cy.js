@@ -1,10 +1,12 @@
 // /v3/nota_fiscal_inutilizar_conhecimento_saida/{Filial}/{RegistroNota} - Inutiliza nota fiscal de conhecimento de saída
 // Inutilizar nota fiscal de conhecimento, registrado no sistema
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_inutilizar_conhecimento_saida/{Filial}/{RegistroNota}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Fisco/Contabil/v3_nota_fiscal_inutilizar_conhecimento_saida';
+  const token = acess_token
     
-  
     it('Resposta 200', () => {
       const requestBody = {
         Filial: "",
@@ -13,9 +15,13 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_inutilizar_conhecimento_saida/
 
       cy.request({
         method: 'GET', 
-        url: '/Fisco/Contabil/v3_nota_fiscal_inutilizar_conhecimento_saida', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

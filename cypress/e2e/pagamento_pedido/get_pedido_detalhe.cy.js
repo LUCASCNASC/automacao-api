@@ -1,8 +1,11 @@
 // /v3/pedido_detalhe/{filial}/{pedido} - Pedido Detalhe
 // Detalhes do pedido de venda
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pagamento pedido - GET - /v3/pedido_detalhe/{filial}/{pedido}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pagamento%20pedido/v3_pag_pedido_detalhe';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Pagamento pedido - GET - /v3/pedido_detalhe/{filial}/{pedido}', () => 
 
       cy.request({
         method: 'GET', 
-        url: '/Pagamento%20pedido/v3_pag_pedido_detalhe', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

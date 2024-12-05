@@ -1,8 +1,11 @@
 // /v3/local_entrega - Local de entrega
 // Listar locais de entrega
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Diversos - GET - /v3/local_entrega', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Diversos/v2_diversos_local_entrega';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Diversos - GET - /v3/local_entrega', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Diversos/v2_diversos_local_entrega', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

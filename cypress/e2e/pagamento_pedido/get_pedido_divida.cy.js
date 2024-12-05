@@ -1,8 +1,11 @@
 // /v3/pedido_divida/{filial} - Pedidos
 // Lista pedidos para pagamento no TOTEM
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pagamento%20pedido/v2_pag_pedido_divida';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Pagamento%20pedido/v2_pag_pedido_divida', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -2,17 +2,24 @@
 // Alterar nota fiscal do tipo manual
 
 import reqBody_post_nota_fiscal_alterar from '../../fixtures/fisco_contabil/post_nota_fiscal_alterar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_alterar/', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Fisco/Contabil/v3_post_nota_fiscal_alterar';
+  const token = acess_token
+  
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Fisco/Contabil/v3_post_nota_fiscal_alterar', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_nota_fiscal_alterar
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_nota_fiscal_alterar,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

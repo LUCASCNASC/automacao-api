@@ -2,17 +2,23 @@
 // Fechar pedido de venda
 
 import reqBody_post_pedido_fechar from '../../fixtures/pedido/post_pedido_fechar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Pedido - POST - /v3/pedido_fechar', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Pedido/v2_pedido_fechar';
+  const token = acess_token
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Pedido/v2_pedido_fechar', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_pedido_fechar
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_pedido_fechar,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,8 +1,11 @@
 // /v3/cliente_simples_estatisticas/{idpessoa} - Dados do cliente
 // Estatísticas do cliente simplificado
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Cliente/v2_cliente_simples_estatisticas';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Cliente/v2_cliente_simples_estatisticas', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

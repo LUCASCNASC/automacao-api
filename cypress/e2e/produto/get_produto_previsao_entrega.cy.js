@@ -1,8 +1,11 @@
 // /v3/produto_previsao_entrega - Previsão de entrega
 // Previsão de entrega do produto.
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Produto/v2_produto_previsao_entrega';
+  const token = acess_token
     
     it('Resposta 200', () => {
       const requestBody = {
@@ -17,9 +20,13 @@ describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Produto/v2_produto_previsao_entrega', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

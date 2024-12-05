@@ -1,8 +1,11 @@
 // /v3/trial_lista_usuario/{idUsuario} - Lista de Triais do Usuário
 // Retorna uma lista de triais que o usuário informado tem permissão de acesso, com base nos triais vinculados na tela: nivel trial
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
-    const token = Cypress.env('AUTH_TOKEN');
+  const url = '/Trial/v3_get_lista_trial_usuario';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -11,9 +14,13 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Trial/v3_get_lista_trial_usuario', 
-        //headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,8 +1,11 @@
 // /v3/rota - Rotas
 // Listar rotas
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Diversos - GET - /v3/rota', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Diversos/v3_diversos_rota';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -13,9 +16,13 @@ describe('Diversos - GET - /v3/rota', () => {
 
       cy.request({
         method: 'GET', 
-        url: '/Diversos/v3_diversos_rota', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

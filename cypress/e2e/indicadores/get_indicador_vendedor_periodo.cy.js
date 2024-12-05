@@ -1,8 +1,11 @@
 // /v3/indicador_vendedor_periodo/{datainicial}/{datafinal} - Indicadores do Vendedor por Período
 // Indicadores do vendedor por período
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal}', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Indicadores/v3_indicador_vendedor_periodo';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {
@@ -12,9 +15,13 @@ describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{data
 
       cy.request({
         method: 'GET', 
-        url: '/Indicadores/v3_indicador_vendedor_periodo', 
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

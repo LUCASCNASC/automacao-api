@@ -2,17 +2,23 @@
 // Inclui e Altera Produto
 
 import reqBody_post_pedido_compra_alterar from '../../fixtures/compras/post_produto_incluir_alterar.json'
+import acess_token from '../../fixtures/token.json'
 
 describe('Compras - POST - /v3/produto_incluir_alterar', () => {
-    const token = Cypress.env('AUTH_TOKEN');  
+  const url = '/Compras/v3_post_produto_incluir_alterar';
+  const token = acess_token 
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'POST', 
-        url: '/Compras/v3_post_produto_incluir_alterar', 
-        headers: { Authorization: `Bearer ${token}` },
-        body: reqBody_post_pedido_compra_alterar
+        url: url, 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: reqBody_post_pedido_compra_alterar,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);

@@ -1,17 +1,24 @@
 // /v3/processo - Processos Mobile
 // Carregar dados dos processos configurados para o Mobile
 
+import acess_token from '../../fixtures/token.json'
+
 describe('Diversos - GET - /v3/processo', () => {
-    const token = Cypress.env('AUTH_TOKEN'); 
+  const url = '/Diversos/v2_diversos_processo';
+  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = {}
 
       cy.request({
         method: 'GET', 
-        url: '/Diversos/v2_diversos_processo',
-        headers: { Authorization: `Bearer ${token}` },
-        requestBody
+        url: url,
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          //'Content-Type': 'application/json'
+        },
+        requestBody,
+        failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
