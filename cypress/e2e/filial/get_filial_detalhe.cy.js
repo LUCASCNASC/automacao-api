@@ -1,10 +1,13 @@
+// /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo} - Dados da Filial
+// Retorna dados cadastrais da filial.
+
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const filial = 10050  // ID da filial a ser consultada
 
-describe('', { env: { hideCredendials: true } }, () => {
+describe('Filial - GET - /v3/filial_detalhe/{filial}', { env: { hideCredendials: true } }, () => {
 
-  it('teste API', () => {
+  it.only('Retorno 200', () => {
     cy.api({
       method: 'GET',
       url: `${API_URL}/Filial/v2_filial_detalhe/${filial}`,

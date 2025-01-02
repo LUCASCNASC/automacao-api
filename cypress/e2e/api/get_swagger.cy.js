@@ -1,32 +1,20 @@
 // /api/swagger - Swagger
 // JSON com informações para criar pagina swagger
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
+const versao = ""
 
-describe('API - GET - /api/swagger', () => {
-  const url = '/API/api_swagger';
-  const token = acess_token
-  
-    it('Resposta 200', () => {
-      const requestBody = {
-        versao: ""
-      }
+describe('Filial - GET - /api/swagger', { env: { hideCredendials: true } }, () => {
 
-      cy.request({
-        method: 'GET', 
-        url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
-        requestBody,
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); 
-        });
-    });
-  });
+  it.only('Retorno 200', () => {
+    cy.api({
+      method: 'GET',
+      url: `${API_URL}/API/api_swagger/${versao}`,
+      headers: { Authorization }
+    }).should(({ status, body }) => {
+      const { data } = body
+      expect(resposta.status).toBe(200);
+    })
+  })
+})

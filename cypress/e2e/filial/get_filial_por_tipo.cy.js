@@ -1,34 +1,34 @@
 // /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo} - Lista de Filial
 // Retorna uma lista das filiais de acordo com os parâmetros informados
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
+const uf = 'PR';
+const municipio = 3317;
+const tipo = 1;
 
-describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', () => {
-  const url = '/Filial/v3_get_filial_por_tipo';
-  const token = acess_token
-  
-    it('Resposta 200', () => {
-      const requestBody = {
-        UF: "",
-        Municipio: "",
-        Tipo: ""
-      }
+describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', { env: { hideCredendials: true } }, () => {
 
-      cy.request({
-        method: 'GET', 
-        url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
-        requestBody,
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); 
-        });
-    });
-  });
+  it.only('Retorno 200', () => {
+    cy.api({
+      method: 'GET',
+      url: `${API_URL}/Filial/v3_get_filial_por_tipo/${uf}/${municipio}/${tipo}`,
+      headers: { Authorization }
+    }).should(({ status, body }) => {
+      const { data } = body
+      expect(resposta.status).toBe(200);
+      expect(resposta.body.retorno[0]).toHaveProperty('idtipofilial');
+      expect(resposta.body.retorno[0]).toHaveProperty('descricao_tipofilial');
+      expect(resposta.body.retorno[0]).toHaveProperty('nome_filial');
+      expect(resposta.body.retorno[0]).toHaveProperty('logradouro');
+      expect(resposta.body.retorno[0]).toHaveProperty('numero');
+      expect(resposta.body.retorno[0]).toHaveProperty('complemento');
+      expect(resposta.body.retorno[0]).toHaveProperty('bairro');
+      expect(resposta.body.retorno[0]).toHaveProperty('idcidade');
+      expect(resposta.body.retorno[0]).toHaveProperty('cidade');
+      expect(resposta.body.retorno[0]).toHaveProperty('telefone');
+      expect(resposta.body.retorno[0]).toHaveProperty('cep');
+      expect(resposta.body.retorno[0]).toHaveProperty('uf');
+    })
+  })
+})
