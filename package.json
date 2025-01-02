@@ -13,6 +13,7 @@
     "cypress": "^13.15.0"
   },
   "devDependencies": {
-    "cypress-plugin-api": "^2.11.2"
+    "cypress-plugin-api": "^2.11.2",
+    "supertest": "^7.0.0"
   }
 }
