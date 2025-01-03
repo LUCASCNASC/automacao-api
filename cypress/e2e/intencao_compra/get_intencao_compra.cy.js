@@ -25,6 +25,10 @@ describe('Intenção compra - GET - /v3/intencao_compra', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('idintencaocompra');
+          expect(resposta.body.retorno[0]).toHaveProperty('codigo');
+          expect(resposta.body.retorno[0]).toHaveProperty('nomecliente');
+          expect(resposta.body.retorno[0]).toHaveProperty('dtregistrado');
         });
     });
   });

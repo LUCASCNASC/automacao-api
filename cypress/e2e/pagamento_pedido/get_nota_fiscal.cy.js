@@ -29,6 +29,9 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('impressoratermica');
+          expect(resposta.body.retorno[0]).toHaveProperty('pdf');
+          expect(resposta.body.retorno[0]).toHaveProperty('size');
         });
     });
   });

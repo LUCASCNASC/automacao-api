@@ -27,6 +27,12 @@ describe('Diversos - GET - /v3/cep/{cep}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('rua');
+          expect(resposta.body.retorno[0]).toHaveProperty('bairro');
+          expect(resposta.body.retorno[0].estado[0]).toHaveProperty('uf_codigo');
+          expect(resposta.body.retorno[0].estado[0]).toHaveProperty('uf_nome');
+          expect(resposta.body.retorno[0].cidade[0]).toHaveProperty('cidade_codigo');
+          expect(resposta.body.retorno[0].cidade[0]).toHaveProperty('cidade_nome');
         });
     });
   });

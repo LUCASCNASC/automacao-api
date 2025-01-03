@@ -28,6 +28,15 @@ describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idFilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idPedido');
+          expect(resposta.body.retorno[0]).toHaveProperty('idItemBase');
+          expect(resposta.body.retorno[0]).toHaveProperty('sku');
+          expect(resposta.body.retorno[0]).toHaveProperty('nomeProduto');
+          expect(resposta.body.retorno[0]).toHaveProperty('valor');
+          expect(resposta.body.retorno[0]).toHaveProperty('dataVencimento');
+          expect(resposta.body.retorno[0]).toHaveProperty('tipoOrigem');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricaoTipoOrigem');
         });
     });
   });

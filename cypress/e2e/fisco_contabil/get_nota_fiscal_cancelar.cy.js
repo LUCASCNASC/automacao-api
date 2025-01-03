@@ -28,6 +28,10 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_cancelar/{Filial}/{RegistroNot
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('ID_Filial');
+          expect(resposta.body.retorno[0]).toHaveProperty('ID_Registro_Nota');
+          expect(resposta.body.retorno[0]).toHaveProperty('Status');
+          expect(resposta.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

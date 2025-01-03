@@ -29,6 +29,12 @@ describe('Diversos - GET - /v3/rota_cidade', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('idgruporota');
+          expect(resposta.body.retorno[0]).toHaveProperty('idrota');
+          expect(resposta.body.retorno[0]).toHaveProperty('idrotacidade');
+          expect(resposta.body.retorno[0]).toHaveProperty('bairro');
+          expect(resposta.body.retorno[0].cidade[0]).toHaveProperty('codigo');
+          expect(resposta.body.retorno[0].cidade[0]).toHaveProperty('descricao');
         });
     });
   });

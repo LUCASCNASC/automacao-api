@@ -28,6 +28,12 @@ describe('Financeiro - GET - /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idFilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idTitulo');
+          expect(resposta.body.retorno[0]).toHaveProperty('idParcelaTitulo');
+          expect(resposta.body.retorno[0]).toHaveProperty('idParcialTitulo');
+          expect(resposta.body.retorno[0]).toHaveProperty('dataVencimento');
+          expect(resposta.body.retorno[0]).toHaveProperty('valor');
         });
     });
   });

@@ -28,6 +28,12 @@ describe('Pedido - GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoV
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('idfilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idpedidovenda');
+          expect(resposta.body.retorno[0]).toHaveProperty('imprimeNota');
+          expect(resposta.body.retorno[0]).toHaveProperty('imprimecontratoservico');
+          expect(resposta.body.retorno[0]).toHaveProperty('imprimecarne');
+          expect(resposta.body.retorno[0]).toHaveProperty('imprimeContratoCompraVenda');
         });
     });
   });

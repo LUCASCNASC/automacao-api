@@ -28,6 +28,16 @@ describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', (
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('idFilial');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('idInventario');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('idProduto');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('idGradeX');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('idGradeY');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('descricao');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('codigoBarra');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('saldoInventario');
+          expect(resposta.body.retorno[0].inventarios[0]).toHaveProperty('saldoFilial');
+
         });
     });
   });

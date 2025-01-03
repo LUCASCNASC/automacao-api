@@ -27,6 +27,8 @@ describe('Diversos - GET - /v3/dados_tabela/{tabela}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('codigo');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
         });
     });
   });

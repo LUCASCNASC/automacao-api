@@ -29,6 +29,8 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idFilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idPedidoVenda');
         });
     });
   });

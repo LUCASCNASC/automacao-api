@@ -27,6 +27,8 @@ describe('Diversos - GET - /v3/cidade', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('cidade_codigo');
+          expect(resposta.body.retorno[0]).toHaveProperty('cidade_nome');
         });
     });
   });

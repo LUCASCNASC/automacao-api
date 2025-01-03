@@ -27,6 +27,15 @@ describe('Diversos - GET - /v3/local_entrega_por_cep', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idgruporota');
+          expect(resposta.body.retorno[0]).toHaveProperty('idrota');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricaorota');
+          expect(resposta.body.retorno[0]).toHaveProperty('codigo');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricaoentrega');
+          expect(resposta.body.retorno[0].cidade[0]).toHaveProperty('cidade_codigo');
+          expect(resposta.body.retorno[0].cidade[0]).toHaveProperty('cidade_nome');
+          expect(resposta.body.retorno[0].estado[0]).toHaveProperty('uf_codigo');
+          expect(resposta.body.retorno[0].estado[0]).toHaveProperty('uf_nome');
         });
     });
   });

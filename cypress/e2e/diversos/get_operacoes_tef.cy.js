@@ -25,6 +25,11 @@ describe('Diversos - GET - /v3/operacoes_tef', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idoperacaocomtef');
+          expect(resposta.body.retorno[0]).toHaveProperty('operacao');
+          expect(resposta.body.retorno[0].mensagens[0]).toHaveProperty('idmensagemtef');
+          expect(resposta.body.retorno[0].mensagens[0]).toHaveProperty('mensagem');
+          expect(resposta.body.retorno[0].mensagens[0]).toHaveProperty('retorno');
         });
     });
   });

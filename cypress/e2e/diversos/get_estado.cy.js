@@ -28,6 +28,8 @@ describe('Diversos - GET - /v3/estado', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('uf_codigo');
+          expect(resposta.body.retorno[0]).toHaveProperty('uf_nome');
         });
     });
   });

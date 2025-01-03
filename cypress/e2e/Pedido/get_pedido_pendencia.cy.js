@@ -29,6 +29,17 @@ describe('Pedido - GET - /v3/pedido_pendencia', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('codigo_pedido');
+          expect(resposta.body.retorno[0]).toHaveProperty('idsituacaopedidovenda');
+          expect(resposta.body.retorno[0]).toHaveProperty('geradovendamobile');
+          expect(resposta.body.retorno[0]).toHaveProperty('data_inclusao');
+          expect(resposta.body.retorno[0]).toHaveProperty('cliente');
+          expect(resposta.body.retorno[0]).toHaveProperty('vendedor');
+          expect(resposta.body.retorno[0]).toHaveProperty('nome_vendedor');
+          expect(resposta.body.retorno[0]).toHaveProperty('total_pedido');
+          expect(resposta.body.retorno[0]).toHaveProperty('idpropostacredito');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricaosituacaopropostacredito');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao_pendencia');
         });
     });
   });

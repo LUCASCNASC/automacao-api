@@ -27,6 +27,8 @@ describe('Diversos - GET - /v3/observacao', () => {
     })
       .then((response) => {
         expect(response.status).to.eq(200);
+        expect(resposta.body.retorno[0]).toHaveProperty('idobservacao');
+        expect(resposta.body.retorno[0]).toHaveProperty('descricao');
       });
   });
 });

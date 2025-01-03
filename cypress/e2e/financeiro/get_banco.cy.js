@@ -25,6 +25,8 @@ describe('Financeiro - GET - /v3/banco', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('idbanco');
+          expect(resposta.body.retorno[0]).toHaveProperty('nome');
         });
     });
   });

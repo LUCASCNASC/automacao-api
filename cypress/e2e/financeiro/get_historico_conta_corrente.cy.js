@@ -28,6 +28,10 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idHistoricoContaCorrente');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
+          expect(resposta.body.retorno[0]).toHaveProperty('idTipoHistorico');
+          expect(resposta.body.retorno[0]).toHaveProperty('tipoHistorico');
         });
     });
   });

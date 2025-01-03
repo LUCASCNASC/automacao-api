@@ -27,6 +27,8 @@ describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('cnpj_cpf');
+          expect(resposta.body.retorno[0]).toHaveProperty('nome');
         });
     });
   });

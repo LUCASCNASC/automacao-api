@@ -28,6 +28,18 @@ describe('Pagamento divida - GET - /v3/divida_cliente_vinculado/{filial}/{client
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idfilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idtitulo');
+          expect(resposta.body.retorno[0]).toHaveProperty('idparcelatitulo');
+          expect(resposta.body.retorno[0]).toHaveProperty('idparcialtitulo');
+          expect(resposta.body.retorno[0]).toHaveProperty('datavencimento');
+          expect(resposta.body.retorno[0]).toHaveProperty('valor');
+          expect(resposta.body.retorno[0].vinculados[0]).toHaveProperty('idfilial');
+          expect(resposta.body.retorno[0].vinculados[0]).toHaveProperty('idtitulo');
+          expect(resposta.body.retorno[0].vinculados[0]).toHaveProperty('idparcelatitulo');
+          expect(resposta.body.retorno[0].vinculados[0]).toHaveProperty('idparcialtitulo');
+          expect(resposta.body.retorno[0].vinculados[0]).toHaveProperty('datavencimento');
+          expect(resposta.body.retorno[0].vinculados[0]).toHaveProperty('valor');
         });
     });
   });
