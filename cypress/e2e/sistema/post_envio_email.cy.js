@@ -1,9 +1,8 @@
 // /v3/envio_email - Dados para Envio de Email
 // Enviar Email
 
-import reqBody_post_envio_email from '../../fixtures/sistema/post_envio_email.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - POST - /v3/envio_email', () => {
   const url = '/Sistema/v3_sistema_envio_email_post';

@@ -1,9 +1,8 @@
 // /v3/agencia - Inclusão de agência
 // Incluir agência
 
-import reqBody_post_agencia from '../../fixtures/financeiro/post_agencia.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/agencia', () => {
   const url = '/Financeiro/v3_financeiro_agencia1';

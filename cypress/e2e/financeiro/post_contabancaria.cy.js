@@ -1,9 +1,8 @@
 // /v3/contabancaria - Inclusão de conta bancária
 // Incluir conta bancária
 
-import reqBody_post_contabancaria from '../../fixtures/financeiro/post_contabancaria.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/contabancaria', () => {
   const url = '/Financeiro/v3_financeiro_conta_bancaria1';

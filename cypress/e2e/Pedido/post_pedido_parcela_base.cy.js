@@ -1,9 +1,8 @@
 // /v3/pedido_parcela_base - Parcela base
 // Parcela base
 
-import reqBody_post_pedido_parcela_base from '../../fixtures/pedido/post_pedido_parcela_base.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_parcela_base', () => {
   const url = '/Pedido/v2_pedido_parcela_base';

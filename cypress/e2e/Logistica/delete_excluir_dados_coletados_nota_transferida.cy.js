@@ -1,8 +1,8 @@
 // /v3/excluir_dados_coletados_nota_transferida/{idFilialOrigem}/{idRegistroNotaOrigem} - Excluir dados coletados de Notas Transferidas
 // Exclui os dados coletados da nota transferida, zerando campo quantidade coletado e voltanto situação para A Coletar
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga}', () => {
   const url = '/Log%C3%ADstica/v3_delete_excluir_dado_coletado_nota_transferida';

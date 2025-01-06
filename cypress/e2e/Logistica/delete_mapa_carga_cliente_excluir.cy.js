@@ -1,9 +1,8 @@
 // /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga} - Dados complementares do login
 // Excluir mapa de carga cliente e/ou retirar pedido do mapa de carga
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
-
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', () => {
   const url = '/Log%C3%ADstica/v3_delete_logistica_mapa_carga_cliente';
   const token = acess_token 

@@ -1,8 +1,8 @@
 // /v3/itens_inventario/{idFilial}/{idInventario} - Itens do Inventário
 // Lista os itens do inventários.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', () => {
   const url = '/Invent%C3%A1rio/v3_get_itens_inventario';

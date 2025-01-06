@@ -1,9 +1,8 @@
 // /v3/incluir_voucher_pagamento - Inclusão de título a pagar cliente por meio de voucher
 // Validar dados do voucher e incluir título a pagar para o cliente vinculado ao voucher.
 
-import reqBody_post_incluir_voucher_pagamento from '../../fixtures/financeiro/post_incluir_voucher_pagamento.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
   const url = '/Financeiro/v3_financeiro_incluir_voucher_pagamento';

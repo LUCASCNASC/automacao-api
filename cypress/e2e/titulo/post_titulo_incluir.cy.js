@@ -1,9 +1,8 @@
 // /v3/titulo_incluir - Incluir Título A Receber/Pagar
 // Inclusão A Receber/Pagar de Título, Parcela e Cartão
 
-import reqBody_post_titulo_incluir from '../../fixtures/titulo/post_titulo_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/titulo_incluir', () => {
   const url = '/Titulo/v3_post_titulo_incluir';

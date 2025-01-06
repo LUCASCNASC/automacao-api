@@ -1,8 +1,8 @@
 // /v3/login_validar - Validar pragma da sessão
 // Valida o pragma da sessão.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - GET - /v3/login_validar', () => {
   const url = '/Sess%C3%A3o/v3_sessao_login_validar';

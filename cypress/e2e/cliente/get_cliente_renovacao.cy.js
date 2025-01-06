@@ -1,8 +1,8 @@
 // /v3/cliente_renovacao/{cliente} - Renovação
 // Renovações de serviços disponiveis para o cliente
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', () => {
   const url = '/Cliente/v2_cliente_renovacao';

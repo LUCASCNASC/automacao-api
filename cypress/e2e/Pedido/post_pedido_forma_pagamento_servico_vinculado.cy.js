@@ -1,9 +1,8 @@
 // /v3/pedido_forma_pagamento_servico_vinculado - Serviços vinculados
 // Listar serviços vinculados a forma de pagamento do pedido mobile
 
-import reqBody_post_pedido_forma_pagamento_servico_vinculado from '../../fixtures/pedido/post_pedido_forma_pagamento_servico_vinculado.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_forma_pagamento_servico_vinculado', () => {
   const url = '/Pedido/v3_pedido_forma_pagamento_servico_vinculado';

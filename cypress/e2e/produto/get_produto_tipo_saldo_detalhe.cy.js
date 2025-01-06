@@ -1,8 +1,8 @@
 // /v3/produto_tipo_saldo_detalhe - Tipo Saldo Detalhe
 // Lista de Tipo Saldo Detalhado do Produto
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
   const url = '/Produto/v3_produto_tipo_saldo_detalhe';

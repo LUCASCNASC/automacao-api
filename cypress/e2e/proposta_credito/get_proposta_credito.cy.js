@@ -1,8 +1,8 @@
 // /v3/proposta_credito/{data_inicial} - Proposta crédito
 // Lista proposta de crédito
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', () => {
   const url = '/Proposta%20cr%C3%A9dito/v2_proposta_credito_get';

@@ -1,9 +1,8 @@
 // /v3/key_value - Dados de chave e valor
 // Incluir/Alterar chave e valor
 
-import reqBody_post_key_value from '../../fixtures/sistema/post_key_value.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - POST - /v3/key_value', () => {
   const url = '/Sistema/v2_sistema_key_value_post';

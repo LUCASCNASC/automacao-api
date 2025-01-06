@@ -1,8 +1,8 @@
 // /v3/rota - Rotas
 // Listar rotas
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - GET - /v3/rota', () => {
   const url = '/Diversos/v3_diversos_rota';

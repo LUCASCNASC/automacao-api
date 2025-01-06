@@ -1,9 +1,8 @@
 // /v3/parametros_sitema - Parâmetros do sistema
 // Lista informações de parâmetros da empresa
 
-import reqBody_get_parametros_sitema from '../../fixtures/sistema/get_parametros_sitema.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - GET - /v3/parametros_sitema', () => {
   const url = '/Sistema/v2_sistema_parametro_sistema';

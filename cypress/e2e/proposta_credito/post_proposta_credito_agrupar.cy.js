@@ -1,9 +1,8 @@
 // /v3/proposta_credito_agrupar - Proposta crédito
 // Agrupar proposta crédito
 
-import reqBody_post_proposta_credito_agrupar from '../../fixtures/proposta_credito/post_proposta_credito_agrupar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', () => {
     const url = '/Proposta%20cr%C3%A9dito/v2_proposta_credito_agrupar';

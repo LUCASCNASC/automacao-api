@@ -1,9 +1,8 @@
 // /v3/referenciabancaria - Inclusão de refência bancária
 // Incluir referência bancária
 
-import reqBody_post_referenciabancaria from '../../fixtures/financeiro/post_referenciabancaria.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/referenciabancaria', () => {
   const url = '/Financeiro/v3_financeiro_referencia_bancaria1';

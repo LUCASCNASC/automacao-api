@@ -1,9 +1,8 @@
 // /v3/regra_fiscal_cfop_incluir - Inclusão de base fiscal (CFOP)
 // Incluir base fiscal de CFOP
 
-import reqBody_post_regra_fiscal_cfop_incluir  from '../../fixtures/fisco_contabil/post_regra_fiscal_cfop_incluir..json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_cfop_incluir', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_cfop_post';

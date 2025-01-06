@@ -1,9 +1,8 @@
 // /v3/cliente_anexo - Anexo do cliente
 // Incluir Anexo
 
-import reqBody_post_cliente_anexo from '../../fixtures/cliente/post_cliente_anexo.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Cliente - POST - /v3/cliente_anexo', () => {
   const url = '/Cliente/v3_cliente_anexo_post';

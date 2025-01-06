@@ -1,8 +1,8 @@
 // /v3/dados_titular/{cpf} - Consulta de dados pessoais de titular
 // Esse serviço retorna os dados pessoais do titular com base no CPF consultado. Para isso, basta informar o CPF válido do titular que deseja obter essas informações.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
   const url = '/LGPD/v3_get_lgpd_dados_titular';

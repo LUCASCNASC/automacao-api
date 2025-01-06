@@ -1,7 +1,8 @@
 // /v3/produto_detalhe/{produto} - Detalhes do produto
 // Detalhes do produto.
 
-import acess_token from '../../fixtures/token.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - GET - /v3/produto_detalhe/{produto} ', () => {
   const url = '/Produto/v2_produto_detalhe';

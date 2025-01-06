@@ -1,9 +1,8 @@
 // /v3/manifesto_documento_fiscal_incluir - Inclusão manifesto de documento fiscal
 // Incluir manifesto de documento fiscal
 
-import reqBody_post_manifesto_documento_fiscal_incluir from '../../fixtures/fisco_contabil/post_manifesto_documento_fiscal_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', () => {
   const url = '/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir';

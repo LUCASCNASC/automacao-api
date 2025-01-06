@@ -1,8 +1,8 @@
 // /v3/login_complementos - Dados complementares do login
 // Carregar dados do funcionário e vendedor com base no usuário conectado
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - GET - /v3/login_complementos', () => {
   const url = '/Sess%C3%A3o/v2_sessao_login_complementos';

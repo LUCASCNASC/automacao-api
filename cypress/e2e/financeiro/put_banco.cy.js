@@ -1,9 +1,8 @@
 // /v3/banco - Alteração de banco
 // Alterar banco pelo código
 
-import reqBody_put_banco from '../../fixtures/financeiro/put_banco.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - PUT - /v3/banco', () => {
   const url = '/Financeiro/v3_financeiro_banco2';

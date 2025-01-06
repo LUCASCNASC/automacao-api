@@ -1,9 +1,8 @@
 // /v3/faturamento_pedido_de_venda - Dados para faturamento
 // Fatura pedidos de venda de um cliente, que estão com situação fechado e não estão em nenhum mapa de carga. Pedido de venda poderá ser faturado completo ou parcial.
 
-import reqBody_post_faturamento_pedido_de_venda from '../../fixtures/logistica/post_faturamento_pedido_de_venda.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/faturamento_pedido_de_venda', () => {
   const url = '/Log%C3%ADstica/v3_post_logistica_faturamentopedidovendaporcliente';

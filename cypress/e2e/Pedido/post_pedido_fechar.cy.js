@@ -1,9 +1,8 @@
 // /v3/pedido_fechar - Fechar pedido
 // Fechar pedido de venda
 
-import reqBody_post_pedido_fechar from '../../fixtures/pedido/post_pedido_fechar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_fechar', () => {
   const url = '/Pedido/v2_pedido_fechar';

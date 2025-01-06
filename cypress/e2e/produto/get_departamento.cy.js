@@ -1,9 +1,8 @@
 // /v3/departamento - Lista de departamento
 // Listas dos departamentos.
 
-import reqBody_get_departamento from '../../fixtures/produto/get_departamento.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - GET - /v3/departamento', () => {
   const url = '/Produto/v2_produto_departamento';

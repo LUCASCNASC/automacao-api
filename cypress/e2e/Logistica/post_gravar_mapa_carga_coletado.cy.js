@@ -1,9 +1,8 @@
 // /v3/gravar_mapa_carga_coletado - Altera a situação do mapa de carga cliente/loja para Coletado
 // Finaliza a coleta do mapa de carga e/ou atualiza os itens coletados
 
-import reqBody_post_gravar_mapa_carga_coletado from '../../fixtures/logistica/post_gravar_mapa_carga_coletado.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/gravar_mapa_carga_coletado', () => {
   const url = '/Log%C3%ADstica/v3_post_gravar_mapa_carga_coletado';

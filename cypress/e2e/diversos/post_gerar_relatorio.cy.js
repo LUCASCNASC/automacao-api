@@ -1,9 +1,8 @@
 // /v3/gerar_relatorio - Relatório
 // Gerar relatório em base64
 
-import reqBody_post_gerar_relatorio from '../../fixtures/diversos/post_gerar_relatorio.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - POST - /v3/gerar_relatorio', () => {
   const url = '/Diversos/v2_diversos_gerar_relatorio';

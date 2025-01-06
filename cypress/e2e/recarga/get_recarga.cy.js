@@ -1,8 +1,8 @@
 // /v3/recarga/{idFilial}/{idItemServico} - Dados Recarga Efetuada
 // Retorna os dados da recarga efetuada
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
   const url = '/Recarga/v3_get_recarga';

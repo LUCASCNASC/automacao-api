@@ -1,8 +1,8 @@
 // /v3/pos_venda - Pós-venda
 // Listas de pós-venda
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pós-venda - GET - /v3/pos_venda', () => {
   const url = '/P%C3%B3s-venda/v3_pos_venda_get_post1';

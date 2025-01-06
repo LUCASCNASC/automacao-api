@@ -1,9 +1,8 @@
 // /v3/pedido_finalizar - Gerar pedido
 // Incluir/alterar pedido de venda mobile
 
-import reqBody_post_pedido_finalizar from '../../fixtures/pedido/post_pedido_finalizar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_finalizar', () => {
   const url = '/Pedido/v3_pedido_finalizar'

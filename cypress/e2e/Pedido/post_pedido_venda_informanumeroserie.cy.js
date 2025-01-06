@@ -1,9 +1,8 @@
 // /v3/pedido_venda_informanumeroserie/ - Dados dos números de série de um item do pedido de venda
 // Serviço utilizado para informar número de série para produtos que controlam serial ou solicitam serial na venda
 
-import reqBody_post_pedido_venda_informanumeroserie from '../../fixtures/pedido/post_pedido_venda_informanumeroserie.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', () => {
   const url = '/Pedido/v3_post_pedido_venda_informanumeroserie';

@@ -1,9 +1,8 @@
 // /v3/ecommerce_finalizar - Gerar pedido e-commerce
 // Incluir/alterar pedido de venda e-commerce
 
-import reqBody_post_ecommerce_finalizar from '../../fixtures/ecommerce/post_ecommerce_finalizar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('E-commerce - POST - /v3/ecommerce_finalizar', () => {
   const url = '/E-commerce/v3_ecommerce_finalizar';

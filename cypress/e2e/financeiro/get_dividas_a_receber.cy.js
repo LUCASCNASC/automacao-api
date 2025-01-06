@@ -1,8 +1,8 @@
 // /v3/dividas_a_receber/{idFilial}/{cpf_cnpj} - Lista títulos (a receber)
 // Listar títulos a receber de cliente
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', () => {
   const url = '/Financeiro/v3_financeiro_dividas_a_receber';

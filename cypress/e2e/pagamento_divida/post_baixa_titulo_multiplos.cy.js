@@ -1,9 +1,8 @@
 // /v3/baixa_titulo_multiplos - Baixa multiplas título
 // Baixa multiplas título
 
-import reqBody_post_baixa_titulo_multiplos from '../../fixtures/pagamento_divida/post_baixa_titulo_multiplos.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/baixa_titulo_multiplos', () => {
   const url = '/Pagamento%20divida/v2_divida_baixa_titulo_multiplos';

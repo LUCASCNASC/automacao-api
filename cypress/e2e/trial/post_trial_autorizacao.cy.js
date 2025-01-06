@@ -1,8 +1,7 @@
 // /v3/trial_autorizacao - Autorizar trial - Autorizar trial
 
-import reqBody_post_trial_autorizacao from '../../fixtures/trial/post_trial_autorizacao.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Trial - POST - /v3/trial_autorizacao', () => {
     const url = '/Trial/v3_post_trial_autorizacao';

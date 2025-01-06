@@ -1,8 +1,8 @@
 // /v3/produto_bloqueio - Lista de bloqueio
 // Produto bloqueado.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - GET - /v3/produto_bloqueio', () => {
   const url = '/Produto/v2_produto_bloqueio';

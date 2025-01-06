@@ -1,9 +1,8 @@
 // /v3/finaliza_inventario - Finaliza contagem de inventário pelo aplicativo
 // Finaliza a contagem de inventário, podendo ser finalizado definitivo ou não
 
-import reqBody_post_finaliza_inventario from '../../fixtures/inventario/post_finaliza_inventario.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Inventário - POST - /v3/finaliza_inventario', () => {
   const url = '/Invent%C3%A1rio/v3_post_finaliza_inventario';

@@ -1,9 +1,8 @@
 // /v3/movimento_bens_patrimonio_incluir/ - Incluir Movimento Patrimonio
 // Incluir Movimento Patrimonio
 
-import reqBody_post_movimento_bens_patrimonio_incluir from '../../fixtures/fisco_contabil/post_movimento_bens_patrimonio_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/movimento_bens_patrimonio_incluir/', () => {
   const url = '/Fisco/Contabil/v3_post_movimento_patrimonio';

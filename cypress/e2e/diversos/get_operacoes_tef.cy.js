@@ -1,8 +1,8 @@
 // /v3/operacoes_tef - Operacões TEF
 // Retorna as operações tef configuradas
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - GET - /v3/operacoes_tef', () => {
   const url = '/Diversos/v3_diversos_operacoes_tef';

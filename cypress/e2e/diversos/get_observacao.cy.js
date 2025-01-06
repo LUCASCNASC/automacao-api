@@ -1,8 +1,8 @@
 // /v3/observacao - Observação
 // Lista de observação
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - GET - /v3/observacao', () => {
   const url = '/Diversos/v3_diversos_observacao';

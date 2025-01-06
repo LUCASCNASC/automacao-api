@@ -1,9 +1,8 @@
 // /v3/baixa_titulo - Baixa título
 // Baixa título
 
-import reqBody_post_baixa_titulo from '../../fixtures/pagamento_divida/post_baixa_titulo_cartao.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
     const token = Cypress.env('AUTH_TOKEN'); 

@@ -1,8 +1,8 @@
 // /v3/trial_lista_usuario/{idUsuario} - Lista de Triais do Usuário
 // Retorna uma lista de triais que o usuário informado tem permissão de acesso, com base nos triais vinculados na tela: nivel trial
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
   const url = '/Trial/v3_get_lista_trial_usuario';

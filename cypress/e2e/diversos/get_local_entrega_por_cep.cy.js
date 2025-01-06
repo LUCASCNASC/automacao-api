@@ -1,8 +1,8 @@
 // /v3/local_entrega_por_cep - Local de entrega por CEP
 // Listar locais de entrega por CEP
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - GET - /v3/local_entrega_por_cep', () => {
   const url = '/Diversos/v3_diversos_local_entrega_por_cep';

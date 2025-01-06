@@ -1,8 +1,8 @@
 // /v3/pedido_divida/{filial} - Pedidos
 // Lista pedidos para pagamento no TOTEM
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
   const url = '/Pagamento%20pedido/v2_pag_pedido_divida';

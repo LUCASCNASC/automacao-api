@@ -1,9 +1,8 @@
 // /v3/saldo_disponivel - Saldo Disponível
 // Recebe uma lista de produtos e retorna uma lista com os produtos e o saldo disponível
 
-import reqBody_post_saldo_disponivel from '../../fixtures/produto/post_saldo_disponivel.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - POST - /v3/saldo_disponivel', () => {
   const url = '/Produto/v3_produto_saldo_disponivel';

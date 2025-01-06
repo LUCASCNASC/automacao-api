@@ -1,8 +1,8 @@
 // /v3/pedido_pendencia - Pedidos pendentes
 // lista de pedidos pendente
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - GET - /v3/pedido_pendencia', () => {
   const url = '/Pedido/v2_pedido_pendencia';

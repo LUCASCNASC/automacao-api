@@ -1,9 +1,8 @@
 // /v3/pedido_calcular_frete - Calcular frete
 // Calcular valor do frete para pedido mobile
 
-import reqBody_post_pedido_calcular_frete from '../../fixtures/pedido/post_pedido_calcular_frete.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_calcular_frete', () => {
   const url = '/Pedido/v3_pedido_calcular_frete';

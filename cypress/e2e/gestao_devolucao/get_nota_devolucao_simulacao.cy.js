@@ -1,8 +1,8 @@
 // /v3/nota_devolucao_simulacao/{filial}/{solicitacao} - Simulação de Nota Devolução
 // Simulação da nota de devolução da solicitação. Retorna as notas que foram incluídas para simulação da solicitação da nota de devolução para avaliação interna da empresa.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Gestão Devolução - GET - /v3/nota_devolucao_simulacao/{filial}/{solicitacao}', () => {
   const url = '/Gestão%20Devolução/v2_gestao_devolucao_nota_devolucao_simulacao';

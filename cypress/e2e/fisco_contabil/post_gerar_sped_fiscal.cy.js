@@ -1,9 +1,8 @@
 // /v3/gerar_sped_fiscal - Gera SPED fiscal
 // Incluir solicitação de processamento para gerar o SPED fiscal
 
-import reqBody_post_gerar_sped_fiscal from '../../fixtures/fisco_contabil/post_gerar_sped_fiscal.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', () => {
   const url = '/Fisco/Contabil/v3_post_gerar_sped_fiscal';

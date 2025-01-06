@@ -1,9 +1,8 @@
 // /v3/pedido_fechar_baixar_caixa - Baixar Pedido Caixa
 // Fecha o pedido caso necessário, e se forem adicionados itens para baixar efetua a baixa tanto integral quanto parcial
 
-import reqBody_post_pedido_fechar_baixar_caixa from '../../fixtures/pagamento_pedido/post_pedido_fechar_baixar_caixa.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', () => {
   const url = '/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa';

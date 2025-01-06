@@ -1,9 +1,8 @@
 // /v3/regra_fiscal_departamento_incluir - Inclusão de base fiscal (departamento)
 // Incluir base fiscal de departamento
 
-import reqBody_post_regra_fiscal_departamento_incluir  from '../../fixtures/fisco_contabil/post_regra_fiscal_departamento_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_departamento_incluir', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_departamento_post';

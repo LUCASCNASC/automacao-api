@@ -1,8 +1,8 @@
 // /v3/pos_venda_qualificacao - Qualificações Pós-venda
 // listas de qualificações da pós-venda
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pós-venda - GET - /v3/pos_venda_qualificacao', () => {
   const url = '/P%C3%B3s-venda/v2_pos_venda_qualificacao';

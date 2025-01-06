@@ -1,8 +1,7 @@
 // /v3/movimento_compra_venda/ - Dados Movimento - Retorna os movimentos de entrada e saída dos produtos
 
-import reqBody_post_movimento_compra_venda from '../../fixtures/projeto_real_time/post_movimento_compra_venda.JSON'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
   const url = '/Projeto%20Real%20Time/v3_post_movimento_compra_venda';

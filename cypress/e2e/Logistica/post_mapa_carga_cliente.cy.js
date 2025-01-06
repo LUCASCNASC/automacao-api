@@ -1,9 +1,8 @@
 // /v3/mapa_carga_cliente - Dados de Mapa de Carga Cliente
 // Incluir/alterar cadastro de mapa de carga cliente
 
-import reqBody_post_mapa_carga_cliente from '../../fixtures/logistica/post_mapa_carga_cliente.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/mapa_carga_cliente', () => {
   const url = '/Log%C3%ADstica/v3_post_logistica_mapa_carga_cliente';

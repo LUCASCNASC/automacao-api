@@ -1,8 +1,8 @@
 // /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal} - Lista Mapa Carga Cliente
 // Retorna uma lista com os mapas de carga cliente, de acordo com o preenchimento dos parâmetros de entrada:
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal}', () => {
     const url = '/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_cliente';

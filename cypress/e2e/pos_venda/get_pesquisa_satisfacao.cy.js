@@ -1,8 +1,8 @@
 // /v3/pesquisa_satisfacao - Pesquisa de Satisfação
 // Lista das pesquisas de satisfação da pós-venda
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pós-venda - GET - /v3/pesquisa_satisfacao', () => {
   const url = '/P%C3%B3s-venda/v3_pesquisa_satisfacao';

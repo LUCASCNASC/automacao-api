@@ -1,8 +1,8 @@
 // /v3/divida_cliente_vinculado/{filial}/{cliente} - Títulos vinculados do cliente
 // lista de títulos vinculados a receber do cliente
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pagamento divida - GET - /v3/divida_cliente_vinculado/{filial}/{cliente}', () => {
   const url = '/Pagamento%20divida/v2_divida_cliente_vinculado';

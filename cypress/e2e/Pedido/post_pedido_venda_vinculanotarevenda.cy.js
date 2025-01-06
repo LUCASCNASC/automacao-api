@@ -1,9 +1,8 @@
 // /v3/pedido_venda_vinculanotarevenda/ - Dados da nota de revenda
 // Serviço utilizado para relacionar nota de revenda com pedido de venda atacado que utiliza triangulação.
 
-import reqBody_post_pedido_venda_vinculanotarevenda from '../../fixtures/pedido/post_pedido_venda_vinculanotarevenda.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_venda_vinculanotarevenda/', () => {
   const url = '/Pedido/v3_post_pedido_venda_vinculanotarevenda';

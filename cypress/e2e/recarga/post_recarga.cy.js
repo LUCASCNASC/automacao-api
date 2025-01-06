@@ -1,9 +1,8 @@
 // /v3/recarga - Recarga Telefone
 // Efetivar Recarga Telefone
 
-import reqBody_post_recarga from '../../fixtures//recarga/post_recarga.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/recarga', () => {
   const url = '/Recarga/v3_post_recarga';

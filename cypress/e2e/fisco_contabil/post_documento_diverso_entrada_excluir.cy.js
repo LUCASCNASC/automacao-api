@@ -1,9 +1,8 @@
 // /v3/documento_diverso_entrada_excluir/ - Exclusão de documento diverso (entrada)
 // Excluir documento diverso de entrada
 
-import reqBody_post_documento_diverso_entrada_excluir from '../../fixtures/fisco_contabil/post_corrigir_saldo_medio_produtos.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_excluir/', () => {
   const url = '/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir';

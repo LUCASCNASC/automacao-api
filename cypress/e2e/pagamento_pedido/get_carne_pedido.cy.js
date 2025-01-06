@@ -1,8 +1,8 @@
 // /v3/carne_pedido/{filial}/{pedido} - Carne Pedido Venda
 // Impressão de Carnê por Pedido de Venda
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', () => {
   const url = '/Pagamento%20pedido/v3_pag_pedido_carne_pedido';

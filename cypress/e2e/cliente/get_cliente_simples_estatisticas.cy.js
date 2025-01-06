@@ -1,8 +1,8 @@
 // /v3/cliente_simples_estatisticas/{idpessoa} - Dados do cliente
 // Estatísticas do cliente simplificado
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', () => {
   const url = '/Cliente/v2_cliente_simples_estatisticas';

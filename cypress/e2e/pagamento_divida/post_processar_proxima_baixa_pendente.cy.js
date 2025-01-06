@@ -1,8 +1,8 @@
 // /v3/processar_proxima_baixa_pendente - Baixa pendente
 // Processar proxima baixa pendente
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', () => {
     const token = Cypress.env('AUTH_TOKEN'); 

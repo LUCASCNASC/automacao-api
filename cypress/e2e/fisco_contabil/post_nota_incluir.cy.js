@@ -1,9 +1,8 @@
 // /v3/nota_incluir/ - Inclusão de nota fiscal
 // Incluir nota fiscal, estoque e títulos, com base no XML
 
-import reqBody_post_nota_incluir from '../../fixtures/fisco_contabil/post_nota_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/nota_incluir/', () => {
   const url =  '/Fisco/Contabil/v3_post_nota_incluir';

@@ -1,9 +1,8 @@
 // /v3/bloqueto - Inclusão de meio de cobrança
 // Incluir meio de cobrança
 
-import reqBody_post_bloqueto from '../../fixtures/financeiro/post_bloqueto.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/bloqueto', () => {
   const url = '/Financeiro/v3_financeiro_bloqueto';

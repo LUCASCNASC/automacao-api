@@ -1,9 +1,8 @@
 // /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
 // Retorna as formas de pagamento disponíveis para os títulos informados.
 
-import reqBody_post_formas_pagamento_titulos from '../../fixtures/financeiro/post_excluir_titulo_areceber_apagar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', () => {
   const url = '/Financeiro/v3_financeiro_formas_pagamento_titulos';

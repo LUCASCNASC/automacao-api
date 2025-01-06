@@ -1,8 +1,8 @@
 // /v3/pedido_detalhes/{codigo} - Pedido detalhes
 // Detalhes do pedido
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - GET - /v3/pedido_detalhes/{codigo}', () => {
   const url = '/Pedido/v2_pedido_detalhes';

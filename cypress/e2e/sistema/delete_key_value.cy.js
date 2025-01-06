@@ -1,8 +1,8 @@
 // /v3/key_value/{key} - Exclui chave e valor
 // Excluir um determindo valor pela sua chave
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - DELETE - /v3/key_value/{key}', () => {
   const url = '/Sistema/v2_sistema_key_value_delete';

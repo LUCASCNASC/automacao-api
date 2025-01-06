@@ -1,9 +1,8 @@
 // /v3/movimenta_estoque - Movimenta a entrada e saída de produtos no estoque
 // Cria registros de entrada/saída de inventário, saída de imobilizados, deteriorados e de uso e consumo. Não gera nota fiscal. Não controla serial, gtin ou combustível.
 
-import reqBody_post_movimenta_estoque from '../../fixtures/logistica/post_movimenta_estoque.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/movimenta_estoque', () => {
   const url = '/Log%C3%ADstica/v3_post_movimenta_estoque'

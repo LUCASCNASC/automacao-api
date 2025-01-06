@@ -1,9 +1,8 @@
 // /v3/pedido_consumo_final - Consumo Final
 // Retorna se o pedido foi feito para um Consumidor Final
 
-import reqBody_post_pedido_consumo_final from '../../fixtures/pedido/post_pedido_consumo_final.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_consumo_final', () => {
   const url = '/Pedido/v3_pedido_consumo_final';

@@ -1,8 +1,8 @@
 // /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria} - Exclusão de referência bancária
 // Excluir referência bancária baseado no CNPJ/CPF da pessoa e código da referência bancária
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', () => {
   const url = '/Financeiro/v3_financeiro_referencia_bancaria_delete';

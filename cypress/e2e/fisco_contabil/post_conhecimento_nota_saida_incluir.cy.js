@@ -1,9 +1,8 @@
 // /v3/conhecimento_nota_saida_incluir/ - Inclusão de conhecimento de nota de saída (Apenas registro)
 // Incluir conhecimento de nota de saída. Efetua apenas o registro do documento, não efetua a comunicação com a Sefaz
 
-import reqBody_post_conhecimento_nota_saida_incluir from '../../fixtures/fisco_contabil/post_conhecimento_nota_saida_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', () => {
   const url = '/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir';

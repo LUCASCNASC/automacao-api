@@ -1,9 +1,8 @@
 // /v3/estornar_baixa_titulo - Estorno de baixa de título
 // Faz o estorno da última parcial baixada ou de todas as parciais de um título.
 
-import reqBody_post_estornar_baixa_titulo from '../../fixtures/financeiro/post_estornar_baixa_titulo.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo', () => {
   const url = '/Financeiro/v3_financeiro_estornar_baixa_titulo';

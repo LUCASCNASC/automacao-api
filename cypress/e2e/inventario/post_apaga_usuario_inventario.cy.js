@@ -1,8 +1,8 @@
 // /v3/apaga_usuario_inventario/{idFilial}/{idInventario} - Apaga o usuário do inventário
 // Apaga o usuário do inventário se não existir nenhuma contagem existente.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario}', () => {
   const url = '/Invent%C3%A1rio/v3_post_apaga_usuario_inventario';

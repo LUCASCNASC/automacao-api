@@ -1,9 +1,8 @@
 // /v3/bloquetos_por_titulo - Impressão meio de cobrança
 // Imprimir meio de cobrança em PDF (codificação Base64)
 
-import reqBody_post_bloqueto_por_titulo from '../../fixtures/financeiro/post_bloquetos_por_titulos.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/bloquetos_por_titulo', () => {
   const url = '/Financeiro/v3_financeiro_bloquetos_por_titulo';

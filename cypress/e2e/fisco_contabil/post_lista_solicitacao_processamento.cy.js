@@ -1,9 +1,8 @@
 // /v3/lista_solicitacao_processamento - Solicitação de processamento
 // Retornar lista com as solicitações de processamento
 
-import reqBody_post_lista_solicitacao_processamento from '../../fixtures/fisco_contabil/post_lista_solicitacao_processamento.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 
 describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {

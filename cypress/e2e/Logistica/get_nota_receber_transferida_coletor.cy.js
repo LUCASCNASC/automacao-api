@@ -1,8 +1,8 @@
 // /v3/nota_receber_transferida_coletor/{idFilial} - Carrega de Notas Transferidas
 // Carrega as notas transferidas para filial destino para coletor de dados
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', () => {
     const url = '/Log%C3%ADstica/v3_get_carregar_nota_transferida_coletor';

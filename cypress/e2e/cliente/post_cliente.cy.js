@@ -1,9 +1,8 @@
 // /v3/cliente - Dados do cliente
 // Incluir/Alterar cliente
 
-import reqBody_post_cliente from '../../fixtures/cliente/post_cliente.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Cliente - POST - /v3/cliente', () => {
   const url = '/Cliente/v3_cliente_post';

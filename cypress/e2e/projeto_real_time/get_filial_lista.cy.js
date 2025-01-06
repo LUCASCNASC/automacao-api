@@ -1,8 +1,7 @@
 // /v3/filial_lista/ - Dados Filial - Retorna uma lista das filiais
 
-import reqBody_get_filial_lista from '../../fixtures/projeto_real_time/get_filial_lista.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
   const url ='/Projeto%20Real%20Time';

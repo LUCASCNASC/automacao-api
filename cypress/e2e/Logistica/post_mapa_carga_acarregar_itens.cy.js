@@ -1,9 +1,8 @@
 // /v3/mapa_carga_acarregar_itens - Carregar o itens do mapa de carga cliente/loja e altera o mapa de carga
 // Retorna os itens do mapa de carga com as informações da coleta, atualiza o usuário da coleta para o usuário informado e atualiza a situação do mapa de carga para Em Carga.
 
-import reqBody_post_mapa_carga_acarregar_itens from '../../fixtures/logistica/post_mapa_carga_acarregar_itens.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/mapa_carga_acarregar_itens', () => {
   const url = '/Log%C3%ADstica/v3_post_mapa_carga_acarregar_itens';

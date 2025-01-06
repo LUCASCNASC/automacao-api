@@ -1,9 +1,8 @@
 // /v3/inclui_pedido_venda_mapa_carga_cliente - Insere o pedido de venda no mapa de carga cliente
 // Todo os itens do pedido de venda podem ser incluídos no mapa de carga, ou o pedido de venda pode ser incluído parcialmente, informando os itembases.
 
-import reqBody_post_inclui_pedido_venda_mapa_carga_cliente from '../../fixtures/logistica/post_inclui_pedido_venda_mapa_carga_cliente.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', () => {
   const url = '/Log%C3%ADstica/v3_post_inclui_pedido_venda_mapa_carga_cliente';

@@ -1,9 +1,8 @@
 // /v3/movimento_assistencia_incluir/ - Incluir Movimento de Assistência
 // Incluir Movimento de Assistência Estoque, Patrimonio e Cliente.
 
-import reqBody_post_movimento_assistencia_incluir from '../../fixtures/assistencia/post_movimento_assistencia_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
   const url = '/Assistencia/v3_post_movimento_assistencia_incluir';

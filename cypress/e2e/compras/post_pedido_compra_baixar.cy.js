@@ -1,9 +1,8 @@
 // /v3/pedido_compra_baixar - Baixar Pedido Compra
 // Baixa pedido de compra simplificado, somente frete CIF
 
-import reqBody_post_pedido_compra_baixar from '../../fixtures/compras/post_pedido_compra_baixar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Compras - POST - /v3/pedido_compra_baixar', () => {
   const url = '/Compras/v3_post_pedido_compra_baixar';

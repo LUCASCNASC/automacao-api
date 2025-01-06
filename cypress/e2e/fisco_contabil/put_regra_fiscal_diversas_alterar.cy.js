@@ -1,9 +1,8 @@
 // /v3/regra_fiscal_diversas_alterar - Alteração de base fiscal (diversas)
 // Alterar base fiscal diversas
 
-import reqBody_put_regra_fiscal_diversas_alterar  from '../../fixtures/fisco_contabil/put_regra_fiscal_diversas_alterar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - PUT - /v3/regra_fiscal_diversas_alterar', () => {
   const url = '/Fisco/Contabil/v3_regra_fiscal_diversas_put';

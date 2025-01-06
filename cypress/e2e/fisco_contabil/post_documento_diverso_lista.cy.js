@@ -1,9 +1,8 @@
 // /v3/documento_diverso_lista/ - Lista de documentos diversos
 // Retorna uma lista de documentos diversos
 
-import reqBody_post_documento_diverso_lista from '../../fixtures/fisco_contabil/post_documento_diverso_lista.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', () => {
   const url = '/Fisco/Contabil/v3_post_documento_diverso_lista';

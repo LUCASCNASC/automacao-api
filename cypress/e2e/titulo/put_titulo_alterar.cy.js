@@ -1,9 +1,8 @@
 // /v3/titulo_alterar - Alterar Titulo A Receber/Pagar
 // Alteracao A Receber/Pagar de Titulo e Parcelas
 
-import reqBody_post_titulo_alterar from '../../fixtures/titulo/put_titulo_alterar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - PUT - /v3/titulo_alterar', () => {
   const url = '/Titulo/v3_put_titulo_alterar'

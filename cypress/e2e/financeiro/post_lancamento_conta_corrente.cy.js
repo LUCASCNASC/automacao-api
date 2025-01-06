@@ -1,9 +1,8 @@
 // /v3/lancamento_conta_corrente - Inclusão de lançamento conta corrente
 // Incluir lançamento de conta corrente no financeiro. Necessário ter preenchido os campos: idFilial, idContaCorrente e idHistoricoContaCorrente
 
-import reqBody_post_lancamento_conta_corrente from '../../fixtures/financeiro/post_lancamento_conta_corrente..json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/lancamento_conta_corrente', () => {
   const url = '/Financeiro/v3_financeiro_lancamento_conta_corrente';

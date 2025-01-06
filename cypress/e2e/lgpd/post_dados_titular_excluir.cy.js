@@ -1,9 +1,8 @@
 // /v3/dados_titular_excluir - Excluir dados titular
 // Exclusão dos dados do titular
 
-import reqBody_post_dados_titular_excluir from '../../fixtures/lgpd/post_dados_titular_excluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/dados_titular_excluir', () => {
   const url = '/LGPD/v3_post_lgpd_dados_titular_excluir';

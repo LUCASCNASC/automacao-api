@@ -1,8 +1,7 @@
 // /v3/estoque/ - Dados Estoque - Retorna o estoque
 
-import reqBody_post_estoque from '../../fixtures/projeto_real_time/post_estoque.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - POST - /v3/estoque/', () => {
     const url = '/Projeto%20Real%20Time/v3_post_estoque';

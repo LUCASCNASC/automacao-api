@@ -1,8 +1,8 @@
 // /v3/logout - Fechar conexão com o servidor
 // Finaliza a conexão estabelecida com o serviço.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - GET - /v3/logout', () => {
   const url = '/Sess%C3%A3o/v2_sessao_logout';

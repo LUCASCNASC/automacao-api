@@ -1,9 +1,8 @@
 // /v3/contabancaria - Alteração de conta bancária
 // Alterar conta bancária pelo código do banco, código da agência e código da conta
 
-import reqBody_put_contabancaria from '../../fixtures/financeiro//put_contabancaria.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - PUT - /v3/contabancaria', () => {
   const url = '/Financeiro/v3_financeiro_conta_bancaria2';

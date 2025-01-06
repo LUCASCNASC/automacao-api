@@ -1,9 +1,8 @@
 // /v3/pedido_validar_cliente - Validar cliente
 // Validação do cliente no pedido de venda mobile
 
-import reqBody_post_pedido_validar_cliente from '../../fixtures/pedido/post_pedido_validar_cliente.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
   const url = '/Pedido/v3_pedido_validar_cliente';

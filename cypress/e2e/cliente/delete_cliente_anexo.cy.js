@@ -1,8 +1,8 @@
 // /v3/cliente_anexo/{idcnpj_cpf} - Excluir anexo
 // Excluir um anexo pelo idcnpj_cpf e idpessoaanexo
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
   const url = '/Cliente/v3_cliente_anexo_delete';

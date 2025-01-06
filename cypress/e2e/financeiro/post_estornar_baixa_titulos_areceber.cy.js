@@ -1,9 +1,8 @@
 // /v3/estornar_baixa_titulo_areceber - Estorno de baixa de título
 // Efetuar o estorno da baixa do título a receber, gerando um novo título a pagar
 
-import reqBody_post_estornar_baixa_titulo_areceber from '../../fixtures/financeiro/post_estornar_baixa_titulos_areceber.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', () => {
   const url = '/Financeiro/v3_post_estornar_baixa_titulo_areceber';

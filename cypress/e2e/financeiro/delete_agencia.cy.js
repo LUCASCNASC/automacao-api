@@ -1,8 +1,8 @@
 // /v3/agencia/{codigoBanco}/{codigoAgencia} - Exclusão de agência
 // Excluir agência pelo código do banco e agência
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - DELETE - /v3/agencia/{codigoBanco}/{codigoAgencia}', () => {
   const url = '/Financeiro/v3_financeiro_agencia_delete';

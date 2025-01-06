@@ -1,9 +1,8 @@
 // /v3/pedido_forma_pagamento - Forma pagamento
 // Listar formas de pagamento para o pedido mobile
 
-import reqBody_post_pedido_forma_pagamento from '../../fixtures/pedido/post_pedido_forma_pagamento.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_forma_pagamento', () => {
   const url = '/Pedido/v3_pedido_forma_pagamento';

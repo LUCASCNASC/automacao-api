@@ -1,8 +1,8 @@
 // /v3/sessao_login_altera_senha - Altera senha de usuário
 // Altera senha para o usuário do sistema
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - POST - /v3/sessao_login_altera_senha', () => {
   const url = '/Sess%C3%A3o/v3_post_sessao_login_altera_senha';

@@ -1,9 +1,8 @@
 // /v3/corrigir_saldo_medio_produtos - Correção de saldo e custo médio
 // Corrigir saldo e custo médio de produtos nas filiais
 
-import reqBody_post_corrigir_saldo_medio_produtos from '../../fixtures/fisco_contabil/post_corrigir_saldo_medio_produtos.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/corrigir_saldo_medio_produtos', () => {
   const url = '/Fisco/Contabil/v3_post_corrigir_saldo_medio_produtos';

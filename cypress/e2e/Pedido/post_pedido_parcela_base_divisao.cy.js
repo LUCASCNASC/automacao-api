@@ -1,9 +1,8 @@
 // /v3/pedido_parcela_base_divisao - Parcela base
 // Divide o(s) abatimento(s) em valor(es) mantendo a quantidade de parcela e processo iguais.
 
-import reqBody_post_pedido_parcela_base_divisao from '../../fixtures/pedido/post_pedido_parcela_base_divisao.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_parcela_base_divisao', () => {
   const url = '/Pedido/v3_pedido_parcela_base_divisao';

@@ -1,9 +1,8 @@
 // /v3/produto_incluir_alterar - Inclui e Altera Produto
 // Inclui e Altera Produto
 
-import reqBody_post_pedido_compra_alterar from '../../fixtures/compras/post_produto_incluir_alterar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Compras - POST - /v3/produto_incluir_alterar', () => {
   const url = '/Compras/v3_post_produto_incluir_alterar';

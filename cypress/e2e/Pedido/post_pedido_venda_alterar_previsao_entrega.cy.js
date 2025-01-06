@@ -1,9 +1,8 @@
 // /v3/pedido_venda_alterar_previsao_entrega/ - Alterar a previsão de entrega do pedido de venda
 // Alteração da previsão de entrega do pedido de venda.
 
-import reqBody_post_pedido_venda_alterar_previsao_entrega from '../../fixtures/pedido/post_pedido_venda_alterar_previsao_entrega.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_venda_alterar_previsao_entrega/', () => {
   const url = '/Pedido/v3_post_pedido_venda_previsao_entrega';

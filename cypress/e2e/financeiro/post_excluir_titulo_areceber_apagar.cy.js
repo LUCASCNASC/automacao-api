@@ -1,9 +1,8 @@
 // /v3/excluir_titulo_areceber_apagar - Exclusão de título (a receber ou a pagar)
 // Efetuar a exclusão de título a receber ou a pagar
 
-import reqBody_post_excluir_titulo_areceber_apagar from '../../fixtures/financeiro/post_excluir_titulo_areceber_apagar.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
   const url = '/Financeiro/v3_excluir_titulo_areceber_apagar';

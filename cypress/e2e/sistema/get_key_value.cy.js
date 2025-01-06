@@ -1,8 +1,8 @@
 // /v3/key_value/{key} - Lista de chave e valor
 // Consultar uma determinada chave e retornar o seu valor
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - GET - /v3/key_value/{key}', () => {
   const url = '/Sistema/v2_sistema_key_value';

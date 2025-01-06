@@ -1,9 +1,8 @@
 // /v3/baixa_pedido - Fechar e Baixar pedido
 // Fechar e Baixar pedido de venda pelo TOTEM
 
-import reqBody_post_baixa_pedido from '../../fixtures/pagamento_pedido/post_baixa_pedido.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pagamento pedido - POST - /v3/baixa_pedido', () => {
   const url = '/Pagamento%20pedido/v2_pag_pedido_baixa_pedido';

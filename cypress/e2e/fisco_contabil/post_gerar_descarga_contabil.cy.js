@@ -1,9 +1,8 @@
 // /v3/gerar_descarga_contabil - Descarga contábil
 // Efetuar descarga contábil por filial e período
 
-import reqBody_post_gerar_descarga_contabil from '../../fixtures/fisco_contabil/post_gerar_descarga_contabil.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', () => {
   const url = '/Fisco/Contabil/v3_post_gerar_descarga_contabil';

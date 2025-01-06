@@ -1,9 +1,8 @@
 // /v3/validar_documento_diverso_entrada_incluir/ - Valida inclusão de documento diverso (entrada)
 // Validar inclusão de documento diverso de entrada
 
-import reqBody_post_validar_documento_diverso_entrada_incluir  from '../../fixtures/fisco_contabil/post_validar_documento_diverso_entrada_incluir.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/validar_documento_diverso_entrada_incluir/', () => {
   const url = '/Fisco/Contabil/v3_validar_documento_diverso_entrada_incluir';

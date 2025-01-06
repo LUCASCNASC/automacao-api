@@ -1,9 +1,8 @@
 // /v3/intencao_compra_motivo - Intenção compra motivo
 // listas os motivos da intenção de compra
 
-import reqBody_get_intencao_compra_motivo from '../../fixtures/intencao_compra/get_intencao_compra_motivo.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Intenção compra - GET - /v3/intencao_compra_motivo', () => {
   const url = '/Inten%C3%A7%C3%A3o%20compra/v2_intencao_compra_motivo';

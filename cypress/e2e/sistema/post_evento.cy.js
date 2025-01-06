@@ -1,9 +1,8 @@
 // /v3/evento - Registra eventos do sistema
 // Utilizado para registrar os eventos de movimentação dentro do Mobile
 
-import reqBody_post_evento from '../../fixtures/sistema/post_evento.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - POST - /v3/evento', () => {
   const url = '/Sistema/v2_sistema_evento';

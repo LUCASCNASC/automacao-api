@@ -1,9 +1,8 @@
 // /v3/informa_numero_serie_pedido_loja - Dados dos números de série de um pedido de loja
 // Serviço utilizado para informar número de série para itens de pedido de loja que será posteriormente faturado.
 
-import reqBody_post_informa_numero_serie_pedido_loja from '../../fixtures/logistica/post_informa_numero_serie_pedido_loja.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', () => {
   const url = '/Log%C3%ADstica/v3_post_logistica_informanumeroseriepedidoloja';

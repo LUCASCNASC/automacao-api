@@ -1,8 +1,8 @@
 // /v3/login - Login do sistema
 // Estabelece uma comunicação com o sistema com base no usuário.
 
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - POST - /v3/login', () => {
   const url = '/Sess%C3%A3o/v3_sessao_login_post';

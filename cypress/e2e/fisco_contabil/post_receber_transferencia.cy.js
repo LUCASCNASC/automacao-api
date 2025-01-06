@@ -1,9 +1,8 @@
 // /v3/receber_transferencia - Recebimento de nota fiscal de transferência
 // Receber nota fiscal de transferência entre filiais
 
-import reqBody_post_receber_transferencia from '../../fixtures/fisco_contabil/post_receber_transferencia.json'
-import acess_token from '../../fixtures/token.json'
-import pragma_token from '../../fixtures/pragma.json'
+const API_URL = Cypress.env('API_URL')
+const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
   const url = '/Fisco/Contabil/v3_post_receber_transferencia';
