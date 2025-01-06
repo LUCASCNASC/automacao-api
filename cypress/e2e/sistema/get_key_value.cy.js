@@ -27,6 +27,8 @@ describe('Sistema - GET - /v3/key_value/{key}', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('chave');
+          expect(resposta.body.retorno[0]).toHaveProperty('valor');
         });
     });
   });

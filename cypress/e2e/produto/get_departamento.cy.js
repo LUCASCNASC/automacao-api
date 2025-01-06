@@ -25,6 +25,12 @@ describe('Produtos - GET - /v3/departamento', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('codigo');
+          expect(resposta.body.retorno[0]).toHaveProperty('nome');
+          expect(resposta.body.retorno[0]).toHaveProperty('imagem');
+          expect(resposta.body.retorno[0].departamento[0]).toHaveProperty('codigo');
+          expect(resposta.body.retorno[0].departamento[0]).toHaveProperty('nome');
+          expect(resposta.body.retorno[0].departamento[0]).toHaveProperty('imagem');
         });
     });
   });

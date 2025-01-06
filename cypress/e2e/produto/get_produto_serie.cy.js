@@ -29,6 +29,8 @@ describe('Produtos - GET - /v3/produto_serie ', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('numeroSerie');
+          expect(resposta.body.retorno[0]).toHaveProperty('dataMovimento');
         });
     });
   });

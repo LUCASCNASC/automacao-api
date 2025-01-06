@@ -25,6 +25,12 @@ describe('Recarga - GET - /v3/configuracao_recarga', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idServico');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
+          expect(resposta.body.retorno[0].formasPagamento[0]).toHaveProperty('idProcesso');
+          expect(resposta.body.retorno[0].formasPagamento[0]).toHaveProperty('descricao');
+          expect(resposta.body.retorno[0].formasPagamento[0]).toHaveProperty('descricaoAbreviada');
+          expect(resposta.body.retorno[0].formasPagamento[0]).toHaveProperty('tipo');
         });
     });
   });

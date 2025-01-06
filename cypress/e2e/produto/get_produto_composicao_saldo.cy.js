@@ -30,6 +30,9 @@ describe('Produtos - GET - /v3/produto_composicao_saldo ', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
+          expect(resposta.body.retorno[0]).toHaveProperty('saldo');
+          expect(resposta.body.retorno[0]).toHaveProperty('idTipoSaldoProduto');
         });
     });
   });

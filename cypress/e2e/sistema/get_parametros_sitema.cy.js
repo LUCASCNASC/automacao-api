@@ -25,6 +25,15 @@ describe('Sistema - GET - /v3/parametros_sitema', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('usaintencaocompra');
+          expect(resposta.body.retorno[0]).toHaveProperty('usaposvenda');
+          expect(resposta.body.retorno[0]).toHaveProperty('maximodiasprevisaoentrega');
+          expect(resposta.body.retorno[0]).toHaveProperty('visualizarmgc');
+          expect(resposta.body.retorno[0]).toHaveProperty('maximodiaspropostacredito');
+          expect(resposta.body.retorno[0]).toHaveProperty('url_ecommerce');
+          expect(resposta.body.retorno[0]).toHaveProperty('idusuarioremetente');
+          expect(resposta.body.retorno[0]).toHaveProperty('trialremoverinfocomplementarcadastrocliente');
+          expect(resposta.body.retorno[0]).toHaveProperty('trialremoveranexocadastrocliente');
         });
     });
   });

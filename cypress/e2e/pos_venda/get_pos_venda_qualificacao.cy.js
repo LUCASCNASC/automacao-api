@@ -25,6 +25,8 @@ describe('Pós-venda - GET - /v3/pos_venda_qualificacao', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idqualificacao');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
         });
     });
   });

@@ -26,7 +26,9 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
       })
         .then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
+          expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idTrial');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
         });
     });
   });

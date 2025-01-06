@@ -28,6 +28,10 @@ describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', ()
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('nivel');
+          expect(resposta.body.retorno[0]).toHaveProperty('idusuario');
+          expect(resposta.body.retorno[0]).toHaveProperty('nomeusuario');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricaotrial');
         });
     });
   });
