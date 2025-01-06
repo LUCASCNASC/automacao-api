@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Sistema - POST - /v3/evento', () => {
+describe('Sistema - POST - /v3/evento', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

@@ -4,10 +4,9 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Financeiro - POST - /v3/baixa_titulo_multiplos', () => {
+describe('Financeiro - POST - /v3/baixa_titulo_multiplos', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
-      const requestBody = 
 
       cy.request({
         method: 'POST', 

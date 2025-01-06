@@ -5,7 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const codigo = ""; //number - OBRIGATÓRIO
 
-describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', () => {
+describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

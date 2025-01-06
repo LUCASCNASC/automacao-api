@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
+describe('Pagamento divida - POST - /v3/baixa_titulo', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

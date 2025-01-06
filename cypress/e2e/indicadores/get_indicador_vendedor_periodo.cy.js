@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const datainicial= ""; //string - OBRIGATÓRIO
 const datafinal= ""; //string - OBRIGATÓRIO
 
-describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal}', () => {
+describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

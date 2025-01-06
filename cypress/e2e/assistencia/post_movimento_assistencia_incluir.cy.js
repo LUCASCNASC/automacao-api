@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
+describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', { env: { hideCredendials: true } }, () => {
   const url = '/Assistencia/v3_post_movimento_assistencia_incluir';
   const token = acess_token  
   

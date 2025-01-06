@@ -6,7 +6,8 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //number - OBRIGATÓRIO
 const cpf_cnpj = ""; //string - OBRIGATÓRIO
 
-describe('Financeiro - GET - /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', () => {
+describe('Financeiro - GET - /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

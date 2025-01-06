@@ -7,7 +7,8 @@ const idFilialSaldo = ""; //number - OBRIGATÓRIO
 const sku = ""; //string - OBRIGATÓRIO
 const idTipoSaldoProduto = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', () => {
+describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

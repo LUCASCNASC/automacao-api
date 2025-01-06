@@ -7,7 +7,7 @@ const idgruporota = ""; //integer
 const idrota = ""; //integer
 const idrotacidade = ""; //integer
 
-describe('Diversos - GET - /v3/rota_cidade', () => {
+describe('Diversos - GET - /v3/rota_cidade', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

@@ -6,7 +6,7 @@ const idFilial = ""; //integer - OBRIGATÓRIO
 const idUsuario = ""; //string - OBRIGATÓRIO
 const triais = ""; //string - OBRIGATÓRIO
 
-describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', () => {
+describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

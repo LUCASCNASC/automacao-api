@@ -3,7 +3,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
+describe('Projeto Real Time - GET - /v3/filial_lista/', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
       

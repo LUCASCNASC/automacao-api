@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 
-describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', () => {
+describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
       const requestBody = 

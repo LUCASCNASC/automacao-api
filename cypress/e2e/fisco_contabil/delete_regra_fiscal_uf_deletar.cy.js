@@ -5,7 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idBaseFiscalUF = ""; //number - OBRIGATÓRIO
 
-describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF}', () => {
+describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF}', { env: { hideCredendials: true } }
+  , () => {
 
     
     it('Resposta 200', () => {

@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const situacao = ""; //integer 
 
-describe('Intenção compra - GET - /v3/intencao_compra', () => {
+describe('Intenção compra - GET - /v3/intencao_compra', { env: { hideCredendials: true } }, () => {
   
     it('GET - /v3/intencao_compra - Resposta 200', () => {
 

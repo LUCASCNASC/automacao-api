@@ -10,7 +10,7 @@ const Pessoa = ""; //string - OBRIGATÓRIO
 const Grupo = ""; //string - OBRIGATÓRIO
 const OrigemProduto = ""; //integer - OBRIGATÓRIO
 
-describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto}', () => {
+describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

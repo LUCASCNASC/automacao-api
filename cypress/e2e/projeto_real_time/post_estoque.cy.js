@@ -3,7 +3,8 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Projeto Real Time - POST - /v3/estoque/', () => {
+describe('Projeto Real Time - POST - /v3/estoque/', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

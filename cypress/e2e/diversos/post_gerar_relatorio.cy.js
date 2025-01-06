@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Diversos - POST - /v3/gerar_relatorio', () => {
+describe('Diversos - POST - /v3/gerar_relatorio', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const UFOrigem = ""; //string - OBRIGATÓRIO
 const OrigemProduto = ""; //integer - OBRIGATÓRIO
 
-describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto}', () => {
+describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

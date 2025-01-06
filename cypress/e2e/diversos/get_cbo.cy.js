@@ -9,7 +9,8 @@ const offset = ""; //string
 const sort = ""; //string
 
 
-describe('Diversos - GET -/v3/cbo', () => {
+describe('Diversos - GET -/v3/cbo', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

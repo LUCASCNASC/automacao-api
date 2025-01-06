@@ -8,7 +8,7 @@ const vendedor = ""; //number - OBRIGATÓRIO
 const limit = ""; //string - OBRIGATÓRIO
 const offset = ""; //string - OBRIGATÓRIO
 
-describe('Trial - GET - /v3/trial', () => {
+describe('Trial - GET - /v3/trial', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

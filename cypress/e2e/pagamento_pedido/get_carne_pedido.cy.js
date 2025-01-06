@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
 
-describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', () => {
+describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

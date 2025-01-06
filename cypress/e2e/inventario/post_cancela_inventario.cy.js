@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idInventario = ""; //integer - OBRIGATÓRIO
 
-describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}', () => {
+describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

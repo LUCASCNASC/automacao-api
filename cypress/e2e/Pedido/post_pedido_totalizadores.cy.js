@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Pedido - POST - /v3/pedido_totalizadores', () => {
+describe('Pedido - POST - /v3/pedido_totalizadores', { env: { hideCredendials: true } }, () => {
   const url = '/Pedido/v3_pedido_totalizadores';
   const token = acess_token
   

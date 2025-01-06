@@ -7,7 +7,7 @@ const idFilial = ""; //number - OBRIGATÓRIO
 const idTitulo = ""; //number - OBRIGATÓRIO
 const idTipoTitulo = ""; //number - OBRIGATÓRIO
 
-describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', () => {
+describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

@@ -9,7 +9,7 @@ const Data_Inicial = ""; //string - OBRIGATÓRIO
 const Data_Final = ""; //string - OBRIGATÓRIO
 const CNPJ_CPF = ""; //string
 
-describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF}', () => {
+describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

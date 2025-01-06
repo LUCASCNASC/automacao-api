@@ -7,7 +7,7 @@ const codigo = ""; //number
 const cliente = ""; //string 
 const situacao = ""; //number 
 
-describe('Intenção compra - GET - /v3/intencao_compra_detalhe/{codigo}', () => {
+describe('Intenção compra - GET - /v3/intencao_compra_detalhe/{codigo}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

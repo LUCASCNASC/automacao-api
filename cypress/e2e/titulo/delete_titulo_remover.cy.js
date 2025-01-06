@@ -8,7 +8,7 @@ const numeroFilial = ""; //integer - OBRIGATÓRIO
 const tipoTitulo = ""; //integer - OBRIGATÓRIO
 const numeroTitulo = ""; //integer - OBRIGATÓRIO
 
-describe('Titulo - DELETE - /v3/titulo_remover/{numeroEmpresa}/{numeroFilial}/{tipoTitulo}/{numeroTitulo}', () => {
+describe('Titulo - DELETE - /v3/titulo_remover/{numeroEmpresa}/{numeroFilial}/{tipoTitulo}/{numeroTitulo}, { env: { hideCredendials: true } }', () => {
   
     it('Resposta 200', () => {
 

@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const datainicial = "yyyy-mm-dd"; //string - OBRIGATÓRIO
 const datafinal = "yyyy-mm-dd"; //string - OBRIGATÓRIO
 
-describe('Pós-venda - GET - /v3/pos_venda', () => {
+describe('Pós-venda - GET - /v3/pos_venda', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

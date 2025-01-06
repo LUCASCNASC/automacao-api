@@ -5,7 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const cpf = ""; //string - OBRIGATÓRIO
 
-describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
+describe('Recarga - GET - /v3/dados_titular/{cpf}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

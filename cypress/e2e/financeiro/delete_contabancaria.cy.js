@@ -7,7 +7,7 @@ const codigoBanco = ""; //number - OBRIGATÓRIO
 const codigoAgencia = ""; //number - OBRIGATÓRIO
 const codigoConta = ""; //string - OBRIGATÓRIO
 
-describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta}', () => {
+describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

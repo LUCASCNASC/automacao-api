@@ -4,9 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', () => {
-  const url = '/Log%C3%ADstica/v3_post_inclui_pedido_venda_mapa_carga_cliente';
-  const token = acess_token
+describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', { env: { hideCredendials: true } }, () => {
   
     it('POST - /v3/inclui_pedido_venda_mapa_carga_cliente - Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', () =>
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_inclui_pedido_venda_mapa_carga_cliente,
         failOnStatusCode: false
       })
         .then((response) => {

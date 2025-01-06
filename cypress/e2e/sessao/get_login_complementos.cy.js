@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const ambiente = ""; //string - OBRIGATÓRIO
 
-describe('Sessão - GET - /v3/login_complementos', () => {
+describe('Sessão - GET - /v3/login_complementos', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

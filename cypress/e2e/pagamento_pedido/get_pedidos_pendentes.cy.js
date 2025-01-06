@@ -10,7 +10,7 @@ const cnpjCpf = ""; //string
 const limit = ""; //number 
 const offset = ""; //number -
 
-describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', () => {
+describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

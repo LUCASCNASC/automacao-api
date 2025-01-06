@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Financeiro - PUT - /v3/banco', () => {
+describe('Financeiro - PUT - /v3/banco', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

@@ -8,7 +8,7 @@ const limit = ""; //string
 const offset = ""; //string
 const sort = ""; //string
 
-describe('Diversos - GET - /v3/cnae', () => {
+describe('Diversos - GET - /v3/cnae', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

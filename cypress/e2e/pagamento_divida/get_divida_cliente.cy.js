@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const cliente = ""; //string - OBRIGATÓRIO
 
-describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', () => {
+describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', { env: { hideCredendials: true } }, () => {
   const token = acess_token 
   
     it('Resposta 200', () => {

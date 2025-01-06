@@ -8,7 +8,7 @@ const idSituacaoMapaCarga = ""; //integer - OBRIGATÓRIO
 const dataInicial = ""; //string - OBRIGATÓRIO
 const dataFinal = ""; //string - OBRIGATÓRIO
 
-describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal}', () => {
+describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCarga}/{dataInicial}/{dataFinal}', { env: { hideCredendials: true } }, () => {
 
     it('Resposta 200', () => {
 

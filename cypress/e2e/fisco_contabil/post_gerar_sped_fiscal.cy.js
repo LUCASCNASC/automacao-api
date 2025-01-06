@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', () => {
+describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

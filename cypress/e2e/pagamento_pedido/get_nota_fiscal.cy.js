@@ -7,7 +7,7 @@ const filial = ""; //number - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
 const registro_nota = ""; //number - OBRIGATÓRIO
 
-describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', () => {
+describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

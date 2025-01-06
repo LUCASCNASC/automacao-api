@@ -5,7 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const key = ""; //string - OBRIGATÓRIO
 
-describe('Sistema - DELETE - /v3/key_value/{key}', () => {
+describe('Sistema - DELETE - /v3/key_value/{key}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

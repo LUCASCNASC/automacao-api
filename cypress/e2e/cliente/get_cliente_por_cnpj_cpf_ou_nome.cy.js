@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const valor = "" //string - OBRIGATÓRIO
 
-describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', () => {
+describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

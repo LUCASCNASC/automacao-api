@@ -4,7 +4,8 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Inventário - GET - /v3/inventario', () => {
+describe('Inventário - GET - /v3/inventario', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

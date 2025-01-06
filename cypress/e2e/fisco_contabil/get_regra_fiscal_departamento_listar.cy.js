@@ -8,7 +8,7 @@ const UF = ""; //string - OBRIGATÓRIO
 const CFOP = ""; //integer - OBRIGATÓRIO
 const OrigemProduto = ""; //integer - OBRIGATÓRIO
 
-describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{UF}/{CFOP}/{OrigemProduto}', () => {
+describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{UF}/{CFOP}/{OrigemProduto}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

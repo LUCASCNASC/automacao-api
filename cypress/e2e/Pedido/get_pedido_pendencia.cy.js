@@ -8,7 +8,7 @@ const idvendedor = ""; //number - OBRIGATÓRIO
 const cnpj_cpf = ""; //string - OBRIGATÓRIO
 const listapedidovenda = ""; //number - OBRIGATÓRIO
 
-describe('Pedido - GET - /v3/pedido_pendencia', () => {
+describe('Pedido - GET - /v3/pedido_pendencia', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

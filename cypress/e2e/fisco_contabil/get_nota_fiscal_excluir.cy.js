@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idRegistroNota = ""; //integer - OBRIGATÓRIO
 
-describe('Fisco/Contábil - GET - /v3/nota_fiscal_excluir/{idFilial}/{idRegistroNota}', () => {
+describe('Fisco/Contábil - GET - /v3/nota_fiscal_excluir/{idFilial}/{idRegistroNota}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

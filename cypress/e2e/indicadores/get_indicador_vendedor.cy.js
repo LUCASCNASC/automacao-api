@@ -7,7 +7,8 @@ const ano = ""; //number - OBRIGATÓRIO
 const mes = ""; //number - OBRIGATÓRIO
 const dia = ""; //number - OBRIGATÓRIO
 
-describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', () => {
+describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', { env: { hideCredendials: true } }
+  , () => {
 
     it('Resposta 200', () => {
 

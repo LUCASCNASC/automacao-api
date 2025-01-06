@@ -7,7 +7,8 @@ const filial_saldo = ""; //number - OBRIGATÓRIO
 const sku = ""; //string - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/local_saldo', () => {
+describe('Produtos - GET - /v3/local_saldo', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

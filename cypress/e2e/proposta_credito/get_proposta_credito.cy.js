@@ -9,7 +9,7 @@ const cliente = ""; //string
 const limit = ""; //string
 const offset = ""; //string
 
-describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', () => {
+describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

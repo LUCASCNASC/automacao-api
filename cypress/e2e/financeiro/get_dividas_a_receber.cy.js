@@ -9,7 +9,7 @@ const separarvinculados = ""; //boolean
 const limit = ""; //number
 const offset = ""; //number
 
-describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', () => {
+describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

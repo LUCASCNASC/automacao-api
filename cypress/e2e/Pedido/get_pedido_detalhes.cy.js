@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //number - OBRIGATÓRIO
 const codigo = ""; //number - OBRIGATÓRIO
 
-describe('Pedido - GET - /v3/pedido_detalhes/{codigo}', () => {
+describe('Pedido - GET - /v3/pedido_detalhes/{codigo}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

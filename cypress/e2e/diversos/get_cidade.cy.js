@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const uf = ""; //string - OBRIGATÓRIO 
 
-describe('Diversos - GET - /v3/cidade', () => {
+describe('Diversos - GET - /v3/cidade', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

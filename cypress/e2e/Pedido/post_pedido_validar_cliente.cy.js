@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
+describe('Pedido - POST - /v3/pedido_validar_cliente', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
       cy.request({

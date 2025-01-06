@@ -8,7 +8,8 @@ const UFDestino = ""; //integer - OBRIGATÓRIO
 const UFTomador = ""; //string 
 const OrigemProduto = ""; //string - OBRIGATÓRIO
 
-describe('Fisco/Contábil - GET - /v3/regra_fiscal_cfop_listar/{UFOrigem}/{UFDestino}/{UFTomador}/{OrigemProduto}', () => {
+describe('Fisco/Contábil - GET - /v3/regra_fiscal_cfop_listar/{UFOrigem}/{UFDestino}/{UFTomador}/{OrigemProduto}', { env: { hideCredendials: true } }
+  , () => {
   const token = acess_token  
   
     it('Resposta 200', () => {

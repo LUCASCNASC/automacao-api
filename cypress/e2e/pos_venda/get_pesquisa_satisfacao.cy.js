@@ -5,12 +5,9 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idfilial = ""; //string - OBRIGATÓRIO
 
-describe('Pós-venda - GET - /v3/pesquisa_satisfacao', () => {
+describe('Pós-venda - GET - /v3/pesquisa_satisfacao', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idfilial: ""
-      }
 
       cy.request({
         method: 'GET', 

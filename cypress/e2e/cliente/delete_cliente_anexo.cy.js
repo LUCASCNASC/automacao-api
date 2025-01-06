@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idcnpj_cpf = ""; //string
 const idpessoaanexo = ""; //string
 
-describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
+describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCredendials: true } }, () => {
   const url = '/Cliente/v3_cliente_anexo_delete';
   const token = acess_token  
   

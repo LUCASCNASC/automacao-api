@@ -7,7 +7,7 @@ const idFilial = ""; //integer - OBRIGATÓRIO
 const idMapaCargaLojaInicial = ""; //integer - OBRIGATÓRIO
 const idMapaCargaLojaFinal = ""; //integer - OBRIGATÓRIO
 
-describe('Logística - GET - /v3/mapa_carga_loja_lote/{idFilial}/{idMapaCargaLojaInicial}/{idMapaCargaLojaFinal}', () => {
+describe('Logística - GET - /v3/mapa_carga_loja_lote/{idFilial}/{idMapaCargaLojaInicial}/{idMapaCargaLojaFinal}', { env: { hideCredendials: true } }, () => {
 
     it('Resposta 200', () => {
 

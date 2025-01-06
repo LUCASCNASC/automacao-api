@@ -6,7 +6,8 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idFilialOrigem = ""; //integer - OBRIGATÓRIO
 const idRegistroNotaOrigem = ""; //integer - OBRIGATÓRIO
 
-describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga}', () => {
+describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMapaCarga}/{TipoMapaCarga}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

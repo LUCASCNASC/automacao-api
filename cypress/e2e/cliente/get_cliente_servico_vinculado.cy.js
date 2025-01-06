@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const cliente = "" //string - OBRIGATÓRIO
 const processo = "" //number
 
-describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', () => {
+describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

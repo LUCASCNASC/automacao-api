@@ -7,7 +7,7 @@ const idFilial = ""; //number - OBRIGATÓRIO
 const codigo = ""; //number - OBRIGATÓRIO
 const validarsituacaopedido = ""; //boolean - OBRIGATÓRIO
 
-describe('Pedido - GET - /v3/pedido/{codigo}', () => {
+describe('Pedido - GET - /v3/pedido/{codigo}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

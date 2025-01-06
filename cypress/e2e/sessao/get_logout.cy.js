@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Sessão - GET - /v3/logout', () => {
+describe('Sessão - GET - /v3/logout', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

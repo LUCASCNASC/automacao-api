@@ -7,7 +7,7 @@ const usuario = ""; //string - OBRIGATÓRIO
 const senha = ""; //string - OBRIGATÓRIO
 const codigoverificacao = ""; //string
 
-describe('Sessão - GET - /v3/login/{usuario}/{senha}', () => {
+describe('Sessão - GET - /v3/login/{usuario}/{senha}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

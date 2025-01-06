@@ -7,7 +7,7 @@ const filial = ""; //number - OBRIGATÓRIO
 const solicitacao = ""; //number - OBRIGATÓRIO
 const Authorization2 = ""; //string - OBRIGATÓRIO
 
-describe('Gestão Devolução - GET - /v3/nota_devolucao_simulacao/{filial}/{solicitacao}', () => {
+describe('Gestão Devolução - GET - /v3/nota_devolucao_simulacao/{filial}/{solicitacao}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

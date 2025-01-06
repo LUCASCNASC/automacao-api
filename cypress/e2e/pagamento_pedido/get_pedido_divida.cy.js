@@ -7,7 +7,7 @@ const filial = ""; //number - OBRIGATÓRIO
 const termo = ""; //string - OBRIGATÓRIO
 const idtipotef = ""; //number -
 
-describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
+describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

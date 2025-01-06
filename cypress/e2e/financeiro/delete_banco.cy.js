@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const codigo = "" //number - OBRIGATÓRIO 
 
-describe('Financeiro - DELETE - /v3/banco/{codigo}', () => {
+describe('Financeiro - DELETE - /v3/banco/{codigo}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

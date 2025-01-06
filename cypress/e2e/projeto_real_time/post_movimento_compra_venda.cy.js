@@ -5,7 +5,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
   
-    it('POST - /v3/movimento_compra_venda/ - Resposta 200', () => {
+    it('POST - /v3/movimento_compra_venda/ - Resposta 200', { env: { hideCredendials: true } }, () => {
 
       cy.request({
         method: 'POST', 

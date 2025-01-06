@@ -9,7 +9,7 @@ const marca = ""; //string - OBRIGATÓRIO
 const so_promocao = ""; //boolean - OBRIGATÓRIO
 const so_servico = ""; //boolean - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto ', () => {
+describe('Produtos - GET - /v3/produto ', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

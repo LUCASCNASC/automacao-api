@@ -8,7 +8,7 @@ const valor = ""; //number - OBRIGATÓRIO
 const tipo_servico = ""; //number - OBRIGATÓRIO
 const processo = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_servico_vinculado ', () => {
+describe('Produtos - GET - /v3/produto_servico_vinculado ', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

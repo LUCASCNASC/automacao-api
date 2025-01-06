@@ -8,7 +8,7 @@ const sku = ""; //string - OBRIGATÓRIO
 const quantidade = ""; //number - OBRIGATÓRIO
 const local_saldo = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_composicao_saldo ', () => {
+describe('Produtos - GET - /v3/produto_composicao_saldo', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

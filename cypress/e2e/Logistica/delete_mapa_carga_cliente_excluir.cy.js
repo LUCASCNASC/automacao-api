@@ -8,7 +8,7 @@ const idMapaCarga = ""; //integer - OBRIGATÓRIO
 const idFilialPedido = ""; //integer - OBRIGATÓRIO
 const idPedidoVenda = ""; //integer - OBRIGATÓRIO
 
-describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', () => {
+describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

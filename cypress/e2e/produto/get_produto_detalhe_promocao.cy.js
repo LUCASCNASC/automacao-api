@@ -6,7 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const produto = ""; //number - OBRIGATÓRIO
 const processo_venda = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto} ', () => {
+describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

@@ -7,7 +7,8 @@ const filial = 10050  //integer - OBRIGATÓRIO
 
 describe('Filial - GET - /v3/filial_detalhe/{filial}', { env: { hideCredendials: true } }, () => {
 
-  it.only('Retorno 200', () => {
+  it.only('Retorno 200'
+    , () => {
     cy.api({
       method: 'GET',
       url: `${API_URL}/Filial/v2_filial_detalhe/${filial}`,

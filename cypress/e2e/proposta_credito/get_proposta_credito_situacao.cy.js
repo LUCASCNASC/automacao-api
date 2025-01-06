@@ -5,7 +5,7 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const codigo = ""; //number - OBRIGATÓRIO
 
-describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', () => {
+describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

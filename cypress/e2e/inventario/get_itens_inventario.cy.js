@@ -6,9 +6,7 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idInventario = ""; //integer - OBRIGATÓRIO
 
-describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', () => {
-  const url = '/Invent%C3%A1rio/v3_get_itens_inventario';
-  const token = acess_token 
+describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
       cy.request({

@@ -7,7 +7,8 @@ const produto = ""; //string - OBRIGATÓRIO
 const pesquisagtin = ""; //boolean - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_detalhe/{produto} ', () => {
+describe('Produtos - GET - /v3/produto_detalhe/{produto}
+  ', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

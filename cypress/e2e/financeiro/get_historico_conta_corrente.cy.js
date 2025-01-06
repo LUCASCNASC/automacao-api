@@ -6,7 +6,8 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idTipoContaCorrente = ""; //number - OBRIGATÓRIO
 const idContaCorrente = ""; //number
 
-describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', () => {
+describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

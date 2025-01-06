@@ -6,7 +6,8 @@ const Authorization = Cypress.env('API.PRAGMA')
 const cnpjCpf = ""; //string - OBRIGATÓRIO
 const idReferenciaBancaria = ""; //number - OBRIGATÓRIO
 
-describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', () => {
+describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

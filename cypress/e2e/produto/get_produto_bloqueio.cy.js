@@ -7,7 +7,7 @@ const filial_saldo = ""; //number - OBRIGATÓRIO
 const sku = ""; //string - OBRIGATÓRIO
 const id_cnpj_cpf = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_bloqueio', () => {
+describe('Produtos - GET - /v3/produto_bloqueio', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 

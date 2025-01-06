@@ -6,7 +6,8 @@ const Authorization = Cypress.env('API.PRAGMA')
 const idTrial = ""; //integer - OBRIGATÓRIO
 const QuantidadeNivel = ""; //integer - OBRIGATÓRIO
 
-describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', () => {
+describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', { env: { hideCredendials: true } }
+  , () => {
   
     it('Resposta 200', () => {
 

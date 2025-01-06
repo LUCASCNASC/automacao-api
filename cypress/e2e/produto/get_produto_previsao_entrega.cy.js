@@ -11,7 +11,7 @@ const sku = ""; //string - OBRIGATÓRIO
 const quantidade = ""; //number - OBRIGATÓRIO
 const local_saldo = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
+describe('Produtos - GET - /v3/produto_previsao_entrega ', { env: { hideCredendials: true } }, () => {
     
     it('Resposta 200', () => {
 

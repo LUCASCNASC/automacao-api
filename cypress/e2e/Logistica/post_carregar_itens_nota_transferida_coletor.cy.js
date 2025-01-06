@@ -4,7 +4,7 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', () => {
+describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 
@@ -14,7 +14,8 @@ describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', () =
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //
+          // 'Content-Type': 'application/json'
         },
         failOnStatusCode: false
       })
