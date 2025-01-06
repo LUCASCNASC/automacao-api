@@ -12,13 +12,14 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'GET', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('UF_Origem');

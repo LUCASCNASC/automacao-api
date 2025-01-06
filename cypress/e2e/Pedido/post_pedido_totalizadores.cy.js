@@ -5,12 +5,10 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_totalizadores', { env: { hideCredendials: true } }, () => {
-  const url = '/Pedido/v3_pedido_totalizadores';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
@@ -18,6 +16,7 @@ describe('Pedido - POST - /v3/pedido_totalizadores', { env: { hideCredendials: t
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(resposta.body.retorno[0].pedido[0]).toHaveProperty('valorTotal');

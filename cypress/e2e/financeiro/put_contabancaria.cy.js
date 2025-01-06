@@ -8,13 +8,14 @@ describe('Financeiro - PUT - /v3/contabancaria', { env: { hideCredendials: true 
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'PUT', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

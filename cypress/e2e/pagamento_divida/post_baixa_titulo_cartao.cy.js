@@ -8,15 +8,16 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', { env: { hideCredendials:
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
     })
       .then((response) => {
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000);
+        const { data } = body;
+        expect(response.status).to.eq(200);
+        expect(response.duration).to.be.below(2000);
         });
     });
   });

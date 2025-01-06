@@ -10,13 +10,14 @@ describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}'
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

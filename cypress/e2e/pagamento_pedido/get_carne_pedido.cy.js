@@ -10,13 +10,14 @@ describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', { env: {
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'GET', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })  
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
           expect(resposta.body.retorno[0]).toHaveProperty('impressoratermica');

@@ -9,13 +9,14 @@ describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', { env: { hideC
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
           expect(response.body.retorno[0].documentos[0]).toHaveProperty('idempresa');

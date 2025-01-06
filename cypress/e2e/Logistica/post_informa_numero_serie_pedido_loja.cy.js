@@ -8,13 +8,14 @@ describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', { env: { hi
 
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

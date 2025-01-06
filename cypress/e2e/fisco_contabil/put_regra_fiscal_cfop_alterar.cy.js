@@ -8,7 +8,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', { env: { hideCreden
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'PUT', 
         url: url, 
         headers: { Authorization },
@@ -16,6 +16,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', { env: { hideCreden
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(response.body.retorno[0]).toHaveProperty('IdBaseFiscalCFOP');

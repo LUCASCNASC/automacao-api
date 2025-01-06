@@ -8,7 +8,7 @@ describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } },
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
@@ -16,6 +16,7 @@ describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
           expect(response.body.retorno[0]).toHaveProperty('gerado');

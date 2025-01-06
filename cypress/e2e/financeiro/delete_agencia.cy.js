@@ -10,13 +10,14 @@ describe('Financeiro - DELETE - /v3/agencia/{codigoBanco}/{codigoAgencia}', { en
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'DELETE', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

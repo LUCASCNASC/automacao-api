@@ -8,7 +8,7 @@ describe('Fisco/Contábil - POST - /v3/receber_transferencia', { env: { hideCred
   
     it('POST - /v3/receber_transferencia - Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
@@ -16,6 +16,7 @@ describe('Fisco/Contábil - POST - /v3/receber_transferencia', { env: { hideCred
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(response.body.retorno[0]).toHaveProperty('Filial');

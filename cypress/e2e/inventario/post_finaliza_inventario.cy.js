@@ -8,13 +8,14 @@ describe('Inventário - POST - /v3/finaliza_inventario', { env: { hideCredendial
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); // Verifica se o tempo de resposta foi abaixo de 2000ms
         });

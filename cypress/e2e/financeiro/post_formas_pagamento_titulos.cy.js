@@ -4,18 +4,18 @@
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
-describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } }
-  , () => {
+describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } } , () => {
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(response.body.retorno[0]).toHaveProperty('idEmpresa');

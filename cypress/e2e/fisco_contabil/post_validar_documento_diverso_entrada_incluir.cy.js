@@ -8,13 +8,14 @@ describe('Fisco/Contábil - POST - /v3/validar_documento_diverso_entrada_incluir
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
           expect(response.body.retorno[0]).toHaveProperty('Status_Retorno');

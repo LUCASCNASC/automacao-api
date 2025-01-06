@@ -8,14 +8,14 @@ describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', { env: { hideCred
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url,
         headers: { Authorization },
-        
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

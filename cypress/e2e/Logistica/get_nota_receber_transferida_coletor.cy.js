@@ -10,13 +10,14 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', {
     it('Resposta 200', () => {
       const requestBody = 
 
-      cy.request({
+      cy.api({
         method: 'GET', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(resposta.body.retorno[0]).toHaveProperty('idFilial');

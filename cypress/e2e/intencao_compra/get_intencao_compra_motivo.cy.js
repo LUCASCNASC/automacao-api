@@ -8,13 +8,14 @@ describe('Intenção compra - GET - /v3/intencao_compra_motivo', { env: { hideCr
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'GET', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(resposta.body.retorno[0]).toHaveProperty('codigo');

@@ -9,14 +9,14 @@ describe('Pagamento pedido - POST - /v3/baixa_pedido', { env: { hideCredendials:
     it('Resposta 200', () => {
       const requestBody = 
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
-        
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

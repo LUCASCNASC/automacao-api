@@ -8,13 +8,14 @@ describe('Pedido - POST - /v3/pedido_forma_pagamento', { env: { hideCredendials:
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(resposta.body.retorno[0].servicos[0]).toHaveProperty('parcelaValida');

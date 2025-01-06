@@ -8,7 +8,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', { env: { hideCr
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
         headers: { Authorization },
@@ -16,6 +16,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', { env: { hideCr
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
           expect(resposta.body.retorno[0]).toHaveProperty('idfilial');
