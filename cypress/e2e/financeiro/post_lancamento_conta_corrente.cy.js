@@ -11,11 +11,7 @@ describe('Financeiro - POST - /v3/lancamento_conta_corrente', { env: { hideCrede
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

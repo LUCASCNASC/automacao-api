@@ -1,3 +1,4 @@
+
 // /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto} - Lista base fiscal (UF)
 // Listar base fiscal de UF
 
@@ -13,11 +14,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemP
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

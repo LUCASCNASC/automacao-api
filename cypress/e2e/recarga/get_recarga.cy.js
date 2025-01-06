@@ -13,11 +13,7 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', { env: { hide
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

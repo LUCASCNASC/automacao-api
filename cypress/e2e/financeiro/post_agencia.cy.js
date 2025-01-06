@@ -1,3 +1,4 @@
+
 // /v3/agencia - Inclusão de agência
 // Incluir agência
 
@@ -11,11 +12,7 @@ describe('Financeiro - POST - /v3/agencia', { env: { hideCredendials: true } }, 
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: {
-          Pragma: pragma_token, 
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

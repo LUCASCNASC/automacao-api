@@ -15,11 +15,7 @@ describe('Produtos - GET - /v3/produto_composicao_saldo', { env: { hideCredendia
       cy.request({
         method: 'GET', 
         url: url,
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

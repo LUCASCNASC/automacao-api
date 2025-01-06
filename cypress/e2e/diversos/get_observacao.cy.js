@@ -8,17 +8,14 @@ describe('Diversos - GET - /v3/observacao', { env: { hideCredendials: true } }, 
   
   it('Resposta 200', () => {
 
-    cy.request({
+    cy.api({
       method: 'POST', 
       url: url, 
-      headers: { 
-        Pragma: pragma_token,
-        Authorization: `Bearer ${token}`,
-        //'Content-Type': 'application/json'
-      },
+      headers: { Authorization },
       failOnStatusCode: false
     })
       .then((response) => {
+        const { data } = body;
         expect(response.status).to.eq(200);
         expect(resposta.body.retorno[0]).toHaveProperty('idobservacao');
         expect(resposta.body.retorno[0]).toHaveProperty('descricao');

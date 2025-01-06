@@ -12,17 +12,14 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCrede
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'DELETE', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
         });

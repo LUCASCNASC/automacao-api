@@ -12,11 +12,7 @@ describe('Proposta crédito - POST - /v3/proposta_credito', { env: { hideCredend
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

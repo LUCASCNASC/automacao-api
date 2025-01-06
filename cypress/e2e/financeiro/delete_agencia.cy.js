@@ -13,11 +13,7 @@ describe('Financeiro - DELETE - /v3/agencia/{codigoBanco}/{codigoAgencia}', { en
       cy.request({
         method: 'DELETE', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

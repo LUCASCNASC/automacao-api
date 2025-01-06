@@ -11,11 +11,7 @@ describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', { env: { hideCredendi
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

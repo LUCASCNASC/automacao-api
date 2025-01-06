@@ -11,11 +11,7 @@ describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', { env:
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

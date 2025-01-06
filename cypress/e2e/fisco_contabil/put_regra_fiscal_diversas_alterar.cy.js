@@ -11,11 +11,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_diversas_alterar', { env: { hideCr
       cy.request({
         method: 'PUT', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

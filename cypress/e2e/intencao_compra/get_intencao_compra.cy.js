@@ -12,11 +12,7 @@ describe('Intenção compra - GET - /v3/intencao_compra', { env: { hideCredendia
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

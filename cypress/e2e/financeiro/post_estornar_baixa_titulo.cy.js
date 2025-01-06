@@ -1,3 +1,4 @@
+
 // /v3/estornar_baixa_titulo - Estorno de baixa de título
 // Faz o estorno da última parcial baixada ou de todas as parciais de um título.
 
@@ -11,11 +12,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo', { env: { hideCredendia
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

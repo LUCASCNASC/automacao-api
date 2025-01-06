@@ -12,11 +12,7 @@ describe('Titulo - PUT - /v3/titulo_alterar', { env: { hideCredendials: true } }
       cy.request({
         method: 'PUT', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

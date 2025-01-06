@@ -11,11 +11,7 @@ describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', { env
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

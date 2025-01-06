@@ -12,11 +12,7 @@ describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', { env: { hideC
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

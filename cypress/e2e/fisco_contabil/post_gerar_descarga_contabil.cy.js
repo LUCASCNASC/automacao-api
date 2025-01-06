@@ -1,3 +1,4 @@
+
 // /v3/gerar_descarga_contabil - Descarga contábil
 // Efetuar descarga contábil por filial e período
 
@@ -12,11 +13,7 @@ describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', { env: { hideCr
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

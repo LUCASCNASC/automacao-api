@@ -11,11 +11,7 @@ describe('Titulo - POST - /v3/recarga', { env: { hideCredendials: true } }, () =
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

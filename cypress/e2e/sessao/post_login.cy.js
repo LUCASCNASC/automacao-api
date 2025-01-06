@@ -11,11 +11,7 @@ describe('Sessão - POST - /v3/login', { env: { hideCredendials: true } }, () =>
       cy.request({
         method: 'GET',
         url: url,
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

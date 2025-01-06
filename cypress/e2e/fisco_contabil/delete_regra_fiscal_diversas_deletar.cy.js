@@ -12,11 +12,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFi
       cy.request({
         method: 'DELETE', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

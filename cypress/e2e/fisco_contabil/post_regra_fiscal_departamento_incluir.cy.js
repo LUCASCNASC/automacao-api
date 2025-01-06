@@ -11,11 +11,7 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_departamento_incluir', { env
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

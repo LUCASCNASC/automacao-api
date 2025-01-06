@@ -11,11 +11,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_itens', { env: { hideCred
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

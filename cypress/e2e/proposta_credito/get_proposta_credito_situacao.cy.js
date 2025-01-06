@@ -12,11 +12,7 @@ describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', { e
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -11,12 +11,7 @@ describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { en
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //
-          // 'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

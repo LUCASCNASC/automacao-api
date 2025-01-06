@@ -11,11 +11,7 @@ describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', { env: { hide
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

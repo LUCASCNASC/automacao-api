@@ -10,17 +10,14 @@ describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', { env: { hid
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'GET', 
         url:url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
           expect(resposta.body.retorno[0]).toHaveProperty('idFilial');

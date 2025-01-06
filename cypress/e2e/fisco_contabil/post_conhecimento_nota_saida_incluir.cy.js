@@ -11,11 +11,7 @@ describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', { env:
       cy.request({
         method: 'POST', 
         url: rurl, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

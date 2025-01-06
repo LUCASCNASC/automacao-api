@@ -10,7 +10,8 @@ describe('Filial - GET - /api/session', { env: { hideCredendials: true } }, () =
     cy.api({
       method: 'GET',
       url: `${API_URL}/API/api_session`,
-      headers: { Authorization }
+      headers: { Authorization },
+      failOnStatusCode: false
     }).should(({ status, body }) => {
       const { data } = body
       expect(resposta.status).toBe(200);

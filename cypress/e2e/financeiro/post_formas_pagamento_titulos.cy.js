@@ -12,11 +12,7 @@ describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCreden
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -7,19 +7,14 @@ const produto = ""; //string - OBRIGATÓRIO
 const pesquisagtin = ""; //boolean - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
 
-describe('Produtos - GET - /v3/produto_detalhe/{produto}
-  ', { env: { hideCredendials: true } }, () => {
+describe('Produtos - GET - /v3/produto_detalhe/{produto}', { env: { hideCredendials: true } }, () => {
   
     it('Resposta 200', () => {
 
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -11,11 +11,7 @@ describe('Financeiro - POST - /v3/baixa_divida_cliente', { env: { hideCredendial
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -10,17 +10,14 @@ describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', { env: { hid
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
           expect(response.body.retorno[0]).toHaveProperty('Empresa');

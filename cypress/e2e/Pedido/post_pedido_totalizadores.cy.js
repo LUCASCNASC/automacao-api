@@ -13,11 +13,7 @@ describe('Pedido - POST - /v3/pedido_totalizadores', { env: { hideCredendials: t
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         bod: reqBody_post_pedido_totalizadores,
         failOnStatusCode: false
       })

@@ -13,11 +13,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', { env: { h
       cy.request({
         method: 'DELETE', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

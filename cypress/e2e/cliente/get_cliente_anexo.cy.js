@@ -13,7 +13,8 @@ describe('Filial - GET - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCredendia
     cy.api({
       method: 'GET',
       url: `${API_URL}/Cliente/v3_cliente_anexo/${idcnpj_cpf}`,
-      headers: { Authorization }
+      headers: { Authorization },
+      failOnStatusCode: false
     }).should(({ status, body }) => {
       const { data } = body
       expect(status).to.equal(200)

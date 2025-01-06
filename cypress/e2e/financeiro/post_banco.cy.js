@@ -1,3 +1,4 @@
+
 // /v3/banco - Inclusão de banco
 // Incluir cadastro de banco
 
@@ -12,11 +13,7 @@ describe('Financeiro - POST - /v3/banco', { env: { hideCredendials: true } }, ()
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

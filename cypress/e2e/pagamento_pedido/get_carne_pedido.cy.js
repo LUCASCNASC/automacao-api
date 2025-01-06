@@ -13,11 +13,7 @@ describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', { env: {
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })  
         .then((response) => {

@@ -16,11 +16,7 @@ describe('Logística - GET - /v3/mapa_carga_loja/{idFilial}/{idSituacaoMapaCarga
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

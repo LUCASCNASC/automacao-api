@@ -14,11 +14,8 @@ describe('Pagamento divida - GET - /v3/divida_cliente/{filial}/{cliente}', { env
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
+        
         failOnStatusCode: false
       })
         .then((response) => {

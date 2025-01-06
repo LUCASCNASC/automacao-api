@@ -15,11 +15,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -1,3 +1,4 @@
+
 // /v3/lista_solicitacao_processamento - Solicitação de processamento
 // Retornar lista com as solicitações de processamento
 
@@ -12,11 +13,7 @@ describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', { env: 
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -11,11 +11,7 @@ describe('Pós-venda - POST - /v3/pos_venda', { env: { hideCredendials: true } }
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

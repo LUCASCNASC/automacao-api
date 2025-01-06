@@ -14,11 +14,8 @@ describe('Gestão Devolução - GET - /v3/nota_devolucao_simulacao/{filial}/{sol
       cy.request({
         method: 'GET', 
         url: '', 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
+        
         failOnStatusCode: false
       })
         .then((response) => {

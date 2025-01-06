@@ -8,17 +8,14 @@ describe('Compras - POST - /v3/produto_incluir_alterar', { env: { hideCredendial
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

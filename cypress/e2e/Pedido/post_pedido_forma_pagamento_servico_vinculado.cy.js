@@ -11,11 +11,7 @@ describe('Pedido - POST - /v3/pedido_forma_pagamento_servico_vinculado', { env: 
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

@@ -11,11 +11,7 @@ describe('Pedido - POST - /v3/pedido_calcular_frete', { env: { hideCredendials: 
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

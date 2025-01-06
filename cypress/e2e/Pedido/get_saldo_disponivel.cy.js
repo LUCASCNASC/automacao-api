@@ -13,11 +13,7 @@ describe('Pedido - GET - /v3/saldo_disponivel/{idFilial}/{idPedidoVenda}', { env
       cy.request({
         method: 'GET', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

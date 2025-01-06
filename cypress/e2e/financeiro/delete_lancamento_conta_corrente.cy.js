@@ -13,11 +13,7 @@ describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLanc
       cy.request({
         method: 'DELETE', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

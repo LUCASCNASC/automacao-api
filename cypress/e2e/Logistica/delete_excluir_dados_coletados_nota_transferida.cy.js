@@ -14,11 +14,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
       cy.request({
         method: 'DELETE', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {

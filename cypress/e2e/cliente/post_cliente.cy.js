@@ -9,17 +9,14 @@ describe('Cliente - POST - /v3/cliente', { env: { hideCredendials: true } }
   
     it('Resposta 200', () => {
 
-      cy.request({
+      cy.api({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
+          const { data } = body;
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
         });

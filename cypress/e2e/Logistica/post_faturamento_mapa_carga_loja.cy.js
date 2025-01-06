@@ -11,11 +11,7 @@ describe('Logística - POST - /v3/faturamento_mapa_carga_loja', { env: { hideCre
       cy.request({
         method: 'POST', 
         url: url, 
-        headers: { 
-          Pragma: pragma_token,
-          Authorization: `Bearer ${token}`,
-          //'Content-Type': 'application/json'
-        },
+        headers: { Authorization },
         failOnStatusCode: false
       })
         .then((response) => {
