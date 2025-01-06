@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const cliente = "" //string - OBRIGATÓRIO
+const processo = "" //number
 
 describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', () => {
-  const url =  '/Cliente/v3_cliente_servico_vinculado';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        cliente: "",
-        processo: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +18,6 @@ describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

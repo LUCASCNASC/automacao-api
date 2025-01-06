@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', () => {
-  const url = '/Log%C3%ADstica/v3_post_mapa_carga_acarregar_cliente';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -16,14 +14,21 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_mapa_carga_acarregar_cliente,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idfilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idmapacarga');
+          expect(resposta.body.retorno[0]).toHaveProperty('qtdecliente');
+          expect(resposta.body.retorno[0]).toHaveProperty('qtdepedido');
+          expect(resposta.body.retorno[0]).toHaveProperty('datainclusao');
+          expect(resposta.body.retorno[0]).toHaveProperty('nomemotorista');
+          expect(resposta.body.retorno[0]).toHaveProperty('idsituacaomapacarga');
+          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
         });
     });
   });

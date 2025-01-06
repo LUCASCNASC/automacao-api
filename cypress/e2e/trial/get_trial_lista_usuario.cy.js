@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idUsuario = ""; //integer - OBRIGATÓRIO
 
 describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
-  const url = '/Trial/v3_get_lista_trial_usuario';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idUsuario: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

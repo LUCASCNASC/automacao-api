@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const lista = ""; //string - OBRIGATÓRIO
 
 describe('Produtos - GET - /v3/produto_relacionado ', () => {
-  const url = '/Produto/v2_produto_relacionado';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        lista: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Produtos - GET - /v3/produto_relacionado ', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

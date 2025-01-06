@@ -24,6 +24,12 @@ describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', () =>
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('idFilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idMapaCarga');
+          expect(resposta.body.retorno[0].itemNaoIncluido[0]).toHaveProperty('idPedidoVenda');
+          expect(resposta.body.retorno[0].itemNaoIncluido[0]).toHaveProperty('idItemBase');
+          expect(resposta.body.retorno[0].itemNaoIncluido[0]).toHaveProperty('sku');
+          expect(resposta.body.retorno[0].itemNaoIncluido[0]).toHaveProperty('motivo');
         });
     });
   });

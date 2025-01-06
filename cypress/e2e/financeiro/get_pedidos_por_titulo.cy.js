@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //number - OBRIGATÓRIO
+const idTitulo = ""; //number - OBRIGATÓRIO
+const idTipoTitulo = ""; //number - OBRIGATÓRIO
 
 describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', () => {
-  const url = '/Financeiro/v3_financeiro_pedidos_por_titulo';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        idTitulo: "",
-        idTipoTitulo: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -23,7 +19,6 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

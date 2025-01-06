@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', () => {
-  const url = '/Gest%C3%A3o%20Devolu%C3%A7%C3%A3o/v2_gestao_devolucao_efetivar_proposta_abatimento';
-  const token = acess_token  
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', () => 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_efetivar_proposta_abatimento,
         failOnStatusCode: false
       })
         .then((response) => {

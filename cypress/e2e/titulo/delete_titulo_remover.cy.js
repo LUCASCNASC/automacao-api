@@ -3,18 +3,14 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const numeroEmpresa = ""; //integer - OBRIGATÓRIO
+const numeroFilial = ""; //integer - OBRIGATÓRIO
+const tipoTitulo = ""; //integer - OBRIGATÓRIO
+const numeroTitulo = ""; //integer - OBRIGATÓRIO
 
 describe('Titulo - DELETE - /v3/titulo_remover/{numeroEmpresa}/{numeroFilial}/{tipoTitulo}/{numeroTitulo}', () => {
-  const url = '/Titulo/v3_delete_titulo_remover';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        numeroEmpresa: "",
-        numeroFilial: "",
-        tipoTitulo: "",
-        numeroTitulo: ""
-      }
 
       cy.request({
         method: 'DELETE', 
@@ -24,7 +20,6 @@ describe('Titulo - DELETE - /v3/titulo_remover/{numeroEmpresa}/{numeroFilial}/{t
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/nota_incluir/', () => {
-  const url =  '/Fisco/Contabil/v3_post_nota_incluir';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,12 +16,18 @@ describe('Fisco/Contábil - POST - /v3/nota_incluir/', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_nota_incluir,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('CNPJ_Filial_Nota');
+          expect(response.body.retorno[0]).toHaveProperty('CNPJ_CPF_Nota');
+          expect(response.body.retorno[0]).toHaveProperty('Data_Movimento');
+          expect(response.body.retorno[0]).toHaveProperty('Numero_Nota');
+          expect(response.body.retorno[0]).toHaveProperty('Id_Registro_Nota');
+          expect(response.body.retorno[0]).toHaveProperty('Id_Titulo');
+          expect(response.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

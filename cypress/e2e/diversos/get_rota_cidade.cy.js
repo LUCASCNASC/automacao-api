@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idgruporota = ""; //integer
+const idrota = ""; //integer
+const idrotacidade = ""; //integer
 
 describe('Diversos - GET - /v3/rota_cidade', () => {
-  const url = '/Diversos/v3_diversos_rota_cidade';
-  const token = acess_token 
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idgruporota: "",
-        idrota: "",
-        idrotacidade: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -23,7 +19,6 @@ describe('Diversos - GET - /v3/rota_cidade', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         }, 
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

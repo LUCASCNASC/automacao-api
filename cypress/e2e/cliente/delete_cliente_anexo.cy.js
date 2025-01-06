@@ -3,16 +3,14 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idcnpj_cpf = ""; //string
+const idpessoaanexo = ""; //string
 
 describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
   const url = '/Cliente/v3_cliente_anexo_delete';
   const token = acess_token  
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idcnpj_cpf: "",
-        idpessoaanexo: ""
-      }
 
       cy.request({
         method: 'DELETE', 
@@ -22,7 +20,6 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

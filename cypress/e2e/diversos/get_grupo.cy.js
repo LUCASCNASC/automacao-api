@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idtipogrupo = ""; //integer - OBRIGATÓRIO
 
 describe('Diversos - GET - /v3/grupo', () => {
-  const url = '/Diversos/v3_diversos_grupo';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idtipogrupo: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Diversos - GET - /v3/grupo', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

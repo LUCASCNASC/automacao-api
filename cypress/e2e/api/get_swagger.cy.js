@@ -3,7 +3,7 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
-const versao = ""
+const versao = "" //integer
 
 describe('Filial - GET - /api/swagger', { env: { hideCredendials: true } }, () => {
 
@@ -15,6 +15,7 @@ describe('Filial - GET - /api/swagger', { env: { hideCredendials: true } }, () =
     }).should(({ status, body }) => {
       const { data } = body
       expect(resposta.status).toBe(200);
+      expect(response.duration).to.be.below(2000);
     })
   })
 })

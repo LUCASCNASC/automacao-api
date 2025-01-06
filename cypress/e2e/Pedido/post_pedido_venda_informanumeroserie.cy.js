@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', () => {
-  const url = '/Pedido/v3_post_pedido_venda_informanumeroserie';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_pedido_venda_informanumeroserie,
         failOnStatusCode: false
       })
         .then((response) => {

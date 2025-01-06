@@ -5,11 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pós-venda - GET - /v3/pos_venda_qualificacao', () => {
-  const url = '/P%C3%B3s-venda/v2_pos_venda_qualificacao';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {}
 
       cy.request({
         method: 'GET', 
@@ -19,7 +16,6 @@ describe('Pós-venda - GET - /v3/pos_venda_qualificacao', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

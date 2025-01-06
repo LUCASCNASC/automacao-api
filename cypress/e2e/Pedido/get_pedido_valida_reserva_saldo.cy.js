@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //integer - OBRIGATÓRIO
+const idPedidoVenda = ""; //integer - OBRIGATÓRIO
 
 describe('Pedido - GET - /v3/pedido_valida_reserva_saldo/{idFilial}/{idPedidoVenda}', () => {
-  const url = '/Pedido/v3_pedido_valida_reserva_saldo';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        idPedidoVenda: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +18,6 @@ describe('Pedido - GET - /v3/pedido_valida_reserva_saldo/{idFilial}/{idPedidoVen
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

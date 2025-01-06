@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const rota = ""; //number - OBRIGATÓRIO 
 
 describe('Diversos - GET - /v3/local_entrega', () => {
-  const url = '/Diversos/v2_diversos_local_entrega';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        rota: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Diversos - GET - /v3/local_entrega', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - GET - /v3/parametros_sitema', () => {
-  const url = '/Sistema/v2_sistema_parametro_sistema';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('Sistema - GET - /v3/parametros_sitema', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_get_parametros_sitema,
         failOnStatusCode: false
       })
         .then((response) => {

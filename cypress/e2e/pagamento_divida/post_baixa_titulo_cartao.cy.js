@@ -8,8 +8,6 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
     const token = Cypress.env('AUTH_TOKEN'); 
   
     it('Resposta 200', () => {
-      const url = '/Pagamento%20divida/v2_divida_baixa_titulo';
-      const token = acess_token
 
       cy.request({
         method: 'POST', 
@@ -17,9 +15,8 @@ describe('Pagamento divida - POST - /v3/baixa_titulo', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_baixa_titulo,
         failOnStatusCode: false
     })
       .then((response) => {

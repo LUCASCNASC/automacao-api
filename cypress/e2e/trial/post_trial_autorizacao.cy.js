@@ -4,8 +4,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Trial - POST - /v3/trial_autorizacao', () => {
-    const url = '/Trial/v3_post_trial_autorizacao';
-    const token = acess_token
   
     it('Resposta 200', () => { 
 
@@ -15,9 +13,8 @@ describe('Trial - POST - /v3/trial_autorizacao', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_trial_autorizacao,
         failOnStatusCode: false
       })
         .then((response) => {

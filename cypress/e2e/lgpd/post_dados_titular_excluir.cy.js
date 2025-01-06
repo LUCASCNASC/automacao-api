@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/dados_titular_excluir', () => {
-  const url = '/LGPD/v3_post_lgpd_dados_titular_excluir';
-  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = 
@@ -17,9 +15,8 @@ describe('Titulo - POST - /v3/dados_titular_excluir', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_dados_titular_excluir,
         failOnStatusCode: false
       })
         .then((response) => {

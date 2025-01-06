@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
-  const url = '/Pedido/v3_pedido_validar_cliente';
-  const token = acess_token
   
     it('Resposta 200', () => {
       cy.request({
@@ -15,9 +13,8 @@ describe('Pedido - POST - /v3/pedido_validar_cliente', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_pedido_validar_cliente,
         failOnStatusCode: false
       })
         .then((response) => {

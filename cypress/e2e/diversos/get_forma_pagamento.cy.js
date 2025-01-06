@@ -5,14 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - GET - /v3/forma_pagamento', () => {
-  const url = '/Diversos/v2_diversos_forma_pagamento';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        "idformapagamento": 0,
-        "descricao": "string"
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +16,6 @@ describe('Diversos - GET - /v3/forma_pagamento', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

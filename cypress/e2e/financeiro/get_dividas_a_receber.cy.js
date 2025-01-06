@@ -3,19 +3,15 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //number - OBRIGATÓRIO
+const cpf_cnpj = ""; //string - OBRIGATÓRIO
+const separarvinculados = ""; //boolean
+const limit = ""; //number
+const offset = ""; //number
 
 describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', () => {
-  const url = '/Financeiro/v3_financeiro_dividas_a_receber';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        cpf_cnpj: "",
-        separavinculados: "",
-        limit: "",
-        offset: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -25,7 +21,6 @@ describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', () =>
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

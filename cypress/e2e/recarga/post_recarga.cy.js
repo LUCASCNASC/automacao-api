@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/recarga', () => {
-  const url = '/Recarga/v3_post_recarga';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Titulo - POST - /v3/recarga', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_recarga,
         failOnStatusCode: false
       })
         .then((response) => {

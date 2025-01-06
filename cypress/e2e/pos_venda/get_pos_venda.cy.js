@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const datainicial = "yyyy-mm-dd"; //string - OBRIGATÓRIO
+const datafinal = "yyyy-mm-dd"; //string - OBRIGATÓRIO
 
 describe('Pós-venda - GET - /v3/pos_venda', () => {
-  const url = '/P%C3%B3s-venda/v3_pos_venda_get_post1';
-  const token = acess_token 
   
     it('Resposta 200', () => {
-      const requestBody = {
-        datainicial: "",
-        datafinal: ""
-      }
 
       cy.request({
         mehtod: 'GET', 
@@ -22,7 +18,6 @@ describe('Pós-venda - GET - /v3/pos_venda', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

@@ -4,8 +4,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
-  const url ='/Projeto%20Real%20Time';
-  const token = acess_token
   
     it('Resposta 200', () => {
       
@@ -15,9 +13,8 @@ describe('Projeto Real Time - GET - /v3/filial_lista/', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_get_filial_lista,
         failOnStatusCode: false
       })
         .then((response) => {

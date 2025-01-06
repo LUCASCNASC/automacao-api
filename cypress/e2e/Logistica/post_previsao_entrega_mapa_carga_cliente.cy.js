@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
-  const url = '/Log%C3%ADstica/v3_post_previsao_entrega_mapa_carga_cliente';
-  const token = acess_token
   
     it('Resposta 200', () => { 
 
@@ -18,12 +16,17 @@ describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_previsao_entrega_mapa_carga_cliente,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('idFilial');
+          expect(resposta.body.retorno[0]).toHaveProperty('idMapaCarga');
+          expect(resposta.body.retorno[0]).toHaveProperty('dataPrevisaoEntrega');
+          expect(resposta.body.retorno[0]).toHaveProperty('dataPrevisaoMontagem');
+          expect(resposta.body.retorno[0]).toHaveProperty('pesoDisponivel');
+          expect(resposta.body.retorno[0]).toHaveProperty('volumeDisponivel');
         });
     });
   });

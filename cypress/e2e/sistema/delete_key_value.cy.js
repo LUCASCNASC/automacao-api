@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const key = ""; //string - OBRIGATÓRIO
 
 describe('Sistema - DELETE - /v3/key_value/{key}', () => {
-  const url = '/Sistema/v2_sistema_key_value_delete';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        key: ""
-      }
 
       cy.request({
         method: 'DELETE',
@@ -21,7 +17,6 @@ describe('Sistema - DELETE - /v3/key_value/{key}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

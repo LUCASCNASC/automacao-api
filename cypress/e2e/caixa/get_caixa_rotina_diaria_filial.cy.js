@@ -3,8 +3,8 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
-const idFilial = 10050;
-const dataAbertura = "2024-12-20";
+const idFilial = 10050; //integer
+const dataAbertura = "2024-12-20"; //string
 
 describe('Filial - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}', { env: { hideCredendials: true } }, () => {
 
@@ -15,7 +15,8 @@ describe('Filial - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura
       headers: { Authorization }
     }).should(({ status, body }) => {
       const { data } = body
-      expect(status).to.equal(200)
+      expect(status).to.equal(200);
+      expect(response.duration).to.be.below(2000);
     })
   })
 })

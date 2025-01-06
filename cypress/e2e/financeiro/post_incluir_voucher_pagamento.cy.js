@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
-  const url = '/Financeiro/v3_financeiro_incluir_voucher_pagamento';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,12 +16,15 @@ describe('Financeiro - POST - /v3/incluir_voucher_pagamento', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_incluir_voucher_pagamento,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('idfilial');
+          expect(response.body.retorno[0]).toHaveProperty('chave');
+          expect(response.body.retorno[0]).toHaveProperty('cnpjcpf');
+          expect(response.body.retorno[0]).toHaveProperty('valor');
         });
     });
   });

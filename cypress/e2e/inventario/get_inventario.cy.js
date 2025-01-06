@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Inventário - GET - /v3/inventario', () => {
-  const url = '/Invent%C3%A1rio/v3_get_inventario';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Inventário - GET - /v3/inventario', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_get_inventario,
         failOnStatusCode: false
       })
         .then((response) => {

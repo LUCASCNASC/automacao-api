@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //integer - OBRIGATÓRIO
+const idMapaCargaInicial = ""; //integer - OBRIGATÓRIO
+const idMapaCargaFinal = ""; //integer - OBRIGATÓRIO
 
 describe('Logística - GET - /v3/mapa_carga_cliente_lote/{idFilial}/{idMapaCargaInicial}/{idMapaCargaFinal}', () => {
-    const url = '/Log%C3%ADstica/v3_get_logistica_lista_mapa_carga_loja';
-    const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        idMapaCargaInicial: "",
-        idMapaCargaFinal: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -23,7 +19,6 @@ describe('Logística - GET - /v3/mapa_carga_cliente_lote/{idFilial}/{idMapaCarga
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

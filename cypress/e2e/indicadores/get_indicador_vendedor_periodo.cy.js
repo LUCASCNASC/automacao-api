@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const datainicial= ""; //string - OBRIGATÓRIO
+const datafinal= ""; //string - OBRIGATÓRIO
 
 describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{datafinal}', () => {
-  const url = '/Indicadores/v3_indicador_vendedor_periodo';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        datainicial: "",
-        datafinal: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +18,6 @@ describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{data
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

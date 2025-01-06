@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_uf_incluir', () => {
-  const url = '/Fisco/Contabil/v3_regra_fiscal_uf_post';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,12 +16,13 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_uf_incluir', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_regra_fiscal_uf_incluir,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('IdBaseFiscalUF');
+          expect(response.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

@@ -3,9 +3,9 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
-const uf = 'PR';
-const municipio = 3317;
-const tipo = 1;
+const uf = 'PR'; //string
+const municipio = 3317; //number
+const tipo = 1; //number
 
 describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', { env: { hideCredendials: true } }, () => {
 

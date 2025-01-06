@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('E-commerce - POST - /v3/ecommerce_finalizar', () => {
-  const url = '/E-commerce/v3_ecommerce_finalizar';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('E-commerce - POST - /v3/ecommerce_finalizar', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_ecommerce_finalizar,
         failOnStatusCode: false
       })
         .then((response) => {

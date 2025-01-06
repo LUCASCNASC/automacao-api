@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const cnpjCpf = ""; //string - OBRIGATÓRIO
+const idReferenciaBancaria = ""; //number - OBRIGATÓRIO
 
 describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', () => {
-  const url = '/Financeiro/v3_financeiro_referencia_bancaria_delete';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        cnpjCpf: "",
-        idReferenciaBancaria: ""
-      }
 
       cy.request({
         method: 'DELETE', 
@@ -22,7 +18,6 @@ describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBa
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

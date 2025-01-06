@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/banco', () => {
-  const url = '/Financeiro/v3_financeiro_banco1';
-  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = 
@@ -19,12 +17,12 @@ describe('Financeiro - POST - /v3/banco', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_banco,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(response.body.retorno[0]).toHaveProperty('codigo');
         });
     });
   });

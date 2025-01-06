@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idTrial = ""; //integer - OBRIGATÓRIO
+const QuantidadeNivel = ""; //integer - OBRIGATÓRIO
 
 describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', () => {
-  const url = '/Trial/v3_get_trial_nivel_usuario';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idTrial: "",
-        QuantidadeNivel: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +18,6 @@ describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', ()
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })  
         .then((response) => {

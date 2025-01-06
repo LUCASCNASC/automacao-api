@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
-  const url = '/Fisco/Contabil/v3_post_receber_transferencia';
-  const token = acess_token
   
     it('POST - /v3/receber_transferencia - Resposta 200', () => {
 
@@ -18,13 +16,18 @@ describe('Fisco/Contábil - POST - /v3/receber_transferencia', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-
-        body: reqBody_post_receber_transferencia,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('Filial');
+          expect(response.body.retorno[0]).toHaveProperty('IgnorarSituacaoSefaz');
+          expect(response.body.retorno[0].Notas[0]).toHaveProperty('IdFilialOrigem');
+          expect(response.body.retorno[0].Notas[0]).toHaveProperty('NumeroNota');
+          expect(response.body.retorno[0].Notas[0]).toHaveProperty('IdNFeSefaz');
+          expect(response.body.retorno[0]).toHaveProperty('Mensagem');
+          expect(response.body.retorno[0]).toHaveProperty('QtdeNotasRecebidas');
         });
     });
   });

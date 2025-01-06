@@ -24,6 +24,13 @@ describe('Fisco/Contábil - POST - /v3/validar_documento_diverso_entrada_incluir
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(response.body.retorno[0]).toHaveProperty('Status_Retorno');
+          expect(response.body.retorno[0]).toHaveProperty('CNPJ_Filial');
+          expect(response.body.retorno[0]).toHaveProperty('Numero_Documento_Diverso');
+          expect(response.body.retorno[0]).toHaveProperty('Numero_Registro_Nota');
+          expect(response.body.retorno[0]).toHaveProperty('Numero_Titulo');
+          expect(response.body.retorno[0]).toHaveProperty('Numero_Lancamento_Conta_Corrrente');
+          expect(response.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

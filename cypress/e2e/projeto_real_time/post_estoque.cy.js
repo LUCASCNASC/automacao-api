@@ -4,8 +4,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - POST - /v3/estoque/', () => {
-    const url = '/Projeto%20Real%20Time/v3_post_estoque';
-    const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -15,14 +13,15 @@ describe('Projeto Real Time - POST - /v3/estoque/', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_estoque,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(resposta.body.retorno[0]).toHaveProperty('cnpj');
+          expect(resposta.body.retorno[0]).toHaveProperty('data');
         });
     });
   });

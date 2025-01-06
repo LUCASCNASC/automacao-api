@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () => {
-  const url = '/Log%C3%ADstica/v3_post_gravar_itens_nota_transferida_coletados';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', () =
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_gravar_itens_nota_transferida_coletados,
         failOnStatusCode: false
       })
         .then((response) => {

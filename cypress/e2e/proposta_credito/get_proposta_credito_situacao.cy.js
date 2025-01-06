@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const codigo = ""; //number - OBRIGATÓRIO
 
 describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', () => {
-  const url = '/Proposta%20cr%C3%A9dito/v2_proposta_credito_situacao';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        codigo: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', () 
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

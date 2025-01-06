@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const produto = ""; //string - OBRIGATÓRIO
+const pesquisagtin = ""; //boolean - OBRIGATÓRIO
+const pedido = ""; //number - OBRIGATÓRIO
 
 describe('Produtos - GET - /v3/produto_detalhe/{produto} ', () => {
-  const url = '/Produto/v2_produto_detalhe';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        produto: "",
-        pesquisagtin: "",
-        pedido: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -23,7 +19,6 @@ describe('Produtos - GET - /v3/produto_detalhe/{produto} ', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

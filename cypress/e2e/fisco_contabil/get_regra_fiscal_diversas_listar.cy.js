@@ -3,20 +3,16 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const TipoBase = ""; //string - OBRIGATÓRIO
+const CFOP = ""; //integer - OBRIGATÓRIO
+const Identificador = ""; //string - OBRIGATÓRIO
+const Pessoa = ""; //string - OBRIGATÓRIO
+const Grupo = ""; //string - OBRIGATÓRIO
+const OrigemProduto = ""; //integer - OBRIGATÓRIO
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto}', () => {
-  const url = '/Fisco/Contabil/v3_regra_fiscal_diversas_get';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        TipoBase: "",
-        CFOP: "",
-        Identificador: "",
-        Pessoa: "",
-        Grupo: "",
-        OrigemProduto: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -26,7 +22,6 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{C
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

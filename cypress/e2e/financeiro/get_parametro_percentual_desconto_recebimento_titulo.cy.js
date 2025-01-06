@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //number - OBRIGATÓRIO
 
 describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial}', () => {
-  const url = '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

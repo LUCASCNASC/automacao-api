@@ -3,7 +3,7 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
-const filial = 10050  // ID da filial a ser consultada
+const filial = 10050  //integer - OBRIGATÓRIO
 
 describe('Filial - GET - /v3/filial_detalhe/{filial}', { env: { hideCredendials: true } }, () => {
 

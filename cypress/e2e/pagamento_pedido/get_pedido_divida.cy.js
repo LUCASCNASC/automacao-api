@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const filial = ""; //number - OBRIGATÓRIO
+const termo = ""; //string - OBRIGATÓRIO
+const idtipotef = ""; //number -
 
 describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
-  const url = '/Pagamento%20pedido/v2_pag_pedido_divida';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        filial: "",
-        termo: "",
-        idtipotef: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -23,7 +19,6 @@ describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

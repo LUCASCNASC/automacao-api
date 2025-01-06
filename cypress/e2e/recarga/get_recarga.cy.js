@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //number - OBRIGATÓRIO
+const idItemServico = ""; //number - OBRIGATÓRIO
 
 describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
-  const url = '/Recarga/v3_get_recarga';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        idItemServico: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +18,6 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

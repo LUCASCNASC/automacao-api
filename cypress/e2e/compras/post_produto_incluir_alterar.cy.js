@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Compras - POST - /v3/produto_incluir_alterar', () => {
-  const url = '/Compras/v3_post_produto_incluir_alterar';
-  const token = acess_token 
   
     it('Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('Compras - POST - /v3/produto_incluir_alterar', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_pedido_compra_alterar,
         failOnStatusCode: false
       })
         .then((response) => {

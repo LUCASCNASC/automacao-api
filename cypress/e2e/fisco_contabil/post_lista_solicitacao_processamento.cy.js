@@ -6,8 +6,6 @@ const Authorization = Cypress.env('API.PRAGMA')
 
 
 describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
-  const url = '/Fisco/Contabil/v3_lista_solicitacao_processamento';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -19,12 +17,20 @@ describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_lista_solicitacao_processamento,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('ID_Filial');
+          expect(response.body.retorno[0]).toHaveProperty('ID_Processamento');
+          expect(response.body.retorno[0]).toHaveProperty('Data_Processamento');
+          expect(response.body.retorno[0]).toHaveProperty('Tipo_Processamento');
+          expect(response.body.retorno[0]).toHaveProperty('Situacao_Processamento');
+          expect(response.body.retorno[0]).toHaveProperty('Data_Agendamento');
+          expect(response.body.retorno[0]).toHaveProperty('Inicio_Processamento');
+          expect(response.body.retorno[0]).toHaveProperty('Fim_Processamento');
+          expect(response.body.retorno[0]).toHaveProperty('Mensagem_Falha');
         });
     });
   });

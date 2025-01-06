@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', () => {
-  const url = '/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -16,9 +14,8 @@ describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_pedido_fechar_baixar_caixa,
         failOnStatusCode: false
       })
         .then((response) => {

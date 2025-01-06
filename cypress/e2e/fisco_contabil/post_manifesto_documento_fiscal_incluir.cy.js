@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', () => {
-  const url = '/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,12 +16,14 @@ describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', () =
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_manifesto_documento_fiscal_incluir,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(response.body.retorno[0]).toHaveProperty('Id_Manifesto_Documento_Fiscal');
+          expect(response.body.retorno[0]).toHaveProperty('Id_Filial');
+          expect(response.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/baixa_titulo_multiplos', () => {
-  const url = '/Pagamento%20divida/v2_divida_baixa_titulo_multiplos';
-  const token = acess_token
   
     it('Resposta 200', () => {
       const requestBody = 
@@ -17,9 +15,8 @@ describe('Financeiro - POST - /v3/baixa_titulo_multiplos', () => {
         headers: { 
           Pragma: pragma_token,
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          //'Content-Type': 'application/json'
         },
-        body: reqBody_post_baixa_titulo_multiplos,
         failOnStatusCode: false
       })
         .then((response) => {

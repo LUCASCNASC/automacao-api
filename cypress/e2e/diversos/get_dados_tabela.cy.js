@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const tabela = "" //string - OBRIGATÓRIO
 
 describe('Diversos - GET - /v3/dados_tabela/{tabela}', () => {
-  const url = '/Diversos/v2_diversos_dados_tabela';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        tabela: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Diversos - GET - /v3/dados_tabela/{tabela}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

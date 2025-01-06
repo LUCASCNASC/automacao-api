@@ -3,17 +3,14 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //integer - OBRIGATÓRIO
+const idMapaCarga = ""; //integer - OBRIGATÓRIO
+const idFilialPedido = ""; //integer - OBRIGATÓRIO
+const idPedidoVenda = ""; //integer - OBRIGATÓRIO
+
 describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMapaCarga}', () => {
-  const url = '/Log%C3%ADstica/v3_delete_logistica_mapa_carga_cliente';
-  const token = acess_token 
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        idMapaCarga: "",
-        idFilialPedido: "",
-        idPedidoVenda: ""
-      }
 
       cy.request({
         method: 'DELETE', 
@@ -23,7 +20,6 @@ describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMap
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

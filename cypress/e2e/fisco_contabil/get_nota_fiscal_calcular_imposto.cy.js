@@ -3,16 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const Filial = ""; //integer - OBRIGATÓRIO
+const RegistroNota = ""; //integer - OBRIGATÓRIO
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{RegistroNota}', () => {
-  const url = '/Fisco/Contabil/v3_nota_fiscal_calcular_imposto';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        Filial: "",
-        RegistroNota: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -22,7 +18,6 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{Reg
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

@@ -3,18 +3,14 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const termo = ""; //string - OBRIGATÓRIO
+const limit = ""; //string
+const offset = ""; //string
+const sort = ""; //string
 
 describe('Diversos - GET - /v3/cnae', () => {
-  const url = '/Diversos/v2_diversos_cnae';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        termo: "",
-        limit: "",
-        offset: "",
-        sort: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -24,7 +20,6 @@ describe('Diversos - GET - /v3/cnae', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

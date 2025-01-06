@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - POST - /v3/redefinir_senha', () => {
-  const url = '/Sess%C3%A3o/v3_post_redefinir_senha';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Sessão - POST - /v3/redefinir_senha', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_redefinir_senha,
         failOnStatusCode: false
       })
         .then((response) => {

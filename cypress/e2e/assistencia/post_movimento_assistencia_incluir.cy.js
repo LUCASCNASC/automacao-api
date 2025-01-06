@@ -9,7 +9,6 @@ describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
   const token = acess_token  
   
     it('Resposta 200', () => {
-      const requestBody = 
 
       cy.request({
         method: 'GET', 
@@ -19,12 +18,16 @@ describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_movimento_assistencia_incluir,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('Empresa');
+          expect(response.body.retorno[0]).toHaveProperty('Filial');
+          expect(response.body.retorno[0]).toHaveProperty('ID_Registro_Nota');
+          expect(response.body.retorno[0]).toHaveProperty('Qtde_Assistencias');
+          expect(response.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

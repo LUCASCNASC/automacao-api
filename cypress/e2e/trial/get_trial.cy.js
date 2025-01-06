@@ -2,19 +2,15 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //integer - OBRIGATÓRIO
+const pedido = ""; //number - OBRIGATÓRIO
+const vendedor = ""; //number - OBRIGATÓRIO
+const limit = ""; //string - OBRIGATÓRIO
+const offset = ""; //string - OBRIGATÓRIO
 
 describe('Trial - GET - /v3/trial', () => {
-  const url = '/Trial/v2_trial_get_post1';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        pedido: "",
-        vendedor: "",
-        limit: "",
-        offset: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -24,7 +20,6 @@ describe('Trial - GET - /v3/trial', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

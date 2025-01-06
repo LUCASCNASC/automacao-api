@@ -5,11 +5,8 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/bloqueto', () => {
-  const url = '/Financeiro/v3_financeiro_bloqueto';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = 
 
       cy.request({
         method: 'POST', 
@@ -25,6 +22,11 @@ describe('Financeiro - POST - /v3/bloqueto', () => {
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(response.body.retorno[0]).toHaveProperty('gerado');
+          expect(response.body.retorno[0]).toHaveProperty('jaIncluso');
+          expect(response.body.retorno[0]).toHaveProperty('quitado');
+          expect(response.body.retorno[0]).toHaveProperty('processoNaoGera');
+          expect(response.body.retorno[0]).toHaveProperty('clienteNaoGera');
         });
     });
   });

@@ -3,15 +3,12 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //integer - OBRIGATÓRIO
 
 describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', () => {
-    const url = '/Log%C3%ADstica/v3_get_carregar_nota_transferida_coletor';
-    const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: ""
-      }
+      const requestBody = 
 
       cy.request({
         method: 'GET', 
@@ -21,7 +18,6 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', (
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

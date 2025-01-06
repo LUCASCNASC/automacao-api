@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const cep = "" //string - OBRIGATÓRIO
 
 describe('Diversos - GET - /v3/cep/{cep}', () => {
-  const url = '/Diversos/v2_diversos_cep';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        cep: ""
-      }
 
       cy.request({
         method:'GET', 
@@ -21,7 +17,6 @@ describe('Diversos - GET - /v3/cep/{cep}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

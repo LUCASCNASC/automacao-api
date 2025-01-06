@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_alterar/', () => {
-  const url = '/Fisco/Contabil/v3_post_nota_fiscal_alterar';
-  const token = acess_token
   
   
     it('Resposta 200', () => {
@@ -19,7 +17,6 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_alterar/', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_nota_fiscal_alterar,
         failOnStatusCode: false
       })
         .then((response) => {

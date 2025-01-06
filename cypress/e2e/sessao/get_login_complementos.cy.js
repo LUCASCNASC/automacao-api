@@ -3,13 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const ambiente = ""; //string - OBRIGATÓRIO
 
 describe('Sessão - GET - /v3/login_complementos', () => {
-  const url = '/Sess%C3%A3o/v2_sessao_login_complementos';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {}
 
       cy.request({
         method: 'GET',
@@ -19,7 +17,6 @@ describe('Sessão - GET - /v3/login_complementos', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

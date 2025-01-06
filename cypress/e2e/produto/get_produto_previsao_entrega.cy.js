@@ -3,21 +3,17 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const processo_venda = ""; //number - OBRIGATÓRIO
+const filial = ""; //number - OBRIGATÓRIO
+const filial_faturar = ""; //number - OBRIGATÓRIO
+const filial_saldo = ""; //number - OBRIGATÓRIO
+const sku = ""; //string - OBRIGATÓRIO
+const quantidade = ""; //number - OBRIGATÓRIO
+const local_saldo = ""; //number - OBRIGATÓRIO
 
 describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
-  const url = '/Produto/v2_produto_previsao_entrega';
-  const token = acess_token
     
     it('Resposta 200', () => {
-      const requestBody = {
-        processo_venda: "",
-        filial: "",
-        filial_faturar: "",
-        filial_saldo: "",
-        sku: "",
-        quantidade: "",
-        local_saldo: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -27,12 +23,12 @@ describe('Produtos - GET - /v3/produto_previsao_entrega ', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(resposta.body.retorno[0]).toHaveProperty('dataprevisaoentrega');
         });
     });
   });

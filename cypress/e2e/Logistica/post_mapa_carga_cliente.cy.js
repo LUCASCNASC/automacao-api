@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/mapa_carga_cliente', () => {
-  const url = '/Log%C3%ADstica/v3_post_logistica_mapa_carga_cliente';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Logística - POST - /v3/mapa_carga_cliente', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_mapa_carga_cliente,
         failOnStatusCode: false
       })
         .then((response) => {

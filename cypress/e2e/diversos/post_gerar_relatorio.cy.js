@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Diversos - POST - /v3/gerar_relatorio', () => {
-  const url = '/Diversos/v2_diversos_gerar_relatorio';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,12 +16,15 @@ describe('Diversos - POST - /v3/gerar_relatorio', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_gerar_relatorio,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000); 
+          expect(response.body.retorno[0]).toHaveProperty('idContexto');
+          expect(response.body.retorno[0]).toHaveProperty('idmodelorelatorio');
+          expect(response.body.retorno[0].filtros[0]).toHaveProperty('nome');
+          expect(response.body.retorno[0].filtros[0]).toHaveProperty('valor');
         });
     });
   });

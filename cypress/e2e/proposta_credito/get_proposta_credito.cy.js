@@ -3,19 +3,15 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const data_inicial = "yyyy-mm-dd"; //string - OBRIGATÓRIO
+const vendedor = ""; //number
+const cliente = ""; //string
+const limit = ""; //string
+const offset = ""; //string
 
 describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', () => {
-  const url = '/Proposta%20cr%C3%A9dito/v2_proposta_credito_get';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        data_inicial: "",
-        vendedor: "",
-        cliente: "",
-        limit: "",
-        offset: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -25,7 +21,6 @@ describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', () => 
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

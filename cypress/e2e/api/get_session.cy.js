@@ -14,6 +14,7 @@ describe('Filial - GET - /api/session', { env: { hideCredendials: true } }, () =
     }).should(({ status, body }) => {
       const { data } = body
       expect(resposta.status).toBe(200);
+      expect(response.duration).to.be.below(2000);
       expect(resposta.body.retorno[0]).toHaveProperty('sessao');
       expect(resposta.body.retorno[0]).toHaveProperty('tempo');
       expect(resposta.body.retorno[0]).toHaveProperty('expiraEm');

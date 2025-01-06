@@ -3,7 +3,9 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
-const idcnpj_cpf = "100002139114930" 
+const idcnpj_cpf = "100002139114930" //string - OBRIGATÓRIO
+const idtipoanexo = "" //integer
+const idpessoaanexo = "" //string
 
 describe('Filial - GET - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCredendials: true } }, () => {
 

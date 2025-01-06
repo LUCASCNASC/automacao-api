@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const codigoBanco = ""; //number - OBRIGATÓRIO
+const codigoAgencia = ""; //number - OBRIGATÓRIO
+const codigoConta = ""; //string - OBRIGATÓRIO
 
 describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta}', () => {
-  const url = '/Financeiro/v3_financeiro_conta_bancaria_delete';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        codigoBanco: "",
-        codigoAgencia: "",
-        codigoConta: ""
-      }
 
       cy.request({
         method: 'DELETE', 
@@ -23,7 +19,6 @@ describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

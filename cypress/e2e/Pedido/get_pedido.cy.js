@@ -3,17 +3,13 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //number - OBRIGATÓRIO
+const codigo = ""; //number - OBRIGATÓRIO
+const validarsituacaopedido = ""; //boolean - OBRIGATÓRIO
 
 describe('Pedido - GET - /v3/pedido/{codigo}', () => {
-  const url = '/Pedido/v2_pedido_get_delete1';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        codigo: "",
-        validarsituacaopedido: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -23,7 +19,6 @@ describe('Pedido - GET - /v3/pedido/{codigo}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

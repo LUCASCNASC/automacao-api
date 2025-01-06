@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - PUT - /v3/contabancaria', () => {
-  const url = '/Financeiro/v3_financeiro_conta_bancaria2';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Financeiro - PUT - /v3/contabancaria', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_put_contabancaria,
         failOnStatusCode: false
       })
         .then((response) => {

@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
-  const url = '/Financeiro/v3_excluir_titulo_areceber_apagar';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,12 +16,16 @@ describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_excluir_titulo_areceber_apagar,
         failOnStatusCode: false
       })
         .then((response) => {
           expect(response.status).to.eq(200);
           expect(response.duration).to.be.below(2000);
+          expect(response.body.retorno[0]).toHaveProperty('Empresa');
+          expect(response.body.retorno[0]).toHaveProperty('Filial');
+          expect(response.body.retorno[0]).toHaveProperty('Titulo');
+          expect(response.body.retorno[0]).toHaveProperty('CNPJ_CPF');
+          expect(response.body.retorno[0]).toHaveProperty('Erros');
         });
     });
   });

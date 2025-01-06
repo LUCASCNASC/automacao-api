@@ -3,15 +3,11 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const cpf = ""; //string - OBRIGATÓRIO
 
 describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
-  const url = '/LGPD/v3_get_lgpd_dados_titular';
-  const token = acess_token
   
     it('Resposta 200', () => {
-      const requestBody = {
-        cpf: ""
-      }
 
       cy.request({
         method: 'GET', 
@@ -21,7 +17,6 @@ describe('Recarga - GET - /v3/dados_titular/{cpf}', () => {
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {

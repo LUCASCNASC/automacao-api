@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/bloquetos_por_titulo', () => {
-  const url = '/Financeiro/v3_financeiro_bloquetos_por_titulo';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Financeiro - POST - /v3/bloquetos_por_titulo', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_bloqueto_por_titulo,
         failOnStatusCode: false
       })
         .then((response) => {

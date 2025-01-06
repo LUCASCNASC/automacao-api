@@ -5,8 +5,6 @@ const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Compras - POST - /v3/pedido_compra_baixar', () => {
-  const url = '/Compras/v3_post_pedido_compra_baixar';
-  const token = acess_token
   
     it('Resposta 200', () => {
 
@@ -18,7 +16,6 @@ describe('Compras - POST - /v3/pedido_compra_baixar', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: reqBody_post_pedido_compra_baixar,
         failOnStatusCode: false
       })
         .then((response) => {

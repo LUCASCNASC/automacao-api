@@ -3,17 +3,14 @@
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
+const idFilial = ""; //integer - OBRIGATÓRIO
+const idInventario = ""; //integer - OBRIGATÓRIO
 
 describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', () => {
   const url = '/Invent%C3%A1rio/v3_get_itens_inventario';
   const token = acess_token 
   
     it('Resposta 200', () => {
-      const requestBody = {
-        idFilial: "",
-        idInventario: ""
-      }
-
       cy.request({
         method: 'GET', 
         url: url, 
@@ -22,7 +19,6 @@ describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', (
           Authorization: `Bearer ${token}`,
           //'Content-Type': 'application/json'
         },
-        requestBody,
         failOnStatusCode: false
       })
         .then((response) => {
