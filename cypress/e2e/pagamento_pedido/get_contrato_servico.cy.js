@@ -12,7 +12,7 @@ describe('Pagamento pedido - GET - /v3/contrato_servico/{filial}/{pedido}', { en
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v2_pag_pedido_contrato_servico/${filial}/${pedido}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

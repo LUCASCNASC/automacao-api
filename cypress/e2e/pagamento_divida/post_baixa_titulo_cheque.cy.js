@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_cheque', { env: { hideCredendials
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20divida/v2_divida_baixa_titulo_cheque`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

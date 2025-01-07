@@ -11,7 +11,7 @@ describe('Inventário - GET - /v3/itens_inventario/{idFilial}/{idInventario}', {
     it('Resposta 200', () => {
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Inventário/v3_get_itens_inventario/${idFilial}/${idInventario}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

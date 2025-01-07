@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_excluir/', { en
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

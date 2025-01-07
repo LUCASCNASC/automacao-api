@@ -10,7 +10,7 @@ describe('Pedido - POST - /v3/pedido_calcular_frete', { env: { hideCredendials: 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pedido/v3_pedido_calcular_frete`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

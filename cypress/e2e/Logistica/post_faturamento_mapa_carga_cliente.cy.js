@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/faturamento_mapa_carga_cliente', { env: { hide
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_logistica_faturamentomapacargacliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

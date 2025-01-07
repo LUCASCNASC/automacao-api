@@ -13,7 +13,7 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_pedidos_por_titulo/${idFilial}/${idTitulo}/${idTipoTitulo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

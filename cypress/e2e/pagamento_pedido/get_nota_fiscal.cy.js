@@ -13,7 +13,7 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', { env: { hideCrede
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v2_pag_pedido_nota_fiscal/${filial}/${pedido}/${registro_nota}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

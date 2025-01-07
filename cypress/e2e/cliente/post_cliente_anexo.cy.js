@@ -10,7 +10,7 @@ describe('Cliente - POST - /v3/cliente_anexo', { env: { hideCredendials: true } 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Cliente/v3_cliente_anexo_post/}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

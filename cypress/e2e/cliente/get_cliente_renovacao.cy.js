@@ -10,7 +10,7 @@ describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', { env: { hideCredend
     it('Resposta 200', () => {
 
       cy.api({method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Cliente/v2_cliente_renovacao/${cliente}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

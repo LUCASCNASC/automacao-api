@@ -11,7 +11,7 @@ describe('Produtos - GET - /v3/produto_tambem_compraram ', { env: { hideCredendi
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Produto/v2_produto_tambem_compraram/${lista}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

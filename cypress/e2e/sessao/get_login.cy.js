@@ -13,7 +13,7 @@ describe('Sessão - GET - /v3/login/{usuario}/{senha}', { env: { hideCredendials
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Sessão/v2_sessao_login/${usuario}/${senha}/${codigoverificacao}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

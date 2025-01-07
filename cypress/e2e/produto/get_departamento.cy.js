@@ -15,7 +15,7 @@ describe('Produtos - GET - /v3/departamento', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Produto/v2_produto_departamento`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

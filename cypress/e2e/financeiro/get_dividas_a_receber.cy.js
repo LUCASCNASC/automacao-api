@@ -15,7 +15,7 @@ describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', { env
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_dividas_a_receber/${idFilial}/${cpf_cnpj}/${separarvinculados}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

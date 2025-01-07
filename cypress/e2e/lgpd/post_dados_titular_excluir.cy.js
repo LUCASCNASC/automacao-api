@@ -11,7 +11,7 @@ describe('Titulo - POST - /v3/dados_titular_excluir', { env: { hideCredendials: 
 
       cy.api({
         method: 'GET', 
-        url: url,
+        url: `${API_URL}/LGPD/v3_post_lgpd_dados_titular_excluir`,
         headers: { Authorization },
         failOnStatusCode: false
       })

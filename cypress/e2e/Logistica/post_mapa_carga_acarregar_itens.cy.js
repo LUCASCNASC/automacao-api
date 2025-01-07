@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_itens', { env: { hideCred
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_mapa_carga_acarregar_itens`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

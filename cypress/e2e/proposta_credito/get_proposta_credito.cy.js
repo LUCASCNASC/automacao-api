@@ -15,7 +15,7 @@ describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', { env:
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Proposta%20crédito/v2_proposta_credito_get/${data_inicial}/${vendedor}/${cliente}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

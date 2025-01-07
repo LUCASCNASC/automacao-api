@@ -10,7 +10,7 @@ describe('Produtos - POST - /v3/saldo_disponivel', { env: { hideCredendials: tru
 
     cy.api({
       method: 'POST', 
-      url: url,
+      url: `${API_URL}/Produto/v3_produto_saldo_disponivel`,
       headers: { Authorization },
       failOnStatusCode: false
     })

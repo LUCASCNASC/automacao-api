@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', { env: { hideCred
 
       cy.api({
         method: 'POST', 
-        url: url,
+        url: `${API_URL}/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa`,
         headers: { Authorization },
         failOnStatusCode: false
       })

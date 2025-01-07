@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/finaliza_pagamento_pedido', { env: { hideCrede
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v2_pag_pedido_finaliza_pagamento_pedido`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

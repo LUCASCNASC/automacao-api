@@ -17,7 +17,7 @@ describe('Produtos - GET - /v3/produto_previsao_entrega ', { env: { hideCredendi
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Produto/v2_produto_previsao_entrega/${processo_venda}/${filial}/${filial_faturar}/${filial_saldo}/${sku}/${quantidade}/${local_saldo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

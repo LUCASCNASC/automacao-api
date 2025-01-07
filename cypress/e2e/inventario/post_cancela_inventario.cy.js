@@ -12,7 +12,7 @@ describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}'
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Inventário/v3_post_cancela_inventario`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

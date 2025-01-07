@@ -11,7 +11,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBa
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_departamento_delete/${idBaseFiscalDepartamento}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

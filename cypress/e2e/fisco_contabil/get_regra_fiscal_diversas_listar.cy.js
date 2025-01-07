@@ -16,7 +16,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{C
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_get/${TipoBase}/${CFOP}/${Identificador}/${Pessoa}/${Grupo}/${OrigemProduto}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

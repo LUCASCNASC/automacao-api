@@ -12,7 +12,7 @@ describe('Pedido - GET - /v3/pedido_detalhes/{codigo}', { env: { hideCredendials
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pedido/v2_pedido_detalhes/${idFilial}/${codigo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

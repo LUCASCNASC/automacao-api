@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/referenciabancaria', { env: { hideCredendials:
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_referencia_bancaria1`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -9,7 +9,7 @@ describe('Projeto Real Time - POST - /v3/movimento_compra_venda/', () => {
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Projeto%20Real%20Time/v3_post_movimento_compra_venda`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

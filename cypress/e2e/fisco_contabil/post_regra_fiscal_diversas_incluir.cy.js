@@ -11,7 +11,7 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_diversas_incluir', { env: { 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_post`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

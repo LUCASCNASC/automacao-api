@@ -10,7 +10,7 @@ describe('Sessão - GET - /v3/logout', { env: { hideCredendials: true } }, () =>
 
       cy.api({
         method: 'GET',
-        url: url,
+        url: `${API_URL}/Sessão/v2_sessao_logout`,
         headers: { Authorization },
         failOnStatusCode: false
       })

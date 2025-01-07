@@ -11,7 +11,7 @@ describe('Diversos - GET - /v3/cidade', { env: { hideCredendials: true } }, () =
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Diversos/v2_diversos_cidade/${uf}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

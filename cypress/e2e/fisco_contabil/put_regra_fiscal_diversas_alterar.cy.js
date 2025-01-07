@@ -10,7 +10,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_diversas_alterar', { env: { hideCr
 
       cy.api({
         method: 'PUT', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_put`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

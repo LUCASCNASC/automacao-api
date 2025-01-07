@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', { env: { hide
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_post_estornar_baixa_titulo_areceber`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

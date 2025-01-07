@@ -9,7 +9,7 @@ describe('Projeto Real Time - GET - /v3/filial_lista/', { env: { hideCredendials
       
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Projeto%20Real%20Time/v3_get_filial_lista`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -10,7 +10,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_uf_alterar', { env: { hideCredendi
 
       cy.api({
         method: 'PUT', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_uf_put`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

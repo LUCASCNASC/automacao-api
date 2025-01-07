@@ -10,7 +10,7 @@ describe('Recarga - GET - /v3/configuracao_recarga', { env: { hideCredendials: t
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Recarga/v3_configuracao_recarga`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

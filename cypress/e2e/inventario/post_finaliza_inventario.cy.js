@@ -10,7 +10,7 @@ describe('Inventário - POST - /v3/finaliza_inventario', { env: { hideCredendial
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Inventário/v3_post_finaliza_inventario`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -11,7 +11,7 @@ describe('Intenção compra - GET - /v3/intencao_compra', { env: { hideCredendia
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Intenção%20compra/v2_intencao_compra_get_post1/${situacao}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

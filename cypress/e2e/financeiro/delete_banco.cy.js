@@ -11,7 +11,7 @@ describe('Financeiro - DELETE - /v3/banco/{codigo}', { env: { hideCredendials: t
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_banco_delete/${codigo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

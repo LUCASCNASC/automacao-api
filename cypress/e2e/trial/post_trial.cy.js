@@ -9,7 +9,7 @@ describe('Trial - POST - /v3/trial', { env: { hideCredendials: true } }, () => {
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Trial/v2_trial_get_post2`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

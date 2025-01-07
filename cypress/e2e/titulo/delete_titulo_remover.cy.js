@@ -14,7 +14,7 @@ describe('Titulo - DELETE - /v3/titulo_remover/{numeroEmpresa}/{numeroFilial}/{t
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Titulo/v3_delete_titulo_remover/${numeroEmpresa}/${numeroFilial}/${tipoTitulo}/${numeroTitulo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

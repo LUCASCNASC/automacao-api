@@ -12,7 +12,7 @@ describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', { env: 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_lista_solicitacao_processamento`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

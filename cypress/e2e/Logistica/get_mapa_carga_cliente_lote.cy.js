@@ -14,7 +14,7 @@ describe('Logística - GET - /v3/mapa_carga_cliente_lote/{idFilial}/{idMapaCarga
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_get_logistica_lista_mapa_carga_cliente_lote/${idFilial}/${idMapaCargaInicial}/${idMapaCargaFinal}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

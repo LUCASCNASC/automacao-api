@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/incluir_dados_inventario', { env: { hideC
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_inventario_incluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

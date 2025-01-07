@@ -11,7 +11,7 @@ describe('Sistema - POST - /v3/key_value', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Sistema/v2_sistema_key_value_post`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

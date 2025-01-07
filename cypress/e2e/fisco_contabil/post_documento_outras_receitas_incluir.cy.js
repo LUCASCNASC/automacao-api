@@ -11,7 +11,7 @@ describe('Fisco/Contábil - POST - /v3/documento_outras_receitas_incluir', { env
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_documento_outras_receitas_incluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

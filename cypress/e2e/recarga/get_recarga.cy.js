@@ -12,7 +12,7 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', { env: { hide
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Recarga/v3_get_recarga/${idFilial}/${idItemServico}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -16,7 +16,7 @@ describe('Diversos - GET -/v3/cbo', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Diversos/v2_diversos_cbo/${termo}/${limit}/${offset}/${sort}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

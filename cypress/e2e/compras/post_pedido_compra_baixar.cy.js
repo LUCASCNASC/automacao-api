@@ -10,7 +10,7 @@ describe('Compras - POST - /v3/pedido_compra_baixar', { env: { hideCredendials: 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Compras/v3_post_pedido_compra_baixar`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -13,7 +13,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_calcular_imposto/{Filial}/{Reg
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_calcular_imposto/${Filial}/${RegistroNota}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

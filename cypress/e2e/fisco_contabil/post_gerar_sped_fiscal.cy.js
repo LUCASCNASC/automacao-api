@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/gerar_sped_fiscal', { env: { hideCredendi
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_gerar_sped_fiscal`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

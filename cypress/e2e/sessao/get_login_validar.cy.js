@@ -11,7 +11,7 @@ describe('Sessão - GET - /v3/login_validar', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'GET',
-        url: url,
+        url: `${API_URL}/Sessão/v3_sessao_login_validar/`,
         headers: { Authorization },
         failOnStatusCode: false
       })

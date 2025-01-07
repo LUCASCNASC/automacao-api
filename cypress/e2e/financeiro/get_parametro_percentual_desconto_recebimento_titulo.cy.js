@@ -11,7 +11,7 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo/${idFilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

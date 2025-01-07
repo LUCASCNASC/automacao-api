@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/faturamento_pedido_de_venda', { env: { hideCre
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_logistica_faturamentopedidovendaporcliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -10,8 +10,8 @@ describe('Pós-venda - GET - /v3/pos_venda_Historico/{codigo}', { env: { hideCre
     it('Resposta 200', () => {
 
       cy.api({
-        method: 'GET', 
-        url: url, 
+        method: '`${API_URL}/Pedido/v2_pedido_get_delete2/${codigo}/${idfilial}`', 
+        url: `${API_URL}/Pós-venda/v2_pos_venda_Historico/${codigo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

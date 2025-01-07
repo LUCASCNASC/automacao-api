@@ -10,7 +10,7 @@ describe('Pedido - POST - /v3/pedido_totalizadores', { env: { hideCredendials: t
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pedido/v3_pedido_totalizadores`, 
         headers: { Authorization },
         bod: reqBody_post_pedido_totalizadores,
         failOnStatusCode: false

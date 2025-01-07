@@ -11,7 +11,7 @@ describe('Inventário - GET - /v3/inventario', { env: { hideCredendials: true } 
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Inventário/v3_get_inventario/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

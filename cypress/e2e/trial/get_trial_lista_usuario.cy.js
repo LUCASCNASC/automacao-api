@@ -11,7 +11,7 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', { env: { hideCrede
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Trial/v3_get_lista_trial_usuario/${idUsuario}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

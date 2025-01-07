@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/informa_numero_serie_pedido_loja', { env: { hi
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_logistica_informanumeroseriepedidoloja`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

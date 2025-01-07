@@ -12,7 +12,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', { env: { h
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Intenção%20compra/v2_intencao_compra_delete/${codigo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

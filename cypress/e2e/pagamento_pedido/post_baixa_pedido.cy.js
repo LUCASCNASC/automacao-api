@@ -11,7 +11,7 @@ describe('Pagamento pedido - POST - /v3/baixa_pedido', { env: { hideCredendials:
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v2_pag_pedido_baixa_pedido`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

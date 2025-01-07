@@ -11,7 +11,7 @@ describe('Diversos - GET - /v3/operacoes_tef', { env: { hideCredendials: true } 
       cy.api
       ({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Diversos/v3_diversos_operacoes_tef/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

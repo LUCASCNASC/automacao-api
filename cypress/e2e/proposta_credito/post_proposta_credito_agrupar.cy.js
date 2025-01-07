@@ -10,7 +10,7 @@ describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', { env: { hid
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Proposta%20crédito/v2_proposta_credito_agrupar/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

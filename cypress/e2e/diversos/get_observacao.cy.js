@@ -10,7 +10,7 @@ describe('Diversos - GET - /v3/observacao', { env: { hideCredendials: true } }, 
 
     cy.api({
       method: 'POST', 
-      url: url, 
+      url: `${API_URL}/Diversos/v3_diversos_observacao`, 
       headers: { Authorization },
       failOnStatusCode: false
     })

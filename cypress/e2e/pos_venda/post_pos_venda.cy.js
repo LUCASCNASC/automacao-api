@@ -10,7 +10,7 @@ describe('Pós-venda - POST - /v3/pos_venda', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pós-venda/v3_pos_venda_get_post2`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

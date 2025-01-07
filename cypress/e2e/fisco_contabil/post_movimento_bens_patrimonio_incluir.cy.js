@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/movimento_bens_patrimonio_incluir/', { en
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_movimento_patrimonio`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

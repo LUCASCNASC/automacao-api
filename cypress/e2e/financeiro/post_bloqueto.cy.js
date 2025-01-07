@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } },
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_bloqueto`, 
         headers: { Authorization },
         body: reqBody_post_bloqueto,
         failOnStatusCode: false

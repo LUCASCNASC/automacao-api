@@ -12,7 +12,7 @@ describe('Diversos - GET - /v3/cep/{cep}', { env: { hideCredendials: true } }
 
       cy.api({
         method:'GET', 
-        url: url, 
+        url: `${API_URL}/Diversos/v2_diversos_cep/${cep}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

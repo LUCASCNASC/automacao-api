@@ -10,7 +10,7 @@ describe('Pedido - POST - /v3/pedido_venda_informanumeroserie/', { env: { hideCr
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pedido/v3_post_pedido_venda_informanumeroserie`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

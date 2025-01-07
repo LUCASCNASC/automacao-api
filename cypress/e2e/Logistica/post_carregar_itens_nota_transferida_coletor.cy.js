@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { en
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_get_carregar_Itens_nota_transferida_coletor`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

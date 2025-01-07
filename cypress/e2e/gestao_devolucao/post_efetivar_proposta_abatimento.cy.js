@@ -10,7 +10,7 @@ describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', { env:
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Gestão%20Devolução/v2_gestao_devolucao_efetivar_proposta_abatimento/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

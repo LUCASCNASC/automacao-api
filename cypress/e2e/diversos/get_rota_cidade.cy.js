@@ -13,7 +13,7 @@ describe('Diversos - GET - /v3/rota_cidade', { env: { hideCredendials: true } },
 
       cy.api({
         method: 'GET', 
-        url: url,
+        url: `${API_URL}/Diversos/v3_diversos_rota_cidade/${idgruporota}/${idrota}/${idrotacidade}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

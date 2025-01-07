@@ -14,7 +14,7 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCrede
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Cliente/v3_cliente_anexo_delete/${idcnpj_cpf}/${idpessoaanexo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -14,7 +14,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_delete_mapa_carga_coletado/${idFilial}/${idMapaCarga}/${TipoMapaCarga}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

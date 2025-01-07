@@ -12,7 +12,7 @@ describe('Pagamento divida - GET - /v3/divida_cliente_vinculado/{filial}/{client
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20divida/v2_divida_cliente_vinculado/${filial}/${cliente}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

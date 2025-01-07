@@ -10,7 +10,7 @@ describe('Sessão - POST - /v3/sessao_login_altera_senha', { env: { hideCredendi
 
       cy.api({
         method: 'GET',
-        url: url,
+        url: `${API_URL}/Sessão/v3_post_sessao_login_altera_senha`,
         headers: { Authorization },
         failOnStatusCode: false
       })

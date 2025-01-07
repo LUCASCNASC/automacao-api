@@ -13,7 +13,7 @@ describe('Gestão Devolução - GET - /v3/nota_devolucao_simulacao/{filial}/{sol
 
       cy.api({
         method: 'GET', 
-        url: '', 
+        url: `${API_URL}/Gestão%20Devolução/v2_gestao_devolucao_nota_devolucao_simulacao/${filial}/${solicitacao}/${Authorization}`, 
         headers: { Authorization },
         
         failOnStatusCode: false

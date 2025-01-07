@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/corrigir_saldo_medio_produtos', { env: { 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_corrigir_saldo_medio_produtos`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

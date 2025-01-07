@@ -10,7 +10,7 @@ describe('Financeiro - GET - /v3/banco', { env: { hideCredendials: true } }, () 
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_banco3/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -16,7 +16,7 @@ describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', { env: { hid
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v3_pag_pedidos_pendentes/${filial}/${data}/${numeroPedido}/${cnpjCpf}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

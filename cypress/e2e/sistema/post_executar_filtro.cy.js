@@ -10,7 +10,7 @@ describe('Sistema - POST - /v3/executar_filtro', { env: { hideCredendials: true 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Sistema/v2_sistema_executar_filtro`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

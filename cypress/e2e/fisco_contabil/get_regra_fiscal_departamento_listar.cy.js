@@ -14,7 +14,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_departamento_get/${Grupo}/${UF}/${CFOP}/${OrigemProduto}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -11,7 +11,7 @@ describe('Proposta crédito - POST - /v3/proposta_credito', { env: { hideCredend
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Proposta%20crédito/v2_proposta_credito_post`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

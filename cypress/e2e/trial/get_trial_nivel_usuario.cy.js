@@ -13,7 +13,7 @@ describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', { 
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Trial/v3_get_trial_nivel_usuario/${idTrial}/${QuantidadeNivel}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })  

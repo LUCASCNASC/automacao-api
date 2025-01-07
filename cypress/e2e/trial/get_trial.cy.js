@@ -14,7 +14,7 @@ describe('Trial - GET - /v3/trial', { env: { hideCredendials: true } }, () => {
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Trial/v2_trial_get_post1/${idFilial}/${pedido}/${vendedor}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

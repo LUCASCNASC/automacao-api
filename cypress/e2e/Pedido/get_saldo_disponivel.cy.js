@@ -12,7 +12,7 @@ describe('Pedido - GET - /v3/saldo_disponivel/{idFilial}/{idPedidoVenda}', { env
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pedido/v3_pedido_saldo_disponivel/${idFilial}/${idPedidoVenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

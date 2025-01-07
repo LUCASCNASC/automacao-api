@@ -12,7 +12,7 @@ describe('Pedido - GET - /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoV
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pedido/v3_pedido_impressoes_disponiveis/${idFilial}/${idPedidoVenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

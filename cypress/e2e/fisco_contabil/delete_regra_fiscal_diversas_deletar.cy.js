@@ -11,7 +11,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_diversas_deletar/{idBaseFi
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_delete/${idBaseFiscalDiversas}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

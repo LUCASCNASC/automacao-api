@@ -11,7 +11,7 @@ describe('Sistema - GET - /v3/key_value/{key}', { env: { hideCredendials: true }
 
       cy.api({
         method: 'GET',
-        url: url, 
+        url: `${API_URL}/Sistema/v2_sistema_key_value/${key}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

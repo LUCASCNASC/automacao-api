@@ -12,7 +12,7 @@ describe('Sistema - DELETE - /v3/key_value/{key}', { env: { hideCredendials: tru
 
       cy.api({
         method: 'DELETE',
-        url: url,
+        url: `${API_URL}/Sistema/v2_sistema_key_value_delete/${key}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', { env: { hi
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20divida/v2_divida_processar_proxima_baixa_pendente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

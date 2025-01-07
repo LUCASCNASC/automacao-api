@@ -11,7 +11,7 @@ describe('Cliente - GET - /v3/cliente_por_cnpj_cpf_ou_nome/{valor}', { env: { hi
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Cliente/v3_cliente_por_cnpj_cpf_ou_nome/${valor}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

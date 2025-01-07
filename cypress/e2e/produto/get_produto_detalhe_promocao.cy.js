@@ -12,7 +12,7 @@ describe('Produtos - GET - /v3/produto_detalhe_promocao/{produto}', { env: { hid
 
       cy.api({
         method: 'GET', 
-        url: url,
+        url: `${API_URL}/Produto/v2_produto_detalhe_promocao/${produto}/${processo_venda}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

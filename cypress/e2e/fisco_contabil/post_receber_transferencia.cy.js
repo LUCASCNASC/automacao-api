@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/receber_transferencia', { env: { hideCred
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_receber_transferencia`, 
         headers: { Authorization },
         
         failOnStatusCode: false

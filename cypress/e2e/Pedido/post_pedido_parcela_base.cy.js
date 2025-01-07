@@ -10,7 +10,7 @@ describe('Pedido - POST - /v3/pedido_parcela_base', { env: { hideCredendials: tr
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pedido/v2_pedido_parcela_base`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

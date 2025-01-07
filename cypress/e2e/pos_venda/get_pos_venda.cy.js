@@ -11,8 +11,8 @@ describe('Pós-venda - GET - /v3/pos_venda', { env: { hideCredendials: true } },
     it('Resposta 200', () => {
 
       cy.api({
-        mehtod: 'GET', 
-        url: url, 
+        mehtod: '`${API_URL}/Pedido/v2_pedido_get_delete2/${codigo}/${idfilial}`', 
+        url: `${API_URL}/Pós-venda/v3_pos_venda_get_post1`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

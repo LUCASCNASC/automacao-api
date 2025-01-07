@@ -14,7 +14,7 @@ describe('Diversos - GET - /v3/cnae', { env: { hideCredendials: true } }, () => 
 
       cy.api({
         method: 'GET', 
-        url: url,
+        url: `${API_URL}/Diversos/v2_diversos_cnae/${termo}/${limit}/${offset}/${sort}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

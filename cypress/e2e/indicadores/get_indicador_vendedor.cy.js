@@ -14,7 +14,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', { env: { hideCreden
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Indicadores/v3_indicador_vendedor/${ano}/${mes}/${dia}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

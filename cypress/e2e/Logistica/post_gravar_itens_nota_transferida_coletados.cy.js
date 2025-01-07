@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', { en
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_gravar_itens_nota_transferida_coletados`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

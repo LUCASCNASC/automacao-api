@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_reenvio_nfe/', { env: { hideC
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_nota_fiscal_reenvio_nfe`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

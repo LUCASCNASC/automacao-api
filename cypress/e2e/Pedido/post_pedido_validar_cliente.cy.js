@@ -9,7 +9,7 @@ describe('Pedido - POST - /v3/pedido_validar_cliente', { env: { hideCredendials:
     it('Resposta 200', () => {
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pedido/v3_pedido_validar_cliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -12,7 +12,7 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', {
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_get_carregar_nota_transferida_coletor/${idFilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

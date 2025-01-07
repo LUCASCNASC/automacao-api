@@ -10,7 +10,7 @@ describe('Financeiro - PUT - /v3/regra_fiscal_departamento_alterar', { env: { hi
 
       cy.api({
         method: 'PUT', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_departamento_put`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

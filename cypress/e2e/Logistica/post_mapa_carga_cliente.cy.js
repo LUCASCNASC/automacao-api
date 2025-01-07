@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/mapa_carga_cliente', { env: { hideCredendials:
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_logistica_mapa_carga_cliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

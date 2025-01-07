@@ -10,7 +10,7 @@ describe('Financeiro - PUT - /v3/agencia', { env: { hideCredendials: true } }, (
 
       cy.api({
         method: 'PUT', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_agencia2`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

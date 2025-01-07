@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCreden
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_formas_pagamento_titulos`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

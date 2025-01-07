@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/estornar_baixa_pedido', { env: { hideCredendia
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v2_pag_pedido_estornar_baixa_pedido`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

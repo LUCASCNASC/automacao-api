@@ -12,7 +12,7 @@ describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', { env: { hid
 
       cy.api({
         method: 'GET', 
-        url:url, 
+        url: `${API_URL}/Cliente/v3_cliente_servico_vinculado/${cliente}/${processo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

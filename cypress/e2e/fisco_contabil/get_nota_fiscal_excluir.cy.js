@@ -12,7 +12,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_excluir/{idFilial}/{idRegistro
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_excluir/${idFilial}/${idRegistroNota}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

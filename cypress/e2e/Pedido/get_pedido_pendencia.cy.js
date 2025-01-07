@@ -14,7 +14,7 @@ describe('Pedido - GET - /v3/pedido_pendencia', { env: { hideCredendials: true }
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pedido/v2_pedido_pendencia/${idpedidovenda}/${idvendedor}/${cnpj_cpf}/${listapedidovenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

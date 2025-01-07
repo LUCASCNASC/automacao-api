@@ -10,7 +10,7 @@ describe('Sessão - POST - /v3/redefinir_senha', { env: { hideCredendials: true 
 
       cy.api({
         method: 'GET',
-        url: url,
+        url: `${API_URL}/Sessão/v3_post_redefinir_senha`,
         headers: { Authorization },
         failOnStatusCode: false
       })

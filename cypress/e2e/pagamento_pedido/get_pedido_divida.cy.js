@@ -13,7 +13,7 @@ describe('Pagamento pedido - GET - /v3/pedido_divida/{filial}', { env: { hideCre
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20pedido/v2_pag_pedido_divida/${filial}/${termo}/${idtipotef}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

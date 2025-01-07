@@ -12,7 +12,7 @@ describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLanc
  
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_lancamento_conta_corrente_delete/${idFilial}/${idLancamentoContaCorrente}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

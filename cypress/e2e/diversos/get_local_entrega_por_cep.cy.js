@@ -12,7 +12,7 @@ describe('Diversos - GET - /v3/local_entrega_por_cep', { env: { hideCredendials:
 
       cy.api({
         method: 'GET', 
-        url: url,
+        url: `${API_URL}/Diversos/v3_diversos_local_entrega_por_cep/${cep}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

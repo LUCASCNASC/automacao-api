@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/mapa_carga_update_item_coletado', { env: { hid
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_mapa_carga_update_item_coletado`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

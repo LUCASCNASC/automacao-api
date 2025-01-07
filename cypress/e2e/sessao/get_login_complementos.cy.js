@@ -11,7 +11,7 @@ describe('Sessão - GET - /v3/login_complementos', { env: { hideCredendials: tru
 
       cy.api({
         method: 'GET',
-        url: url,
+        url: `${API_URL}/Sessão/v2_sessao_login_complementos/${ambiente}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

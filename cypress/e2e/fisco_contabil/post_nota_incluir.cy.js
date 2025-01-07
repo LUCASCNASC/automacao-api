@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/nota_incluir/', { env: { hideCredendials:
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_nota_incluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

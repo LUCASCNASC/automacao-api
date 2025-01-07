@@ -11,7 +11,7 @@ describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', { env: { hideC
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_documento_diverso_lista`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', { env:
 
       cy.api({
         method: 'POST', 
-        url: rurl, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

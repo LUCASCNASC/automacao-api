@@ -10,7 +10,7 @@ describe('Diversos - POST - /v3/gerar_relatorio', { env: { hideCredendials: true
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Diversos/v2_diversos_gerar_relatorio`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

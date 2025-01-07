@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/inclui_pedido_venda_mapa_carga_cliente', { env
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_inclui_pedido_venda_mapa_carga_cliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

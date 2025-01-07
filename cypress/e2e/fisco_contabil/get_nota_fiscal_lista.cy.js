@@ -15,7 +15,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_lista/${Filial}/${Registro_Nota}/${Data_Inicial}/${Data_Final}/${CNPJ_CPF}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

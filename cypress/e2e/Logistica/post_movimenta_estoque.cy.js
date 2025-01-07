@@ -10,7 +10,7 @@ describe('Logística - POST - /v3/movimenta_estoque', { env: { hideCredendials: 
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Logística/v3_post_movimenta_estoque`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

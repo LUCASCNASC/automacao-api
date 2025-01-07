@@ -12,7 +12,7 @@ describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', { env: { hideCr
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_gerar_descarga_contabil`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -13,7 +13,7 @@ describe('Intenção compra - GET - /v3/intencao_compra_detalhe/{codigo}', { env
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Intenção%20compra/v2_intencao_compra_detalhe/${codigo}/${cliente}/${situacao}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

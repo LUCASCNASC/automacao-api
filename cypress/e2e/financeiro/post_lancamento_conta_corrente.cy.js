@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/lancamento_conta_corrente', { env: { hideCrede
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_lancamento_conta_corrente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

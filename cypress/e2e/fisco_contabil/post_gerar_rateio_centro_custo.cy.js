@@ -11,7 +11,7 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', { env: { hide
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_gerar_rateio_centro_custo`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

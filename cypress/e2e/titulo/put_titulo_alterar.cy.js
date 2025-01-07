@@ -11,7 +11,7 @@ describe('Titulo - PUT - /v3/titulo_alterar', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'PUT', 
-        url: url, 
+        url: `${API_URL}/Titulo/v3_put_titulo_alterar`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

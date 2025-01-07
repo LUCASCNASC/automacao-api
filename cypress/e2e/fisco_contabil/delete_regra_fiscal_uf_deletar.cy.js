@@ -13,7 +13,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_uf_deletar/{idBaseFiscalUF
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_uf_delete/${idBaseFiscalUF}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

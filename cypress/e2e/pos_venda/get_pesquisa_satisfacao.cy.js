@@ -11,7 +11,7 @@ describe('Pós-venda - GET - /v3/pesquisa_satisfacao', { env: { hideCredendials:
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Pós-venda/v3_pesquisa_satisfacao/${idfilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })  

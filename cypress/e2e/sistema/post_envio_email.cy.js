@@ -10,7 +10,7 @@ describe('Sistema - POST - /v3/envio_email', { env: { hideCredendials: true } },
 
       cy.api({
         method: 'POST',
-        url: url,
+        url: `${API_URL}/Sistema/v3_sistema_envio_email_post`,
         headers: { Authorization },
         failOnStatusCode: false
       })

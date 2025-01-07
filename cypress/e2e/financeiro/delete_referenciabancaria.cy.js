@@ -13,7 +13,7 @@ describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBa
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_referencia_bancaria_delete/${cnpjCpf}/${idReferenciaBancaria}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

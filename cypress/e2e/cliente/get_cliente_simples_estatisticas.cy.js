@@ -11,7 +11,7 @@ describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', { env: {
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Cliente/v2_cliente_simples_estatisticas/${idpessoa}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

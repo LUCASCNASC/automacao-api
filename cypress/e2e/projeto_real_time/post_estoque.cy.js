@@ -10,7 +10,7 @@ describe('Projeto Real Time - POST - /v3/estoque/', { env: { hideCredendials: tr
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Projeto%20Real%20Time/v3_post_estoque`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

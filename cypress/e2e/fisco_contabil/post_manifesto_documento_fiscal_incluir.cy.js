@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/manifesto_documento_fiscal_incluir', { en
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_post_manifesto_documento_fiscal_incluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

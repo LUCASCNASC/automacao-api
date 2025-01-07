@@ -11,7 +11,7 @@ describe('Diversos - GET - /v3/forma_pagamento', { env: { hideCredendials: true 
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Diversos/v2_diversos_forma_pagamento`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

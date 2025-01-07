@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/baixa_divida_cliente', { env: { hideCredendial
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Pagamento%20divida/v2_divida_baixa_cliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

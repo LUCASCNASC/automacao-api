@@ -10,7 +10,7 @@ describe('Titulo - POST - /v3/recarga', { env: { hideCredendials: true } }, () =
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Recarga/v3_post_recarga`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

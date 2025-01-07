@@ -10,7 +10,7 @@ describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInvent
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Inventário/v3_post_apaga_usuario_inventario`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

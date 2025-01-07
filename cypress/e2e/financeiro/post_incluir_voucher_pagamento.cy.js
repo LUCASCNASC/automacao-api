@@ -10,7 +10,7 @@ describe('Financeiro - POST - /v3/incluir_voucher_pagamento', { env: { hideCrede
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_incluir_voucher_pagamento`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

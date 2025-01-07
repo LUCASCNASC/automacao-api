@@ -12,7 +12,7 @@ describe('Pedido - DELETE - /v3/pedido/{codigo}', { env: { hideCredendials: true
 
       cy.api({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Pedido/v2_pedido_get_delete2/${codigo}/${idfilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -10,7 +10,7 @@ describe('E-commerce - POST - /v3/ecommerce_finalizar', { env: { hideCredendials
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/E-commerce/v3_ecommerce_finalizar`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

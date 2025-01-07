@@ -14,7 +14,7 @@ describe('Cliente - DELETE - /v3/cliente/{cliente}', { env: { hideCredendials: t
 
       cy.request({
         method: 'DELETE', 
-        url: url, 
+        url: `${API_URL}/Cliente/v2_cliente_get_delete_delete/${cliente}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

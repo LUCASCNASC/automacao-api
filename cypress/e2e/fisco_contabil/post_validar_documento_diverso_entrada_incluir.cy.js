@@ -10,7 +10,7 @@ describe('Fisco/Contábil - POST - /v3/validar_documento_diverso_entrada_incluir
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_validar_documento_diverso_entrada_incluir`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -13,7 +13,7 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Financeiro/v3_financeiro_historicocontacorrente/${idTipoContaCorrente}/${idContaCorrente}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

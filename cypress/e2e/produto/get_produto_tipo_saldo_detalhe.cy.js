@@ -14,7 +14,7 @@ describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', { env: { hideCreden
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Produto/v3_produto_tipo_saldo_detalhe/${idFilialSaldo}/${sku}/${idTipoSaldoProduto}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

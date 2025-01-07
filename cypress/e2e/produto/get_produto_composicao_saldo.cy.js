@@ -14,7 +14,7 @@ describe('Produtos - GET - /v3/produto_composicao_saldo', { env: { hideCredendia
 
       cy.api({
         method: 'GET', 
-        url: url,
+        url: `${API_URL}/Produto/v2_produto_composicao_saldo/${filial_saldo}/${sku}/${quantidade}/${local_saldo}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

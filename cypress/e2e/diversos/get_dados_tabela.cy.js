@@ -11,7 +11,7 @@ describe('Diversos - GET - /v3/dados_tabela/{tabela}', { env: { hideCredendials:
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Diversos/v2_diversos_dados_tabela/${termo}/${limit}/${offset}/${sort}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

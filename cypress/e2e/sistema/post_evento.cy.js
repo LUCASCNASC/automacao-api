@@ -10,7 +10,7 @@ describe('Sistema - POST - /v3/evento', { env: { hideCredendials: true } }, () =
 
       cy.api({
         method: 'POST', 
-        url: url, 
+        url: `${API_URL}/Sistema/v2_sistema_evento`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

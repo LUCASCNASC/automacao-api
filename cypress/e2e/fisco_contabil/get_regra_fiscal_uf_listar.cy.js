@@ -13,7 +13,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemP
 
       cy.api({
         method: 'GET', 
-        url: url, 
+        url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_uf_get/${UFOrigem}/${OrigemProduto}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })
