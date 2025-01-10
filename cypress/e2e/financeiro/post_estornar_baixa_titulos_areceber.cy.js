@@ -1,5 +1,7 @@
 // /v3/estornar_baixa_titulo_areceber - Estorno de baixa de título
 // Efetuar o estorno da baixa do título a receber, gerando um novo título a pagar
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

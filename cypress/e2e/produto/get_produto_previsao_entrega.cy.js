@@ -1,5 +1,7 @@
 // /v3/produto_previsao_entrega - Previsão de entrega
 // Previsão de entrega do produto.
+//204 - Sem dados de retorno
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,7 @@
 // /v3/finaliza_inventario - Finaliza contagem de inventário pelo aplicativo
 // Finaliza a contagem de inventário, podendo ser finalizado definitivo ou não
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

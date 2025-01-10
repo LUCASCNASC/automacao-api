@@ -1,5 +1,8 @@
 // /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo} - Lista pedidos por título
 // Retornar lista de pedidos que originaram o título
+//200 - OK
+//204 - Sem dados de retorno
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

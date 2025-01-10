@@ -1,5 +1,9 @@
 // /v3/dados_titular/{cpf} - Consulta de dados pessoais de titular
 // Esse serviço retorna os dados pessoais do titular com base no CPF consultado. Para isso, basta informar o CPF válido do titular que deseja obter essas informações.
+//204 - Sem dados de retorno
+//200 - OK
+//401 - Sem permissão para acessar este recurso
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

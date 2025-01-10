@@ -1,5 +1,9 @@
 // /v3/dados_titular_excluir - Excluir dados titular
 // Exclusão dos dados do titular
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Precondition Failed
+//500 - Internal Server Error
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

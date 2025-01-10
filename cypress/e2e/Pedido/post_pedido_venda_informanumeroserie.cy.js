@@ -1,5 +1,7 @@
 // /v3/pedido_venda_informanumeroserie/ - Dados dos números de série de um item do pedido de venda
 // Serviço utilizado para informar número de série para produtos que controlam serial ou solicitam serial na venda
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

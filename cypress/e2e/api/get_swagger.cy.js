@@ -1,5 +1,6 @@
 // /api/swagger - Swagger
 // JSON com informações para criar pagina swagger
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

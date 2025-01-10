@@ -1,5 +1,7 @@
 // /v3/pedido_baixar - Baixar pedido
 // Baixar pedido de venda. Antes de baixar o pedido, deve fechar o mesmo.
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

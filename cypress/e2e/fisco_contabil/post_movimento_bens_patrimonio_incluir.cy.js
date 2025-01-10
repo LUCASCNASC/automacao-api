@@ -1,5 +1,7 @@
 // /v3/movimento_bens_patrimonio_incluir/ - Incluir Movimento Patrimonio
 // Incluir Movimento Patrimonio
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

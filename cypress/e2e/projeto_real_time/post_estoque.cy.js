@@ -1,4 +1,7 @@
 // /v3/estoque/ - Dados Estoque - Retorna o estoque
+//201 - Criado
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

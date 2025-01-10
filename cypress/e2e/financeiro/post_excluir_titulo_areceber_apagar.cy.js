@@ -1,5 +1,7 @@
 // /v3/excluir_titulo_areceber_apagar - Exclusão de título (a receber ou a pagar)
 // Efetuar a exclusão de título a receber ou a pagar
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,8 @@
 // /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial} - Lista parâmetro (1055 - percentual desconto no recebimento de título)
 // Listar o valor do parâmetro 1055 - percentual máximo de desconto no recebimento de títulos do caixa.
+//200 - OK
+//204 - Sem dados de retorno
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

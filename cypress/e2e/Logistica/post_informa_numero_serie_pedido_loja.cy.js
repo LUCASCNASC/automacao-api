@@ -1,5 +1,7 @@
 // /v3/informa_numero_serie_pedido_loja - Dados dos números de série de um pedido de loja
 // Serviço utilizado para informar número de série para itens de pedido de loja que será posteriormente faturado.
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

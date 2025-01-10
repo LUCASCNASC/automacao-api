@@ -1,5 +1,8 @@
 // /v3/divida_cliente/{filial}/{cliente} - Títulos do cliente
 // lista de títulos a receber do cliente
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

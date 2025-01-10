@@ -1,5 +1,7 @@
 // /v3/faturamento_mapa_carga_cliente - Dados do mapa de carga cliente
 // Fatura pedidos de venda que estão em um mapa de carga cliente, cujo mapa está na situação carregado. Mapa poderá ser faturado completo ou parcial.
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

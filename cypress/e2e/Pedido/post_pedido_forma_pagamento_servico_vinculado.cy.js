@@ -1,5 +1,7 @@
 // /v3/pedido_forma_pagamento_servico_vinculado - Serviços vinculados
 // Listar serviços vinculados a forma de pagamento do pedido mobile
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

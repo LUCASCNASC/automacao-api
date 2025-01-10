@@ -1,5 +1,8 @@
 // /v3/cancela_inventario/{idFilial}/{idInventario} - Cancelar inventário
 // Exclui toda a contagem já realizado de um inventário que não esteja finalizado, disponibilizando-o para outros usuários.
+//200 - OK
+//401 - Sem permissão para acessar este recurso
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

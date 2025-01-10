@@ -1,5 +1,8 @@
 // /v3/pedido_impressoes_disponiveis/{idFilial}/{idPedidoVenda} - Impressoes Disponíveis Pedido
 // Retorna a lista do que pode ser impresso em um pedido de venda.
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

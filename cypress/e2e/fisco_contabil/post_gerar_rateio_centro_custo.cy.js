@@ -1,5 +1,8 @@
 // /post_gerar_rateio_centro_custo/ - Consulta NFE
 // Consulta NFE
+//200 - OK
+//201 - Criado
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

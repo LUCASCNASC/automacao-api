@@ -1,5 +1,7 @@
 // /v3/pedido_venda_cancelar/ - Efetua cancelamento pedido venda
 // Efetua cancelamento pedido venda total ou parcial
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,6 @@
 // /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria} - Exclusão de referência bancária
 // Excluir referência bancária baseado no CNPJ/CPF da pessoa e código da referência bancária
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

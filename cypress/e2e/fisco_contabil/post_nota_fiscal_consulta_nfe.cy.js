@@ -1,5 +1,7 @@
 // /v3/nota_fiscal_consulta_nfe/ - Consulta NFE
 // Consulta NFE
+//200 - OK
+//204 - Sem dados de retorno
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

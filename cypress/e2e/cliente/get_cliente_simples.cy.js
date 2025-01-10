@@ -1,5 +1,7 @@
 // /v3/cliente_simples/{cliente} - Dados do cliente
 // Dados do cliente simplificado
+//204 - Sem dados de retorno
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

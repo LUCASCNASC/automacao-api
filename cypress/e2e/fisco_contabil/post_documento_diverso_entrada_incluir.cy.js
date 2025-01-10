@@ -1,5 +1,7 @@
 // /v3/documento_diverso_entrada_incluir/ - Inclusão de documento diverso (entrada)
 // Incluir documento diverso de entrada
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

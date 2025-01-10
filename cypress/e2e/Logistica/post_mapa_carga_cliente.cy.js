@@ -1,5 +1,7 @@
 // /v3/mapa_carga_cliente - Dados de Mapa de Carga Cliente
 // Incluir/alterar cadastro de mapa de carga cliente
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

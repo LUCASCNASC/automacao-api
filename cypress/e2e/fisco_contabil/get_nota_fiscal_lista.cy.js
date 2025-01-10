@@ -1,5 +1,7 @@
 // /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF} - Lista de notas fiscais
 // Retornar lista das notas fiscais consultadas
+//204 - Sem dados de retorno
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

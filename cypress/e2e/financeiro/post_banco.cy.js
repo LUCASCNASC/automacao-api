@@ -1,6 +1,8 @@
 
 // /v3/banco - Inclusão de banco
 // Incluir cadastro de banco
+//201 - Criado
+//500 - Internal Server Error
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

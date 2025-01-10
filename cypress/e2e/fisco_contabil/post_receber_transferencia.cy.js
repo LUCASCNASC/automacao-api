@@ -1,5 +1,7 @@
 // /v3/receber_transferencia - Recebimento de nota fiscal de transferência
 // Receber nota fiscal de transferência entre filiais
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

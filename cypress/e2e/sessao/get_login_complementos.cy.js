@@ -1,5 +1,8 @@
 // /v3/login_complementos - Dados complementares do login
 // Carregar dados do funcionário e vendedor com base no usuário conectado
+//200 - OK
+//401 - Sem permissão para acessar este recurso
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

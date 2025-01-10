@@ -1,12 +1,14 @@
 // /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
 // Retorna as formas de pagamento disponíveis para os títulos informados.
+//412 - Falha - Não atende aos pré-requisitos
+//201 - Criado
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } } , () => {
   
-    it('Resposta 200', () => {
+    it('Resposta 201', () => {
 
       cy.api({
         method: 'POST', 
@@ -16,7 +18,7 @@ describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCreden
       })
         .then((response) => {
           const { data } = body;
-          expect(response.status).to.eq(200);
+          expect(response.status).to.eq(201);
           expect(response.duration).to.be.below(2000); 
           expect(response.body.retorno[0]).toHaveProperty('idEmpresa');
           expect(response.body.retorno[0]).toHaveProperty('idFilial');

@@ -1,5 +1,7 @@
 // /v3/nota_fiscal_excluir/{idFilial}/{idRegistroNota} - Exclusão de nota fiscal
 // Excluir nota fiscal
+//204 - Sem dados de retorno
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

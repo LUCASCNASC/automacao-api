@@ -1,5 +1,8 @@
 // /v3/produto - Informações do produto
 // Dados dos produtos.
+//204 - Sem dados de retorno
+//200 - OK
+//401 - Sem permissão para acessar este recurso
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

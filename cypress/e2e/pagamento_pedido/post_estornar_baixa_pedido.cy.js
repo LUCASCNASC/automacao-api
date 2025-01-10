@@ -1,5 +1,7 @@
 // /v3/estornar_baixa_pedido - Estorno da baixar pedido
 // Estornar baixa do pedido de venda pelo TOTEM
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

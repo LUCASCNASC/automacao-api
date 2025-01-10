@@ -1,5 +1,8 @@
 // /v3/nota_incluir/ - Inclusão de nota fiscal
 // Incluir nota fiscal, estoque e títulos, com base no XML
+//200 - OK
+//201 - Criado
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

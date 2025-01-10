@@ -1,5 +1,7 @@
 // /v3/banco - Lista de banco
 // Listar banco
+//200 - OK
+//500 - Internal Server Error
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

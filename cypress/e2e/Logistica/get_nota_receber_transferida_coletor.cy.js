@@ -1,5 +1,8 @@
 // /v3/nota_receber_transferida_coletor/{idFilial} - Carrega de Notas Transferidas
 // Carrega as notas transferidas para filial destino para coletor de dados
+//200 - OK
+//204 - Sem dados de retorno
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

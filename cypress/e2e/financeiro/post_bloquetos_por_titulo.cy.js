@@ -1,5 +1,7 @@
 // /v3/bloquetos_por_titulo - Impressão meio de cobrança
 // Imprimir meio de cobrança em PDF (codificação Base64)
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

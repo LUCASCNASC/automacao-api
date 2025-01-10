@@ -1,5 +1,7 @@
 // /v3/login_validar - Validar pragma da sessão
 // Valida o pragma da sessão.
+//200 - OK
+//401 - Sem permissão para acessar este recurso
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

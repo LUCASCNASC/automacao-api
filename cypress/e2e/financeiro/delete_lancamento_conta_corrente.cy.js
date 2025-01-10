@@ -1,5 +1,7 @@
 // /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente} - Estorno de lançamento conta corrente
 // Estornar lançamento de conta corrente no financeiro.
+//201 - Criado
+//500 - Internal Server Error
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
@@ -8,7 +10,7 @@ const idLancamentoContaCorrente = ""; //integer - OBRIGATÓRIO
 
 describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente}', { env: { hideCredendials: true } }, () => {
   
-    it('Resposta 200', () => {
+    it('Resposta 201', () => {
  
       cy.api({
         method: 'DELETE', 
@@ -18,7 +20,7 @@ describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLanc
       })
         .then((response) => {
           const { data } = body;
-          expect(response.status).to.eq(200);
+          expect(response.status).to.eq(201);
           expect(response.duration).to.be.below(2000);
         });
     });

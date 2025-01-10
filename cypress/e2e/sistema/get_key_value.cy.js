@@ -1,5 +1,8 @@
 // /v3/key_value/{key} - Lista de chave e valor
 // Consultar uma determinada chave e retornar o seu valor
+//200 - OK
+//204 - Sem dados de retorno
+//401 - Sem permissão para acessar este recurso
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

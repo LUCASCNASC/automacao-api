@@ -1,5 +1,8 @@
 // /v3/key_value/{key} - Exclui chave e valor
 // Excluir um determindo valor pela sua chave
+//200 - OK
+//204 - Sem dados de retorno
+//401 - Sem permissão para acessar este recurso
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

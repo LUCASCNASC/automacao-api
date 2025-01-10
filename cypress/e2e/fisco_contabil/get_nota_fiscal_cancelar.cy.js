@@ -1,5 +1,7 @@
 // /v3/nota_fiscal_cancelar/{Filial}/{RegistroNota} - Cancela nota fiscal
 // Cancelar nota fiscal autorizada Sefaz
+//204 - Sem dados de retorno
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

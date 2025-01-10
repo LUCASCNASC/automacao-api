@@ -1,5 +1,6 @@
 // /v3/agencia/{codigoBanco}/{codigoAgencia} - Exclusão de agência
 // Excluir agência pelo código do banco e agência
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

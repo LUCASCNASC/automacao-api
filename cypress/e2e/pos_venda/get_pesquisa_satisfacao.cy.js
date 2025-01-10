@@ -1,5 +1,8 @@
 // /v3/pesquisa_satisfacao - Pesquisa de Satisfação
 // Lista das pesquisas de satisfação da pós-venda
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

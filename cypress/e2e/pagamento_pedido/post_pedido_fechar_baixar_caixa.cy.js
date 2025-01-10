@@ -1,6 +1,7 @@
 // /v3/pedido_fechar_baixar_caixa - Baixar Pedido Caixa
 // Fecha o pedido caso necessário, e se forem adicionados itens para baixar efetua a baixa tanto integral quanto parcial
-
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 

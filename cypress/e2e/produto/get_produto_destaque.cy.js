@@ -1,5 +1,8 @@
 // /v3/produto_destaque - Produtos em destaque
 // Lista de produtos em destaque.
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

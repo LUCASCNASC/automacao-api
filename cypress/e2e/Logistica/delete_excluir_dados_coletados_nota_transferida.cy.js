@@ -1,5 +1,7 @@
 // /v3/excluir_dados_coletados_nota_transferida/{idFilialOrigem}/{idRegistroNotaOrigem} - Excluir dados coletados de Notas Transferidas
 // Exclui os dados coletados da nota transferida, zerando campo quantidade coletado e voltanto situação para A Coletar
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

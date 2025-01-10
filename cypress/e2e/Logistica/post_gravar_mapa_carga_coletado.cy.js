@@ -1,5 +1,7 @@
 // /v3/gravar_mapa_carga_coletado - Altera a situação do mapa de carga cliente/loja para Coletado
 // Finaliza a coleta do mapa de carga e/ou atualiza os itens coletados
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

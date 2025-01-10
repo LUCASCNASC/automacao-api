@@ -1,5 +1,8 @@
 // /v3/sessao_login_altera_senha - Altera senha de usuário
 // Altera senha para o usuário do sistema
+//200 - OK
+//401 - Sem permissão para acessar este recurso
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

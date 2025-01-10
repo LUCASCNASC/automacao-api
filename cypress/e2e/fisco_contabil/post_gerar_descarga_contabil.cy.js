@@ -1,6 +1,9 @@
 
 // /v3/gerar_descarga_contabil - Descarga contábil
 // Efetuar descarga contábil por filial e período
+//200 - OK
+//201 - Criado
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

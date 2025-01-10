@@ -1,5 +1,7 @@
 // /v3/mapa_carga_update_item_coletado - Atualizar quantidade coletada
 // Atualizar quantidade coletada mapa de carga por item
+//200 - OK
+//204 - Sem dados de retorno
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

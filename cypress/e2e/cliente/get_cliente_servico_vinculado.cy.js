@@ -1,5 +1,7 @@
 // /v3/cliente_servico_vinculado/{cliente} - Serviço vinculado
 // Serviços vinculados disponíveis para o cliente
+//204 - Sem dados de retorno
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

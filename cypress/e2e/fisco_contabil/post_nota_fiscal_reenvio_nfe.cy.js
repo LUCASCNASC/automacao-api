@@ -1,5 +1,7 @@
 // /v3/nota_fiscal_reenvio_nfe/ - Nota Fiscal (Reenvio)
 // Realizar o reenvio da nota fiscal NFe
+//200 - OK
+//204 - Sem dados de retorno
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

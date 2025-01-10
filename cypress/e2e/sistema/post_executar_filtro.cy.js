@@ -1,5 +1,8 @@
 // /v3/executar_filtro - Dados de retorno do filtro
 // De acordo com o filtro informado é retornado o resultado conforme cadastro
+//200 - OK
+//401 - Sem permissão para acessar este recurso
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

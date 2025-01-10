@@ -1,5 +1,7 @@
 // /v3/pedido_parcela_base_divisao - Parcela base
 // Divide o(s) abatimento(s) em valor(es) mantendo a quantidade de parcela e processo iguais.
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

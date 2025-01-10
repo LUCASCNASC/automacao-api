@@ -1,5 +1,6 @@
 // /v3/documento_outras_receitas_incluir - Inclusão de documento (outras receitas)
 // Incluir documento de outras receitas
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,8 @@
 // /v3/operacoes_tef - Operacões TEF
 // Retorna as operações tef configuradas
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

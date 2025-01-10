@@ -1,5 +1,7 @@
 // /v3/ecommerce_finalizar - Gerar pedido e-commerce
 // Incluir/alterar pedido de venda e-commerce
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

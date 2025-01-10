@@ -1,6 +1,8 @@
 
 // /v3/estornar_baixa_titulo - Estorno de baixa de título
 // Faz o estorno da última parcial baixada ou de todas as parciais de um título.
+//200 - OK
+//500 - Internal Server Error
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,8 @@
 // /v3/historico_conta_corrente/{idTipoContaCorrente} - Lista histórico de conta corrente
 // Listar histórico de conta corrente
+//200 - OK
+//204 - Sem dados de retorno
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

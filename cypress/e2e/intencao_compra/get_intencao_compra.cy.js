@@ -1,5 +1,8 @@
 // /v3/intencao_compra - Intenções de compras
 // Lista intenções de compras
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

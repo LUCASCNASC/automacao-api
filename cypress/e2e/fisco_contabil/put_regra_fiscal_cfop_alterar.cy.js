@@ -1,5 +1,7 @@
 // /v3/regra_fiscal_cfop_alterar - Alteração de base fiscal (CFOP)
 // Alterar base fiscal de CFOP
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

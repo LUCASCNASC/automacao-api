@@ -1,5 +1,7 @@
 // /v3/saldo_disponivel - Saldo Disponível
 // Recebe uma lista de produtos e retorna uma lista com os produtos e o saldo disponível
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

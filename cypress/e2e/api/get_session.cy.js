@@ -1,5 +1,6 @@
 // /api/session - Sessões
 // Sessões ativas.
+//200 - OK
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

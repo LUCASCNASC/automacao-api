@@ -1,5 +1,8 @@
 // /v3/efetivar_proposta_abatimento - Efetivar proposta de abatimento
 // Efetivar propostas de abatimento do sistema de gestão de devolução.
+//401 - Sem permissão para acessar este recurso
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,7 @@
 // /v3/regra_fiscal_diversas_alterar - Alteração de base fiscal (diversas)
 // Alterar base fiscal diversas
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

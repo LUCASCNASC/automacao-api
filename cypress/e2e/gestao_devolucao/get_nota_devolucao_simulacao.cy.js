@@ -1,5 +1,9 @@
 // /v3/nota_devolucao_simulacao/{filial}/{solicitacao} - Simulação de Nota Devolução
 // Simulação da nota de devolução da solicitação. Retorna as notas que foram incluídas para simulação da solicitação da nota de devolução para avaliação interna da empresa.
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
+//401 - Sem permissão para acessar este recurso
 
 const API_URL = Cypress.env('API_URL');
 const Authorization = Cypress.env('API.PRAGMA');

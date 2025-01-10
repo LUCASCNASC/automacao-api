@@ -1,5 +1,8 @@
 // /v3/divida_cliente_vinculado/{filial}/{cliente} - Títulos vinculados do cliente
 // lista de títulos vinculados a receber do cliente
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

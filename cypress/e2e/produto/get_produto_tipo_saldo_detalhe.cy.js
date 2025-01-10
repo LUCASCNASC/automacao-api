@@ -1,5 +1,8 @@
 // /v3/produto_tipo_saldo_detalhe - Tipo Saldo Detalhe
 // Lista de Tipo Saldo Detalhado do Produto
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

@@ -1,5 +1,8 @@
 // /v3/apaga_usuario_inventario/{idFilial}/{idInventario} - Apaga o usuário do inventário
 // Apaga o usuário do inventário se não existir nenhuma contagem existente.
+//200 - OK
+//401 - Sem permissão para acessar este recurso
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')

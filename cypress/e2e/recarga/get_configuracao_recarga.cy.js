@@ -1,5 +1,8 @@
 // /v3/configuracao_recarga - Servico para recarga TEF
 // Retorna o serviço e as formas de pagamento configurados para recarga de celular via TEF
+//204 - Sem dados de retorno
+//200 - OK
+//412 - Falha - Não atende aos pré-requisitos
 
 const API_URL = Cypress.env('API_URL')
 const Authorization = Cypress.env('API.PRAGMA')
