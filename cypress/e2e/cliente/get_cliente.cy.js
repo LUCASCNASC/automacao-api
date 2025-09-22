@@ -1,179 +1,176 @@
 // /v3/cliente/{cliente} - Dados do cliente
 // Dados do cliente
-//204 - Sem dados de retorno
-//200 - OK
-//412 - Falha - Não atende aos pré-requisitos
+// 204 - Sem dados de retorno
+// 200 - OK
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
-const cliente = ""; //string - OBRIGATÓRIO  
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
+const cliente = ""; // string - OBRIGATÓRIO  
 
-describe('Cliente - GET - /v3/cliente/{cliente}', { env: { hideCredendials: true } }
-  , () => {
-  
-    it('Resposta 200', () => {
+describe('Cliente - GET - /v3/cliente/{cliente}', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200 e todas as propriedades esperadas', () => {
+    cy.api({
+      method: 'GET',
+      url: `${API_URL}/Cliente/v2_cliente_get_delete_get/${cliente}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
 
-      cy.api({
-        method: 'GET', 
-        url: `${API_URL}/Cliente/v2_cliente_get_delete_get/${cliente}`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); 
-          expect(resposta.body.retorno[0]).toHaveProperty('cnpj_cpf');
-          expect(resposta.body.retorno[0]).toHaveProperty('nome');
-          expect(resposta.body.retorno[0]).toHaveProperty('nomefantasia');
-          expect(resposta.body.retorno[0]).toHaveProperty('datacriacao');
-          expect(resposta.body.retorno[0]).toHaveProperty('idtiposexo');
-          expect(resposta.body.retorno[0]).toHaveProperty('idtipocontribuinte');
-          expect(resposta.body.retorno[0]).toHaveProperty('faturamentoanual');
-          expect(resposta.body.retorno[0]).toHaveProperty('pai');
-          expect(resposta.body.retorno[0]).toHaveProperty('mae');
-          expect(resposta.body.retorno[0]).toHaveProperty('nacionalidade');
-          expect(resposta.body.retorno[0]).toHaveProperty('atualizarcadastro');
-          expect(resposta.body.retorno[0]).toHaveProperty('idtipoestadocivil');
-          expect(resposta.body.retorno[0]).toHaveProperty('idnivelformacao');
-          expect(resposta.body.retorno[0]).toHaveProperty('idtipoocupacao');
-          expect(resposta.body.retorno[0]).toHaveProperty('empresaatividade');
-          expect(resposta.body.retorno[0]).toHaveProperty('registrojuntacomercial');
-          expect(resposta.body.retorno[0]).toHaveProperty('dataregistrojuntacomercial');
-          expect(resposta.body.retorno[0]).toHaveProperty('idnaturezaretencaofonte');
-          expect(resposta.body.retorno[0]).toHaveProperty('contador');
-          expect(resposta.body.retorno[0]).toHaveProperty('dddcontador');
-          expect(resposta.body.retorno[0]).toHaveProperty('telefonecontador');
-          expect(resposta.body.retorno[0]).toHaveProperty('cce_rg');
-          expect(resposta.body.retorno[0]).toHaveProperty('orgaoexpedicaorg');
-          expect(resposta.body.retorno[0]).toHaveProperty('dataexpedicaorg');
-          expect(resposta.body.retorno[0]).toHaveProperty('numeroconselhoprofissional');
-          expect(resposta.body.retorno[0]).toHaveProperty('aposentado');
-          expect(resposta.body.retorno[0]).toHaveProperty('pensionista');
-          expect(resposta.body.retorno[0]).toHaveProperty('numerocarteiraprofissional');
-          expect(resposta.body.retorno[0]).toHaveProperty('gerarboleto');
-          expect(resposta.body.retorno[0]).toHaveProperty('seriecarteiraprofissional');
-          expect(resposta.body.retorno[0]).toHaveProperty('ufcarteiraprofissional');
-          expect(resposta.body.retorno[0]).toHaveProperty('numerobeneficio');
-          expect(resposta.body.retorno[0]).toHaveProperty('orgaobeneficio');
-          expect(resposta.body.retorno[0]).toHaveProperty('numeroinscricaotrabalhador');
-          expect(resposta.body.retorno[0]).toHaveProperty('numerocarteiraorgaoclasse');
-          expect(resposta.body.retorno[0]).toHaveProperty('renavam');
-          expect(resposta.body.retorno[0]).toHaveProperty('inscricaomunicipal');
-          expect(resposta.body.retorno[0].inscricaosubstitutotributario[0]).toHaveProperty('uf');
-          expect(resposta.body.retorno[0].inscricaosubstitutotributario[0]).toHaveProperty('inscricaosubstitutotributario');
-          expect(resposta.body.retorno[0].inscricaosubstitutotributario[0]).toHaveProperty('exclusivodifal');
-          expect(resposta.body.retorno[0]).toHaveProperty('inscricaosuframa');
-          expect(resposta.body.retorno[0]).toHaveProperty('idtiporesidencia');
-          expect(resposta.body.retorno[0]).toHaveProperty('residentedesde');
-          expect(resposta.body.retorno[0]).toHaveProperty('valoraluguel');
-          expect(resposta.body.retorno[0]).toHaveProperty('maladireta');
-          expect(resposta.body.retorno[0]).toHaveProperty('placaveiculo');
-          expect(resposta.body.retorno[0]).toHaveProperty('veiculoquitado');
-          expect(resposta.body.retorno[0]).toHaveProperty('valoroutrasrendas');
-          expect(resposta.body.retorno[0]).toHaveProperty('descricaooutrasrendas');
-          expect(resposta.body.retorno[0]).toHaveProperty('email');
-          expect(resposta.body.retorno[0]).toHaveProperty('emailnfe');
-          expect(resposta.body.retorno[0]).toHaveProperty('contato');
-          expect(resposta.body.retorno[0]).toHaveProperty('observacao');
-          expect(resposta.body.retorno[0]).toHaveProperty('expostapoliticamente');
-          expect(resposta.body.retorno[0]).toHaveProperty('relacaoexpostapoliticamente');
-          expect(resposta.body.retorno[0]).toHaveProperty('emancipado');
-          expect(resposta.body.retorno[0]).toHaveProperty('linkdocumento');
-          expect(resposta.body.retorno[0]).toHaveProperty('prolabore');
-          expect(resposta.body.retorno[0]).toHaveProperty('observacaovenda');
-          expect(resposta.body.retorno[0]).toHaveProperty('receberemailmarketing');
-          expect(resposta.body.retorno[0]).toHaveProperty('verbarebate');
-          expect(resposta.body.retorno[0]).toHaveProperty('cidadenaturalidade');
-          expect(resposta.body.retorno[0].cidadenaturalidade[0]).toHaveProperty('cidade_codigo');
-          expect(resposta.body.retorno[0].conjuge[0]).toHaveProperty('cnpj_cpf');
-          expect(resposta.body.retorno[0].cnae[0]).toHaveProperty('idcnae');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('idtipoendereco');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('cep');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('endereco');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('numero');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('complemento');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('caixapostal');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('bairro');
-          expect(resposta.body.retorno[0].endereco[0]).toHaveProperty('cidade');
-          expect(resposta.body.retorno[0].endereco[0].cidade[0]).toHaveProperty('cidade_codigo');
-          expect(resposta.body.retorno[0].telefone[0]).toHaveProperty('idtipotelefone');
-          expect(resposta.body.retorno[0].telefone[0]).toHaveProperty('ddd');
-          expect(resposta.body.retorno[0].telefone[0]).toHaveProperty('numero');
-          expect(resposta.body.retorno[0].telefone[0]).toHaveProperty('ramal');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('idreferenciapessoal');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('nome');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('ddd');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('telefone');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('graurelacionamento');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('email');
-          expect(resposta.body.retorno[0].referencia[0].pessoal[0]).toHaveProperty('datainclusao');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('idreferenciacomercial');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('empresa');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('ddd');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('telefone');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('contato');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('observacao');
-          expect(resposta.body.retorno[0].referencia[0].comercial[0]).toHaveProperty('email');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('idreferenciabancaria');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('agencia');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('conta');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('dataabertura');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('bancoboleto');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('ddd');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('telefone');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('gerente');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('cnpj_cpf_correntista');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('nomecorrentista');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('idtipoconta');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('operacaobancaria');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('idformapagamento');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('idtipochavepix');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0]).toHaveProperty('chavepix');
-          expect(resposta.body.retorno[0].referencia[0].bancaria[0].banco[0]).toHaveProperty('codigo');
-          expect(resposta.body.retorno[0].referencia[0].financeira[0]).toHaveProperty('idreferenciafinanceira');
-          expect(resposta.body.retorno[0].referencia[0].financeira[0]).toHaveProperty('inicioexperienciacredito');
-          expect(resposta.body.retorno[0].referencia[0].financeira[0]).toHaveProperty('localexperiencia');
-          expect(resposta.body.retorno[0].referencia[0].financeira[0]).toHaveProperty('planoexperiencia');
-          expect(resposta.body.retorno[0].referencia[0].financeira[0]).toHaveProperty('possuicartaofinanceira');
-          expect(resposta.body.retorno[0].referencia[0].financeira[0]).toHaveProperty('valorprestacao');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('iddadosempregaticio');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresacnpj');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('ddd');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('telefone');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresa');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('idramoatividade');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresacep');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresaendereco');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresanumero');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresabairro');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresacomplementoendereco');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('admissao');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('salario');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('dtcomprovante');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('idtipocomprovante');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresasetor');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('empresacontato');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('confirmadopor');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('desligamento');
-          expect(resposta.body.retorno[0].empregaticio[0]).toHaveProperty('cargo');
-          expect(resposta.body.retorno[0].empregaticio[0].empresacidade[0]).toHaveProperty('cidade_codigo');
-          expect(resposta.body.retorno[0].empregaticio[0].cbo[0]).toHaveProperty('idcbofamilia');
-          expect(resposta.body.retorno[0].empregaticio[0].cbo[0]).toHaveProperty('idcbo');
-          expect(resposta.body.retorno[0].dependente[0]).toHaveProperty('iddependente');
-          expect(resposta.body.retorno[0].dependente[0]).toHaveProperty('nome');
-          expect(resposta.body.retorno[0].dependente[0]).toHaveProperty('datanascimento');
-          expect(resposta.body.retorno[0].dependente[0]).toHaveProperty('idgrauparentesco');
-          expect(resposta.body.retorno[0].dependente[0]).toHaveProperty('idtiposexo');
-          expect(resposta.body.retorno[0].dependente[0]).toHaveProperty('deduzirimpostoirpf');
-          expect(resposta.body.retorno[0].infcomplementar[0]).toHaveProperty('idpessoainformacoes');
-          expect(resposta.body.retorno[0].infcomplementar[0]).toHaveProperty('descricao');
-          expect(resposta.body.retorno[0].infcomplementar[0]).toHaveProperty('datamovimento');
-          expect(resposta.body.retorno[0].infcomplementar[0]).toHaveProperty('idusuario');
-          expect(resposta.body.retorno[0].rota[0]).toHaveProperty('idrota');
-          expect(resposta.body.retorno[0].rota[0].local_entrega[0]).toHaveProperty('codigo');
-          expect(resposta.body.retorno[0].rota[0].local_entrega[0]).cidade[0].toHaveProperty('cidade_codigo');
-          expect(resposta.body.retorno[0].rota[0].local_entrega[0]).cidade[0].toHaveProperty('cidade_nome');
-        });
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('cnpj_cpf');
+      expect(ret).to.have.property('nome');
+      expect(ret).to.have.property('nomefantasia');
+      expect(ret).to.have.property('datacriacao');
+      expect(ret).to.have.property('idtiposexo');
+      expect(ret).to.have.property('idtipocontribuinte');
+      expect(ret).to.have.property('faturamentoanual');
+      expect(ret).to.have.property('pai');
+      expect(ret).to.have.property('mae');
+      expect(ret).to.have.property('nacionalidade');
+      expect(ret).to.have.property('atualizarcadastro');
+      expect(ret).to.have.property('idtipoestadocivil');
+      expect(ret).to.have.property('idnivelformacao');
+      expect(ret).to.have.property('idtipoocupacao');
+      expect(ret).to.have.property('empresaatividade');
+      expect(ret).to.have.property('registrojuntacomercial');
+      expect(ret).to.have.property('dataregistrojuntacomercial');
+      expect(ret).to.have.property('idnaturezaretencaofonte');
+      expect(ret).to.have.property('contador');
+      expect(ret).to.have.property('dddcontador');
+      expect(ret).to.have.property('telefonecontador');
+      expect(ret).to.have.property('cce_rg');
+      expect(ret).to.have.property('orgaoexpedicaorg');
+      expect(ret).to.have.property('dataexpedicaorg');
+      expect(ret).to.have.property('numeroconselhoprofissional');
+      expect(ret).to.have.property('aposentado');
+      expect(ret).to.have.property('pensionista');
+      expect(ret).to.have.property('numerocarteiraprofissional');
+      expect(ret).to.have.property('gerarboleto');
+      expect(ret).to.have.property('seriecarteiraprofissional');
+      expect(ret).to.have.property('ufcarteiraprofissional');
+      expect(ret).to.have.property('numerobeneficio');
+      expect(ret).to.have.property('orgaobeneficio');
+      expect(ret).to.have.property('numeroinscricaotrabalhador');
+      expect(ret).to.have.property('numerocarteiraorgaoclasse');
+      expect(ret).to.have.property('renavam');
+      expect(ret).to.have.property('inscricaomunicipal');
+      expect(ret.inscricaosubstitutotributario[0]).to.have.property('uf');
+      expect(ret.inscricaosubstitutotributario[0]).to.have.property('inscricaosubstitutotributario');
+      expect(ret.inscricaosubstitutotributario[0]).to.have.property('exclusivodifal');
+      expect(ret).to.have.property('inscricaosuframa');
+      expect(ret).to.have.property('idtiporesidencia');
+      expect(ret).to.have.property('residentedesde');
+      expect(ret).to.have.property('valoraluguel');
+      expect(ret).to.have.property('maladireta');
+      expect(ret).to.have.property('placaveiculo');
+      expect(ret).to.have.property('veiculoquitado');
+      expect(ret).to.have.property('valoroutrasrendas');
+      expect(ret).to.have.property('descricaooutrasrendas');
+      expect(ret).to.have.property('email');
+      expect(ret).to.have.property('emailnfe');
+      expect(ret).to.have.property('contato');
+      expect(ret).to.have.property('observacao');
+      expect(ret).to.have.property('expostapoliticamente');
+      expect(ret).to.have.property('relacaoexpostapoliticamente');
+      expect(ret).to.have.property('emancipado');
+      expect(ret).to.have.property('linkdocumento');
+      expect(ret).to.have.property('prolabore');
+      expect(ret).to.have.property('observacaovenda');
+      expect(ret).to.have.property('receberemailmarketing');
+      expect(ret).to.have.property('verbarebate');
+      expect(ret).to.have.property('cidadenaturalidade');
+      expect(ret.cidadenaturalidade[0]).to.have.property('cidade_codigo');
+      expect(ret.conjuge[0]).to.have.property('cnpj_cpf');
+      expect(ret.cnae[0]).to.have.property('idcnae');
+      expect(ret.endereco[0]).to.have.property('idtipoendereco');
+      expect(ret.endereco[0]).to.have.property('cep');
+      expect(ret.endereco[0]).to.have.property('endereco');
+      expect(ret.endereco[0]).to.have.property('numero');
+      expect(ret.endereco[0]).to.have.property('complemento');
+      expect(ret.endereco[0]).to.have.property('caixapostal');
+      expect(ret.endereco[0]).to.have.property('bairro');
+      expect(ret.endereco[0]).to.have.property('cidade');
+      expect(ret.endereco[0].cidade[0]).to.have.property('cidade_codigo');
+      expect(ret.telefone[0]).to.have.property('idtipotelefone');
+      expect(ret.telefone[0]).to.have.property('ddd');
+      expect(ret.telefone[0]).to.have.property('numero');
+      expect(ret.telefone[0]).to.have.property('ramal');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('idreferenciapessoal');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('nome');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('ddd');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('telefone');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('graurelacionamento');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('email');
+      expect(ret.referencia[0].pessoal[0]).to.have.property('datainclusao');
+      expect(ret.referencia[0].comercial[0]).to.have.property('idreferenciacomercial');
+      expect(ret.referencia[0].comercial[0]).to.have.property('empresa');
+      expect(ret.referencia[0].comercial[0]).to.have.property('ddd');
+      expect(ret.referencia[0].comercial[0]).to.have.property('telefone');
+      expect(ret.referencia[0].comercial[0]).to.have.property('contato');
+      expect(ret.referencia[0].comercial[0]).to.have.property('observacao');
+      expect(ret.referencia[0].comercial[0]).to.have.property('email');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('idreferenciabancaria');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('agencia');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('conta');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('dataabertura');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('bancoboleto');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('ddd');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('telefone');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('gerente');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('cnpj_cpf_correntista');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('nomecorrentista');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('idtipoconta');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('operacaobancaria');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('idformapagamento');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('idtipochavepix');
+      expect(ret.referencia[0].bancaria[0]).to.have.property('chavepix');
+      expect(ret.referencia[0].bancaria[0].banco[0]).to.have.property('codigo');
+      expect(ret.referencia[0].financeira[0]).to.have.property('idreferenciafinanceira');
+      expect(ret.referencia[0].financeira[0]).to.have.property('inicioexperienciacredito');
+      expect(ret.referencia[0].financeira[0]).to.have.property('localexperiencia');
+      expect(ret.referencia[0].financeira[0]).to.have.property('planoexperiencia');
+      expect(ret.referencia[0].financeira[0]).to.have.property('possuicartaofinanceira');
+      expect(ret.referencia[0].financeira[0]).to.have.property('valorprestacao');
+      expect(ret.empregaticio[0]).to.have.property('iddadosempregaticio');
+      expect(ret.empregaticio[0]).to.have.property('empresacnpj');
+      expect(ret.empregaticio[0]).to.have.property('ddd');
+      expect(ret.empregaticio[0]).to.have.property('telefone');
+      expect(ret.empregaticio[0]).to.have.property('empresa');
+      expect(ret.empregaticio[0]).to.have.property('idramoatividade');
+      expect(ret.empregaticio[0]).to.have.property('empresacep');
+      expect(ret.empregaticio[0]).to.have.property('empresaendereco');
+      expect(ret.empregaticio[0]).to.have.property('empresanumero');
+      expect(ret.empregaticio[0]).to.have.property('empresabairro');
+      expect(ret.empregaticio[0]).to.have.property('empresacomplementoendereco');
+      expect(ret.empregaticio[0]).to.have.property('admissao');
+      expect(ret.empregaticio[0]).to.have.property('salario');
+      expect(ret.empregaticio[0]).to.have.property('dtcomprovante');
+      expect(ret.empregaticio[0]).to.have.property('idtipocomprovante');
+      expect(ret.empregaticio[0]).to.have.property('empresasetor');
+      expect(ret.empregaticio[0]).to.have.property('empresacontato');
+      expect(ret.empregaticio[0]).to.have.property('confirmadopor');
+      expect(ret.empregaticio[0]).to.have.property('desligamento');
+      expect(ret.empregaticio[0]).to.have.property('cargo');
+      expect(ret.empregaticio[0].empresacidade[0]).to.have.property('cidade_codigo');
+      expect(ret.empregaticio[0].cbo[0]).to.have.property('idcbofamilia');
+      expect(ret.empregaticio[0].cbo[0]).to.have.property('idcbo');
+      expect(ret.dependente[0]).to.have.property('iddependente');
+      expect(ret.dependente[0]).to.have.property('nome');
+      expect(ret.dependente[0]).to.have.property('datanascimento');
+      expect(ret.dependente[0]).to.have.property('idgrauparentesco');
+      expect(ret.dependente[0]).to.have.property('idtiposexo');
+      expect(ret.dependente[0]).to.have.property('deduzirimpostoirpf');
+      expect(ret.infcomplementar[0]).to.have.property('idpessoainformacoes');
+      expect(ret.infcomplementar[0]).to.have.property('descricao');
+      expect(ret.infcomplementar[0]).to.have.property('datamovimento');
+      expect(ret.infcomplementar[0]).to.have.property('idusuario');
+      expect(ret.rota[0]).to.have.property('idrota');
+      expect(ret.rota[0].local_entrega[0]).to.have.property('codigo');
+      expect(ret.rota[0].local_entrega[0].cidade[0]).to.have.property('cidade_codigo');
+      expect(ret.rota[0].local_entrega[0].cidade[0]).to.have.property('cidade_nome');
     });
   });
+});

@@ -1,33 +1,29 @@
 // /v3/cliente_anexo/{idcnpj_cpf} - Lista de anexos do cliente
 // Consultar os anexos do cliente
-//204 - Sem dados de retorno
-//200 - OK
-//412 - Falha - Não atende aos pré-requisitos
+// 204 - Sem dados de retorno
+// 200 - OK
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
-const idcnpj_cpf = "100002139114930" //string - OBRIGATÓRIO
-const idtipoanexo = "" //integer
-const idpessoaanexo = "" //string
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
+const idcnpj_cpf = "100002139114930"; // string - OBRIGATÓRIO
 
 describe('Filial - GET - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCredendials: true } }, () => {
-
-  it.only('Retorno 200', () => {
+  it('Deve retornar 200 e as propriedades do anexo', () => {
     cy.api({
       method: 'GET',
       url: `${API_URL}/Cliente/v3_cliente_anexo/${idcnpj_cpf}`,
       headers: { Authorization },
       failOnStatusCode: false
-    }).should(({ status, body }) => {
-      const { data } = body
-      expect(status).to.equal(200)
-      expect(response.body.retorno[0]).toHaveProperty('idcnpj_cpf');
-      expect(response.body.retorno[0].anexo[0]).toHaveProperty('idtipoanexo');
-      expect(response.body.retorno[0].anexo[0]).toHaveProperty('idpessoaanexo');
-      expect(response.body.retorno[0].anexo[0]).toHaveProperty('descricao');
-      expect(response.body.retorno[0].anexo[0]).toHaveProperty('arquivo');
-      expect(response.body.retorno[0].anexo[0]).toHaveProperty('datamovimento');
-
-    })
-  })
-})
+    }).then((response) => {
+      expect(response.status).to.equal(200);
+      expect(response.body.retorno[0]).to.have.property('idcnpj_cpf');
+      const anexo = response.body.retorno[0].anexo[0];
+      expect(anexo).to.have.property('idtipoanexo');
+      expect(anexo).to.have.property('idpessoaanexo');
+      expect(anexo).to.have.property('descricao');
+      expect(anexo).to.have.property('arquivo');
+      expect(anexo).to.have.property('datamovimento');
+    });
+  });
+});

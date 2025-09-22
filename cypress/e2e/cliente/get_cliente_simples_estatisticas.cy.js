@@ -1,64 +1,62 @@
 // /v3/cliente_simples_estatisticas/{idpessoa} - Dados do cliente
 // Estatísticas do cliente simplificado
-//204 - Sem dados de retorno
-//200 - OK
-//401 - Sem permissão para acessar este recurso
-//412 - Falha - Não atende aos pré-requisitos
+// 204 - Sem dados de retorno
+// 200 - OK
+// 401 - Sem permissão para acessar este recurso
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
-const idpessoa = ""; //string - OBRIGATÓRIO 
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
+const idpessoa = ""; // string - OBRIGATÓRIO
 
 describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', { env: { hideCredendials: true } }, () => {
-  
-    it('Resposta 200', () => {
+  it('Deve retornar 200 e todas as propriedades de estatísticas do cliente simplificado', () => {
+    cy.api({
+      method: 'GET',
+      url: `${API_URL}/Cliente/v2_cliente_simples_estatisticas/${idpessoa}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
 
-      cy.api({
-        method: 'GET', 
-        url: `${API_URL}/Cliente/v2_cliente_simples_estatisticas/${idpessoa}`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); 
-          expect(resposta.body.retorno[0]).toHaveProperty('cnpj_cpf');
-          expect(resposta.body.retorno[0]).toHaveProperty('nome');
-          expect(resposta.body.retorno[0]).toHaveProperty('data_ultima_compra');
-          expect(resposta.body.retorno[0]).toHaveProperty('ticket_medio');
-          expect(resposta.body.retorno[0]).toHaveProperty('media_atraso');
-          expect(resposta.body.retorno[0]).toHaveProperty('total_em_aberto');
-          expect(resposta.body.retorno[0]).toHaveProperty('numero_vezes');
-          expect(resposta.body.retorno[0]).toHaveProperty('formas_pagamento_mais_usadas');
-          expect(resposta.body.retorno[0].formas_pagamento_mais_usadas[0]).toHaveProperty('idtipocarteiratitulo');
-          expect(resposta.body.retorno[0].formas_pagamento_mais_usadas[0]).toHaveProperty('descricao');
-          expect(resposta.body.retorno[0].formas_pagamento_mais_usadas[0]).toHaveProperty('percentual');
-          expect(resposta.body.retorno[0]).toHaveProperty('ultimas_compras');
-          expect(resposta.body.retorno[0].ultimas_compras[0]).toHaveProperty('data_compra');
-          expect(resposta.body.retorno[0].ultimas_compras[0]).toHaveProperty('codigo_produto');
-          expect(resposta.body.retorno[0].ultimas_compras[0]).toHaveProperty('descricao_produto');
-          expect(resposta.body.retorno[0].ultimas_compras[0]).toHaveProperty('quantidade');
-          expect(resposta.body.retorno[0]).toHaveProperty('cartao_fidelidade');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('idtipocartaofidelidade');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('descricao');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('numerocartao');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('diapagamento');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('diascarencia');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('emitecartao');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('dataemissao');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('dataentrega');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('datavalidade');
-          expect(resposta.body.retorno[0].cartao_fidelidade[0]).toHaveProperty('datacontato');
-          expect(resposta.body.retorno[0]).toHaveProperty('titulo_renegociado');
-          expect(resposta.body.retorno[0]).toHaveProperty('limite_credito');
-          expect(resposta.body.retorno[0]).toHaveProperty('disponivel');
-          expect(resposta.body.retorno[0]).toHaveProperty('receber_em_aberto');
-          expect(resposta.body.retorno[0]).toHaveProperty('titulo_em_atraso');
-          expect(resposta.body.retorno[0]).toHaveProperty('pedidos_nao_faturados');
-          expect(resposta.body.retorno[0]).toHaveProperty('titulos_transf_pendente');
-          expect(resposta.body.retorno[0]).toHaveProperty('titulos_pre_pago');
-          expect(resposta.body.retorno[0]).toHaveProperty('titulos_abertos');
-        });
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('cnpj_cpf');
+      expect(ret).to.have.property('nome');
+      expect(ret).to.have.property('data_ultima_compra');
+      expect(ret).to.have.property('ticket_medio');
+      expect(ret).to.have.property('media_atraso');
+      expect(ret).to.have.property('total_em_aberto');
+      expect(ret).to.have.property('numero_vezes');
+      expect(ret).to.have.property('formas_pagamento_mais_usadas');
+      expect(ret.formas_pagamento_mais_usadas[0]).to.have.property('idtipocarteiratitulo');
+      expect(ret.formas_pagamento_mais_usadas[0]).to.have.property('descricao');
+      expect(ret.formas_pagamento_mais_usadas[0]).to.have.property('percentual');
+      expect(ret).to.have.property('ultimas_compras');
+      expect(ret.ultimas_compras[0]).to.have.property('data_compra');
+      expect(ret.ultimas_compras[0]).to.have.property('codigo_produto');
+      expect(ret.ultimas_compras[0]).to.have.property('descricao_produto');
+      expect(ret.ultimas_compras[0]).to.have.property('quantidade');
+      expect(ret).to.have.property('cartao_fidelidade');
+      expect(ret.cartao_fidelidade[0]).to.have.property('idtipocartaofidelidade');
+      expect(ret.cartao_fidelidade[0]).to.have.property('descricao');
+      expect(ret.cartao_fidelidade[0]).to.have.property('numerocartao');
+      expect(ret.cartao_fidelidade[0]).to.have.property('diapagamento');
+      expect(ret.cartao_fidelidade[0]).to.have.property('diascarencia');
+      expect(ret.cartao_fidelidade[0]).to.have.property('emitecartao');
+      expect(ret.cartao_fidelidade[0]).to.have.property('dataemissao');
+      expect(ret.cartao_fidelidade[0]).to.have.property('dataentrega');
+      expect(ret.cartao_fidelidade[0]).to.have.property('datavalidade');
+      expect(ret.cartao_fidelidade[0]).to.have.property('datacontato');
+      expect(ret).to.have.property('titulo_renegociado');
+      expect(ret).to.have.property('limite_credito');
+      expect(ret).to.have.property('disponivel');
+      expect(ret).to.have.property('receber_em_aberto');
+      expect(ret).to.have.property('titulo_em_atraso');
+      expect(ret).to.have.property('pedidos_nao_faturados');
+      expect(ret).to.have.property('titulos_transf_pendente');
+      expect(ret).to.have.property('titulos_pre_pago');
+      expect(ret).to.have.property('titulos_abertos');
     });
   });
+});

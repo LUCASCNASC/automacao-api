@@ -1,24 +1,24 @@
 // /api/version - Versão
 // Versão do sistema e banco.
-//200 - OK
+// 200 - OK
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Filial - GET - /api/version', { env: { hideCredendials: true } }, () => {
-
-  it.only('Retorno 200', () => {
+  it('Deve retornar 200 e as propriedades de versão', () => {
     cy.api({
       method: 'GET',
       url: `${API_URL}/api/version`,
       headers: { Authorization },
       failOnStatusCode: false
-    }).should(({ status, body }) => {
-      const { data } = body
-      expect(resposta.status).toBe(200);
-      expect(response.duration).to.be.below(2000);
-      expect(resposta.body.retorno[0]).toHaveProperty('versaoREST');
-      expect(resposta.body.retorno[0]).toHaveProperty('versaoBanco');
-    })
-  })
-})
+    }).should((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      expect(response.body.retorno).to.be.an('array').and.not.be.empty;
+      const versao = response.body.retorno[0];
+      expect(versao).to.have.property('versaoREST');
+      expect(versao).to.have.property('versaoBanco');
+    });
+  });
+});

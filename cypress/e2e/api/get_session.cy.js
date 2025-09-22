@@ -1,25 +1,25 @@
 // /api/session - Sessões
 // Sessões ativas.
-//200 - OK
+// 200 - OK
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Filial - GET - /api/session', { env: { hideCredendials: true } }, () => {
-
-  it.only('Retorno 200', () => {
+  it('Deve retornar 200 e as propriedades esperadas', () => {
     cy.api({
       method: 'GET',
       url: `${API_URL}/API/api_session`,
       headers: { Authorization },
       failOnStatusCode: false
-    }).should(({ status, body }) => {
-      const { data } = body
-      expect(resposta.status).toBe(200);
-      expect(response.duration).to.be.below(2000);
-      expect(resposta.body.retorno[0]).toHaveProperty('sessao');
-      expect(resposta.body.retorno[0]).toHaveProperty('tempo');
-      expect(resposta.body.retorno[0]).toHaveProperty('expiraEm');
-    })
-  })
-})
+    }).should((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      expect(response.body.retorno).to.be.an('array').and.not.be.empty;
+      const sessao = response.body.retorno[0];
+      expect(sessao).to.have.property('sessao');
+      expect(sessao).to.have.property('tempo');
+      expect(sessao).to.have.property('expiraEm');
+    });
+  });
+});
