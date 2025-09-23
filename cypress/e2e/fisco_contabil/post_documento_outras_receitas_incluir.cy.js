@@ -1,32 +1,31 @@
 // /v3/documento_outras_receitas_incluir - Inclusão de documento (outras receitas)
 // Incluir documento de outras receitas
-//200 - OK
+// 200 - OK
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Fisco/Contábil - POST - /v3/documento_outras_receitas_incluir', { env: { hideCredendials: true } }
-  , () => {
-  
-    it('Resposta 200', () => {
-
-      cy.api({
-        method: 'POST', 
-        url: `${API_URL}/Fisco/Contabil/v3_post_documento_outras_receitas_incluir`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); 
-          expect(response.body.retorno[0]).toHaveProperty('Status_Retorno');
-          expect(response.body.retorno[0]).toHaveProperty('CNPJ_Filial');
-          expect(response.body.retorno[0]).toHaveProperty('Numero_Documento_Diverso');
-          expect(response.body.retorno[0]).toHaveProperty('Numero_Registro_Nota');
-          expect(response.body.retorno[0]).toHaveProperty('Numero_Titulo');
-          expect(response.body.retorno[0]).toHaveProperty('Numero_Lancamento_Conta_Corrrente');
-          expect(response.body.retorno[0]).toHaveProperty('Erros');
-        });
+describe('Fisco/Contábil - POST - /v3/documento_outras_receitas_incluir', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200 e as propriedades do documento de outras receitas incluído', () => {
+    cy.api({
+      method: 'POST',
+      url: `${API_URL}/Fisco/Contabil/v3_post_documento_outras_receitas_incluir`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Adicione payload conforme necessário para o endpoint
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('Status_Retorno');
+      expect(ret).to.have.property('CNPJ_Filial');
+      expect(ret).to.have.property('Numero_Documento_Diverso');
+      expect(ret).to.have.property('Numero_Registro_Nota');
+      expect(ret).to.have.property('Numero_Titulo');
+      expect(ret).to.have.property('Numero_Lancamento_Conta_Corrrente');
+      expect(ret).to.have.property('Erros');
     });
   });
+});

@@ -1,37 +1,36 @@
 // /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo} - Lista de Filial
 // Retorna uma lista das filiais de acordo com os parâmetros informados
-//204 - Sem dados de retorno
-//200 - OK
-//412 - Falha - Não atende aos pré-requisitos
+// 204 - Sem dados de retorno
+// 200 - OK
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
-const uf = 'PR'; //string
-const municipio = 3317; //number
-const tipo = 1; //number
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
+const uf = 'PR'; // string
+const municipio = 3317; // number
+const tipo = 1; // number
 
 describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', { env: { hideCredendials: true } }, () => {
-
-  it.only('Retorno 200', () => {
+  it('Deve retornar 200 e as propriedades da lista de filial por tipo', () => {
     cy.api({
       method: 'GET',
       url: `${API_URL}/Filial/v3_get_filial_por_tipo/${uf}/${municipio}/${tipo}`,
       headers: { Authorization }
-    }).should(({ status, body }) => {
-      const { data } = body
-      expect(resposta.status).toBe(200);
-      expect(resposta.body.retorno[0]).toHaveProperty('idtipofilial');
-      expect(resposta.body.retorno[0]).toHaveProperty('descricao_tipofilial');
-      expect(resposta.body.retorno[0]).toHaveProperty('nome_filial');
-      expect(resposta.body.retorno[0]).toHaveProperty('logradouro');
-      expect(resposta.body.retorno[0]).toHaveProperty('numero');
-      expect(resposta.body.retorno[0]).toHaveProperty('complemento');
-      expect(resposta.body.retorno[0]).toHaveProperty('bairro');
-      expect(resposta.body.retorno[0]).toHaveProperty('idcidade');
-      expect(resposta.body.retorno[0]).toHaveProperty('cidade');
-      expect(resposta.body.retorno[0]).toHaveProperty('telefone');
-      expect(resposta.body.retorno[0]).toHaveProperty('cep');
-      expect(resposta.body.retorno[0]).toHaveProperty('uf');
-    })
-  })
-})
+    }).then((response) => {
+      expect(response.status).to.equal(200);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('idtipofilial');
+      expect(ret).to.have.property('descricao_tipofilial');
+      expect(ret).to.have.property('nome_filial');
+      expect(ret).to.have.property('logradouro');
+      expect(ret).to.have.property('numero');
+      expect(ret).to.have.property('complemento');
+      expect(ret).to.have.property('bairro');
+      expect(ret).to.have.property('idcidade');
+      expect(ret).to.have.property('cidade');
+      expect(ret).to.have.property('telefone');
+      expect(ret).to.have.property('cep');
+      expect(ret).to.have.property('uf');
+    });
+  });
+});

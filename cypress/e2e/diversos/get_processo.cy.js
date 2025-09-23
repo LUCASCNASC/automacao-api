@@ -1,62 +1,58 @@
 // /v3/processo - Processos Mobile
 // Carregar dados dos processos configurados para o Mobile
-//204 - Sem dados de retorno
-//200 - OK
-//412 - Falha - Não atende aos pré-requisitos
+// 204 - Sem dados de retorno
+// 200 - OK
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Diversos - GET - /v3/processo', { env: { hideCredendials: true } }
-  , () => {
-  
-    it('Resposta 200', () => {
-
-      cy.api({
-        method: 'GET', 
-        url: `${API_URL}/Diversos/v2_diversos_processo/`,
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000);
-          expect(resposta.body.retorno[0]).toHaveProperty('codigo');
-          expect(resposta.body.retorno[0]).toHaveProperty('descricao');
-          expect(resposta.body.retorno[0]).toHaveProperty('diasamaismontagem');
-          expect(resposta.body.retorno[0]).toHaveProperty('rotaobrigatoria');
-          expect(resposta.body.retorno[0]).toHaveProperty('aceitavendasemsaldo_local');
-          expect(resposta.body.retorno[0]).toHaveProperty('aceitavendasemsaldo_remota');
-          expect(resposta.body.retorno[0]).toHaveProperty('tipoupdatesaldoprodutolocal');
-          expect(resposta.body.retorno[0]).toHaveProperty('tipoupdatesaldoprodutoremoto');
-          expect(resposta.body.retorno[0]).toHaveProperty('alteranomepessoavenda');
-          expect(resposta.body.retorno[0]).toHaveProperty('solicitafiador');
-          expect(resposta.body.retorno[0]).toHaveProperty('solicitartransportadora');
-          expect(resposta.body.retorno[0]).toHaveProperty('imprimiraoconfirmar');
-          expect(resposta.body.retorno[0]).toHaveProperty('avisaestoquenegativo');
-          expect(resposta.body.retorno[0]).toHaveProperty('permitirdescontopromocao');
-          expect(resposta.body.retorno[0]).toHaveProperty('somenteservico');
-          expect(resposta.body.retorno[0]).toHaveProperty('visualizarrentabilidadeemarkup');
-          expect(resposta.body.retorno[0]).toHaveProperty('visualizarcomissao');
-          expect(resposta.body.retorno[0]).toHaveProperty('trialvendasemsaldo');
-          expect(resposta.body.retorno[0]).toHaveProperty('locaisdesaldo');
-          expect(resposta.body.retorno[0].formaspagamentoavista[0]).toHaveProperty('codigo');
-          expect(resposta.body.retorno[0].formaspagamentoavista[0]).toHaveProperty('descricao');
-          expect(resposta.body.retorno[0].formaspagamentoavista[0]).toHaveProperty('vencimentoem');
-          expect(resposta.body.retorno[0].servicosautomaticos[0]).toHaveProperty('codigo');
-          expect(resposta.body.retorno[0].servicosautomaticos[0]).toHaveProperty('nome');
-          expect(resposta.body.retorno[0].servicosautomaticos[0]).toHaveProperty('valor');
-          expect(resposta.body.retorno[0].servicosautomaticos[0].processoisentojuros[0]).toHaveProperty('idprocesso');
-          expect(resposta.body.retorno[0].servicosautomaticos[0].processoisentojuros[0]).toHaveProperty('descricaoprocesso');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('codigo');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('descricao');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('valor_fixo');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('valor_minimo');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('valor_maximo');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('percentual_fixo');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('obrigatorio_cobrar');
-          expect(resposta.body.retorno[0].servicofrete[0]).toHaveProperty('permite_alterar');
-        });
+describe('Diversos - GET - /v3/processo', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200 e as propriedades dos processos', () => {
+    cy.api({
+      method: 'GET',
+      url: `${API_URL}/Diversos/v2_diversos_processo/`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('codigo');
+      expect(ret).to.have.property('descricao');
+      expect(ret).to.have.property('diasamaismontagem');
+      expect(ret).to.have.property('rotaobrigatoria');
+      expect(ret).to.have.property('aceitavendasemsaldo_local');
+      expect(ret).to.have.property('aceitavendasemsaldo_remota');
+      expect(ret).to.have.property('tipoupdatesaldoprodutolocal');
+      expect(ret).to.have.property('tipoupdatesaldoprodutoremoto');
+      expect(ret).to.have.property('alteranomepessoavenda');
+      expect(ret).to.have.property('solicitafiador');
+      expect(ret).to.have.property('solicitartransportadora');
+      expect(ret).to.have.property('imprimiraoconfirmar');
+      expect(ret).to.have.property('avisaestoquenegativo');
+      expect(ret).to.have.property('permitirdescontopromocao');
+      expect(ret).to.have.property('somenteservico');
+      expect(ret).to.have.property('visualizarrentabilidadeemarkup');
+      expect(ret).to.have.property('visualizarcomissao');
+      expect(ret).to.have.property('trialvendasemsaldo');
+      expect(ret).to.have.property('locaisdesaldo');
+      expect(ret.formaspagamentoavista[0]).to.have.property('codigo');
+      expect(ret.formaspagamentoavista[0]).to.have.property('descricao');
+      expect(ret.formaspagamentoavista[0]).to.have.property('vencimentoem');
+      expect(ret.servicosautomaticos[0]).to.have.property('codigo');
+      expect(ret.servicosautomaticos[0]).to.have.property('nome');
+      expect(ret.servicosautomaticos[0]).to.have.property('valor');
+      expect(ret.servicosautomaticos[0].processoisentojuros[0]).to.have.property('idprocesso');
+      expect(ret.servicosautomaticos[0].processoisentojuros[0]).to.have.property('descricaoprocesso');
+      expect(ret.servicofrete[0]).to.have.property('codigo');
+      expect(ret.servicofrete[0]).to.have.property('descricao');
+      expect(ret.servicofrete[0]).to.have.property('valor_fixo');
+      expect(ret.servicofrete[0]).to.have.property('valor_minimo');
+      expect(ret.servicofrete[0]).to.have.property('valor_maximo');
+      expect(ret.servicofrete[0]).to.have.property('percentual_fixo');
+      expect(ret.servicofrete[0]).to.have.property('obrigatorio_cobrar');
+      expect(ret.servicofrete[0]).to.have.property('permite_alterar');
     });
   });
+});

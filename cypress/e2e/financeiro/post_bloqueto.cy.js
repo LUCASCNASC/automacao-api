@@ -1,31 +1,33 @@
 // /v3/bloqueto - Inclusão de meio de cobrança
 // Incluir meio de cobrança
-//200 - OK
-//412 - Falha - Não atende aos pré-requisitos
+// 200 - OK
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } }, () => {
-  
-    it('Resposta 200', () => {
-
-      cy.api({
-        method: 'POST', 
-        url: `${API_URL}/Financeiro/v3_financeiro_bloqueto`, 
-        headers: { Authorization },
-        body: reqBody_post_bloqueto,
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000);
-          expect(response.body.retorno[0]).toHaveProperty('gerado');
-          expect(response.body.retorno[0]).toHaveProperty('jaIncluso');
-          expect(response.body.retorno[0]).toHaveProperty('quitado');
-          expect(response.body.retorno[0]).toHaveProperty('processoNaoGera');
-          expect(response.body.retorno[0]).toHaveProperty('clienteNaoGera');
-        });
+  it('Deve retornar 200 ao incluir meio de cobrança', () => {
+    cy.api({
+      method: 'POST',
+      url: `${API_URL}/Financeiro/v3_financeiro_bloqueto`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Exemplo de payload, ajuste conforme necessário:
+        // cliente: "12345678901",
+        // valor: 150.00,
+        // vencimento: "2025-09-22"
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('gerado');
+      expect(ret).to.have.property('jaIncluso');
+      expect(ret).to.have.property('quitado');
+      expect(ret).to.have.property('processoNaoGera');
+      expect(ret).to.have.property('clienteNaoGera');
     });
   });
+});

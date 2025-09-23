@@ -1,29 +1,31 @@
 // /v3/gerar_relatorio - Relatório
 // Gerar relatório em base64
-//200 - OK
-//412 - Falha - Não atende aos pré-requisitos
+// 200 - OK
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Diversos - POST - /v3/gerar_relatorio', { env: { hideCredendials: true } }, () => {
-  
-    it('Resposta 200', () => {
-
-      cy.api({
-        method: 'POST', 
-        url: `${API_URL}/Diversos/v2_diversos_gerar_relatorio`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000); 
-          expect(response.body.retorno[0]).toHaveProperty('idContexto');
-          expect(response.body.retorno[0]).toHaveProperty('idmodelorelatorio');
-          expect(response.body.retorno[0].filtros[0]).toHaveProperty('nome');
-          expect(response.body.retorno[0].filtros[0]).toHaveProperty('valor');
-        });
+  it('Deve retornar 200 e as propriedades do relatório gerado', () => {
+    cy.api({
+      method: 'POST',
+      url: `${API_URL}/Diversos/v2_diversos_gerar_relatorio`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Exemplo de payload, ajuste conforme necessário para a API.
+        idmodelorelatorio: 1,
+        filtros: [{ nome: "dataIni", valor: "2025-01-01" }]
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('idContexto');
+      expect(ret).to.have.property('idmodelorelatorio');
+      expect(ret.filtros[0]).to.have.property('nome');
+      expect(ret.filtros[0]).to.have.property('valor');
     });
   });
+});

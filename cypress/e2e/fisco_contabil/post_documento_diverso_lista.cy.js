@@ -1,69 +1,68 @@
 // /v3/documento_diverso_lista/ - Lista de documentos diversos
 // Retorna uma lista de documentos diversos
-//200 - OK
-//204 - Sem dados de retorno
-//412 - Falha - Não atende aos pré-requisitos
+// 200 - OK
+// 204 - Sem dados de retorno
+// 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', { env: { hideCredendials: true } }
-  , () => {
-  
-    it('Resposta 200', () => {
-
-      cy.api({
-        method: 'POST', 
-        url: `${API_URL}/Fisco/Contabil/v3_post_documento_diverso_lista`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000);
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('idempresa');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('idfilial');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('iddocumentodiverso');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('idprocesso');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('descricao');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('datamovimento');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('documento');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('cnpj_cpf');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('nome');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('documentoreferenciado');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('valor');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('idusuario');
-          expect(response.body.retorno[0].documentos[0]).toHaveProperty('observacao');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('idregistronota');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('numeronota');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('serie');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('totaldespesas');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('totaloutras');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('totalnota');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('CadastroNacionalObras');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('IdIndicativoPrestacaoServicoReinf');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('IdTipoRepasseReinf');
-          expect(response.body.retorno[0].documentos[0].notas[0]).toHaveProperty('IdClassificacaoServicoPrestadoRein');
-          expect(response.body.retorno[0].documentos[0].impostos[0]).toHaveProperty('idregistronota');
-          expect(response.body.retorno[0].documentos[0].impostos[0]).toHaveProperty('tipoimposto');
-          expect(response.body.retorno[0].documentos[0].impostos[0]).toHaveProperty('valorbasecalculo');
-          expect(response.body.retorno[0].documentos[0].impostos[0]).toHaveProperty('aliquota');
-          expect(response.body.retorno[0].documentos[0].impostos[0]).toHaveProperty('valorimposto');
-          expect(response.body.retorno[0].documentos[0].titulos[0]).toHaveProperty('idtitulo');
-          expect(response.body.retorno[0].documentos[0].titulos[0]).toHaveProperty('idparcelatitulo');
-          expect(response.body.retorno[0].documentos[0].titulos[0]).toHaveProperty('datavencimento');
-          expect(response.body.retorno[0].documentos[0].titulos[0]).toHaveProperty('valorcontabil');
-          expect(response.body.retorno[0].documentos[0].titulos[0]).toHaveProperty('formapagamento');
-          expect(response.body.retorno[0].documentos[0].centrocusto[0]).toHaveProperty('classificacao');
-          expect(response.body.retorno[0].documentos[0].centrocusto[0]).toHaveProperty('descricao');
-          expect(response.body.retorno[0].documentos[0].centrocusto[0]).toHaveProperty('tipoimposto');
-          expect(response.body.retorno[0].documentos[0].centrocusto[0]).toHaveProperty('tipo');
-          expect(response.body.retorno[0].documentos[0].centrocusto[0]).toHaveProperty('valor');
-          expect(response.body.retorno[0].documentos[0].contacorrente[0]).toHaveProperty('idlancamento');
-          expect(response.body.retorno[0].documentos[0].contacorrente[0]).toHaveProperty('idhistoricocontacorrente');
-          expect(response.body.retorno[0].documentos[0].contacorrente[0]).toHaveProperty('descricao');
-          expect(response.body.retorno[0].documentos[0].contacorrente[0]).toHaveProperty('valor');
-        });
+describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200 e as propriedades dos documentos diversos', () => {
+    cy.api({
+      method: 'POST',
+      url: `${API_URL}/Fisco/Contabil/v3_post_documento_diverso_lista`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Adicione payload conforme necessário para o endpoint
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      const doc = response.body.retorno[0].documentos[0];
+      expect(doc).to.have.property('idempresa');
+      expect(doc).to.have.property('idfilial');
+      expect(doc).to.have.property('iddocumentodiverso');
+      expect(doc).to.have.property('idprocesso');
+      expect(doc).to.have.property('descricao');
+      expect(doc).to.have.property('datamovimento');
+      expect(doc).to.have.property('documento');
+      expect(doc).to.have.property('cnpj_cpf');
+      expect(doc).to.have.property('nome');
+      expect(doc).to.have.property('documentoreferenciado');
+      expect(doc).to.have.property('valor');
+      expect(doc).to.have.property('idusuario');
+      expect(doc).to.have.property('observacao');
+      expect(doc.notas[0]).to.have.property('idregistronota');
+      expect(doc.notas[0]).to.have.property('numeronota');
+      expect(doc.notas[0]).to.have.property('serie');
+      expect(doc.notas[0]).to.have.property('totaldespesas');
+      expect(doc.notas[0]).to.have.property('totaloutras');
+      expect(doc.notas[0]).to.have.property('totalnota');
+      expect(doc.notas[0]).to.have.property('CadastroNacionalObras');
+      expect(doc.notas[0]).to.have.property('IdIndicativoPrestacaoServicoReinf');
+      expect(doc.notas[0]).to.have.property('IdTipoRepasseReinf');
+      expect(doc.notas[0]).to.have.property('IdClassificacaoServicoPrestadoRein');
+      expect(doc.impostos[0]).to.have.property('idregistronota');
+      expect(doc.impostos[0]).to.have.property('tipoimposto');
+      expect(doc.impostos[0]).to.have.property('valorbasecalculo');
+      expect(doc.impostos[0]).to.have.property('aliquota');
+      expect(doc.impostos[0]).to.have.property('valorimposto');
+      expect(doc.titulos[0]).to.have.property('idtitulo');
+      expect(doc.titulos[0]).to.have.property('idparcelatitulo');
+      expect(doc.titulos[0]).to.have.property('datavencimento');
+      expect(doc.titulos[0]).to.have.property('valorcontabil');
+      expect(doc.titulos[0]).to.have.property('formapagamento');
+      expect(doc.centrocusto[0]).to.have.property('classificacao');
+      expect(doc.centrocusto[0]).to.have.property('descricao');
+      expect(doc.centrocusto[0]).to.have.property('tipoimposto');
+      expect(doc.centrocusto[0]).to.have.property('tipo');
+      expect(doc.centrocusto[0]).to.have.property('valor');
+      expect(doc.contacorrente[0]).to.have.property('idlancamento');
+      expect(doc.contacorrente[0]).to.have.property('idhistoricocontacorrente');
+      expect(doc.contacorrente[0]).to.have.property('descricao');
+      expect(doc.contacorrente[0]).to.have.property('valor');
     });
   });
+});

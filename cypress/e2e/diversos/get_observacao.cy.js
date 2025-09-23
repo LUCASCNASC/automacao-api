@@ -1,26 +1,23 @@
 // /v3/observacao - Observação
 // Lista de observação
-//204 - Sem dados de retorno
-//200 - OK
+// 204 - Sem dados de retorno
+// 200 - OK
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Diversos - GET - /v3/observacao', { env: { hideCredendials: true } }, () => {
-  
-  it('Resposta 200', () => {
-
+  it('Deve retornar 200 e as propriedades de observação', () => {
     cy.api({
-      method: 'POST', 
+      method: 'GET', 
       url: `${API_URL}/Diversos/v3_diversos_observacao`, 
       headers: { Authorization },
       failOnStatusCode: false
-    })
-      .then((response) => {
-        const { data } = body;
-        expect(response.status).to.eq(200);
-        expect(resposta.body.retorno[0]).toHaveProperty('idobservacao');
-        expect(resposta.body.retorno[0]).toHaveProperty('descricao');
-      });
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('idobservacao');
+      expect(ret).to.have.property('descricao');
+    });
   });
 });

@@ -1,169 +1,165 @@
 // /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF} - Lista de notas fiscais
 // Retornar lista das notas fiscais consultadas
-//204 - Sem dados de retorno
-//200 - OK
+// 204 - Sem dados de retorno
+// 200 - OK
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
-const Filial = ""; //integer - OBRIGATÓRIO
-const Registro_Nota = ""; //integer
-const Data_Inicial = ""; //string - OBRIGATÓRIO
-const Data_Final = ""; //string - OBRIGATÓRIO
-const CNPJ_CPF = ""; //string
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
+const Filial = ""; // integer - OBRIGATÓRIO
+const Registro_Nota = ""; // integer
+const Data_Inicial = ""; // string - OBRIGATÓRIO
+const Data_Final = ""; // string - OBRIGATÓRIO
+const CNPJ_CPF = ""; // string
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}/{Data_Inicial}/{Data_Final}/{CNPJ_CPF}', { env: { hideCredendials: true } }, () => {
-  
-    it('Resposta 200', () => {
-
-      cy.api({
-        method: 'GET', 
-        url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_lista/${Filial}/${Registro_Nota}/${Data_Inicial}/${Data_Final}/${CNPJ_CPF}`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(200);
-          expect(response.duration).to.be.below(2000);
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idfilial');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idregistronota');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idtipofrete');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idusuario');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idoperacao');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idprocesso');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idprocessomestre');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idsituacaonota');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idcnpj_cpf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idtipodocumentofiscal');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idtiponumeracao');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('uf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idobservacaofiscal');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idmotorista');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idecf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('iddescarga');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idfilialorigem');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idfilialdestino');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('numeronota');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('serie');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('referentecupom');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('datamovimento');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('dataemissao');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('cce_rg');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totalfrete');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totalseguro');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totalfinanceiro');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totaldesconto');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totalproduto');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totalnota');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totaloutras');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totaldespesas');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totalnotascf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('datasaida');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('nome');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idveiculo');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('volume');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idsituacaoentrega');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idpessoabasefiscal');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('quantidadereimpressao');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idnfesefaz');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('mensagemsefaz');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idsituacaonotasefaz');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idprotocoloautorizacaonfe');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('dataautorizacaosefaz');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idprotocolodpecnfe');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totaldespesasnaotributada');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('chavemd5');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('totaldeducaoiss');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idpessoaremetente');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idregistronotareferenciada');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('placa');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('horaemissao');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idvolumeespecie');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('horasaida');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idtiporateiofrete');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('cfc');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idprotocolomde');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('emailnfe');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('pinemitido');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('consumofinal');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('numeronfsubstituida');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('cadastronacionalobras');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idindicativoprestacaoservicoreinf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idclassificacaoservicoprestadoreinf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idtiporepassereinf');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idtipocontribuinte');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('peso');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('idservicoprestado');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idfilial');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idenderecobase');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idregistronota');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idpedidovenda');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idcidade');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('endereco');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('complemento');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('bairro');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('numero');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('caixapostal');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('cep');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('ddd');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('telefone');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idgruporota');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idrota');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idrotacidade');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('cidade');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('iditemservico');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idfilialafaturar');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idautorizacaodevolucao');
-          expect(resposta.body.retorno[0].notasfiscais[0].endereco[0]).toHaveProperty('idcnpj_cpf');
-          expect(resposta.body.retorno[0].notasfiscais[0].impostos[0]).toHaveProperty('tipoimposto');
-          expect(resposta.body.retorno[0].notasfiscais[0].impostos[0]).toHaveProperty('valorbasecalculo');
-          expect(resposta.body.retorno[0].notasfiscais[0].impostos[0]).toHaveProperty('aliquota');
-          expect(resposta.body.retorno[0].notasfiscais[0].impostos[0]).toHaveProperty('valorimposto');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idproduto');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idgradex');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idgradey');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idbenspatrimonio');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idincorporacao');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('quantidade');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idoperacaoproduto');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idcodigonbm');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('valorunitario');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('totalitem');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('totaldespesasacessorias');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idcodigofiscal');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('totaldescontofiscal');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('totalfreteedespesa');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('gtin');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('valorbasecalculo_icms');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('percentualbasecalculo_icms');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('aliquota_icms');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('idsituacaotributaria');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('aliquota_ipi');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('basecalculo_icmssubstituto');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('valor_icmssubstituto');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('aliquota_icmssubstituto');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('aliquota_pis');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('id_aliquota_cofinsibge');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('aliquotaicmsapropriar');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('baseicmsapropriar');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('valoricmsapropriar');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('aliquotaicmssubsapropriar');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('baseicmssubsapropriar');
-          expect(resposta.body.retorno[0].notasfiscais[0].produtos[0]).toHaveProperty('valoricmssubsapropriar');
-          expect(resposta.body.retorno[0].notasfiscais[0].titulos[0]).toHaveProperty('idtitulo');
-          expect(resposta.body.retorno[0].notasfiscais[0].titulos[0]).toHaveProperty('idparcelatitulo');
-          expect(resposta.body.retorno[0].notasfiscais[0].titulos[0]).toHaveProperty('datavencimento');
-          expect(resposta.body.retorno[0].notasfiscais[0].titulos[0]).toHaveProperty('valorcontabil');
-          expect(resposta.body.retorno[0].notasfiscais[0]).toHaveProperty('observacaonota');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('idguianacionalrecolhimento');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('numerodocumento');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('autenticacaobancaria');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('modelodocumento');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('datavencimento');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('datapagamento');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('idobservacaofiscal');
-          expect(resposta.body.retorno[0].notasfiscais[0].guianacionalrecolhimento[0]).toHaveProperty('valordocumento');
-
-        });
+  it('Deve retornar 200 e as propriedades das notas fiscais', () => {
+    cy.api({
+      method: 'GET',
+      url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_lista/${Filial}/${Registro_Nota}/${Data_Inicial}/${Data_Final}/${CNPJ_CPF}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.duration).to.be.lessThan(2000);
+      const nota = response.body.retorno[0].notasfiscais[0];
+      expect(nota).to.have.property('idfilial');
+      expect(nota).to.have.property('idregistronota');
+      expect(nota).to.have.property('idtipofrete');
+      expect(nota).to.have.property('idusuario');
+      expect(nota).to.have.property('idoperacao');
+      expect(nota).to.have.property('idprocesso');
+      expect(nota).to.have.property('idprocessomestre');
+      expect(nota).to.have.property('idsituacaonota');
+      expect(nota).to.have.property('idcnpj_cpf');
+      expect(nota).to.have.property('idtipodocumentofiscal');
+      expect(nota).to.have.property('idtiponumeracao');
+      expect(nota).to.have.property('uf');
+      expect(nota).to.have.property('idobservacaofiscal');
+      expect(nota).to.have.property('idmotorista');
+      expect(nota).to.have.property('idecf');
+      expect(nota).to.have.property('iddescarga');
+      expect(nota).to.have.property('idfilialorigem');
+      expect(nota).to.have.property('idfilialdestino');
+      expect(nota).to.have.property('numeronota');
+      expect(nota).to.have.property('serie');
+      expect(nota).to.have.property('referentecupom');
+      expect(nota).to.have.property('datamovimento');
+      expect(nota).to.have.property('dataemissao');
+      expect(nota).to.have.property('cce_rg');
+      expect(nota).to.have.property('totalfrete');
+      expect(nota).to.have.property('totalseguro');
+      expect(nota).to.have.property('totalfinanceiro');
+      expect(nota).to.have.property('totaldesconto');
+      expect(nota).to.have.property('totalproduto');
+      expect(nota).to.have.property('totalnota');
+      expect(nota).to.have.property('totaloutras');
+      expect(nota).to.have.property('totaldespesas');
+      expect(nota).to.have.property('totalnotascf');
+      expect(nota).to.have.property('datasaida');
+      expect(nota).to.have.property('nome');
+      expect(nota).to.have.property('idveiculo');
+      expect(nota).to.have.property('volume');
+      expect(nota).to.have.property('idsituacaoentrega');
+      expect(nota).to.have.property('idpessoabasefiscal');
+      expect(nota).to.have.property('quantidadereimpressao');
+      expect(nota).to.have.property('idnfesefaz');
+      expect(nota).to.have.property('mensagemsefaz');
+      expect(nota).to.have.property('idsituacaonotasefaz');
+      expect(nota).to.have.property('idprotocoloautorizacaonfe');
+      expect(nota).to.have.property('dataautorizacaosefaz');
+      expect(nota).to.have.property('idprotocolodpecnfe');
+      expect(nota).to.have.property('totaldespesasnaotributada');
+      expect(nota).to.have.property('chavemd5');
+      expect(nota).to.have.property('totaldeducaoiss');
+      expect(nota).to.have.property('idpessoaremetente');
+      expect(nota).to.have.property('idregistronotareferenciada');
+      expect(nota).to.have.property('placa');
+      expect(nota).to.have.property('horaemissao');
+      expect(nota).to.have.property('idvolumeespecie');
+      expect(nota).to.have.property('horasaida');
+      expect(nota).to.have.property('idtiporateiofrete');
+      expect(nota).to.have.property('cfc');
+      expect(nota).to.have.property('idprotocolomde');
+      expect(nota).to.have.property('emailnfe');
+      expect(nota).to.have.property('pinemitido');
+      expect(nota).to.have.property('consumofinal');
+      expect(nota).to.have.property('numeronfsubstituida');
+      expect(nota).to.have.property('cadastronacionalobras');
+      expect(nota).to.have.property('idindicativoprestacaoservicoreinf');
+      expect(nota).to.have.property('idclassificacaoservicoprestadoreinf');
+      expect(nota).to.have.property('idtiporepassereinf');
+      expect(nota).to.have.property('idtipocontribuinte');
+      expect(nota).to.have.property('peso');
+      expect(nota).to.have.property('idservicoprestado');
+      expect(nota.endereco[0]).to.have.property('idfilial');
+      expect(nota.endereco[0]).to.have.property('idenderecobase');
+      expect(nota.endereco[0]).to.have.property('idregistronota');
+      expect(nota.endereco[0]).to.have.property('idpedidovenda');
+      expect(nota.endereco[0]).to.have.property('idcidade');
+      expect(nota.endereco[0]).to.have.property('endereco');
+      expect(nota.endereco[0]).to.have.property('complemento');
+      expect(nota.endereco[0]).to.have.property('bairro');
+      expect(nota.endereco[0]).to.have.property('numero');
+      expect(nota.endereco[0]).to.have.property('caixapostal');
+      expect(nota.endereco[0]).to.have.property('cep');
+      expect(nota.endereco[0]).to.have.property('ddd');
+      expect(nota.endereco[0]).to.have.property('telefone');
+      expect(nota.endereco[0]).to.have.property('idgruporota');
+      expect(nota.endereco[0]).to.have.property('idrota');
+      expect(nota.endereco[0]).to.have.property('idrotacidade');
+      expect(nota.endereco[0]).to.have.property('cidade');
+      expect(nota.endereco[0]).to.have.property('iditemservico');
+      expect(nota.endereco[0]).to.have.property('idfilialafaturar');
+      expect(nota.endereco[0]).to.have.property('idautorizacaodevolucao');
+      expect(nota.endereco[0]).to.have.property('idcnpj_cpf');
+      expect(nota.impostos[0]).to.have.property('tipoimposto');
+      expect(nota.impostos[0]).to.have.property('valorbasecalculo');
+      expect(nota.impostos[0]).to.have.property('aliquota');
+      expect(nota.impostos[0]).to.have.property('valorimposto');
+      expect(nota.produtos[0]).to.have.property('idproduto');
+      expect(nota.produtos[0]).to.have.property('idgradex');
+      expect(nota.produtos[0]).to.have.property('idgradey');
+      expect(nota.produtos[0]).to.have.property('idbenspatrimonio');
+      expect(nota.produtos[0]).to.have.property('idincorporacao');
+      expect(nota.produtos[0]).to.have.property('quantidade');
+      expect(nota.produtos[0]).to.have.property('idoperacaoproduto');
+      expect(nota.produtos[0]).to.have.property('idcodigonbm');
+      expect(nota.produtos[0]).to.have.property('valorunitario');
+      expect(nota.produtos[0]).to.have.property('totalitem');
+      expect(nota.produtos[0]).to.have.property('totaldespesasacessorias');
+      expect(nota.produtos[0]).to.have.property('idcodigofiscal');
+      expect(nota.produtos[0]).to.have.property('totaldescontofiscal');
+      expect(nota.produtos[0]).to.have.property('totalfreteedespesa');
+      expect(nota.produtos[0]).to.have.property('gtin');
+      expect(nota.produtos[0]).to.have.property('valorbasecalculo_icms');
+      expect(nota.produtos[0]).to.have.property('percentualbasecalculo_icms');
+      expect(nota.produtos[0]).to.have.property('aliquota_icms');
+      expect(nota.produtos[0]).to.have.property('idsituacaotributaria');
+      expect(nota.produtos[0]).to.have.property('aliquota_ipi');
+      expect(nota.produtos[0]).to.have.property('basecalculo_icmssubstituto');
+      expect(nota.produtos[0]).to.have.property('valor_icmssubstituto');
+      expect(nota.produtos[0]).to.have.property('aliquota_icmssubstituto');
+      expect(nota.produtos[0]).to.have.property('aliquota_pis');
+      expect(nota.produtos[0]).to.have.property('id_aliquota_cofinsibge');
+      expect(nota.produtos[0]).to.have.property('aliquotaicmsapropriar');
+      expect(nota.produtos[0]).to.have.property('baseicmsapropriar');
+      expect(nota.produtos[0]).to.have.property('valoricmsapropriar');
+      expect(nota.produtos[0]).to.have.property('aliquotaicmssubsapropriar');
+      expect(nota.produtos[0]).to.have.property('baseicmssubsapropriar');
+      expect(nota.produtos[0]).to.have.property('valoricmssubsapropriar');
+      expect(nota.titulos[0]).to.have.property('idtitulo');
+      expect(nota.titulos[0]).to.have.property('idparcelatitulo');
+      expect(nota.titulos[0]).to.have.property('datavencimento');
+      expect(nota.titulos[0]).to.have.property('valorcontabil');
+      expect(nota).to.have.property('observacaonota');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('idguianacionalrecolhimento');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('numerodocumento');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('autenticacaobancaria');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('modelodocumento');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('datavencimento');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('datapagamento');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('idobservacaofiscal');
+      expect(nota.guianacionalrecolhimento[0]).to.have.property('valordocumento');
     });
   });
+});

@@ -1,38 +1,39 @@
 // /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
 // Retorna as formas de pagamento disponíveis para os títulos informados.
-//412 - Falha - Não atende aos pré-requisitos
-//201 - Criado
+// 412 - Falha - Não atende aos pré-requisitos
+// 201 - Criado
 
-const API_URL = Cypress.env('API_URL')
-const Authorization = Cypress.env('API.PRAGMA')
+const API_URL = Cypress.env('API_URL');
+const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } } , () => {
-  
-    it('Resposta 201', () => {
-
-      cy.api({
-        method: 'POST', 
-        url: `${API_URL}/Financeiro/v3_financeiro_formas_pagamento_titulos`, 
-        headers: { Authorization },
-        failOnStatusCode: false
-      })
-        .then((response) => {
-          const { data } = body;
-          expect(response.status).to.eq(201);
-          expect(response.duration).to.be.below(2000); 
-          expect(response.body.retorno[0]).toHaveProperty('idEmpresa');
-          expect(response.body.retorno[0]).toHaveProperty('idFilial');
-          expect(response.body.retorno[0]).toHaveProperty('idTipoTitulo');
-          expect(response.body.retorno[0]).toHaveProperty('idTitulo');
-          expect(response.body.retorno[0]).toHaveProperty('idParcelaTitulo');
-          expect(response.body.retorno[0]).toHaveProperty('idParcialTitulo');
-          expect(response.body.retorno[0]).toHaveProperty('parcela');
-          expect(response.body.retorno[0].formasPagamento[0]).toHaveProperty('tipo');
-          expect(response.body.retorno[0].formasPagamento[0]).toHaveProperty('permiteParcial');
-          expect(response.body.retorno[0].formasPagamento[0]).toHaveProperty('permiteDesconto');
-          expect(response.body.retorno[0]).toHaveProperty('valorAtual');
-          expect(response.body.retorno[0]).toHaveProperty('valorOriginal');
-          expect(response.body.retorno[0]).toHaveProperty('dataVencimento');
-        });
+describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 201 e as propriedades de formas de pagamento por título', () => {
+    cy.api({
+      method: 'POST',
+      url: `${API_URL}/Financeiro/v3_financeiro_formas_pagamento_titulos`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Exemplo de payload, ajuste conforme necessário:
+        // titulos: [{idTitulo: 1, idFilial: 1}]
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(201);
+      expect(response.duration).to.be.lessThan(2000);
+      const ret = response.body.retorno[0];
+      expect(ret).to.have.property('idEmpresa');
+      expect(ret).to.have.property('idFilial');
+      expect(ret).to.have.property('idTipoTitulo');
+      expect(ret).to.have.property('idTitulo');
+      expect(ret).to.have.property('idParcelaTitulo');
+      expect(ret).to.have.property('idParcialTitulo');
+      expect(ret).to.have.property('parcela');
+      expect(ret.formasPagamento[0]).to.have.property('tipo');
+      expect(ret.formasPagamento[0]).to.have.property('permiteParcial');
+      expect(ret.formasPagamento[0]).to.have.property('permiteDesconto');
+      expect(ret).to.have.property('valorAtual');
+      expect(ret).to.have.property('valorOriginal');
+      expect(ret).to.have.property('dataVencimento');
     });
   });
+});
