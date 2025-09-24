@@ -5,7 +5,7 @@
 // 401 - Sem permissão para acessar este recurso
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idpessoa = ""; // string - OBRIGATÓRIO
 
@@ -13,7 +13,7 @@ describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', { env: {
   it('Deve retornar 200 e todas as propriedades de estatísticas do cliente simplificado', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Cliente/v2_cliente_simples_estatisticas/${idpessoa}`,
+      url: `${BASE_URL}/Cliente/v2_cliente_simples_estatisticas/${idpessoa}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

@@ -3,11 +3,11 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Assistencia - POST - /v3/movimento_assistencia_incluir/', { env: { hideCredendials: true } }, () => {
-  const url = `${API_URL}/Assistencia/v3_post_movimento_assistencia_incluir`;
+  const url = `${BASE_URL}/Assistencia/v3_post_movimento_assistencia_incluir`;
 
   it('Deve retornar 200 e validar as propriedades do retorno', () => {
     cy.api({

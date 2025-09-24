@@ -2,14 +2,14 @@
 // Versão do sistema e banco.
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Filial - GET - /api/version', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de versão', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/api/version`,
+      url: `${BASE_URL}/api/version`,
       headers: { Authorization },
       failOnStatusCode: false
     }).should((response) => {

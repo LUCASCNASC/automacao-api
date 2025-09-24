@@ -3,7 +3,7 @@
 // 204 - Sem dados de retorno
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const cliente = ""; // string - OBRIGATÓRIO
 const processo = ""; // number
@@ -12,7 +12,7 @@ describe('Cliente - GET - /v3/cliente_servico_vinculado/{cliente}', { env: { hid
   it('Deve retornar 200 e as propriedades do serviço vinculado', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Cliente/v3_cliente_servico_vinculado/${cliente}/${processo}`,
+      url: `${BASE_URL}/Cliente/v3_cliente_servico_vinculado/${cliente}/${processo}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

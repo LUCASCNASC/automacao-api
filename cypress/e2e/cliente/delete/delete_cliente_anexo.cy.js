@@ -4,7 +4,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idcnpj_cpf = ""; // string
 const idpessoaanexo = ""; // string
@@ -13,7 +13,7 @@ describe('Cliente - DELETE - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCrede
   it('Deve retornar 200 ao excluir anexo', () => {
     cy.api({
       method: 'DELETE',
-      url: `${API_URL}/Cliente/v3_cliente_anexo_delete/${idcnpj_cpf}/${idpessoaanexo}`,
+      url: `${BASE_URL}/Cliente/v3_cliente_anexo_delete/${idcnpj_cpf}/${idpessoaanexo}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

@@ -4,14 +4,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Cliente - POST - /v3/cliente_anexo', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao incluir anexo', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Cliente/v3_cliente_anexo_post/`,
+      url: `${BASE_URL}/Cliente/v3_cliente_anexo_post/`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

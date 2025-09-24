@@ -2,7 +2,7 @@
 // JSON com informações para criar pagina swagger
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const versao = ""; // integer
 
@@ -10,7 +10,7 @@ describe('Filial - GET - /api/swagger', { env: { hideCredendials: true } }, () =
   it('Deve retornar 200 e responder rapidamente', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/API/api_swagger/${versao}`,
+      url: `${BASE_URL}/API/api_swagger/${versao}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).should((response) => {
