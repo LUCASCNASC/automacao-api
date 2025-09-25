@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Intenção compra - GET - /v3/intencao_compra_motivo', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Intenção compra - GET - /v3/intencao_compra_motivo', { env: { hideCr
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Intenção%20compra/v2_intencao_compra_motivo/`, 
+        url: `${BASE_URL}/Intenção%20compra/v2_intencao_compra_motivo/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

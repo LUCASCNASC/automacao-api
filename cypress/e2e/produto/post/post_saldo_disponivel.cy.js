@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - POST - /v3/saldo_disponivel', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Produtos - POST - /v3/saldo_disponivel', { env: { hideCredendials: tru
 
     cy.api({
       method: 'POST', 
-      url: `${API_URL}/Produto/v3_produto_saldo_disponivel`,
+      url: `${BASE_URL}/Produto/v3_produto_saldo_disponivel`,
       headers: { Authorization },
       failOnStatusCode: false
     })

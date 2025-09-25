@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pedido - POST - /v3/pedido_finalizar', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Pedido - POST - /v3/pedido_finalizar', { env: { hideCredendials: true 
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Pedido/v3_pedido_finalizar`, 
+        url: `${BASE_URL}/Pedido/v3_pedido_finalizar`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

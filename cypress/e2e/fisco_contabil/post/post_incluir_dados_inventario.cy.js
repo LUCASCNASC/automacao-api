@@ -4,14 +4,14 @@
 // 201 - Criado
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/incluir_dados_inventario', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da inclusão de dados de inventário', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_post_inventario_incluir`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_post_inventario_incluir`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

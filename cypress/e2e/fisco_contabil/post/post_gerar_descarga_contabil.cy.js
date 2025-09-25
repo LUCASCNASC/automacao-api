@@ -4,14 +4,14 @@
 // 201 - Criado
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('API_BASE_URLURL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da descarga contábil gerada', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_post_gerar_descarga_contabil`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_post_gerar_descarga_contabil`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

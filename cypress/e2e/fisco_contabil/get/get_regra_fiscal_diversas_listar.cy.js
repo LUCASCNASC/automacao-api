@@ -4,7 +4,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const TipoBase = ""; // string - OBRIGATÓRIO
 const CFOP = ""; // integer - OBRIGATÓRIO
@@ -17,7 +17,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{C
   it('Deve retornar 200 e as propriedades da base fiscal diversas', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_get/${TipoBase}/${CFOP}/${Identificador}/${Pessoa}/${Grupo}/${OrigemProduto}`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_get/${TipoBase}/${CFOP}/${Identificador}/${Pessoa}/${Grupo}/${OrigemProduto}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

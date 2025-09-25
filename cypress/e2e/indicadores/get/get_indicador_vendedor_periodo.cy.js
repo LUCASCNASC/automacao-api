@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const datainicial= ""; //string - OBRIGATÓRIO
 const datafinal= ""; //string - OBRIGATÓRIO
@@ -15,7 +15,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor_periodo/{datainicial}/{data
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Indicadores/v3_indicador_vendedor_periodo/${datainicial}/${datafinal}`, 
+        url: `${BASE_URL}/Indicadores/v3_indicador_vendedor_periodo/${datainicial}/${datafinal}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

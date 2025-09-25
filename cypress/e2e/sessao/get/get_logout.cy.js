@@ -2,7 +2,7 @@
 // Finaliza a conexão estabelecida com o serviço.
 //204 - em dados de retorno
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - GET - /v3/logout', { env: { hideCredendials: true } }, () => {
@@ -11,7 +11,7 @@ describe('Sessão - GET - /v3/logout', { env: { hideCredendials: true } }, () =>
 
       cy.api({
         method: 'GET',
-        url: `${API_URL}/Sessão/v2_sessao_logout`,
+        url: `${BASE_URL}/Sessão/v2_sessao_logout`,
         headers: { Authorization },
         failOnStatusCode: false
       })

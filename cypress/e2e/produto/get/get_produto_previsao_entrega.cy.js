@@ -3,7 +3,7 @@
 //204 - Sem dados de retorno
 //200 - OK
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const processo_venda = ""; //number - OBRIGATÓRIO
 const filial = ""; //number - OBRIGATÓRIO
@@ -19,7 +19,7 @@ describe('Produtos - GET - /v3/produto_previsao_entrega ', { env: { hideCredendi
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Produto/v2_produto_previsao_entrega/${processo_venda}/${filial}/${filial_faturar}/${filial_saldo}/${sku}/${quantidade}/${local_saldo}`, 
+        url: `${BASE_URL}/Produto/v2_produto_previsao_entrega/${processo_venda}/${filial}/${filial_faturar}/${filial_saldo}/${sku}/${quantidade}/${local_saldo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

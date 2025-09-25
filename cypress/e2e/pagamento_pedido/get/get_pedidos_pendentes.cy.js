@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const data = ""; //string 
@@ -19,7 +19,7 @@ describe('Pagamento pedido - GET - /v3/pedidos_pendentes/{filial}', { env: { hid
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Pagamento%20pedido/v3_pag_pedidos_pendentes/${filial}/${data}/${numeroPedido}/${cnpjCpf}/${limit}/${offset}`, 
+        url: `${BASE_URL}/Pagamento%20pedido/v3_pag_pedidos_pendentes/${filial}/${data}/${numeroPedido}/${cnpjCpf}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

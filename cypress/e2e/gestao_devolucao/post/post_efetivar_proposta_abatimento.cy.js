@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Gestão Devolução - POST - /v3/efetivar_proposta_abatimento', { env:
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Gestão%20Devolução/v2_gestao_devolucao_efetivar_proposta_abatimento/`, 
+        url: `${BASE_URL}/Gestão%20Devolução/v2_gestao_devolucao_efetivar_proposta_abatimento/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

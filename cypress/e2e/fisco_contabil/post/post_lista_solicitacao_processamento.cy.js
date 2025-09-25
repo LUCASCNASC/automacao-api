@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/lista_solicitacao_processamento', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da lista de solicitações de processamento', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_lista_solicitacao_processamento`,
+      url: `${API_BASE_URLURL}/Fisco/Contabil/v3_lista_solicitacao_processamento`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

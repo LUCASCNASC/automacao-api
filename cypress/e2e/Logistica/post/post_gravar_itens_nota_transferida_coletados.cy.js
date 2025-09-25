@@ -2,7 +2,7 @@
 // Insere e atualiza a tabela de itembase nota transferida com os dados coledatos
 //200 - OK
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', { env: { hideCredendials: true } }, () => {
@@ -11,7 +11,7 @@ describe('Logística - POST - /v3/gravar_itens_nota_transferida_coletados', { en
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Logística/v3_post_gravar_itens_nota_transferida_coletados`, 
+        url: `${BASE_URL}/Logística/v3_post_gravar_itens_nota_transferida_coletados`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

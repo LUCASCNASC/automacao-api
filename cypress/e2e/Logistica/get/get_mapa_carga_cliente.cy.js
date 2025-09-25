@@ -3,7 +3,7 @@
 //200 - OK
 //204 - Sem dados de retorno
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idSituacaoMapaCarga = ""; //integer - OBRIGATÓRIO
@@ -16,7 +16,7 @@ describe('Logística - GET - /v3/mapa_carga_cliente/{idFilial}/{idSituacaoMapaCa
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Logística/v3_get_logistica_lista_mapa_carga_cliente/${idFilial}/${idSituacaoMapaCarga}/${dataInicial}/${dataFinal}`, 
+        url: `${BASE_URL}/Logística/v3_get_logistica_lista_mapa_carga_cliente/${idFilial}/${idSituacaoMapaCarga}/${dataInicial}/${dataFinal}`, 
         headers: { Authorization },
         
         failOnStatusCode: false

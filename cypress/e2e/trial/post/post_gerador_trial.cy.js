@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const API_BASE_URLURL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Trial - POST - /v3/gerador_trial', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Trial - POST - /v3/gerador_trial', { env: { hideCredendials: true } },
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Trial/v3_post_gerador_trial`, 
+        url: `${BASE_URL}/Trial/v3_post_gerador_trial`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

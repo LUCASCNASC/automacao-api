@@ -2,7 +2,7 @@
 // Carregar itens notas a receber transferidas com as quantidades e produtos a serem coletados
 //200 - OK
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { env: { hideCredendials: true } }, () => {
@@ -11,7 +11,7 @@ describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { en
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Logística/v3_get_carregar_Itens_nota_transferida_coletor`, 
+        url: `${BASE_URL}/Logística/v3_get_carregar_Itens_nota_transferida_coletor`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -3,7 +3,7 @@
 // 204 - Sem dados de retorno
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const Filial = ""; // integer - OBRIGATÓRIO
 const RegistroNota = ""; // integer - OBRIGATÓRIO
@@ -12,7 +12,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_cancelar/{Filial}/{RegistroNot
   it('Deve retornar 200 e as propriedades do cancelamento de nota fiscal', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_cancelar/${Filial}/${RegistroNota}`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_nota_fiscal_cancelar/${Filial}/${RegistroNota}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

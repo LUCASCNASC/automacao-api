@@ -5,7 +5,7 @@
 //401 - Sem permissão para acessar este recurso
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const cpf = ""; //string - OBRIGATÓRIO
 
@@ -16,7 +16,7 @@ describe('Recarga - GET - /v3/dados_titular/{cpf}', { env: { hideCredendials: tr
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/LGPD/v3_get_lgpd_dados_titular/${cpf}`, 
+        url: `${BASE_URL}/LGPD/v3_get_lgpd_dados_titular/${cpf}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/baixa_titulo_encontro_contas', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_encontro_contas', { env: { hideCr
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Pagamento%20divida/v2_divida_baixa_titulo_encontro_contas`, 
+        url: `${BASE_URL}/Pagamento%20divida/v2_divida_baixa_titulo_encontro_contas`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

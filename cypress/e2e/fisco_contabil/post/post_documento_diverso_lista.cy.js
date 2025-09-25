@@ -4,14 +4,14 @@
 // 204 - Sem dados de retorno
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/documento_diverso_lista/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades dos documentos diversos', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_post_documento_diverso_lista`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_post_documento_diverso_lista`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

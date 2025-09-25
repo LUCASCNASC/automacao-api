@@ -4,7 +4,7 @@
 //204 - Sem dados de retorno
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Financeiro - POST - /v3/processar_proxima_baixa_pendente', { env: { hi
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Pagamento%20divida/v2_divida_processar_proxima_baixa_pendente`, 
+        url: `${BASE_URL}/Pagamento%20divida/v2_divida_processar_proxima_baixa_pendente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/validar_documento_diverso_entrada_incluir/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da validação de documento diverso de entrada', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_validar_documento_diverso_entrada_incluir`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_validar_documento_diverso_entrada_incluir`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

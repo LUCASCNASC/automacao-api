@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - PUT - /v3/regra_fiscal_diversas_alterar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da base fiscal diversas alterada', () => {
     cy.api({
       method: 'PUT',
-      url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_put`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_regra_fiscal_diversas_put`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

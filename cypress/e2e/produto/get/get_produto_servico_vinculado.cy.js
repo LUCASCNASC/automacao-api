@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const sku = ""; //string - OBRIGATÓRIO
 const valor = ""; //number - OBRIGATÓRIO
@@ -17,7 +17,7 @@ describe('Produtos - GET - /v3/produto_servico_vinculado ', { env: { hideCredend
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Produto/v2_produto_servico_vinculado/${sku}/${valor}/${tipo_servico}/${processo}`, 
+        url: `${BASE_URL}/Produto/v2_produto_servico_vinculado/${sku}/${valor}/${tipo_servico}/${processo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

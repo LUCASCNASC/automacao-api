@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const codigo = ""; //number - OBRIGATÓRIO
 
@@ -14,7 +14,7 @@ describe('Proposta crédito - GET - /v3/proposta_credito_situacao/{codigo}', { e
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Proposta%20crédito/v2_proposta_credito_situacao/${codigo}`, 
+        url: `${BASE_URL}/Proposta%20crédito/v2_proposta_credito_situacao/${codigo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

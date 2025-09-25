@@ -4,7 +4,7 @@
 //401 - Sem permissão para acessar este recurso
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - POST - /v3/sessao_login_altera_senha', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Sessão - POST - /v3/sessao_login_altera_senha', { env: { hideCredendi
 
       cy.api({
         method: 'GET',
-        url: `${API_URL}/Sessão/v3_post_sessao_login_altera_senha`,
+        url: `${BASE_URL}/Sessão/v3_post_sessao_login_altera_senha`,
         headers: { Authorization },
         failOnStatusCode: false
       })

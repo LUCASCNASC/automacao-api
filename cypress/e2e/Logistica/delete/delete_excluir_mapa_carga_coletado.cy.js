@@ -2,7 +2,7 @@
 // Exclui o mapa que esta em processo de carga e volta o mesmo para situação a carregar.
 //200 - OK
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idMapaCarga = ""; //integer - OBRIGATÓRIO
@@ -15,7 +15,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
 
       cy.api({
         method: 'DELETE', 
-        url: `${API_URL}/Logística/v3_delete_mapa_carga_coletado/${idFilial}/${idMapaCarga}/${TipoMapaCarga}`, 
+        url: `${BASE_URL}/Logística/v3_delete_mapa_carga_coletado/${idFilial}/${idMapaCarga}/${TipoMapaCarga}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

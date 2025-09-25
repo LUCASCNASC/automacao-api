@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pós-venda - GET - /v3/pos_venda_qualificacao', { env: { hideCredendials: true } }, () => {
@@ -12,8 +12,8 @@ describe('Pós-venda - GET - /v3/pos_venda_qualificacao', { env: { hideCredendia
     it('Resposta 200', () => {
 
       cy.api({
-        method: '`${API_URL}/Pedido/v2_pedido_get_delete2/${codigo}/${idfilial}`', 
-        url: `${API_URL}/Pós-venda/v2_pos_venda_qualificacao`, 
+        method: '`${BASE_URL}/Pedido/v2_pedido_get_delete2/${codigo}/${idfilial}`', 
+        url: `${BASE_URL}/Pós-venda/v2_pos_venda_qualificacao`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

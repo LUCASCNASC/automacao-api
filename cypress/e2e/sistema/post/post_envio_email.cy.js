@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - POST - /v3/envio_email', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Sistema - POST - /v3/envio_email', { env: { hideCredendials: true } },
 
       cy.api({
         method: 'POST',
-        url: `${API_URL}/Sistema/v3_sistema_envio_email_post`,
+        url: `${BASE_URL}/Sistema/v3_sistema_envio_email_post`,
         headers: { Authorization },
         failOnStatusCode: false
       })

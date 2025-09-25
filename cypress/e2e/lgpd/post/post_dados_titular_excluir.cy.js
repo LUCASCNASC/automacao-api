@@ -5,7 +5,7 @@
 //412 - Precondition Failed
 //500 - Internal Server Error
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/dados_titular_excluir', { env: { hideCredendials: true } }, () => {
@@ -15,7 +15,7 @@ describe('Titulo - POST - /v3/dados_titular_excluir', { env: { hideCredendials: 
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/LGPD/v3_post_lgpd_dados_titular_excluir`,
+        url: `${BASE_URL}/LGPD/v3_post_lgpd_dados_titular_excluir`,
         headers: { Authorization },
         failOnStatusCode: false
       })

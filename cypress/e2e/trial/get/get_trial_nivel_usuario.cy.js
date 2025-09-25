@@ -3,7 +3,7 @@
 //204 - Sem dados de retorno
 //200 - OK
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idTrial = ""; //integer - OBRIGATÓRIO
 const QuantidadeNivel = ""; //integer - OBRIGATÓRIO
@@ -15,7 +15,7 @@ describe('Trial - GET - /v3/trial_nivel_usuario/{idTrial}/{QuantidadeNivel}', { 
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Trial/v3_get_trial_nivel_usuario/${idTrial}/${QuantidadeNivel}`, 
+        url: `${BASE_URL}/Trial/v3_get_trial_nivel_usuario/${idTrial}/${QuantidadeNivel}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })  

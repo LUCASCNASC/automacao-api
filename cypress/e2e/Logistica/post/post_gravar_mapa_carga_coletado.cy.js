@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/gravar_mapa_carga_coletado', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Logística - POST - /v3/gravar_mapa_carga_coletado', { env: { hideCred
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Logística/v3_post_gravar_mapa_carga_coletado`, 
+        url: `${BASE_URL}/Logística/v3_post_gravar_mapa_carga_coletado`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

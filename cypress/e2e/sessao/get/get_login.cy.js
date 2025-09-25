@@ -4,7 +4,7 @@
 //401 - Sem permissão para acessar este recurso
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const usuario = ""; //string - OBRIGATÓRIO
 const senha = ""; //string - OBRIGATÓRIO
@@ -16,7 +16,7 @@ describe('Sessão - GET - /v3/login/{usuario}/{senha}', { env: { hideCredendials
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Sessão/v2_sessao_login/${usuario}/${senha}/${codigoverificacao}`, 
+        url: `${BASE_URL}/Sessão/v2_sessao_login/${usuario}/${senha}/${codigoverificacao}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

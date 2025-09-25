@@ -3,7 +3,7 @@
 // 204 - Sem dados de retorno
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const Filial = ""; // integer - OBRIGATÓRIO
 const Registro_Nota = ""; // integer
@@ -15,7 +15,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_lista/{Filial}/{Registro_Nota}
   it('Deve retornar 200 e as propriedades das notas fiscais', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_lista/${Filial}/${Registro_Nota}/${Data_Inicial}/${Data_Final}/${CNPJ_CPF}`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_nota_fiscal_lista/${Filial}/${Registro_Nota}/${Data_Inicial}/${Data_Final}/${CNPJ_CPF}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

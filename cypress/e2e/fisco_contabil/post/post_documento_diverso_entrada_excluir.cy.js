@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/documento_diverso_entrada_excluir/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao excluir documento diverso de entrada', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_post_documento_diverso_entrada_excluir`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

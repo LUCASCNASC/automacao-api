@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const codigo = ""; //number - OBRIGATÓRIO
 
@@ -14,7 +14,7 @@ describe('Intenção compra - DELETE - /v3/intencao_compra/{codigo}', { env: { h
 
       cy.api({
         method: 'DELETE', 
-        url: `${API_URL}/Intenção%20compra/v2_intencao_compra_delete/${codigo}`, 
+        url: `${BASE_URL}/Intenção%20compra/v2_intencao_compra_delete/${codigo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - POST - /v3/estoque/', { env: { hideCredendials: true } }
@@ -13,7 +13,7 @@ describe('Projeto Real Time - POST - /v3/estoque/', { env: { hideCredendials: tr
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Projeto%20Real%20Time/v3_post_estoque`, 
+        url: `${BASE_URL}/Projeto%20Real%20Time/v3_post_estoque`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

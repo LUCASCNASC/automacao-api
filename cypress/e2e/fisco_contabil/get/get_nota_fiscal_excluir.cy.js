@@ -3,7 +3,7 @@
 // 204 - Sem dados de retorno
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idFilial = ""; // integer - OBRIGATÓRIO
 const idRegistroNota = ""; // integer - OBRIGATÓRIO
@@ -12,7 +12,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_excluir/{idFilial}/{idRegistro
   it('Deve retornar 200 e as propriedades da exclusão de nota fiscal', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Fisco/Contabil/v3_nota_fiscal_excluir/${idFilial}/${idRegistroNota}`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_nota_fiscal_excluir/${idFilial}/${idRegistroNota}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

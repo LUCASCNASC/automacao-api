@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const filial_saldo = ""; //number - OBRIGATÓRIO
 const sku = ""; //string - OBRIGATÓRIO
@@ -16,7 +16,7 @@ describe('Produtos - GET - /v3/produto_bloqueio', { env: { hideCredendials: true
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Produto/v2_produto_bloqueio/${filial}/${sku}/${id_cnpj_cpf}`, 
+        url: `${BASE_URL}/Produto/v2_produto_bloqueio/${filial}/${sku}/${id_cnpj_cpf}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

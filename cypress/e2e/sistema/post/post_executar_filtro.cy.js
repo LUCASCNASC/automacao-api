@@ -4,7 +4,7 @@
 //401 - Sem permissão para acessar este recurso
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - POST - /v3/executar_filtro', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Sistema - POST - /v3/executar_filtro', { env: { hideCredendials: true 
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Sistema/v2_sistema_executar_filtro`, 
+        url: `${BASE_URL}/Sistema/v2_sistema_executar_filtro`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

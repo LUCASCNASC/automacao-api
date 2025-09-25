@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Projeto Real Time - GET - /v3/filial_lista/', { env: { hideCredendials
       
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Projeto%20Real%20Time/v3_get_filial_lista`, 
+        url: `${BASE_URL}/Projeto%20Real%20Time/v3_get_filial_lista`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

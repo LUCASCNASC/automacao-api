@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/conhecimento_nota_saida_incluir/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do conhecimento de nota de saída', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_post_conhecimento_nota_saida_incluir`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

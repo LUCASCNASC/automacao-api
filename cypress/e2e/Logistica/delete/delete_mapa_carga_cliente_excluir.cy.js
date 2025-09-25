@@ -2,7 +2,7 @@
 // Excluir mapa de carga cliente e/ou retirar pedido do mapa de carga
 //200 - OK
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idMapaCarga = ""; //integer - OBRIGATÓRIO
@@ -15,7 +15,7 @@ describe('Logística - DELETE - /v3/mapa_carga_cliente_excluir/{idFilial}/{idMap
 
       cy.api({
         method: 'DELETE', 
-        url: `${API_URL}/Logística/v3_delete_logistica_mapa_carga_cliente/${idFilial}/${idMapaCarga}/${idFilialPedido}/${idPedidoVenda}`, 
+        url: `${BASE_URL}/Logística/v3_delete_logistica_mapa_carga_cliente/${idFilial}/${idMapaCarga}/${idFilialPedido}/${idPedidoVenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

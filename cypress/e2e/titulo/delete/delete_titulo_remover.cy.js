@@ -3,7 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const numeroEmpresa = ""; //integer - OBRIGATÓRIO
 const numeroFilial = ""; //integer - OBRIGATÓRIO
@@ -16,7 +16,7 @@ describe('Titulo - DELETE - /v3/titulo_remover/{numeroEmpresa}/{numeroFilial}/{t
 
       cy.api({
         method: 'DELETE', 
-        url: `${API_URL}/Titulo/v3_delete_titulo_remover/${numeroEmpresa}/${numeroFilial}/${tipoTitulo}/${numeroTitulo}`, 
+        url: `${BASE_URL}/Titulo/v3_delete_titulo_remover/${numeroEmpresa}/${numeroFilial}/${tipoTitulo}/${numeroTitulo}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

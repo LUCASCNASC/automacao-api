@@ -4,7 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 //401 - Sem permissão para acessar este recurso
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idPedidoVenda = ""; //integer - OBRIGATÓRIO
@@ -15,7 +15,7 @@ describe('Pedido - GET - /v3/pedido_valida_reserva_saldo/{idFilial}/{idPedidoVen
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Pedido/v3_pedido_valida_reserva_saldo/${idFilial}/${idPedidoVenda}`, 
+        url: `${BASE_URL}/Pedido/v3_pedido_valida_reserva_saldo/${idFilial}/${idPedidoVenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

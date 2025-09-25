@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const filial_saldo = ""; //number - OBRIGATÓRIO
 const sku = ""; //string - OBRIGATÓRIO
@@ -17,7 +17,7 @@ describe('Produtos - GET - /v3/produto_composicao_saldo', { env: { hideCredendia
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Produto/v2_produto_composicao_saldo/${filial_saldo}/${sku}/${quantidade}/${local_saldo}`,
+        url: `${BASE_URL}/Produto/v2_produto_composicao_saldo/${filial_saldo}/${sku}/${quantidade}/${local_saldo}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

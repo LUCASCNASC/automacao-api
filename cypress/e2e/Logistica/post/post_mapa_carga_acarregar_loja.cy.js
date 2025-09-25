@@ -3,7 +3,7 @@
 //200 - OK
 //204 - Sem dados de retorno
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/mapa_carga_acarregar_loja', { env: { hideCredendials: true } }, () => {
@@ -12,7 +12,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_loja', { env: { hideCrede
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Logística/v3_post_mapa_carga_acarregar_loja`, 
+        url: `${BASE_URL}/Logística/v3_post_mapa_carga_acarregar_loja`, 
         headers: { Authorization },
         
         failOnStatusCode: false

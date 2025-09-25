@@ -4,7 +4,7 @@
 //401 - Sem permissão para acessar este recurso
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idInventario = ""; //integer - OBRIGATÓRIO
@@ -15,7 +15,7 @@ describe('Inventário - POST - /v3/cancela_inventario/{idFilial}/{idInventario}'
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Inventário/v3_post_cancela_inventario`, 
+        url: `${BASE_URL}/Inventário/v3_post_cancela_inventario`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

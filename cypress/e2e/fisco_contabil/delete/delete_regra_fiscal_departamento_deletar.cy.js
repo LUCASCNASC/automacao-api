@@ -3,7 +3,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idBaseFiscalDepartamento = ""; // number - OBRIGATÓRIO
 
@@ -11,7 +11,7 @@ describe('Fisco/Contábil - DELETE - /v3/regra_fiscal_departamento_deletar/{idBa
   it('Deve retornar 200 e as propriedades da base fiscal de departamento excluída', () => {
     cy.api({
       method: 'DELETE',
-      url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_departamento_delete/${idBaseFiscalDepartamento}`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_regra_fiscal_departamento_delete/${idBaseFiscalDepartamento}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

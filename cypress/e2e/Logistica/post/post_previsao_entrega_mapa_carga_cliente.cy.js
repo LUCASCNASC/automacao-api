@@ -4,7 +4,7 @@
 //204 - Sem dados de retorno
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Logística - POST - /v3/previsao_entrega_mapa_carga_cliente', { env: {
 
       cy.api({
         method: 'POST', 
-        url: `${API_URL}/Logística/v3_post_previsao_entrega_mapa_carga_cliente`, 
+        url: `${BASE_URL}/Logística/v3_post_previsao_entrega_mapa_carga_cliente`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

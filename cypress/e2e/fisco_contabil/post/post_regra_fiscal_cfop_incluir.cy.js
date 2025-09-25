@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/regra_fiscal_cfop_incluir', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da base fiscal CFOP incluída', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Fisco/Contabil/v3_regra_fiscal_cfop_post`,
+      url: `${BASE_URL}/Fisco/Contabil/v3_regra_fiscal_cfop_post`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

@@ -4,7 +4,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL')
+const BASE_URL = Cypress.env('BASE_URL')
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Recarga - GET - /v3/configuracao_recarga', { env: { hideCredendials: true } }, () => {
@@ -13,7 +13,7 @@ describe('Recarga - GET - /v3/configuracao_recarga', { env: { hideCredendials: t
 
       cy.api({
         method: 'GET', 
-        url: `${API_URL}/Recarga/v3_configuracao_recarga`, 
+        url: `${BASE_URL}/Recarga/v3_configuracao_recarga`, 
         headers: { Authorization },
         failOnStatusCode: false
       })
