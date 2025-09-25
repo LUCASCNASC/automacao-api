@@ -2,7 +2,7 @@
 // Excluir conta bancária pelo código do banco, agência e conta
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const codigoBanco = ""; // number - OBRIGATÓRIO
 const codigoAgencia = ""; // number - OBRIGATÓRIO
@@ -12,7 +12,7 @@ describe('Financeiro - DELETE - /v3/contabancaria/{codigoBanco}/{codigoAgencia}/
   it('Deve retornar 200 ao excluir conta bancária', () => {
     cy.api({
       method: 'DELETE',
-      url: `${API_URL}/Financeiro/v3_financeiro_conta_bancaria_delete/${codigoBanco}/${codigoAgencia}/${codigoConta}`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_conta_bancaria_delete/${codigoBanco}/${codigoAgencia}/${codigoConta}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

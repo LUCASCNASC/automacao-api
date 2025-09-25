@@ -4,7 +4,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const uf = 'PR'; // string
 const municipio = 3317; // number
@@ -14,7 +14,7 @@ describe('Filial - GET - /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo}', { env: { 
   it('Deve retornar 200 e as propriedades da lista de filial por tipo', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Filial/v3_get_filial_por_tipo/${uf}/${municipio}/${tipo}`,
+      url: `${BASE_URL}/Filial/v3_get_filial_por_tipo/${uf}/${municipio}/${tipo}`,
       headers: { Authorization }
     }).then((response) => {
       expect(response.status).to.equal(200);

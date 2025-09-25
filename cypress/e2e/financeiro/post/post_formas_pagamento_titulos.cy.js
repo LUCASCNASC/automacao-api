@@ -3,14 +3,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 // 201 - Criado
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 e as propriedades de formas de pagamento por título', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Financeiro/v3_financeiro_formas_pagamento_titulos`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_formas_pagamento_titulos`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

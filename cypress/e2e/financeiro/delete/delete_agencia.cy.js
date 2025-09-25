@@ -2,7 +2,7 @@
 // Excluir agência pelo código do banco e agência
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const codigoBanco = ""; // number - OBRIGATÓRIO
 const codigoAgencia = ""; // number - OBRIGATÓRIO
@@ -11,7 +11,7 @@ describe('Financeiro - DELETE - /v3/agencia/{codigoBanco}/{codigoAgencia}', { en
   it('Deve retornar 200 ao excluir agência', () => {
     cy.api({
       method: 'DELETE',
-      url: `${API_URL}/Financeiro/v3_financeiro_agencia_delete/${codigoBanco}/${codigoAgencia}`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_agencia_delete/${codigoBanco}/${codigoAgencia}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

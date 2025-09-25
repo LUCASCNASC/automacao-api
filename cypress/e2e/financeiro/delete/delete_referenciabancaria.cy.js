@@ -2,7 +2,7 @@
 // Excluir referência bancária baseado no CNPJ/CPF da pessoa e código da referência bancária
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const cnpjCpf = ""; // string - OBRIGATÓRIO
 const idReferenciaBancaria = ""; // number - OBRIGATÓRIO
@@ -11,7 +11,7 @@ describe('Financeiro - DELETE - /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBa
   it('Deve retornar 200 ao excluir referência bancária', () => {
     cy.api({
       method: 'DELETE',
-      url: `${API_URL}/Financeiro/v3_financeiro_referencia_bancaria_delete/${cnpjCpf}/${idReferenciaBancaria}`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_referencia_bancaria_delete/${cnpjCpf}/${idReferenciaBancaria}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

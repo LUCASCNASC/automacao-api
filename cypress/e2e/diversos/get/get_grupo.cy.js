@@ -4,7 +4,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idtipogrupo = ""; // integer - OBRIGATÓRIO
 
@@ -12,7 +12,7 @@ describe('Diversos - GET - /v3/grupo', { env: { hideCredendials: true } }, () =>
   it('Deve retornar 200 e as propriedades do grupo', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Diversos/v3_diversos_grupo/${idtipogrupo}`,
+      url: `${BASE_URL}/Diversos/v3_diversos_grupo/${idtipogrupo}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

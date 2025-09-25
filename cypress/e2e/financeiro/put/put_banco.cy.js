@@ -3,14 +3,14 @@
 // 201 - Criado
 // 500 - Internal Server Error
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - PUT - /v3/banco', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 e as propriedades do banco alterado', () => {
     cy.api({
       method: 'PUT',
-      url: `${API_URL}/Financeiro/v3_financeiro_banco2`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_banco2`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

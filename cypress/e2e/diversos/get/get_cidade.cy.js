@@ -4,7 +4,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const uf = ""; // string - OBRIGATÓRIO 
 
@@ -12,7 +12,7 @@ describe('Diversos - GET - /v3/cidade', { env: { hideCredendials: true } }, () =
   it('Deve retornar 200 e as propriedades de cidade', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Diversos/v2_diversos_cidade/${uf}`,
+      url: `${BASE_URL}/Diversos/v2_diversos_cidade/${uf}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

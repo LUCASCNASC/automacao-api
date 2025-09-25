@@ -4,7 +4,7 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const cep = ""; // string - OBRIGATÓRIO
 
@@ -12,7 +12,7 @@ describe('Diversos - GET - /v3/local_entrega_por_cep', { env: { hideCredendials:
   it('Deve retornar 200 e as propriedades do local de entrega por CEP', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Diversos/v3_diversos_local_entrega_por_cep/${cep}`,
+      url: `${BASE_URL}/Diversos/v3_diversos_local_entrega_por_cep/${cep}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

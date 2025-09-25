@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Diversos - POST - /v3/gerar_relatorio', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do relatório gerado', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Diversos/v2_diversos_gerar_relatorio`,
+      url: `${BASE_URL}/Diversos/v2_diversos_gerar_relatorio`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

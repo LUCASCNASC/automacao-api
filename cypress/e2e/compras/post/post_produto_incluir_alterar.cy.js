@@ -3,14 +3,14 @@
 // 200 - OK
 // 412 - Falha - Não atende aos pré-requisitos
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Compras - POST - /v3/produto_incluir_alterar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao incluir/alterar produto', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Compras/v3_post_produto_incluir_alterar`,
+      url: `${BASE_URL}/Compras/v3_post_produto_incluir_alterar`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

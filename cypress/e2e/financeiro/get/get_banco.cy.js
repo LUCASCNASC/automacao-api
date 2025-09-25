@@ -3,14 +3,14 @@
 // 200 - OK
 // 500 - Internal Server Error
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - GET - /v3/banco', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de banco', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Financeiro/v3_financeiro_banco3/`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_banco3/`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

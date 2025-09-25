@@ -3,14 +3,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 // 201 - Criado
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/incluir_voucher_pagamento', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 e as propriedades do voucher de pagamento', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Financeiro/v3_financeiro_incluir_voucher_pagamento`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_incluir_voucher_pagamento`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

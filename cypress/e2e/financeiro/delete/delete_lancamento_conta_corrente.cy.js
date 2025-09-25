@@ -3,7 +3,7 @@
 // 201 - Criado
 // 500 - Internal Server Error
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idFilial = ""; // integer - OBRIGATÓRIO
 const idLancamentoContaCorrente = ""; // integer - OBRIGATÓRIO
@@ -12,7 +12,7 @@ describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLanc
   it('Deve retornar 201 ao estornar lançamento de conta corrente', () => {
     cy.api({
       method: 'DELETE',
-      url: `${API_URL}/Financeiro/v3_financeiro_lancamento_conta_corrente_delete/${idFilial}/${idLancamentoContaCorrente}`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_lancamento_conta_corrente_delete/${idFilial}/${idLancamentoContaCorrente}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

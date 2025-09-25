@@ -3,14 +3,14 @@
 // 201 - Criado
 // 500 - Internal Server Error
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/banco', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 ao incluir banco', () => {
     cy.api({
       method: 'POST',
-      url: `${API_URL}/Financeiro/v3_financeiro_banco1`,
+      url: `${BASE_URL}/Financeiro/v3_financeiro_banco1`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

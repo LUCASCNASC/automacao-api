@@ -3,7 +3,7 @@
 // 204 - Sem dados de retorno
 // 200 - OK
 
-const API_URL = Cypress.env('API_URL');
+const BASE_URL = Cypress.env('BASE_URL');
 const Authorization = Cypress.env('API.PRAGMA');
 const idgruporota = ""; // integer
 const idrota = ""; // integer
@@ -13,7 +13,7 @@ describe('Diversos - GET - /v3/rota', { env: { hideCredendials: true } }, () => 
   it('Deve retornar 200 e as propriedades de rota', () => {
     cy.api({
       method: 'GET',
-      url: `${API_URL}/Diversos/v3_diversos_rota/${idgruporota}/${idrota}/${idrotacidade}`,
+      url: `${BASE_URL}/Diversos/v3_diversos_rota/${idgruporota}/${idrota}/${idrotacidade}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
