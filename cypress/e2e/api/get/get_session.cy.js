@@ -3,13 +3,14 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/api/session';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Filial - GET - /api/session', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades esperadas', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/API/api_session`,
+      url: `${BASE_URL}/${PATH_API}'`,
       headers: { Authorization },
       failOnStatusCode: false
     }).should((response) => {

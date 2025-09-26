@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/v3/caixa_rotina_diaria_filial';
 const Authorization = Cypress.env('API.PRAGMA');
 const idFilial = 10050; // integer
 const dataAbertura = "2024-12-20"; // string
@@ -13,7 +14,7 @@ describe('Filial - GET - /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura
   it('Deve retornar 200 e responder rapidamente', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/v3/caixa_rotina_diaria_filial/${idFilial}/${dataAbertura}`,
+      url: `${BASE_URL}/${PATH_API}/${idFilial}/${dataAbertura}`,
       headers: { Authorization }
     }).should((response) => {
       expect(response.status).to.equal(200);

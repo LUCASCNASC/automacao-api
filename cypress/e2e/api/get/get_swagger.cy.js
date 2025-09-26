@@ -3,6 +3,7 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/api//API/api_swagger';
 const Authorization = Cypress.env('API.PRAGMA');
 const versao = ""; // integer
 
@@ -10,7 +11,7 @@ describe('Filial - GET - /api/swagger', { env: { hideCredendials: true } }, () =
   it('Deve retornar 200 e responder rapidamente', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/API/api_swagger/${versao}`,
+      url: `${BASE_URL}/${PATH_API}/${versao}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).should((response) => {

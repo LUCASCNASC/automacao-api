@@ -3,13 +3,14 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/api/version';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Filial - GET - /api/version', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de versão', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/api/version`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).should((response) => {
