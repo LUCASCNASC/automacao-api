@@ -5,13 +5,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Fisco/Contabil/v3_post_nota_incluir';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/nota_incluir/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da nota fiscal incluída', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Fisco/Contabil/v3_post_nota_incluir`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

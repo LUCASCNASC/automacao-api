@@ -4,13 +4,14 @@
 // 500 - Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_estornar_baixa_titulo';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao estornar baixa de título', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_estornar_baixa_titulo`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

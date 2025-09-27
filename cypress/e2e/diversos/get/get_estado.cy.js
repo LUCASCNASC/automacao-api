@@ -5,13 +5,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Diversos/v2_diversos_estado';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Diversos - GET - /v3/estado', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de estado', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Diversos/v2_diversos_estado/`,
+      url: `${BASE_URL}/${PATH_API}/`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

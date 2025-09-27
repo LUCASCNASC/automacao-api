@@ -6,6 +6,7 @@
 //500 - Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/LGPD/v3_post_lgpd_dados_titular_excluir';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/dados_titular_excluir', { env: { hideCredendials: true } }, () => {
@@ -15,7 +16,7 @@ describe('Titulo - POST - /v3/dados_titular_excluir', { env: { hideCredendials: 
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/LGPD/v3_post_lgpd_dados_titular_excluir`,
+        url: `${BASE_URL}/${PATH_API}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

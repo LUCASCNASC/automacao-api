@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pedido/v2_pedido_get_delete1';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //number - OBRIGATÓRIO
 const codigo = ""; //number - OBRIGATÓRIO
@@ -16,7 +17,7 @@ describe('Pedido - GET - /v3/pedido/{codigo}', { env: { hideCredendials: true } 
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pedido/v2_pedido_get_delete1/${idFilial}/${codigo}/${validarsituacaopedido}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}/${codigo}/${validarsituacaopedido}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

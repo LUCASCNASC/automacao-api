@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Filial/v2_filial_detalhe';
 const Authorization = Cypress.env('API.PRAGMA');
 const filial = 10050; // integer - OBRIGATÓRIO
 
@@ -12,7 +13,7 @@ describe('Filial - GET - /v3/filial_detalhe/{filial}', { env: { hideCredendials:
   it('Deve retornar 200 e todas as propriedades do detalhe da filial', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Filial/v2_filial_detalhe/${filial}`,
+      url: `${BASE_URL}/${PATH_API}/${filial}`,
       headers: { Authorization }
     }).then((response) => {
       expect(response.status).to.equal(200);

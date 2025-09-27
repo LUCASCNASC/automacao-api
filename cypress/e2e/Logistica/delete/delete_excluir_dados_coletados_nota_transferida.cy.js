@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Logística/v3_delete_excluir_dado_coletado_nota_transferida';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilialOrigem = ""; //integer - OBRIGATÓRIO
 const idRegistroNotaOrigem = ""; //integer - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
 
       cy.api({
         method: 'DELETE', 
-        url: `${BASE_URL}/Logística/v3_delete_excluir_dado_coletado_nota_transferida/${idFilialOrigem}/${idRegistroNotaOrigem}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilialOrigem}/${idRegistroNotaOrigem}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

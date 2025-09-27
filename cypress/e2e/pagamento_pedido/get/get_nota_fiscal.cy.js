@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pagamento%20pedido/v2_pag_pedido_nota_fiscal';
 const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
@@ -16,7 +17,7 @@ describe('Pagamento pedido - GET - /v3/nota_fiscal/{filial}', { env: { hideCrede
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pagamento%20pedido/v2_pag_pedido_nota_fiscal/${filial}/${pedido}/${registro_nota}`, 
+        url: `${BASE_URL}/${PATH_API}/${filial}/${pedido}/${registro_nota}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -5,13 +5,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Cliente/v3_cliente_post';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Cliente - POST - /v3/cliente', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao incluir/alterar cliente', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Cliente/v3_cliente_post/`,
+      url: `${BASE_URL}/${PATH_API}/`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

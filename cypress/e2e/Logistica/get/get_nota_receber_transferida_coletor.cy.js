@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Logística/v3_get_carregar_nota_transferida_coletor';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 
@@ -15,7 +16,7 @@ describe('Logística - GET - /v3/nota_receber_transferida_coletor/{idFilial}', {
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Logística/v3_get_carregar_nota_transferida_coletor/${idFilial}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

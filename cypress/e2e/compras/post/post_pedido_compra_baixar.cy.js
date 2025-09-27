@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Compras/v3_post_pedido_compra_baixar';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Compras - POST - /v3/pedido_compra_baixar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao baixar pedido de compra', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Compras/v3_post_pedido_compra_baixar`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

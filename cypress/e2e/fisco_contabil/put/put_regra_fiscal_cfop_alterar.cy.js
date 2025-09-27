@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Fisco/Contabil/v3_regra_fiscal_cfop_put';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da base fiscal CFOP alterada', () => {
     cy.api({
       method: 'PUT',
-      url: `${BASE_URL}/Fisco/Contabil/v3_regra_fiscal_cfop_put`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

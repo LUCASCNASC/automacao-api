@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/E-commerce/v3_ecommerce_finalizar';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('E-commerce - POST - /v3/ecommerce_finalizar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao finalizar pedido e-commerce', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/E-commerce/v3_ecommerce_finalizar`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

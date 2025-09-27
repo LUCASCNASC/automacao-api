@@ -3,6 +3,7 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_banco_delete';
 const Authorization = Cypress.env('API.PRAGMA');
 const codigo = ""; // number - OBRIGATÓRIO
 
@@ -10,7 +11,7 @@ describe('Financeiro - DELETE - /v3/banco/{codigo}', { env: { hideCredendials: t
   it('Deve retornar 200 ao excluir banco', () => {
     cy.api({
       method: 'DELETE',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_banco_delete/${codigo}`,
+      url: `${BASE_URL}/${PATH_API}/${codigo}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

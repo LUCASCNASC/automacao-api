@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pedido/v2_pedido_pendencia';
 const Authorization = Cypress.env('API.PRAGMA')
 const idpedidovenda = ""; //number - OBRIGATÓRIO
 const idvendedor = ""; //number - OBRIGATÓRIO
@@ -17,7 +18,7 @@ describe('Pedido - GET - /v3/pedido_pendencia', { env: { hideCredendials: true }
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pedido/v2_pedido_pendencia/${idpedidovenda}/${idvendedor}/${cnpj_cpf}/${listapedidovenda}`, 
+        url: `${BASE_URL}/${PATH_API}/${idpedidovenda}/${idvendedor}/${cnpj_cpf}/${listapedidovenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -6,6 +6,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Inventário/v3_get_inventario';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Inventário - GET - /v3/inventario', { env: { hideCredendials: true } }
@@ -15,7 +16,7 @@ describe('Inventário - GET - /v3/inventario', { env: { hideCredendials: true } 
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Inventário/v3_get_inventario/`, 
+        url: `${BASE_URL}/${PATH_API}/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

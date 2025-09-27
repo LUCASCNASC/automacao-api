@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Inventário/v3_post_apaga_usuario_inventario';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInventario}', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Inventário - POST - /v3/apaga_usuario_inventario/{idFilial}/{idInvent
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Inventário/v3_post_apaga_usuario_inventario`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

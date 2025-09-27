@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Diversos/v2_diversos_cbo';
 const Authorization = Cypress.env('API.PRAGMA');
 const termo = ""; // string - OBRIGATÓRIO
 const limit = ""; // string
@@ -15,7 +16,7 @@ describe('Diversos - GET -/v3/cbo', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do CBO', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Diversos/v2_diversos_cbo/${termo}/${limit}/${offset}/${sort}`,
+      url: `${BASE_URL}/${PATH_API}/${termo}/${limit}/${offset}/${sort}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

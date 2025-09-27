@@ -3,6 +3,7 @@
 //200 - OK
 //412 - Falha - Não atende aos pré-requisitos
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', { env: { hideCredendials: true } }, () => {
@@ -11,7 +12,7 @@ describe('Financeiro - POST - /v3/pedido_fechar_baixar_caixa', { env: { hideCred
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Pagamento%20pedido/v3_pag_pedido_fechar_baixar_caixa`,
+        url: `${BASE_URL}/${PATH_API}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

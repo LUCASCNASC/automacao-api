@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_baixa_titulo_pagar';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/baixa_titulo_pagar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao baixar títulos a pagar', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_baixa_titulo_pagar`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

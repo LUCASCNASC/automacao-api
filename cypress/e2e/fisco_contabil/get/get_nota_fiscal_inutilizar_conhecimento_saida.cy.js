@@ -4,6 +4,7 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('API_UBASE_URLRL');
+const PATH_API = '/Fisco/Contabil/v3_nota_fiscal_inutilizar_conhecimento_saida';
 const Authorization = Cypress.env('API.PRAGMA');
 const Filial = ""; // integer - OBRIGATÓRIO
 const RegistroNota = ""; // integer - OBRIGATÓRIO
@@ -12,7 +13,7 @@ describe('Fisco/Contábil - GET - /v3/nota_fiscal_inutilizar_conhecimento_saida/
   it('Deve retornar 200 e as propriedades da inutilização de conhecimento de saída', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Fisco/Contabil/v3_nota_fiscal_inutilizar_conhecimento_saida/${Filial}/${RegistroNota}`,
+      url: `${BASE_URL}/${PATH_API}/${Filial}/${RegistroNota}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

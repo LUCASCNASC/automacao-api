@@ -4,13 +4,14 @@
 // 201 - Criado
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_lancamento_conta_corrente';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/lancamento_conta_corrente', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 e as propriedades do lançamento conta corrente', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_lancamento_conta_corrente`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

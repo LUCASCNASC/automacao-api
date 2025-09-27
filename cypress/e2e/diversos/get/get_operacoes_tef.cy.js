@@ -5,13 +5,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Diversos/v3_diversos_operacoes_tef';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Diversos - GET - /v3/operacoes_tef', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de operações TEF', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Diversos/v3_diversos_operacoes_tef/`,
+      url: `${BASE_URL}/${PATH_API}/`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

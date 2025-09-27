@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Indicadores/v3_indicador_vendedor';
 const Authorization = Cypress.env('API.PRAGMA')
 const ano = ""; //number - OBRIGATÓRIO
 const mes = ""; //number - OBRIGATÓRIO
@@ -17,7 +18,7 @@ describe('Indicadores - GET - /v3/indicador_vendedor/{ano}', { env: { hideCreden
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Indicadores/v3_indicador_vendedor/${ano}/${mes}/${dia}`, 
+        url: `${BASE_URL}/${PATH_API}/${ano}/${mes}/${dia}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

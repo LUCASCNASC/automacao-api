@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pagamento%20divida/v2_divida_baixa_titulo_cheque';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Financeiro - POST - /v3/baixa_titulo_cheque', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Financeiro - POST - /v3/baixa_titulo_cheque', { env: { hideCredendials
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Pagamento%20divida/v2_divida_baixa_titulo_cheque`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

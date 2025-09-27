@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Fisco/Contabil/v3_regra_fiscal_departamento_get';
 const Authorization = Cypress.env('API.PRAGMA');
 const Grupo = ""; // integer - OBRIGATÓRIO
 const UF = ""; // string - OBRIGATÓRIO 
@@ -15,7 +16,7 @@ describe('Fisco/Contábil - GET - /v3/regra_fiscal_departamento_listar/{Grupo}/{
   it('Deve retornar 200 e as propriedades da base fiscal de departamento', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Fisco/Contabil/v3_regra_fiscal_departamento_get/${Grupo}/${UF}/${CFOP}/${OrigemProduto}`,
+      url: `${BASE_URL}/${PATH_API}/${Grupo}/${UF}/${CFOP}/${OrigemProduto}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

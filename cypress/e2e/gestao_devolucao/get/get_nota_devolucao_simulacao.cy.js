@@ -6,6 +6,7 @@
 //401 - Sem permissão para acessar este recurso
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Gestão%20Devolução/v2_gestao_devolucao_nota_devolucao_simulacao';
 const Authorization = Cypress.env('API.PRAGMA');
 const filial = ""; //number - OBRIGATÓRIO
 const solicitacao = ""; //number - OBRIGATÓRIO
@@ -17,7 +18,7 @@ describe('Gestão Devolução - GET - /v3/nota_devolucao_simulacao/{filial}/{sol
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Gestão%20Devolução/v2_gestao_devolucao_nota_devolucao_simulacao/${filial}/${solicitacao}/${Authorization}`, 
+        url: `${BASE_URL}/${PATH_API}/${filial}/${solicitacao}/${Authorization}`, 
         headers: { Authorization },
         
         failOnStatusCode: false

@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pós-venda/v2_pos_venda_qualificacao';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Pós-venda - GET - /v3/pos_venda_qualificacao', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Pós-venda - GET - /v3/pos_venda_qualificacao', { env: { hideCredendia
 
       cy.api({
         method: '`${BASE_URL}/Pedido/v2_pedido_get_delete2/${codigo}/${idfilial}`', 
-        url: `${BASE_URL}/Pós-venda/v2_pos_venda_qualificacao`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

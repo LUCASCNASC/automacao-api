@@ -4,13 +4,14 @@
 // 201 - Criado
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_formas_pagamento_titulos';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 e as propriedades de formas de pagamento por título', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_formas_pagamento_titulos`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

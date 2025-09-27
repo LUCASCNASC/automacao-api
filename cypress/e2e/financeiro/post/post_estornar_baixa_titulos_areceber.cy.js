@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_post_estornar_baixa_titulo_areceber';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/estornar_baixa_titulo_areceber', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do estorno de baixa de título a receber', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_post_estornar_baixa_titulo_areceber`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

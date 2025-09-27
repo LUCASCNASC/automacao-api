@@ -3,6 +3,7 @@
 //200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Logística/v3_delete_mapa_carga_coletado';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idMapaCarga = ""; //integer - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Logística - DELETE - /v3/exluir_mapa_carga_coletado/{idFilial}/{idMap
 
       cy.api({
         method: 'DELETE', 
-        url: `${BASE_URL}/Logística/v3_delete_mapa_carga_coletado/${idFilial}/${idMapaCarga}/${TipoMapaCarga}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}/${idMapaCarga}/${TipoMapaCarga}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

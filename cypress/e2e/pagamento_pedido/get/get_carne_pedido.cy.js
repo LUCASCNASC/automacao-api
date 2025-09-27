@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pagamento%20pedido/v3_pag_pedido_carne_pedido';
 const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Pagamento pedido - GET - /v3/carne_pedido/{filial}/{pedido}', { env: {
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pagamento%20pedido/v3_pag_pedido_carne_pedido/${filial}/${pedido}`,
+        url: `${BASE_URL}/${PATH_API}/${filial}/${pedido}`,
         headers: { Authorization },
         failOnStatusCode: false
       })  

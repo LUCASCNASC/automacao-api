@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pós-venda/v3_pesquisa_satisfacao';
 const Authorization = Cypress.env('API.PRAGMA')
 const idfilial = ""; //string - OBRIGATÓRIO
 
@@ -14,7 +15,7 @@ describe('Pós-venda - GET - /v3/pesquisa_satisfacao', { env: { hideCredendials:
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pós-venda/v3_pesquisa_satisfacao/${idfilial}`, 
+        url: `${BASE_URL}/${PATH_API}/${idfilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })  

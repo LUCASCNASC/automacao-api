@@ -6,6 +6,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/LGPD/v3_get_lgpd_dados_titular';
 const Authorization = Cypress.env('API.PRAGMA')
 const cpf = ""; //string - OBRIGATÓRIO
 
@@ -16,7 +17,7 @@ describe('Recarga - GET - /v3/dados_titular/{cpf}', { env: { hideCredendials: tr
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/LGPD/v3_get_lgpd_dados_titular/${cpf}`, 
+        url: `${BASE_URL}/${PATH_API}/${cpf}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

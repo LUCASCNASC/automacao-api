@@ -5,13 +5,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Fisco/Contabil/v3_post_gerar_rateio_centro_custo';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_consulta_nfe/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do rateio centro de custo gerado', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Fisco/Contabil/v3_post_gerar_rateio_centro_custo`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

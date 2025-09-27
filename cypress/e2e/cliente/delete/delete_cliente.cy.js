@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Cliente/v2_cliente_get_delete_delete';
 const Authorization = Cypress.env('API.PRAGMA');
 const cliente = ""; // string
 
@@ -12,7 +13,7 @@ describe('Cliente - DELETE - /v3/cliente/{cliente}', { env: { hideCredendials: t
   it('Deve retornar 200 ao excluir cliente', () => {
     cy.request({
       method: 'DELETE',
-      url: `${BASE_URL}/Cliente/v2_cliente_get_delete_delete/${cliente}`,
+      url: `${BASE_URL}/${PATH_API}/${cliente}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

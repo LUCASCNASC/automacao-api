@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Cliente/v2_cliente_renovacao';
 const Authorization = Cypress.env('API.PRAGMA');
 const cliente = ""; // string - OBRIGATÓRIO
 
@@ -12,7 +13,7 @@ describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', { env: { hideCredend
   it('Deve retornar 200 e as propriedades de renovação', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Cliente/v2_cliente_renovacao/${cliente}`,
+      url: `${BASE_URL}/${PATH_API}/${cliente}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda';
 const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Pagamento pedido - GET - /v3/contrato_compra_e_venda/{filial}/{pedido}
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pagamento%20pedido/v2_pag_pedido_contrato_compra_e_venda/${filial}/${pedido}`, 
+        url: `${BASE_URL}/${PATH_API}/${filial}/${pedido}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

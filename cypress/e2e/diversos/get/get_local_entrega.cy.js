@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Diversos/v2_diversos_local_entrega';
 const Authorization = Cypress.env('API.PRAGMA');
 const rota = ""; // number - OBRIGATÓRIO 
 
@@ -12,7 +13,7 @@ describe('Diversos - GET - /v3/local_entrega', { env: { hideCredendials: true } 
   it('Deve retornar 200 e as propriedades do local de entrega', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Diversos/v2_diversos_local_entrega/${rota}`,
+      url: `${BASE_URL}/${PATH_API}/${rota}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

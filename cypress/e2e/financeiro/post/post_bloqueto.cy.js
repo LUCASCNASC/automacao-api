@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_bloqueto';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 ao incluir meio de cobrança', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_bloqueto`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

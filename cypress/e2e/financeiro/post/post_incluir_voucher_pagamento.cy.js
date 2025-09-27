@@ -4,13 +4,14 @@
 // 201 - Criado
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_incluir_voucher_pagamento';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/incluir_voucher_pagamento', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 201 e as propriedades do voucher de pagamento', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_incluir_voucher_pagamento`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

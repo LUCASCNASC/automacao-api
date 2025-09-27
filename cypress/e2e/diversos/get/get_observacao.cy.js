@@ -4,13 +4,14 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Diversos/v3_diversos_observacao';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Diversos - GET - /v3/observacao', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de observação', () => {
     cy.api({
       method: 'GET', 
-      url: `${BASE_URL}/Diversos/v3_diversos_observacao`, 
+      url: `${BASE_URL}/${PATH_API}`, 
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

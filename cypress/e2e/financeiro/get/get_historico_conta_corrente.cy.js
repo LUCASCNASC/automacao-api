@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_historicocontacorrente';
 const Authorization = Cypress.env('API.PRAGMA');
 const idTipoContaCorrente = ""; // number - OBRIGATÓRIO
 const idContaCorrente = ""; // number
@@ -13,7 +14,7 @@ describe('Financeiro - GET - /v3/historico_conta_corrente/{idTipoContaCorrente}'
   it('Deve retornar 200 e as propriedades do histórico de conta corrente', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_historicocontacorrente/${idTipoContaCorrente}/${idContaCorrente}`,
+      url: `${BASE_URL}/${PATH_API}/${idTipoContaCorrente}/${idContaCorrente}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

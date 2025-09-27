@@ -4,6 +4,7 @@
 // 200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Cliente/v2_cliente_simples_get';
 const Authorization = Cypress.env('API.PRAGMA');
 const cliente = ""; // string - OBRIGATÓRIO
 
@@ -11,7 +12,7 @@ describe('Cliente - GET - /v3/cliente_simples/{cliente}', { env: { hideCredendia
   it('Deve retornar 200 e propriedades do cliente simplificado', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Cliente/v2_cliente_simples_get/${cliente}`,
+      url: `${BASE_URL}/${PATH_API}/${cliente}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Logística/v3_post_logistica_faturamentomapacargaloja';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/faturamento_mapa_carga_loja', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Logística - POST - /v3/faturamento_mapa_carga_loja', { env: { hideCre
 
       cy.api({
         method: 'POST', 
-        url: `${APIBASE_URL_URL}/Logística/v3_post_logistica_faturamentomapacargaloja`, 
+        url: `${APIBASE_URL_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

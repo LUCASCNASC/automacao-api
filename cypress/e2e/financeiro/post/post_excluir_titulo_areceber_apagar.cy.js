@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_excluir_titulo_areceber_apagar';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da exclusão de título', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Financeiro/v3_excluir_titulo_areceber_apagar`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

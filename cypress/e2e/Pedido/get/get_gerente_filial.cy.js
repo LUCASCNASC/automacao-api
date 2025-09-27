@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pedido/v3_gerente_filial';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //number - OBRIGATÓRIO
 
@@ -14,7 +15,7 @@ describe('Pedido - GET - /v3/gerente_filial/{idFilial}', { env: { hideCredendial
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pedido/v3_gerente_filial/${idFilial}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

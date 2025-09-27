@@ -4,13 +4,14 @@
 // 204 - Sem dados de retorno
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Fisco/Contabil/v3_post_nota_fiscal_reenvio_nfe';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/nota_fiscal_reenvio_nfe/', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do reenvio da nota fiscal NFe', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Fisco/Contabil/v3_post_nota_fiscal_reenvio_nfe`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

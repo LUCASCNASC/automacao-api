@@ -4,13 +4,14 @@
 // 500 - Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_banco3';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Financeiro - GET - /v3/banco', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades de banco', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_banco3/`,
+      url: `${BASE_URL}/${PATH_API}/`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

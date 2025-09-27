@@ -4,13 +4,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Fisco/Contabil/v3_regra_fiscal_uf_get';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('Fisco/Contábil - POST - /v3/corrigir_saldo_medio_produtos', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da correção de saldo/custo médio', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/Fisco/Contabil/v3_post_corrigir_saldo_medio_produtos`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {

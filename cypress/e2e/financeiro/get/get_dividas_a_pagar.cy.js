@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_dividas_pagar';
 const Authorization = Cypress.env('API.PRAGMA');
 const idFilial = ""; // number - OBRIGATÓRIO
 const cpf_cnpj = ""; // string - OBRIGATÓRIO
@@ -13,7 +14,7 @@ describe('Financeiro - GET - /v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', { env: 
   it('Deve retornar 200 e as propriedades dos títulos a pagar', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_dividas_pagar/${idFilial}/${cpf_cnpj}`,
+      url: `${BASE_URL}/${PATH_API}/${idFilial}/${cpf_cnpj}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

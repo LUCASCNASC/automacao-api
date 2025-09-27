@@ -5,14 +5,14 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
-const Authorization = Cypress.env('API.PRAGMA');
+const PATH_API = '/Cliente/v3_cliente_anexo';
 const idcnpj_cpf = "100002139114930"; // string - OBRIGATÓRIO
 
 describe('Filial - GET - /v3/cliente_anexo/{idcnpj_cpf}', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do anexo', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Cliente/v3_cliente_anexo/${idcnpj_cpf}`,
+      url: `${BASE_URL}/${PATH_API}/${idcnpj_cpf}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

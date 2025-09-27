@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_pedidos_por_titulo';
 const Authorization = Cypress.env('API.PRAGMA');
 const idFilial = ""; // number - OBRIGATÓRIO
 const idTitulo = ""; // number - OBRIGATÓRIO
@@ -14,7 +15,7 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
   it('Deve retornar 200 e as propriedades de pedidos por título', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_pedidos_por_titulo/${idFilial}/${idTitulo}/${idTipoTitulo}`,
+      url: `${BASE_URL}/${PATH_API}/${idFilial}/${idTitulo}/${idTipoTitulo}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

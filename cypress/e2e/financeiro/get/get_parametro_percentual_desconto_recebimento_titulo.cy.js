@@ -5,6 +5,7 @@
 // 412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
+const PATH_API = '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo';
 const Authorization = Cypress.env('API.PRAGMA');
 const idFilial = ""; // number - OBRIGATÓRIO
 
@@ -12,7 +13,7 @@ describe('Financeiro - GET - /v3/parametro_percentual_desconto_recebimento_titul
   it('Deve retornar 200 e o percentual máximo', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/Financeiro/v3_financeiro_parametro_percentual_desconto_recebimento_titulo/${idFilial}`,
+      url: `${BASE_URL}/${PATH_API}/${idFilial}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {

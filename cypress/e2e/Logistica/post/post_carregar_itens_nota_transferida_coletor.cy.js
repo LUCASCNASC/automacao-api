@@ -3,6 +3,7 @@
 //200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Logística/v3_get_carregar_Itens_nota_transferida_coletor';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { env: { hideCredendials: true } }, () => {
@@ -11,7 +12,7 @@ describe('Logística - POST - /v3/carregar_itens_nota_transferida_coletor', { en
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Logística/v3_get_carregar_Itens_nota_transferida_coletor`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -5,6 +5,7 @@
 //401 - Sem permissão para acessar este recurso
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pedido/v3_pedido_valida_reserva_saldo';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idPedidoVenda = ""; //integer - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Pedido - GET - /v3/pedido_valida_reserva_saldo/{idFilial}/{idPedidoVen
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pedido/v3_pedido_valida_reserva_saldo/${idFilial}/${idPedidoVenda}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}/${idPedidoVenda}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -4,6 +4,7 @@
 //204 - Sem dados de retorno
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Logística/v3_post_mapa_carga_acarregar_cliente';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Logística - POST - /v3/mapa_carga_acarregar_cliente', { env: { hideCr
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Logística/v3_post_mapa_carga_acarregar_cliente`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         
         failOnStatusCode: false

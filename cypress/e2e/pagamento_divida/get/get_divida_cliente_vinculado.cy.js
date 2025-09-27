@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Pagamento%20divida/v2_divida_cliente_vinculado';
 const Authorization = Cypress.env('API.PRAGMA')
 const filial = ""; //number - OBRIGATÓRIO
 const cliente = ""; //string - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Pagamento divida - GET - /v3/divida_cliente_vinculado/{filial}/{client
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Pagamento%20divida/v2_divida_cliente_vinculado/${filial}/${cliente}`, 
+        url: `${BASE_URL}${PATH_API}/${filial}/${cliente}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })
