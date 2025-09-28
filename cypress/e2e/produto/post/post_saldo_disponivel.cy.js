@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Produto/v3_produto_saldo_disponivel';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Produtos - POST - /v3/saldo_disponivel', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Produtos - POST - /v3/saldo_disponivel', { env: { hideCredendials: tru
 
     cy.api({
       method: 'POST', 
-      url: `${BASE_URL}/Produto/v3_produto_saldo_disponivel`,
+      url: `${BASE_URL}/${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false
     })

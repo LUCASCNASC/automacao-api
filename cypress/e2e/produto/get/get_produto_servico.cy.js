@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Produto/v2_produto_servico';
 const Authorization = Cypress.env('API.PRAGMA')
 const servico = ""; //number - OBRIGATÓRIO
 
@@ -15,7 +16,7 @@ describe('Produtos - GET - /v3/produto_servico/{servico} ', { env: { hideCredend
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Produto/v2_produto_servico/${servico}`,
+        url: `${BASE_URL}/${PATH_API}/${servico}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Produto/v3_produto_tipo_saldo_detalhe';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilialSaldo = ""; //number - OBRIGATÓRIO
 const sku = ""; //string - OBRIGATÓRIO
@@ -17,7 +18,7 @@ describe('Produtos - GET - /v3/produto_tipo_saldo_detalhe ', { env: { hideCreden
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Produto/v3_produto_tipo_saldo_detalhe/${idFilialSaldo}/${sku}/${idTipoSaldoProduto}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilialSaldo}/${sku}/${idTipoSaldoProduto}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -5,6 +5,7 @@
 //401 - Sem permissão para acessar este recurso
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Produto/v2_produto_departamento';
 const Authorization = Cypress.env('API.PRAGMA')
 const termo = ""; //string - OBRIGATÓRIO
 const departamento = ""; //string - OBRIGATÓRIO
@@ -18,7 +19,7 @@ describe('Produtos - GET - /v3/departamento', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Produto/v2_produto_departamento`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })
