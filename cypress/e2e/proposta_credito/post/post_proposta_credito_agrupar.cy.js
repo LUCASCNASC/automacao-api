@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Proposta%20crédito/v2_proposta_credito_agrupar';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Proposta crédito - POST - /v3/proposta_credito_agrupar', { env: { hid
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Proposta%20crédito/v2_proposta_credito_agrupar/`, 
+        url: `${BASE_URL}/${PATH_API}/`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sessão/v3_sessao_login_post';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - POST - /v3/login', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Sessão - POST - /v3/login', { env: { hideCredendials: true } }, () =>
 
       cy.api({
         method: 'GET',
-        url: `${BASE_URL}/Sessão/v3_sessao_login_post`,
+        url: `${BASE_URL}/${PATH_API}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

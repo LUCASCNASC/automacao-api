@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Recarga/v3_post_recarga';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/recarga', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Titulo - POST - /v3/recarga', { env: { hideCredendials: true } }, () =
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Recarga/v3_post_recarga`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

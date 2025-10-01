@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Projeto%20Real%20Time/v3_post_estoque';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - POST - /v3/estoque/', { env: { hideCredendials: true } }
@@ -13,7 +14,7 @@ describe('Projeto Real Time - POST - /v3/estoque/', { env: { hideCredendials: tr
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Projeto%20Real%20Time/v3_post_estoque`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

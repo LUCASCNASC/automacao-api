@@ -4,6 +4,7 @@
 //200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Trial/v3_get_lista_trial_usuario';
 const Authorization = Cypress.env('API.PRAGMA')
 const idUsuario = ""; //integer - OBRIGATÓRIO
 
@@ -13,7 +14,7 @@ describe('Trial - GET - /v3/trial_lista_usuario/{idUsuario}', { env: { hideCrede
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Trial/v3_get_lista_trial_usuario/${idUsuario}`, 
+        url: `${BASE_URL}/${PATH_API}/${idUsuario}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -5,6 +5,7 @@
 //201 - Criado
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Titulo/v3_post_titulo_incluir';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - POST - /v3/titulo_incluir', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Titulo - POST - /v3/titulo_incluir', { env: { hideCredendials: true } 
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Titulo/v3_post_titulo_incluir`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

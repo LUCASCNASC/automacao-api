@@ -3,6 +3,7 @@
 //200 - OK
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Trial/v3_get_trial_autorizacao';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const idUsuario = ""; //string - OBRIGATÓRIO
@@ -14,7 +15,7 @@ describe('Trial - GET - /v3/trial_autorizacao/{idFilial}/{idUsuario}/{triais}', 
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Trial/v3_get_trial_autorizacao/${idFilial}/${idUsuario}/${triais}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}/${idUsuario}/${triais}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

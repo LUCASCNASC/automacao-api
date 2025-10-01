@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Trial/v2_trial_get_post1';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //integer - OBRIGATÓRIO
 const pedido = ""; //number - OBRIGATÓRIO
@@ -17,7 +18,7 @@ describe('Trial - GET - /v3/trial', { env: { hideCredendials: true } }, () => {
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Trial/v2_trial_get_post1/${idFilial}/${pedido}/${vendedor}/${limit}/${offset}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}/${pedido}/${vendedor}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

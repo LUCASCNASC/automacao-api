@@ -5,6 +5,7 @@
 //401 - Sem permissão para acessar este recurso
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sistema/v2_sistema_key_value_delete';
 const Authorization = Cypress.env('API.PRAGMA')
 const key = ""; //string - OBRIGATÓRIO
 
@@ -15,7 +16,7 @@ describe('Sistema - DELETE - /v3/key_value/{key}', { env: { hideCredendials: tru
 
       cy.api({
         method: 'DELETE',
-        url: `${BASE_URL}/Sistema/v2_sistema_key_value_delete/${key}`,
+        url: `${BASE_URL}/${PATH_API}/${key}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

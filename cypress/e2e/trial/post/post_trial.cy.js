@@ -3,6 +3,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Trial/v2_trial_get_post2';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Trial - POST - /v3/trial', { env: { hideCredendials: true } }, () => {
@@ -11,7 +12,7 @@ describe('Trial - POST - /v3/trial', { env: { hideCredendials: true } }, () => {
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Trial/v2_trial_get_post2`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -4,6 +4,7 @@
 //401 - Sem permissão para acessar este recurso
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sessão/v3_sessao_login_validar';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - GET - /v3/login_validar', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Sessão - GET - /v3/login_validar', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'GET',
-        url: `${BASE_URL}/Sessão/v3_sessao_login_validar/`,
+        url: `${BASE_URL}/${PATH_API}/`,
         headers: { Authorization },
         failOnStatusCode: false
       })

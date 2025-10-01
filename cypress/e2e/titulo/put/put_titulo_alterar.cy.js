@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Titulo/v3_put_titulo_alterar';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Titulo - PUT - /v3/titulo_alterar', { env: { hideCredendials: true } }, () => {
@@ -13,7 +14,7 @@ describe('Titulo - PUT - /v3/titulo_alterar', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'PUT', 
-        url: `${BASE_URL}/Titulo/v3_put_titulo_alterar`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

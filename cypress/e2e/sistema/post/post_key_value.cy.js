@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sistema/v2_sistema_key_value_post';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - POST - /v3/key_value', { env: { hideCredendials: true } }
@@ -14,7 +15,7 @@ describe('Sistema - POST - /v3/key_value', { env: { hideCredendials: true } }
 
       cy.api({
         method: 'POST', 
-        url: `${BASE_URL}/Sistema/v2_sistema_key_value_post`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

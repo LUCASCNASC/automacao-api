@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Recarga/v3_get_recarga';
 const Authorization = Cypress.env('API.PRAGMA')
 const idFilial = ""; //number - OBRIGATÓRIO
 const idItemServico = ""; //number - OBRIGATÓRIO
@@ -15,7 +16,7 @@ describe('Recarga - GET - /v3/recarga/{idFilial}/{idItemServico}', { env: { hide
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Recarga/v3_get_recarga/${idFilial}/${idItemServico}`, 
+        url: `${BASE_URL}/${PATH_API}/${idFilial}/${idItemServico}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

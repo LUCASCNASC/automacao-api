@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Proposta%20crédito/v2_proposta_credito_get';
 const Authorization = Cypress.env('API.PRAGMA')
 const data_inicial = "yyyy-mm-dd"; //string - OBRIGATÓRIO
 const vendedor = ""; //number
@@ -18,7 +19,7 @@ describe('Proposta crédito - GET - /v3/proposta_credito/{data_inicial}', { env:
 
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Proposta%20crédito/v2_proposta_credito_get/${data_inicial}/${vendedor}/${cliente}/${limit}/${offset}`, 
+        url: `${BASE_URL}/${PATH_API}/${data_inicial}/${vendedor}/${cliente}/${limit}/${offset}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })

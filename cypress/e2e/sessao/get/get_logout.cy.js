@@ -3,6 +3,7 @@
 //204 - em dados de retorno
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sessão/v2_sessao_logout';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sessão - GET - /v3/logout', { env: { hideCredendials: true } }, () => {
@@ -11,7 +12,7 @@ describe('Sessão - GET - /v3/logout', { env: { hideCredendials: true } }, () =>
 
       cy.api({
         method: 'GET',
-        url: `${BASE_URL}/Sessão/v2_sessao_logout`,
+        url: `${BASE_URL}/${PATH_API}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

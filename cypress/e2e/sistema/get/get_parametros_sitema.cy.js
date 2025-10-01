@@ -4,6 +4,7 @@
 //401 - Sem permissão para acessar este recurso
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sistema/v2_sistema_parametro_sistema';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Sistema - GET - /v3/parametros_sitema', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Sistema - GET - /v3/parametros_sitema', { env: { hideCredendials: true
 
       cy.api({
         method: 'GET',
-        url: `${BASE_URL}/Sistema/v2_sistema_parametro_sistema`,
+        url: `${BASE_URL}/${PATH_API}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

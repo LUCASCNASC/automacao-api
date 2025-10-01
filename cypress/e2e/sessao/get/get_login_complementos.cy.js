@@ -5,6 +5,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Sessão/v2_sessao_login_complementos';
 const Authorization = Cypress.env('API.PRAGMA')
 const ambiente = ""; //string - OBRIGATÓRIO
 
@@ -14,7 +15,7 @@ describe('Sessão - GET - /v3/login_complementos', { env: { hideCredendials: tru
 
       cy.api({
         method: 'GET',
-        url: `${BASE_URL}/Sessão/v2_sessao_login_complementos/${ambiente}`,
+        url: `${BASE_URL}/${PATH_API}/${ambiente}`,
         headers: { Authorization },
         failOnStatusCode: false
       })

@@ -4,6 +4,7 @@
 //412 - Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL')
+const PATH_API = '/Projeto%20Real%20Time/v3_get_filial_lista';
 const Authorization = Cypress.env('API.PRAGMA')
 
 describe('Projeto Real Time - GET - /v3/filial_lista/', { env: { hideCredendials: true } }, () => {
@@ -12,7 +13,7 @@ describe('Projeto Real Time - GET - /v3/filial_lista/', { env: { hideCredendials
       
       cy.api({
         method: 'GET', 
-        url: `${BASE_URL}/Projeto%20Real%20Time/v3_get_filial_lista`, 
+        url: `${BASE_URL}/${PATH_API}`, 
         headers: { Authorization },
         failOnStatusCode: false
       })
