@@ -1,26 +1,53 @@
-// /api/session - Sessões
-// Sessões ativas.
-// 200 - OK
+/**
+ * Testes para o endpoint /api/session (Sessões Ativas)
+ * 
+ * Objetivo: Validar o retorno de sessões ativas, propriedades obrigatórias e cenários de autenticação.
+ * 
+ * Autor: [Seu Nome ou Time]
+ * Data: [Data de Criação ou Modificação]
+ * 
+ * Requisitos:
+ * - Cypress
+ * - Cypress-plugin-api (para cy.api)
+ * - Variáveis de ambiente: BASE_URL, API.PRAGMA
+ */
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/session';
-const Authorization = Cypress.env('API.PRAGMA');
+const AUTHORIZATION = Cypress.env('API.PRAGMA');
 
-describe('Filial - GET - /api/session', { env: { hideCredendials: true } }, () => {
-  it('Deve retornar 200 e as propriedades esperadas', () => {
+describe('API - Sessões Ativas - GET /api/session', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200, array de sessões não vazio e propriedades obrigatórias', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}'`,
-      headers: { Authorization },
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization: AUTHORIZATION },
       failOnStatusCode: false
     }).should((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.duration).to.be.lessThan(2000);
-      expect(response.body.retorno).to.be.an('array').and.not.be.empty;
-      const sessao = response.body.retorno[0];
-      expect(sessao).to.have.property('sessao');
-      expect(sessao).to.have.property('tempo');
-      expect(sessao).to.have.property('expiraEm');
+      expect(response.status, 'Status deve ser 200').to.eq(200);
+      expect(response.duration, 'Tempo de resposta deve ser inferior a 2000ms').to.be.lessThan(2000);
+
+      expect(response.body, 'Body deve conter a propriedade retorno').to.have.property('retorno');
+      expect(response.body.retorno, 'Retorno deve ser array não vazio').to.be.an('array').and.not.be.empty;
+
+      // Validação detalhada de cada sessão retornada
+      response.body.retorno.forEach(sessao => {
+        expect(sessao).to.include.all.keys('sessao', 'tempo', 'expiraEm');
+        expect(sessao.sessao).to.be.a('string');
+        expect(sessao.tempo).to.be.a('number');
+        expect(sessao.expiraEm).to.satisfy(val => typeof val === 'string' || typeof val === 'number');
+      });
+    });
+  });
+
+  it('Deve retornar erro de autorização com token inválido', () => {
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization: 'Bearer token_invalido' },
+      failOnStatusCode: false
+    }).should((response) => {
+      expect([401, 403]).to.include(response.status);
     });
   });
 });

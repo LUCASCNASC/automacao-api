@@ -1,25 +1,49 @@
-// /api/version - Versão
-// Versão do sistema e banco.
-// 200 - OK
+/**
+ * Testes para o endpoint /api/version (Versão do Sistema e Banco)
+ * 
+ * Objetivo: Validar o retorno das versões e cenários de autenticação.
+ * 
+ * Autor: [Seu Nome ou Time]
+ * Data: [Data de Criação ou Modificação]
+ * 
+ * Requisitos:
+ * - Cypress
+ * - Cypress-plugin-api (para cy.api)
+ * - Variáveis de ambiente: BASE_URL, API.PRAGMA
+ */
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/version';
-const Authorization = Cypress.env('API.PRAGMA');
+const AUTHORIZATION = Cypress.env('API.PRAGMA');
 
-describe('Filial - GET - /api/version', { env: { hideCredendials: true } }, () => {
-  it('Deve retornar 200 e as propriedades de versão', () => {
+describe('API - Versão do Sistema - GET /api/version', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200 e propriedades de versão obrigatórias', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}`,
-      headers: { Authorization },
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization: AUTHORIZATION },
       failOnStatusCode: false
     }).should((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.duration).to.be.lessThan(2000);
-      expect(response.body.retorno).to.be.an('array').and.not.be.empty;
+      expect(response.status, 'Status deve ser 200').to.eq(200);
+      expect(response.duration, 'Tempo de resposta deve ser inferior a 2000ms').to.be.lessThan(2000);
+
+      expect(response.body, 'Body deve conter a propriedade retorno').to.have.property('retorno');
+      expect(response.body.retorno, 'Retorno deve ser array não vazio').to.be.an('array').and.not.be.empty;
+
       const versao = response.body.retorno[0];
-      expect(versao).to.have.property('versaoREST');
-      expect(versao).to.have.property('versaoBanco');
+      expect(versao).to.include.all.keys('versaoREST', 'versaoBanco');
+      expect(versao.versaoREST).to.be.a('string');
+      expect(versao.versaoBanco).to.be.a('string');
+    });
+  });
+
+  it('Deve retornar erro de autorização se header estiver ausente', () => {
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}`,
+      failOnStatusCode: false
+    }).should((response) => {
+      expect([401, 403]).to.include(response.status);
     });
   });
 });

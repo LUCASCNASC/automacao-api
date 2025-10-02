@@ -1,23 +1,45 @@
-// /api/swagger - Swagger
-// JSON com informações para criar pagina swagger
-// 200 - OK
+/**
+ * Testes para o endpoint /api/swagger (Swagger JSON)
+ * 
+ * Objetivo: Validar o retorno do JSON de especificação Swagger e cenários de autenticação.
+ * 
+ * Autor: [Seu Nome ou Time]
+ * Data: [Data de Criação ou Modificação]
+ * 
+ * Requisitos:
+ * - Cypress
+ * - Cypress-plugin-api (para cy.api)
+ * - Variáveis de ambiente: BASE_URL, API.PRAGMA
+ */
 
 const BASE_URL = Cypress.env('BASE_URL');
-const PATH_API = '/api//API/api_swagger';
-const Authorization = Cypress.env('API.PRAGMA');
-const versao = ""; // integer
+const PATH_API = '/api/API/api_swagger';
+const AUTHORIZATION = Cypress.env('API.PRAGMA');
+const VERSAO = ""; // Ajuste conforme necessário
 
-describe('Filial - GET - /api/swagger', { env: { hideCredendials: true } }, () => {
-  it('Deve retornar 200 e responder rapidamente', () => {
+describe('API - Swagger JSON - GET /api/swagger', { env: { hideCredendials: true } }, () => {
+  it('Deve retornar 200 e JSON válido do Swagger', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${versao}`,
-      headers: { Authorization },
+      url: `${BASE_URL}${PATH_API}/${VERSAO}`,
+      headers: { Authorization: AUTHORIZATION },
       failOnStatusCode: false
     }).should((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.duration).to.be.lessThan(2000);
-      // Aqui você pode adicionar mais expects, caso queira validar a estrutura do body
+      expect(response.status, 'Status deve ser 200').to.eq(200);
+      expect(response.duration, 'Tempo de resposta deve ser inferior a 2000ms').to.be.lessThan(2000);
+      expect(response.body, 'Body deve ser um objeto').to.be.an('object');
+      // Validação básica dos campos principais do Swagger (ajuste conforme seu schema)
+      expect(response.body).to.have.all.keys('swagger', 'info', 'paths');
+    });
+  });
+
+  it('Deve retornar erro de autorização se header estiver ausente', () => {
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${VERSAO}`,
+      failOnStatusCode: false
+    }).should((response) => {
+      expect([401, 403]).to.include(response.status);
     });
   });
 });
