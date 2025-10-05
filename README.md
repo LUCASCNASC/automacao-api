@@ -54,3 +54,4 @@ O repositório está configurado para manter informações sensíveis, como URLs
 > Projeto mantido por [LUCASCNASC](https://github.com/LUCASCNASC)
 
 Apenas as pastas api, assistencia e seus respectivos arquivos foram documentados.
+- Melhorar a performance dos testes de APIs, deixando os os mais leves.
