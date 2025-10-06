@@ -1,17 +1,18 @@
-// /v3/agencia - Alteração de agência
+// Testes para o endpoint: /v3/agencia - Alteração de agência
 // Alterar agência pelo código do banco e código da agência
-// 201 - Criado
-// 500 - Internal Server Error
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 500: Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_agencia2';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - PUT - /v3/agencia', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - PUT /v3/agencia', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 201 e as propriedades da agência alterada', () => {
     cy.api({
       method: 'PUT',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -27,6 +28,20 @@ describe('Financeiro - PUT - /v3/agencia', { env: { hideCredendials: true } }, (
       const ret = response.body.retorno[0];
       expect(ret).to.have.property('codigoBanco');
       expect(ret).to.have.property('codigoAgencia');
+    });
+  });
+
+  it('Deve retornar 500 ao tentar alterar agência com payload inválido', () => {
+    cy.api({
+      method: 'PUT',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(500);
     });
   });
 });

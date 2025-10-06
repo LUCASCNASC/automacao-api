@@ -1,21 +1,21 @@
-// /v3/pedido_compra_incluir - Incluir Pedido Compra
+// Testes para o endpoint: /v3/pedido_compra_incluir - Incluir Pedido de Compra
 // Inclui pedido de compra simplificado, somente frete CIF
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Compras/v3_post_pedido_compra_incluir';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Compras - POST - /v3/pedido_compra_incluir', { env: { hideCredendials: true } }, () => {
-  it('Deve retornar 200 e as propriedades do retorno', () => {
+describe('API - Compras - POST /v3/pedido_compra_incluir', { env: { hideCredentials: true } }, () => {
+  it('Deve retornar 200 e as propriedades do retorno ao incluir pedido válido', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário
         CNPJ_FilialPedido: "12345678000123",
         CNPJ_CPFFornecedor: "98765432000198"
       }
@@ -30,6 +30,22 @@ describe('Compras - POST - /v3/pedido_compra_incluir', { env: { hideCredendials:
       expect(ret).to.have.property('Registro_Nota');
       expect(ret).to.have.property('Registro_Nota_Armazem');
       expect(ret).to.have.property('Numero_Titulo');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar incluir pedido com dados inválidos', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        CNPJ_FilialPedido: "",
+        CNPJ_CPFFornecedor: ""
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

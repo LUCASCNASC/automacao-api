@@ -1,20 +1,21 @@
-// /v3/rota - Rotas
-// Listar rotas
-// 204 - Sem dados de retorno
-// 200 - OK
+// Testes para o endpoint: /v3/rota - Listar rotas
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v3_diversos_rota';
 const Authorization = Cypress.env('API.PRAGMA');
-const idgruporota = ""; // integer
-const idrota = ""; // integer
-const idrotacidade = ""; // integer
 
-describe('Diversos - GET - /v3/rota', { env: { hideCredendials: true } }, () => {
+describe('API - Diversos - GET /v3/rota', { env: { hideCredentials: true } }, () => {
+  const idgruporota = ""; // Preencha conforme necessário
+  const idrota = "";
+  const idrotacidade = "";
+
   it('Deve retornar 200 e as propriedades de rota', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${idgruporota}/${idrota}/${idrotacidade}`,
+      url: `${BASE_URL}${PATH_API}/${idgruporota}/${idrota}/${idrotacidade}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -31,6 +32,22 @@ describe('Diversos - GET - /v3/rota', { env: { hideCredendials: true } }, () => 
       expect(ret.local_entrega[0].cidade[0]).to.have.property('cidade_nome');
       expect(ret.local_entrega[0].estado[0]).to.have.property('uf_codigo');
       expect(ret.local_entrega[0].estado[0]).to.have.property('uf_nome');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver rotas para os parâmetros informados', () => {
+    const idgruporotaSemRota = "9999";
+    const idrotaSemRota = "9999";
+    const idrotacidadeSemRota = "9999";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idgruporotaSemRota}/${idrotaSemRota}/${idrotacidadeSemRota}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
     });
   });
 });

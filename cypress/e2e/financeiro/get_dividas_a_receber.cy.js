@@ -1,23 +1,25 @@
-// /v3/dividas_a_receber/{idFilial}/{cpf_cnpj} - Lista títulos (a receber)
+// Testes para o endpoint: /v3/dividas_a_receber/{idFilial}/{cpf_cnpj} - Lista títulos (a receber)
 // Listar títulos a receber de cliente
-// 200 - OK
-// 204 - Sem dados de retorno
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_dividas_a_receber';
 const Authorization = Cypress.env('API.PRAGMA');
-const idFilial = ""; // number - OBRIGATÓRIO
-const cpf_cnpj = ""; // string - OBRIGATÓRIO
-const separarvinculados = ""; // boolean
-const limit = ""; // number
-const offset = ""; // number
 
-describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - GET /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', { env: { hideCredentials: true } }, () => {
+  const idFilialValido = ""; // Preencha com valor válido
+  const cpf_cnpjValido = ""; // Preencha com valor válido
+  const separarvinculados = ""; // boolean ou string, conforme necessário
+  const limit = ""; // number/string
+  const offset = ""; // number/string
+
   it('Deve retornar 200 e as propriedades dos títulos a receber', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${idFilial}/${cpf_cnpj}/${separarvinculados}/${limit}/${offset}`,
+      url: `${BASE_URL}${PATH_API}/${idFilialValido}/${cpf_cnpjValido}/${separarvinculados}/${limit}/${offset}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -65,6 +67,34 @@ describe('Financeiro - GET - /v3/dividas_a_receber/{idFilial}/{cpf_cnpj}', { env
       expect(ret.vinculados[0].pedidos[0]).to.have.property('idFilial');
       expect(ret.vinculados[0].pedidos[0]).to.have.property('idPedidoVenda');
       expect(ret).to.have.property('quantidadeTotalRegistro');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver títulos a receber', () => {
+    const idFilialSemTitulos = "99999";
+    const cpf_cnpjSemTitulos = "00000000000000";
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idFilialSemTitulos}/${cpf_cnpjSemTitulos}/${separarvinculados}/${limit}/${offset}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
+    });
+  });
+
+  it('Deve retornar 412 para parâmetros inválidos', () => {
+    const idFilialInvalido = "abc";
+    const cpf_cnpjInvalido = "xyz";
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idFilialInvalido}/${cpf_cnpjInvalido}/${separarvinculados}/${limit}/${offset}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

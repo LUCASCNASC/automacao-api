@@ -1,17 +1,18 @@
-// /v3/incluir_voucher_pagamento - Inclusão de título a pagar cliente por meio de voucher
+// Testes para o endpoint: /v3/incluir_voucher_pagamento - Inclusão de título a pagar cliente por meio de voucher
 // Validar dados do voucher e incluir título a pagar para o cliente vinculado ao voucher.
-// 412 - Falha - Não atende aos pré-requisitos
-// 201 - Criado
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_incluir_voucher_pagamento';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/incluir_voucher_pagamento', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/incluir_voucher_pagamento', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 201 e as propriedades do voucher de pagamento', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -27,6 +28,21 @@ describe('Financeiro - POST - /v3/incluir_voucher_pagamento', { env: { hideCrede
       expect(ret).to.have.property('chave');
       expect(ret).to.have.property('cnpjcpf');
       expect(ret).to.have.property('valor');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar incluir voucher de pagamento com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

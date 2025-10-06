@@ -1,17 +1,18 @@
-// /v3/contabancaria - Alteração de conta bancária
+// Testes para o endpoint: /v3/contabancaria - Alteração de conta bancária
 // Alterar conta bancária pelo código do banco, código da agência e código da conta
-// 201 - Criado
-// 500 - Internal Server Error
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 500: Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_conta_bancaria2';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - PUT - /v3/contabancaria', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - PUT /v3/contabancaria', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 201 ao alterar conta bancária', () => {
     cy.api({
       method: 'PUT',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -25,6 +26,20 @@ describe('Financeiro - PUT - /v3/contabancaria', { env: { hideCredendials: true 
       expect(response.status).to.eq(201);
       expect(response.duration).to.be.lessThan(2000);
       // Adicione asserts específicos, se necessário
+    });
+  });
+
+  it('Deve retornar 500 ao tentar alterar conta bancária com payload inválido', () => {
+    cy.api({
+      method: 'PUT',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(500);
     });
   });
 });

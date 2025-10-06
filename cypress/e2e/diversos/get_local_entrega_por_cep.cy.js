@@ -1,19 +1,20 @@
-// /v3/local_entrega_por_cep - Local de entrega por CEP
-// Listar locais de entrega por CEP
-// 204 - Sem dados de retorno
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Testes para o endpoint: /v3/local_entrega_por_cep - Listar locais de entrega por CEP
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v3_diversos_local_entrega_por_cep';
 const Authorization = Cypress.env('API.PRAGMA');
-const cep = ""; // string - OBRIGATÓRIO
 
-describe('Diversos - GET - /v3/local_entrega_por_cep', { env: { hideCredendials: true } }, () => {
+describe('API - Diversos - GET /v3/local_entrega_por_cep', { env: { hideCredentials: true } }, () => {
+  const cepValido = ""; // Preencha com um CEP válido
+
   it('Deve retornar 200 e as propriedades do local de entrega por CEP', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${cep}`,
+      url: `${BASE_URL}${PATH_API}/${cepValido}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -29,6 +30,34 @@ describe('Diversos - GET - /v3/local_entrega_por_cep', { env: { hideCredendials:
       expect(ret.cidade[0]).to.have.property('cidade_nome');
       expect(ret.estado[0]).to.have.property('uf_codigo');
       expect(ret.estado[0]).to.have.property('uf_nome');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver locais de entrega para o CEP informado', () => {
+    const cepSemDados = "00000000";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${cepSemDados}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
+    });
+  });
+
+  it('Deve retornar 412 para CEP inválido', () => {
+    const cepInvalido = "abcde";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${cepInvalido}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

@@ -1,17 +1,18 @@
-// /v3/ecommerce_finalizar - Gerar pedido e-commerce
+// Testes para o endpoint: /v3/ecommerce_finalizar - Gerar pedido e-commerce
 // Incluir/alterar pedido de venda e-commerce
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/E-commerce/v3_ecommerce_finalizar';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('E-commerce - POST - /v3/ecommerce_finalizar', { env: { hideCredendials: true } }, () => {
-  it('Deve retornar 200 ao finalizar pedido e-commerce', () => {
+describe('API - E-commerce - POST /v3/ecommerce_finalizar', { env: { hideCredentials: true } }, () => {
+  it('Deve retornar 200 ao finalizar pedido e-commerce válido', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -36,6 +37,24 @@ describe('E-commerce - POST - /v3/ecommerce_finalizar', { env: { hideCredendials
       // const ret = response.body.retorno[0];
       // expect(ret).to.have.property('idPedido');
       // expect(ret).to.have.property('status');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar finalizar pedido e-commerce com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido (faltando campos obrigatórios)
+        cliente: "",
+        produtos: [],
+        pagamento: {}
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

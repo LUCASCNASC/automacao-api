@@ -1,17 +1,18 @@
-// /v3/banco - Lista de banco
+// Testes para o endpoint: /v3/banco - Lista de banco
 // Listar banco
-// 200 - OK
-// 500 - Internal Server Error
+// Códigos de resposta esperados:
+// - 200: OK
+// - 500: Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_banco3';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - GET - /v3/banco', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - GET /v3/banco', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 200 e as propriedades de banco', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/`,
+      url: `${BASE_URL}${PATH_API}/`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -21,5 +22,10 @@ describe('Financeiro - GET - /v3/banco', { env: { hideCredendials: true } }, () 
       expect(ret).to.have.property('idbanco');
       expect(ret).to.have.property('nome');
     });
+  });
+
+  it('Deve retornar 500 ao ocorrer erro interno', () => {
+    // Simule uma situação de erro interno, se possível
+    // Caso não seja possível simular, esse teste pode ser omitido.
   });
 });

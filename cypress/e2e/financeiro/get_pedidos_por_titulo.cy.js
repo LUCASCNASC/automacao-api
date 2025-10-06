@@ -1,21 +1,23 @@
-// /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo} - Lista pedidos por título
+// Testes para o endpoint: /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}
 // Retornar lista de pedidos que originaram o título
-// 200 - OK
-// 204 - Sem dados de retorno
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_pedidos_por_titulo';
 const Authorization = Cypress.env('API.PRAGMA');
-const idFilial = ""; // number - OBRIGATÓRIO
-const idTitulo = ""; // number - OBRIGATÓRIO
-const idTipoTitulo = ""; // number - OBRIGATÓRIO
 
-describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - GET /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}', { env: { hideCredentials: true } }, () => {
+  const idFilial = ""; // number - OBRIGATÓRIO
+  const idTitulo = ""; // number - OBRIGATÓRIO
+  const idTipoTitulo = ""; // number - OBRIGATÓRIO
+
   it('Deve retornar 200 e as propriedades de pedidos por título', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${idFilial}/${idTitulo}/${idTipoTitulo}`,
+      url: `${BASE_URL}${PATH_API}/${idFilial}/${idTitulo}/${idTipoTitulo}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -24,6 +26,36 @@ describe('Financeiro - GET - /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTip
       const ret = response.body.retorno[0];
       expect(ret).to.have.property('idFilial');
       expect(ret).to.have.property('idPedidoVenda');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver pedidos para o título informado', () => {
+    const idFilialSemPedidos = "99999";
+    const idTituloSemPedidos = "99999";
+    const idTipoTituloSemPedidos = "99999";
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idFilialSemPedidos}/${idTituloSemPedidos}/${idTipoTituloSemPedidos}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
+    });
+  });
+
+  it('Deve retornar 412 para parâmetros inválidos', () => {
+    const idFilialInvalido = "abc";
+    const idTituloInvalido = "xyz";
+    const idTipoTituloInvalido = "qwe";
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idFilialInvalido}/${idTituloInvalido}/${idTipoTituloInvalido}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

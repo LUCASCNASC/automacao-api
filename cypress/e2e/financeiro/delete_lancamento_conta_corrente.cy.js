@@ -1,24 +1,39 @@
-// /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente} - Estorno de lançamento conta corrente
+// Testes para o endpoint: /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente} - Estorno de lançamento conta corrente
 // Estornar lançamento de conta corrente no financeiro.
-// 201 - Criado
-// 500 - Internal Server Error
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 500: Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_lancamento_conta_corrente_delete';
 const Authorization = Cypress.env('API.PRAGMA');
-const idFilial = ""; // integer - OBRIGATÓRIO
-const idLancamentoContaCorrente = ""; // integer - OBRIGATÓRIO
 
-describe('Financeiro - DELETE - /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente}', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - DELETE /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente}', { env: { hideCredentials: true } }, () => {
+  const idFilialValido = ""; // Informe um idFilial válido
+  const idLancamentoContaCorrenteValido = ""; // Informe um idLancamentoContaCorrente válido
+
   it('Deve retornar 201 ao estornar lançamento de conta corrente', () => {
     cy.api({
       method: 'DELETE',
-      url: `${BASE_URL}/${PATH_API}/${idFilial}/${idLancamentoContaCorrente}`,
+      url: `${BASE_URL}${PATH_API}/${idFilialValido}/${idLancamentoContaCorrenteValido}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
       expect(response.status).to.eq(201);
       expect(response.duration).to.be.lessThan(2000);
+    });
+  });
+
+  it('Deve retornar 500 ao tentar estornar lançamento inexistente ou inválido', () => {
+    const idFilialInvalido = "99999";
+    const idLancamentoContaCorrenteInvalido = "99999";
+    cy.api({
+      method: 'DELETE',
+      url: `${BASE_URL}${PATH_API}/${idFilialInvalido}/${idLancamentoContaCorrenteInvalido}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(500);
     });
   });
 });

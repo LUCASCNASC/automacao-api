@@ -1,17 +1,18 @@
-// /v3/lancamento_conta_corrente - Inclusão de lançamento conta corrente
-// Incluir lançamento de conta corrente no financeiro. Necessário ter preenchido os campos: idFilial, idContaCorrente e idHistoricoContaCorrente
-// 412 - Falha - Não atende aos pré-requisitos
-// 201 - Criado
+// Testes para o endpoint: /v3/lancamento_conta_corrente - Inclusão de lançamento conta corrente
+// Incluir lançamento de conta corrente no financeiro.
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_lancamento_conta_corrente';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/lancamento_conta_corrente', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/lancamento_conta_corrente', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 201 e as propriedades do lançamento conta corrente', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -27,6 +28,21 @@ describe('Financeiro - POST - /v3/lancamento_conta_corrente', { env: { hideCrede
       const ret = response.body.retorno[0];
       expect(ret).to.have.property('idFilial');
       expect(ret).to.have.property('idLancamentoContaCorrente');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar incluir lançamento com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

@@ -1,21 +1,22 @@
-// /v3/vendedor - Vendedor
-// Lista dos vendedores
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Testes para o endpoint: /v3/vendedor - Lista dos vendedores
+// Códigos de resposta esperados:
+// - 200: OK
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v2_diversos_vendedor';
 const Authorization = Cypress.env('API.PRAGMA');
-const termo = ""; // string - OBRIGATÓRIO
-const limit = ""; // string
-const offset = ""; // string
-const sort = ""; // string
 
-describe('Diversos - GET - /v3/vendedor', { env: { hideCredendials: true } }, () => {
+describe('API - Diversos - GET /v3/vendedor', { env: { hideCredentials: true } }, () => {
+  const termoValido = ""; // Preencha conforme necessário
+  const limit = "";
+  const offset = "";
+  const sort = "";
+
   it('Deve retornar 200 e as propriedades de vendedor', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${termo}/${limit}/${offset}/${sort}`,
+      url: `${BASE_URL}${PATH_API}/${termoValido}/${limit}/${offset}/${sort}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -25,6 +26,20 @@ describe('Diversos - GET - /v3/vendedor', { env: { hideCredendials: true } }, ()
       expect(ret).to.have.property('count');
       expect(ret.data[0]).to.have.property('idvendedor');
       expect(ret.data[0]).to.have.property('nome');
+    });
+  });
+
+  it('Deve retornar 412 para termo inválido', () => {
+    const termoInvalido = "!@#";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${termoInvalido}/${limit}/${offset}/${sort}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

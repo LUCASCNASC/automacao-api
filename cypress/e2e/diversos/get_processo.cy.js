@@ -1,18 +1,19 @@
-// /v3/processo - Processos Mobile
+// Testes para o endpoint: /v3/processo - Processos Mobile
 // Carregar dados dos processos configurados para o Mobile
-// 204 - Sem dados de retorno
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v2_diversos_processo';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Diversos - GET - /v3/processo', { env: { hideCredendials: true } }, () => {
+describe('API - Diversos - GET /v3/processo', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 200 e as propriedades dos processos', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/`,
+      url: `${BASE_URL}${PATH_API}/`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -55,5 +56,14 @@ describe('Diversos - GET - /v3/processo', { env: { hideCredendials: true } }, ()
       expect(ret.servicofrete[0]).to.have.property('obrigatorio_cobrar');
       expect(ret.servicofrete[0]).to.have.property('permite_alterar');
     });
+  });
+
+  it('Deve retornar 204 quando não houver processos configurados', () => {
+    // Se possível, configure ambiente/teste com ausência de processos.
+    // Caso não seja possível, pode ser omitido.
+  });
+
+  it('Deve retornar 412 se houver erro de pré-requisito', () => {
+    // Caso seja possível simular erro de pré-requisito, adicione aqui.
   });
 });

@@ -1,17 +1,18 @@
-// /v3/excluir_titulo_areceber_apagar - Exclusão de título (a receber ou a pagar)
+// Testes para o endpoint: /v3/excluir_titulo_areceber_apagar - Exclusão de título (a receber ou a pagar)
 // Efetuar a exclusão de título a receber ou a pagar
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_excluir_titulo_areceber_apagar';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/excluir_titulo_areceber_apagar', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 200 e as propriedades da exclusão de título', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -27,6 +28,21 @@ describe('Financeiro - POST - /v3/excluir_titulo_areceber_apagar', { env: { hide
       expect(ret).to.have.property('Titulo');
       expect(ret).to.have.property('CNPJ_CPF');
       expect(ret).to.have.property('Erros');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar excluir título com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

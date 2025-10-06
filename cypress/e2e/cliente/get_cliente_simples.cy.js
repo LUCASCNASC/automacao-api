@@ -1,18 +1,20 @@
-// /v3/cliente_simples/{cliente} - Dados do cliente
-// Dados do cliente simplificado
-// 204 - Sem dados de retorno
-// 200 - OK
+// Testes para o endpoint: /v3/cliente_simples/{cliente} - Dados do cliente simplificado
+// Retorna dados simplificados do cliente.
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_simples_get';
 const Authorization = Cypress.env('API.PRAGMA');
-const cliente = ""; // string - OBRIGATÓRIO
 
-describe('Cliente - GET - /v3/cliente_simples/{cliente}', { env: { hideCredendials: true } }, () => {
+describe('API - Cliente - GET /v3/cliente_simples/{cliente}', { env: { hideCredentials: true } }, () => {
+  const clienteValido = ""; // Preencha com um valor válido
+
   it('Deve retornar 200 e propriedades do cliente simplificado', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${cliente}`,
+      url: `${BASE_URL}${PATH_API}/${clienteValido}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -58,6 +60,20 @@ describe('Cliente - GET - /v3/cliente_simples/{cliente}', { env: { hideCredendia
       expect(ret.cartaofidelidade[0]).to.have.property('numerocarcao');
       expect(ret.cartaofidelidade[0]).to.have.property('datavalidade');
       expect(ret.cartaofidelidade[0]).to.have.property('tipocartao');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver dados para o cliente simplificado', () => {
+    const clienteSemDados = "00000000000000";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${clienteSemDados}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
     });
   });
 });

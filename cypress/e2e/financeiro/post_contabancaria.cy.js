@@ -1,17 +1,18 @@
-// /v3/contabancaria - Inclusão de conta bancária
+// Testes para o endpoint: /v3/contabancaria - Inclusão de conta bancária
 // Incluir conta bancária
-// 201 - Criado
-// 500 - Internal Server Error
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 500: Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_conta_bancaria1';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/contabancaria', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/contabancaria', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 201 ao incluir conta bancária', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -24,6 +25,20 @@ describe('Financeiro - POST - /v3/contabancaria', { env: { hideCredendials: true
     }).then((response) => {
       expect(response.status).to.eq(201);
       expect(response.duration).to.be.lessThan(2000);
+    });
+  });
+
+  it('Deve retornar 500 ao tentar incluir conta bancária com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(500);
     });
   });
 });

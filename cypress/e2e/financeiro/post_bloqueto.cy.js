@@ -1,17 +1,18 @@
-// /v3/bloqueto - Inclusão de meio de cobrança
+// Testes para o endpoint: /v3/bloqueto - Inclusão de meio de cobrança
 // Incluir meio de cobrança
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_bloqueto';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/bloqueto', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 200 ao incluir meio de cobrança', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -29,6 +30,21 @@ describe('Financeiro - POST - /v3/bloqueto', { env: { hideCredendials: true } },
       expect(ret).to.have.property('quitado');
       expect(ret).to.have.property('processoNaoGera');
       expect(ret).to.have.property('clienteNaoGera');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar incluir meio de cobrança com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

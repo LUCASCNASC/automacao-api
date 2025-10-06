@@ -1,19 +1,21 @@
-// /v3/filial_detalhe/{filial} - Dados da Filial
+// Testes para o endpoint: /v3/filial_detalhe/{filial} - Dados da Filial
 // Retorna dados cadastrais da filial.
-// 204 - Sem dados de retorno
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Filial/v2_filial_detalhe';
 const Authorization = Cypress.env('API.PRAGMA');
-const filial = 10050; // integer - OBRIGATÓRIO
 
-describe('Filial - GET - /v3/filial_detalhe/{filial}', { env: { hideCredendials: true } }, () => {
+describe('API - Filial - GET /v3/filial_detalhe/{filial}', { env: { hideCredentials: true } }, () => {
+  const filialValida = 10050; // Informe uma filial válida
+
   it('Deve retornar 200 e todas as propriedades do detalhe da filial', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${filial}`,
+      url: `${BASE_URL}${PATH_API}/${filialValida}`,
       headers: { Authorization }
     }).then((response) => {
       expect(response.status).to.equal(200);
@@ -43,6 +45,34 @@ describe('Filial - GET - /v3/filial_detalhe/{filial}', { env: { hideCredendials:
       expect(ret.inscsubstitutotributario[0]).to.have.property('uf');
       expect(ret.inscsubstitutotributario[0]).to.have.property('inscricao_substitutotributario');
       expect(ret.inscsubstitutotributario[0]).to.have.property('exclusivodifal');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver dados para a filial informada', () => {
+    const filialSemDados = 99999; // Filial que não existe
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${filialSemDados}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.equal(204);
+      expect(response.body).to.be.empty;
+    });
+  });
+
+  it('Deve retornar 412 para filial inválida', () => {
+    const filialInvalida = "abc";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${filialInvalida}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.equal(412);
+      expect(response.body).to.exist;
     });
   });
 });

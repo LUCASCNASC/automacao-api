@@ -1,17 +1,18 @@
-// /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
+// Testes para o endpoint: /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
 // Retorna as formas de pagamento disponíveis para os títulos informados.
-// 412 - Falha - Não atende aos pré-requisitos
-// 201 - Criado
+// Códigos de resposta esperados:
+// - 201: Criado
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_formas_pagamento_titulos';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/formas_pagamento_titulos', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 201 e as propriedades de formas de pagamento por título', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -35,6 +36,21 @@ describe('Financeiro - POST - /v3/formas_pagamento_titulos', { env: { hideCreden
       expect(ret).to.have.property('valorAtual');
       expect(ret).to.have.property('valorOriginal');
       expect(ret).to.have.property('dataVencimento');
+    });
+  });
+
+  it('Deve retornar 412 ao tentar consultar formas de pagamento com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

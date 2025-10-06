@@ -1,19 +1,21 @@
-// /v3/cliente_renovacao/{cliente} - Renovação
-// Renovações de serviços disponiveis para o cliente
-// 204 - Sem dados de retorno
-// 200 - OK
-// 412 - Falha - Não atende aos pré-requisitos
+// Testes para o endpoint: /v3/cliente_renovacao/{cliente} - Renovação
+// Retorna renovações de serviços disponíveis para o cliente.
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_renovacao';
 const Authorization = Cypress.env('API.PRAGMA');
-const cliente = ""; // string - OBRIGATÓRIO
 
-describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', { env: { hideCredendials: true } }, () => {
-  it('Deve retornar 200 e as propriedades de renovação', () => {
+describe('API - Cliente - GET /v3/cliente_renovacao/{cliente}', { env: { hideCredentials: true } }, () => {
+  const clienteValido = ""; // Preencha com um valor válido
+
+  it('Deve retornar 200 e as propriedades de renovação para um cliente válido', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${cliente}`,
+      url: `${BASE_URL}${PATH_API}/${clienteValido}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -32,6 +34,34 @@ describe('Cliente - GET - /v3/cliente_renovacao/{cliente}', { env: { hideCredend
       expect(ret.servico[0]).to.have.property('codigo');
       expect(ret.servico[0]).to.have.property('nome');
       expect(ret.servico[0]).to.have.property('valor');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver renovações para o cliente', () => {
+    const clienteSemRenovacao = "00000000000000";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${clienteSemRenovacao}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
+    });
+  });
+
+  it('Deve retornar 412 para cliente inválido', () => {
+    const clienteInvalido = "cliente_invalido";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${clienteInvalido}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

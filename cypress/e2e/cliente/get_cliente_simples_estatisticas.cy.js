@@ -1,20 +1,21 @@
-// /v3/cliente_simples_estatisticas/{idpessoa} - Dados do cliente
-// Estatísticas do cliente simplificado
-// 204 - Sem dados de retorno
-// 200 - OK
-// 401 - Sem permissão para acessar este recurso
-// 412 - Falha - Não atende aos pré-requisitos
+// Testes para o endpoint: /v3/cliente_simples_estatisticas/{idpessoa} - Estatísticas do cliente simplificado
+// Códigos de resposta esperados:
+// - 200: OK
+// - 204: Sem dados de retorno
+// - 401: Sem permissão para acessar este recurso
+// - 412: Falha - Não atende aos pré-requisitos
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_simples_estatisticas';
 const Authorization = Cypress.env('API.PRAGMA');
-const idpessoa = ""; // string - OBRIGATÓRIO
 
-describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', { env: { hideCredendials: true } }, () => {
+describe('API - Cliente - GET /v3/cliente_simples_estatisticas/{idpessoa}', { env: { hideCredentials: true } }, () => {
+  const idpessoaValido = ""; // Preencha com um valor válido
+
   it('Deve retornar 200 e todas as propriedades de estatísticas do cliente simplificado', () => {
     cy.api({
       method: 'GET',
-      url: `${BASE_URL}/${PATH_API}/${idpessoa}`,
+      url: `${BASE_URL}${PATH_API}/${idpessoaValido}`,
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
@@ -58,6 +59,45 @@ describe('Cliente - GET - /v3/cliente_simples_estatisticas/{idpessoa}', { env: {
       expect(ret).to.have.property('titulos_transf_pendente');
       expect(ret).to.have.property('titulos_pre_pago');
       expect(ret).to.have.property('titulos_abertos');
+    });
+  });
+
+  it('Deve retornar 204 quando não houver estatísticas para o idpessoa informado', () => {
+    const idpessoaSemEstatistica = "000000";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idpessoaSemEstatistica}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(204);
+      expect(response.body).to.be.empty;
+    });
+  });
+
+  it('Deve retornar 401 quando não autorizado', () => {
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/123456`,
+      headers: { Authorization: "Bearer token_invalido" },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(401);
+    });
+  });
+
+  it('Deve retornar 412 para idpessoa inválido', () => {
+    const idpessoaInvalido = "id_invalido";
+
+    cy.api({
+      method: 'GET',
+      url: `${BASE_URL}${PATH_API}/${idpessoaInvalido}`,
+      headers: { Authorization },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(412);
+      expect(response.body).to.exist;
     });
   });
 });

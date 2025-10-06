@@ -1,17 +1,18 @@
-// /v3/estornar_baixa_titulo - Estorno de baixa de título
+// Testes para o endpoint: /v3/estornar_baixa_titulo - Estorno de baixa de título
 // Faz o estorno da última parcial baixada ou de todas as parciais de um título.
-// 200 - OK
-// 500 - Internal Server Error
+// Códigos de resposta esperados:
+// - 200: OK
+// - 500: Internal Server Error
 
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_estornar_baixa_titulo';
 const Authorization = Cypress.env('API.PRAGMA');
 
-describe('Financeiro - POST - /v3/estornar_baixa_titulo', { env: { hideCredendials: true } }, () => {
+describe('API - Financeiro - POST /v3/estornar_baixa_titulo', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 200 ao estornar baixa de título', () => {
     cy.api({
       method: 'POST',
-      url: `${BASE_URL}/${PATH_API}`,
+      url: `${BASE_URL}${PATH_API}`,
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
@@ -22,6 +23,20 @@ describe('Financeiro - POST - /v3/estornar_baixa_titulo', { env: { hideCredendia
     }).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.duration).to.be.lessThan(2000);
+    });
+  });
+
+  it('Deve retornar 500 ao tentar estornar com payload inválido', () => {
+    cy.api({
+      method: 'POST',
+      url: `${BASE_URL}${PATH_API}`,
+      headers: { Authorization },
+      failOnStatusCode: false,
+      body: {
+        // Payload inválido
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(500);
     });
   });
 });
