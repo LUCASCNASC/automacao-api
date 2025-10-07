@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/pedido_compra_baixar - Baixar Pedido de Compra
-// Baixa pedido de compra simplificado, somente frete CIF
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Compras/v3_post_pedido_compra_baixar';
 const Authorization = Cypress.env('API.PRAGMA');

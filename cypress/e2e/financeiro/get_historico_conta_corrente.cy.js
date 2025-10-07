@@ -1,10 +1,3 @@
-// Testes para o endpoint: /v3/historico_conta_corrente/{idTipoContaCorrente} - Lista histórico de conta corrente
-// Listar histórico de conta corrente
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_historicocontacorrente';
 const Authorization = Cypress.env('API.PRAGMA');

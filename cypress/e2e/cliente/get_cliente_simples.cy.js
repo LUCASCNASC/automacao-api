@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/cliente_simples/{cliente} - Dados do cliente simplificado
-// Retorna dados simplificados do cliente.
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_simples_get';
 const Authorization = Cypress.env('API.PRAGMA');

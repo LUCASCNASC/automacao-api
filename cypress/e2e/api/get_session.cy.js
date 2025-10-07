@@ -1,17 +1,3 @@
-/**
- * Testes para o endpoint /api/session (Sessões Ativas)
- * 
- * Objetivo: Validar o retorno de sessões ativas, propriedades obrigatórias e cenários de autenticação.
- * 
- * Autor: [Seu Nome ou Time]
- * Data: [Data de Criação ou Modificação]
- * 
- * Requisitos:
- * - Cypress
- * - Cypress-plugin-api (para cy.api)
- * - Variáveis de ambiente: BASE_URL, API.PRAGMA
- */
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/session';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');

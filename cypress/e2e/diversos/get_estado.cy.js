@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/estado - Lista de estados
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v2_diversos_estado';
 const Authorization = Cypress.env('API.PRAGMA');

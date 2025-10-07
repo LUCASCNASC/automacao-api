@@ -1,22 +1,3 @@
-/**
- * Testes para o endpoint POST /v3/movimento_assistencia_incluir/
- *
- * Objetivo: Validar a inclusão de Movimento de Assistência (Estoque, Patrimônio e Cliente).
- * 
- * Cenários cobertos:
- * - Sucesso (200): Inclusão válida retorna os campos esperados.
- * - Falha (412): Payload inválido retorna erro de pré-requisito.
- * - Falha de autenticação (401/403): Token inválido ou ausente.
- *
- * Requisitos:
- * - Cypress
- * - Cypress-plugin-api (para cy.api)
- * - Variáveis de ambiente: BASE_URL, API.PRAGMA
- *
- * Autor: [Seu Nome ou Time]
- * Data: [Data de Criação ou Modificação]
- */
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Assistencia/v3_post_movimento_assistencia_incluir';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');

@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/local_entrega_por_cep - Listar locais de entrega por CEP
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v3_diversos_local_entrega_por_cep';
 const Authorization = Cypress.env('API.PRAGMA');

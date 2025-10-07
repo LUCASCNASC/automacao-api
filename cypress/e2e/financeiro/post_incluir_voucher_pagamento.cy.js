@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/incluir_voucher_pagamento - Inclusão de título a pagar cliente por meio de voucher
-// Validar dados do voucher e incluir título a pagar para o cliente vinculado ao voucher.
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_incluir_voucher_pagamento';
 const Authorization = Cypress.env('API.PRAGMA');

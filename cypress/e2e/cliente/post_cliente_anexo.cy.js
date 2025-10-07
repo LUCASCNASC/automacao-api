@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/cliente_anexo - Incluir Anexo do cliente
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v3_cliente_anexo_post';
 const Authorization = Cypress.env('API.PRAGMA');

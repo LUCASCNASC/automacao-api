@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/referenciabancaria - Alteração de referência bancária
-// Alterar referência bancária pelo CNPJ/CPF da pessoa e código da referência bancária
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 500: Internal Server Error
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_referencia_bancaria2';
 const Authorization = Cypress.env('API.PRAGMA');

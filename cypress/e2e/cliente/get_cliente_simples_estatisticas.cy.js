@@ -1,10 +1,3 @@
-// Testes para o endpoint: /v3/cliente_simples_estatisticas/{idpessoa} - Estatísticas do cliente simplificado
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 401: Sem permissão para acessar este recurso
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_simples_estatisticas';
 const Authorization = Cypress.env('API.PRAGMA');

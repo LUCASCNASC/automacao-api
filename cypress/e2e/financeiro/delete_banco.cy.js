@@ -1,8 +1,3 @@
-// Testes para o endpoint: /v3/banco/{codigo} - Exclusão de banco
-// Excluir banco pelo código
-// Códigos de resposta esperados:
-// - 200: OK
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_banco_delete';
 const Authorization = Cypress.env('API.PRAGMA');

@@ -1,10 +1,3 @@
-// Testes para o endpoint: /v3/pedidos_por_titulo/{idFilial}/{idTitulo}/{idTipoTitulo}
-// Retornar lista de pedidos que originaram o título
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_pedidos_por_titulo';
 const Authorization = Cypress.env('API.PRAGMA');

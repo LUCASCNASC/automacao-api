@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/lancamento_conta_corrente - Inclusão de lançamento conta corrente
-// Incluir lançamento de conta corrente no financeiro.
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_lancamento_conta_corrente';
 const Authorization = Cypress.env('API.PRAGMA');

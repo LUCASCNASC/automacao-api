@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/estornar_baixa_titulo_areceber - Estorno de baixa de título
-// Efetuar o estorno da baixa do título a receber, gerando um novo título a pagar
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_post_estornar_baixa_titulo_areceber';
 const Authorization = Cypress.env('API.PRAGMA');

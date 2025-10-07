@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/agencia - Alteração de agência
-// Alterar agência pelo código do banco e código da agência
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 500: Internal Server Error
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_agencia2';
 const Authorization = Cypress.env('API.PRAGMA');

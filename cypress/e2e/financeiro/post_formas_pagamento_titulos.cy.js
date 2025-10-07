@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/formas_pagamento_titulos - Lista de formas de pagamento por título
-// Retorna as formas de pagamento disponíveis para os títulos informados.
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_formas_pagamento_titulos';
 const Authorization = Cypress.env('API.PRAGMA');

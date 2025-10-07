@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/operacoes_tef - Retorna operações TEF configuradas
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v3_diversos_operacoes_tef';
 const Authorization = Cypress.env('API.PRAGMA');

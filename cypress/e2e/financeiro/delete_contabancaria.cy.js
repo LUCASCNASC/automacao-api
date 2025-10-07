@@ -1,8 +1,3 @@
-// Testes para o endpoint: /v3/contabancaria/{codigoBanco}/{codigoAgencia}/{codigoConta} - Exclusão de conta bancária
-// Excluir conta bancária pelo código do banco, agência e conta
-// Códigos de resposta esperados:
-// - 200: OK
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_conta_bancaria_delete';
 const Authorization = Cypress.env('API.PRAGMA');

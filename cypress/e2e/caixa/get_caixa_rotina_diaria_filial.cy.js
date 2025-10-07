@@ -1,12 +1,3 @@
-// Testes para o endpoint: /v3/caixa_rotina_diaria_filial/{idFilial}/{dataAbertura}
-// Executa rotinas diárias da filial: exclusão de pedidos e baixa automática de títulos por perda, 
-// de acordo com os parâmetros de dias máximos configurados em cada filial.
-//
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/v3/caixa_rotina_diaria_filial';
 const Authorization = Cypress.env('API.PRAGMA');
@@ -58,13 +49,3 @@ describe('API - Caixa Rotina Diária Filial', { env: { hideCredentials: true } }
     });
   });
 });
-
-/**
- * Como rodar:
- * - Configure as variáveis BASE_URL e API.PRAGMA no seu cypress.env.json
- * - Execute: npx cypress open --e2e ou npx cypress run --spec "caminho/para/este/arquivo"
- * 
- * Observações:
- * - O teste 204 e 412 dependem de dados controlados no ambiente de teste.
- * - Ajuste os parâmetros (idFilial, dataAbertura) conforme o cenário do seu backend.
- */

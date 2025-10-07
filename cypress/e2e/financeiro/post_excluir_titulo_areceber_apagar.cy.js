@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/excluir_titulo_areceber_apagar - Exclusão de título (a receber ou a pagar)
-// Efetuar a exclusão de título a receber ou a pagar
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_excluir_titulo_areceber_apagar';
 const Authorization = Cypress.env('API.PRAGMA');

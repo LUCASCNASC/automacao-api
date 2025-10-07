@@ -1,8 +1,3 @@
-// Testes para o endpoint: /v3/produto_incluir_alterar - Inclui e Altera Produto
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Compras/v3_post_produto_incluir_alterar';
 const Authorization = Cypress.env('API.PRAGMA');

@@ -1,10 +1,3 @@
-// Testes para o endpoint: /v3/dividas_a_receber/{idFilial}/{cpf_cnpj} - Lista títulos (a receber)
-// Listar títulos a receber de cliente
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_dividas_a_receber';
 const Authorization = Cypress.env('API.PRAGMA');

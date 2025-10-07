@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/referenciabancaria - Inclusão de referência bancária
-// Incluir referência bancária
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 500: Internal Server Error
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_referencia_bancaria1';
 const Authorization = Cypress.env('API.PRAGMA');

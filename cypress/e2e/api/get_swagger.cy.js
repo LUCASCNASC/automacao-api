@@ -1,17 +1,3 @@
-/**
- * Testes para o endpoint /api/swagger (Swagger JSON)
- * 
- * Objetivo: Validar o retorno do JSON de especificação Swagger e cenários de autenticação.
- * 
- * Autor: [Seu Nome ou Time]
- * Data: [Data de Criação ou Modificação]
- * 
- * Requisitos:
- * - Cypress
- * - Cypress-plugin-api (para cy.api)
- * - Variáveis de ambiente: BASE_URL, API.PRAGMA
- */
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/API/api_swagger';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');

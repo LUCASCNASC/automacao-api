@@ -1,8 +1,3 @@
-// Testes para o endpoint: /v3/vendedor - Lista dos vendedores
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v2_diversos_vendedor';
 const Authorization = Cypress.env('API.PRAGMA');

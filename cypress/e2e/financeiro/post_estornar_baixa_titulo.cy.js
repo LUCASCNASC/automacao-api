@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/estornar_baixa_titulo - Estorno de baixa de título
-// Faz o estorno da última parcial baixada ou de todas as parciais de um título.
-// Códigos de resposta esperados:
-// - 200: OK
-// - 500: Internal Server Error
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_estornar_baixa_titulo';
 const Authorization = Cypress.env('API.PRAGMA');

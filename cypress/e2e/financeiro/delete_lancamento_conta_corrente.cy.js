@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/lancamento_conta_corrente/{idFilial}/{idLancamentoContaCorrente} - Estorno de lançamento conta corrente
-// Estornar lançamento de conta corrente no financeiro.
-// Códigos de resposta esperados:
-// - 201: Criado
-// - 500: Internal Server Error
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_lancamento_conta_corrente_delete';
 const Authorization = Cypress.env('API.PRAGMA');

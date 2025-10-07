@@ -1,8 +1,3 @@
-// Testes para o endpoint: /v3/rota - Listar rotas
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v3_diversos_rota';
 const Authorization = Cypress.env('API.PRAGMA');

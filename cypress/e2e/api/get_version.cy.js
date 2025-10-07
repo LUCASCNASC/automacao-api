@@ -1,17 +1,3 @@
-/**
- * Testes para o endpoint /api/version (Versão do Sistema e Banco)
- * 
- * Objetivo: Validar o retorno das versões e cenários de autenticação.
- * 
- * Autor: [Seu Nome ou Time]
- * Data: [Data de Criação ou Modificação]
- * 
- * Requisitos:
- * - Cypress
- * - Cypress-plugin-api (para cy.api)
- * - Variáveis de ambiente: BASE_URL, API.PRAGMA
- */
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/version';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');

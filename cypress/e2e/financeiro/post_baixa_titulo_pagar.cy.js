@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/baixa_titulo_pagar - Baixa de título (a pagar)
-// Baixar títulos a pagar.
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Financeiro/v3_financeiro_baixa_titulo_pagar';
 const Authorization = Cypress.env('API.PRAGMA');

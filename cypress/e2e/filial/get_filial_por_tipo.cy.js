@@ -1,10 +1,3 @@
-// Testes para o endpoint: /v3/filial_por_tipo/{UF}/{Municipio}/{Tipo} - Lista de Filial
-// Retorna uma lista das filiais de acordo com os parâmetros informados
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Filial/v3_get_filial_por_tipo';
 const Authorization = Cypress.env('API.PRAGMA');

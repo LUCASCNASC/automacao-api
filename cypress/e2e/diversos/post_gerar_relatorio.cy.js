@@ -1,8 +1,3 @@
-// Testes para o endpoint: /v3/gerar_relatorio - Gerar relatório em base64
-// Códigos de resposta esperados:
-// - 200: OK
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Diversos/v2_diversos_gerar_relatorio';
 const Authorization = Cypress.env('API.PRAGMA');

@@ -1,11 +1,3 @@
-// Testes para o endpoint: /v3/cliente/{cliente} - Dados do cliente
-// Retorna dados completos do cliente informado.
-//
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-// - 412: Falha - Não atende aos pré-requisitos
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_get_delete_get';
 const Authorization = Cypress.env('API.PRAGMA');

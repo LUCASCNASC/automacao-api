@@ -1,9 +1,3 @@
-// Testes para o endpoint: /v3/cliente_servico_vinculado/{cliente} - Serviço vinculado
-// Retorna serviços vinculados disponíveis para o cliente.
-// Códigos de resposta esperados:
-// - 200: OK
-// - 204: Sem dados de retorno
-
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v3_cliente_servico_vinculado';
 const Authorization = Cypress.env('API.PRAGMA');
