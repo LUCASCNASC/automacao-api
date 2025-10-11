@@ -71,7 +71,7 @@ describe('Assistência - POST /v3/movimento_assistencia_incluir/', { env: { hide
     });
   });
 
-  it('Deve retornar erro de autenticação se header de autorização estiver ausente', () => {
+  it('Deve retornar erro de autenticação se header de autorização estiver ausente - 401 e 403', () => {
     cy.api({
       method: 'POST',
       url,

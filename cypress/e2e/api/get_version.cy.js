@@ -23,7 +23,7 @@ describe('API - Versão do Sistema - GET /api/version', { env: { hideCredendials
     });
   });
 
-  it('Deve retornar erro de autorização se header estiver ausente', () => {
+  it('Deve retornar erro de autorização se header estiver ausente - 401 e 403', () => {
     cy.api({
       method: 'GET',
       url: `${BASE_URL}${PATH_API}`,
