@@ -1,6 +1,7 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/session';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');
+const AUTHORIZATION_INVALID = Cypress.env('API.PRAGMA_INVALID');
 
 describe('API - Sessões Ativas - GET /api/session', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200, array de sessões não vazio e propriedades obrigatórias', () => {
@@ -30,7 +31,7 @@ describe('API - Sessões Ativas - GET /api/session', { env: { hideCredendials: t
     cy.api({
       method: 'GET',
       url: `${BASE_URL}${PATH_API}`,
-      headers: { Authorization: 'Bearer token_invalido' },
+      headers: { Authorization: AUTHORIZATION_INVALID },
       failOnStatusCode: false
     }).should((response) => {
       expect([401, 403]).to.include(response.status);

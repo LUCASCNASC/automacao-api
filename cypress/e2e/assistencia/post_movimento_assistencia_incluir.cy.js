@@ -1,6 +1,7 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Assistencia/v3_post_movimento_assistencia_incluir';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');
+const AUTHORIZATION_INVALID = Cypress.env('API.PRAGMA_INVALID');
 
 describe('Assistência - POST /v3/movimento_assistencia_incluir/', { env: { hideCredendials: true } }, () => {
   const url = `${BASE_URL}/${PATH_API}`;
@@ -58,7 +59,7 @@ describe('Assistência - POST /v3/movimento_assistencia_incluir/', { env: { hide
     cy.api({
       method: 'POST',
       url,
-      headers: { Authorization: 'Bearer token_invalido' },
+      headers: { Authorization: AUTHORIZATION_INVALID },
       failOnStatusCode: false,
       body: {
         Empresa: "empresaExemplo",

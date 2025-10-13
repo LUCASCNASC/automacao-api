@@ -1,6 +1,7 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Cliente/v2_cliente_simples_estatisticas';
 const Authorization = Cypress.env('API.PRAGMA');
+const AUTHORIZATION_INVALID = Cypress.env('API.PRAGMA_INVALID');
 
 describe('API - Cliente - GET /v3/cliente_simples_estatisticas/{idpessoa}', { env: { hideCredentials: true } }, () => {
   const idpessoaValido = ""; // Preencha com um valor válido
@@ -73,7 +74,7 @@ describe('API - Cliente - GET /v3/cliente_simples_estatisticas/{idpessoa}', { en
     cy.api({
       method: 'GET',
       url: `${BASE_URL}${PATH_API}/123456`,
-      headers: { Authorization: "Bearer token_invalido" },
+      headers: { Authorization: AUTHORIZATION_INVALID },
       failOnStatusCode: false
     }).then((response) => {
       expect(response.status).to.eq(401);
