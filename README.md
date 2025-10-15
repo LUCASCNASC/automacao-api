@@ -55,3 +55,4 @@ O repositório está configurado para manter informações sensíveis, como URLs
 
 - Melhorar a performance dos testes de APIs, deixando-os mais leves.
 - Otimizar cenários de teste.
+Propor melhorias em relação a performance.
