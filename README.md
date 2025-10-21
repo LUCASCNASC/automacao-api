@@ -15,14 +15,12 @@ O repositório está configurado para manter informações sensíveis, como URLs
    git clone https://github.com/LUCASCNASC/automacao-api.git
    cd automacao-api
    ```
-
 2. **Crie seu arquivo `.env`**
 
    Copie o arquivo de exemplo e edite com as informações corretas:
    ```sh
    cp .env.example .env
    ```
-
    Edite o `.env` colocando o valor correto para a variável `API_URL`.
 
 3. **Instale as dependências**
@@ -30,13 +28,11 @@ O repositório está configurado para manter informações sensíveis, como URLs
    ```sh
    npm install
    ```
-
 4. **Execute os testes**
 
    ```sh
    npx cypress open
    ```
-
 ## Estrutura
 
 - `cypress.config.js`: Arquivo de configuração do Cypress.
