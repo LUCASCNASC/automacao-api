@@ -1,9 +1,9 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/api/API/api_swagger';
 const AUTHORIZATION = Cypress.env('API.PRAGMA');
-const VERSAO = ""; // Ajuste conforme necessário
+const VERSAO = "12345678901234";
 
-describe('API - Swagger JSON - GET /api/swagger', { env: { hideCredendials: true } }, () => {
+describe('API - Swagger JSON - GET /api/swagger', { env: { hideCredentials: true } }, () => {
   it('Deve retornar 200 e JSON válido do Swagger', () => {
     cy.api({
       method: 'GET',
@@ -14,7 +14,6 @@ describe('API - Swagger JSON - GET /api/swagger', { env: { hideCredendials: true
       expect(response.status, 'Status deve ser 200').to.eq(200);
       expect(response.duration, 'Tempo de resposta deve ser inferior a 2000ms').to.be.lessThan(2000);
       expect(response.body, 'Body deve ser um objeto').to.be.an('object');
-      // Validação básica dos campos principais do Swagger (ajuste conforme seu schema)
       expect(response.body).to.have.all.keys('swagger', 'info', 'paths');
     });
   });

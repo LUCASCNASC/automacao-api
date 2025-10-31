@@ -10,7 +10,6 @@ describe('API - Cliente - POST /v3/cliente', { env: { hideCredentials: true } },
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, adapte conforme o necessário
         nome: "Cliente Teste",
         cnpj_cpf: "12345678901"
       }

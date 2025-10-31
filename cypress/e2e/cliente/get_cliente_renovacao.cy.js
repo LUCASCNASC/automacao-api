@@ -3,7 +3,7 @@ const PATH_API = '/Cliente/v2_cliente_renovacao';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Cliente - GET /v3/cliente_renovacao/{cliente}', { env: { hideCredentials: true } }, () => {
-  const clienteValido = ""; // Preencha com um valor válido
+  const clienteValido = "12345678901234"; 
 
   it('Deve retornar 200 e as propriedades de renovação para um cliente válido', () => {
     cy.api({

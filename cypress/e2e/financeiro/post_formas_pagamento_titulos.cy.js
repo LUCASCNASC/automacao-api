@@ -10,8 +10,7 @@ describe('API - Financeiro - POST /v3/formas_pagamento_titulos', { env: { hideCr
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // titulos: [{idTitulo: 1, idFilial: 1}]
+        titulos: [{idTitulo: 1, idFilial: 1}]
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -40,7 +39,7 @@ describe('API - Financeiro - POST /v3/formas_pagamento_titulos', { env: { hideCr
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        titulos: [{idTitulo: null, idFilial: null}]
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

@@ -10,8 +10,7 @@ describe('API - Financeiro - POST /v3/excluir_titulo_areceber_apagar', { env: { 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idTitulo: 222
+        idTitulo: 222
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
@@ -32,7 +31,7 @@ describe('API - Financeiro - POST /v3/excluir_titulo_areceber_apagar', { env: { 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        idTitulo: null
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

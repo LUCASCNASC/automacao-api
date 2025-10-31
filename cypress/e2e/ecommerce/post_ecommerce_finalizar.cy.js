@@ -10,7 +10,6 @@ describe('API - E-commerce - POST /v3/ecommerce_finalizar', { env: { hideCredent
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário com os campos obrigatórios do seu endpoint
         cliente: "12345678901",
         produtos: [
           {
@@ -27,10 +26,6 @@ describe('API - E-commerce - POST /v3/ecommerce_finalizar', { env: { hideCredent
     }).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.duration).to.be.lessThan(2000);
-      // Exemplo de asserção para campos de retorno (ajuste conforme a resposta real)
-      // const ret = response.body.retorno[0];
-      // expect(ret).to.have.property('idPedido');
-      // expect(ret).to.have.property('status');
     });
   });
 
@@ -41,7 +36,6 @@ describe('API - E-commerce - POST /v3/ecommerce_finalizar', { env: { hideCredent
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido (faltando campos obrigatórios)
         cliente: "",
         produtos: [],
         pagamento: {}

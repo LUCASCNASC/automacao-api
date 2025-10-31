@@ -10,7 +10,7 @@ describe('API - Compras - POST /v3/pedido_compra_baixar', { env: { hideCredentia
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        NumeroPedido: "123456" // ajuste conforme necessário
+        NumeroPedido: "123456"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
@@ -25,7 +25,7 @@ describe('API - Compras - POST /v3/pedido_compra_baixar', { env: { hideCredentia
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        NumeroPedido: "" // inválido
+        NumeroPedido: "534"
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

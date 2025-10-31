@@ -10,11 +10,10 @@ describe('API - Financeiro - POST /v3/contabancaria', { env: { hideCredentials: 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // codigoBanco: 1,
-        // codigoAgencia: 1001,
-        // numeroConta: "123456-7",
-        // titular: "Empresa Teste"
+        codigoBanco: 1,
+        codigoAgencia: 1001,
+        numeroConta: "123456-7",
+        titular: "Empresa Teste"
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -29,7 +28,10 @@ describe('API - Financeiro - POST /v3/contabancaria', { env: { hideCredentials: 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        codigoBanco: null,
+        codigoAgencia: null,
+        numeroConta: null,
+        titular: null
       }
     }).then((response) => {
       expect(response.status).to.eq(500);

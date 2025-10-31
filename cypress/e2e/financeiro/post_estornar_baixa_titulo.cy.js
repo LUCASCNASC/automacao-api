@@ -10,9 +10,8 @@ describe('API - Financeiro - POST /v3/estornar_baixa_titulo', { env: { hideCrede
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idTitulo: 789,
-        // estornarTodasParciais: true
+        idTitulo: 789,
+        estornarTodasParciais: true
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
@@ -27,7 +26,8 @@ describe('API - Financeiro - POST /v3/estornar_baixa_titulo', { env: { hideCrede
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        idTitulo: null,
+        estornarTodasParciais: null
       }
     }).then((response) => {
       expect(response.status).to.eq(500);

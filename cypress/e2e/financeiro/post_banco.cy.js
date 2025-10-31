@@ -10,10 +10,9 @@ describe('API - Financeiro - POST /v3/banco', { env: { hideCredentials: true } }
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // nome: "Banco de Teste",
-        // codigo: "123",
-        // agencia: "0001"
+        nome: "Banco de Teste",
+        codigo: "123",
+        agencia: "0001"
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -29,7 +28,9 @@ describe('API - Financeiro - POST /v3/banco', { env: { hideCredentials: true } }
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        nome: "",
+        codigo: null,
+        agencia: null
       }
     }).then((response) => {
       expect(response.status).to.eq(500);

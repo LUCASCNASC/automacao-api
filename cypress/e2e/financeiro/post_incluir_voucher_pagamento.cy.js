@@ -10,9 +10,8 @@ describe('API - Financeiro - POST /v3/incluir_voucher_pagamento', { env: { hideC
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // chave: "ABC123",
-        // valor: 100.00
+        chave: "ABC123",
+        valor: 100.00
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -32,7 +31,8 @@ describe('API - Financeiro - POST /v3/incluir_voucher_pagamento', { env: { hideC
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        chave: null,
+        valor: null
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

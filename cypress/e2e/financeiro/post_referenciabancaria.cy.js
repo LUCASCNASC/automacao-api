@@ -10,11 +10,10 @@ describe('API - Financeiro - POST /v3/referenciabancaria', { env: { hideCredenti
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idCnpjCpf: "12345678901",
-        // banco: "001",
-        // agencia: "1234",
-        // conta: "56789-0"
+        idCnpjCpf: "12345678901",
+        banco: "001",
+        agencia: "1234",
+        conta: "56789-0"
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -32,7 +31,10 @@ describe('API - Financeiro - POST /v3/referenciabancaria', { env: { hideCredenti
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        idCnpjCpf: null,
+        banco: null,
+        agencia: null,
+        conta: null
       }
     }).then((response) => {
       expect(response.status).to.eq(500);

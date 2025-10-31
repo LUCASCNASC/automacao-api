@@ -10,11 +10,10 @@ describe('API - Financeiro - POST /v3/lancamento_conta_corrente', { env: { hideC
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idFilial: 1,
-        // idContaCorrente: 1,
-        // idHistoricoContaCorrente: 1,
-        // valor: 500.00
+        idFilial: 1,
+        idContaCorrente: 1,
+        idHistoricoContaCorrente: 1,
+        valor: 500.00
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -32,7 +31,10 @@ describe('API - Financeiro - POST /v3/lancamento_conta_corrente', { env: { hideC
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        idFilial: null,
+        idContaCorrente: null,
+        idHistoricoContaCorrente: null,
+        valor: null
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

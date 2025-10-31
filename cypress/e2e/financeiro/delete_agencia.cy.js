@@ -3,8 +3,8 @@ const PATH_API = '/Financeiro/v3_financeiro_agencia_delete';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Financeiro - DELETE /v3/agencia/{codigoBanco}/{codigoAgencia}', { env: { hideCredentials: true } }, () => {
-  const codigoBancoValido = ""; // Informe um código de banco válido
-  const codigoAgenciaValido = ""; // Informe um código de agência válido
+  const codigoBancoValido = "123123123";
+  const codigoAgenciaValido = "123456";
 
   it('Deve retornar 200 ao excluir agência', () => {
     cy.api({
@@ -27,7 +27,6 @@ describe('API - Financeiro - DELETE /v3/agencia/{codigoBanco}/{codigoAgencia}', 
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
-      // Ajuste o status esperado conforme a API (404, 412, etc.)
       expect([404, 412]).to.include(response.status);
     });
   });

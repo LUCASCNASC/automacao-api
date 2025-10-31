@@ -10,7 +10,6 @@ describe('API - Financeiro - POST /v3/agencia', { env: { hideCredentials: true }
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário para o endpoint real
         codigoBanco: 1,
         codigoAgencia: 100,
         nome: "Agência Central",

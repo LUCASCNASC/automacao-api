@@ -4,7 +4,7 @@ const Authorization = Cypress.env('API.PRAGMA');
 const AUTHORIZATION_INVALID = Cypress.env('API.PRAGMA_INVALID');
 
 describe('API - Cliente - GET /v3/cliente_simples_estatisticas/{idpessoa}', { env: { hideCredentials: true } }, () => {
-  const idpessoaValido = ""; // Preencha com um valor válido
+  const idpessoaValido = "12334";
 
   it('Deve retornar 200 e todas as propriedades de estatísticas do cliente simplificado', () => {
     cy.api({

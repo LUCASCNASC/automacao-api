@@ -3,8 +3,8 @@ const PATH_API = '/Financeiro/v3_financeiro_referencia_bancaria_delete';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Financeiro - DELETE /v3/referenciabancaria/{cnpjCpf}/{idReferenciaBancaria}', { env: { hideCredentials: true } }, () => {
-  const cnpjCpfValido = ""; // Preencha com valor válido
-  const idReferenciaBancariaValido = ""; // Preencha com valor válido
+  const cnpjCpfValido = "123123123";
+  const idReferenciaBancariaValido = "123123123"; 
 
   it('Deve retornar 200 ao excluir referência bancária', () => {
     cy.api({
@@ -27,7 +27,6 @@ describe('API - Financeiro - DELETE /v3/referenciabancaria/{cnpjCpf}/{idReferenc
       headers: { Authorization },
       failOnStatusCode: false
     }).then((response) => {
-      // Ajuste status esperado conforme a API (404, 412...)
       expect([404, 412]).to.include(response.status);
     });
   });

@@ -10,10 +10,9 @@ describe('API - Financeiro - POST /v3/baixa_titulo_pagar', { env: { hideCredenti
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idTitulo: 123,
-        // valor: 100.00,
-        // dataPagamento: "2025-09-22"
+        idTitulo: 123,
+        valor: 100.00,
+        dataPagamento: "2025-09-22"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
@@ -28,7 +27,9 @@ describe('API - Financeiro - POST /v3/baixa_titulo_pagar', { env: { hideCredenti
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido, ajuste conforme necessário
+        idTitulo: null,
+        valor: null,
+        dataPagamento: null
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

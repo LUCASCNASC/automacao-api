@@ -3,7 +3,7 @@ const PATH_API = '/Financeiro/v3_financeiro_parametro_percentual_desconto_recebi
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Financeiro - GET /v3/parametro_percentual_desconto_recebimento_titulo/{idFilial}', { env: { hideCredentials: true } }, () => {
-  const idFilial = ""; // number - OBRIGATÓRIO
+  const idFilial = "123123123";
 
   it('Deve retornar 200 e o percentual máximo', () => {
     cy.api({

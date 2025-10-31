@@ -3,7 +3,7 @@ const PATH_API = '/Cliente/v2_cliente_simples_get';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Cliente - GET /v3/cliente_simples/{cliente}', { env: { hideCredentials: true } }, () => {
-  const clienteValido = ""; // Preencha com um valor válido
+  const clienteValido = "12345678901234";
 
   it('Deve retornar 200 e propriedades do cliente simplificado', () => {
     cy.api({

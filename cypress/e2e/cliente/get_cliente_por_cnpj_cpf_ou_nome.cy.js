@@ -3,7 +3,7 @@ const PATH_API = '/Cliente/v2_cliente_get_delete_get';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Cliente - GET /v3/cliente/{cliente}', { env: { hideCredentials: true } }, () => {
-  const clienteValido = ""; // Preencha com um valor válido para ambiente de testes
+  const clienteValido = "12345678901234"; 
 
   it('Deve retornar 200 e todas as propriedades esperadas para um cliente válido', () => {
     cy.api({
@@ -16,8 +16,7 @@ describe('API - Cliente - GET /v3/cliente/{cliente}', { env: { hideCredentials: 
       expect(response.duration).to.be.lessThan(2000);
 
       const ret = response.body.retorno[0];
-      // (MANTÉM todas as asserções do seu teste original aqui)
-      // Você pode criar funções utilitárias para facilitar a manutenção.
+      
       expect(ret).to.have.property('cnpj_cpf');
       expect(ret).to.have.property('nome');
       expect(ret).to.have.property('nomefantasia');

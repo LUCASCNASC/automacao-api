@@ -3,7 +3,7 @@ const PATH_API = '/Cliente/v2_cliente_get_delete_delete';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Cliente - DELETE /v3/cliente/{cliente}', { env: { hideCredentials: true } }, () => {
-  const clienteValido = ""; // Defina um cliente válido para deletar
+  const clienteValido = "12345678901234"; 
 
   it('Deve retornar 200 ao excluir cliente válido', () => {
     cy.api({

@@ -3,7 +3,7 @@ const PATH_API = '/Cliente/v2_cliente_get_delete_get';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Cliente - GET /v3/cliente/{cliente}', { env: { hideCredentials: true } }, () => {
-  const clienteValido = ""; // Defina um cliente válido para o ambiente de testes
+  const clienteValido = "12345678901234";
 
   it('Deve retornar 200 e todas as propriedades esperadas para um cliente válido', () => {
     cy.api({
@@ -16,9 +16,6 @@ describe('API - Cliente - GET /v3/cliente/{cliente}', { env: { hideCredentials: 
       expect(response.duration).to.be.lessThan(2000);
 
       const ret = response.body.retorno[0];
-      // (MANTÉM todas as asserções do seu teste original aqui)
-      // Por questão de espaço, você pode deixar as asserções como estão, pois já estão bem detalhadas.
-      // Se quiser otimizar, use funções utilitárias para validar objetos grandes.
     });
   });
 

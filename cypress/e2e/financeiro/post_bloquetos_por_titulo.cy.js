@@ -10,9 +10,8 @@ describe('API - Financeiro - POST /v3/bloquetos_por_titulo', { env: { hideCreden
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idTitulo: 321,
-        // tipoDocumento: "PDF"
+        idTitulo: 321,
+        tipoDocumento: "PDF"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
@@ -27,7 +26,8 @@ describe('API - Financeiro - POST /v3/bloquetos_por_titulo', { env: { hideCreden
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        idTitulo: null,
+        tipoDocumento: null
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

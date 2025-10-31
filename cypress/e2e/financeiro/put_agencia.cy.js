@@ -10,11 +10,10 @@ describe('API - Financeiro - PUT /v3/agencia', { env: { hideCredentials: true } 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // codigoBanco: 1,
-        // codigoAgencia: 999,
-        // nome: "Nova Agência",
-        // endereco: "Rua Nova, 100"
+        codigoBanco: 1,
+        codigoAgencia: 999,
+        nome: "Nova Agência",
+        endereco: "Rua Nova, 100"
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -32,7 +31,10 @@ describe('API - Financeiro - PUT /v3/agencia', { env: { hideCredentials: true } 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        codigoBanco: null,
+        codigoAgencia: null,
+        nome: null,
+        endereco: null
       }
     }).then((response) => {
       expect(response.status).to.eq(500);

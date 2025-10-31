@@ -10,10 +10,9 @@ describe('API - Financeiro - POST /v3/bloqueto', { env: { hideCredentials: true 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // cliente: "12345678901",
-        // valor: 150.00,
-        // vencimento: "2025-09-22"
+        cliente: "12345678901",
+        valor: 150.00,
+        vencimento: "2025-09-22"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);
@@ -34,7 +33,9 @@ describe('API - Financeiro - POST /v3/bloqueto', { env: { hideCredentials: true 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        cliente: null,
+        valor: null,
+        vencimento: null
       }
     }).then((response) => {
       expect(response.status).to.eq(412);

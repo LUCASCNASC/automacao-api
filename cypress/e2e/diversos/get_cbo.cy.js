@@ -3,10 +3,10 @@ const PATH_API = '/Diversos/v2_diversos_cbo';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Diversos - GET /v3/cbo', { env: { hideCredentials: true } }, () => {
-  const termoValido = ""; // Preencha conforme necessário
-  const limit = ""; // Preencha conforme necessário
-  const offset = ""; // Preencha conforme necessário
-  const sort = ""; // Preencha conforme necessário
+  const termoValido = "123";
+  const limit = "123"; 
+  const offset = "123";
+  const sort = "123";
 
   it('Deve retornar 200 e as propriedades do CBO', () => {
     cy.api({
@@ -26,7 +26,7 @@ describe('API - Diversos - GET /v3/cbo', { env: { hideCredentials: true } }, () 
   });
 
   it('Deve retornar 204 quando não houver dados para o termo informado', () => {
-    const termoSemDados = "xxxxxx"; // termo que não retorna nada
+    const termoSemDados = "xxxxxx";
 
     cy.api({
       method: 'GET',

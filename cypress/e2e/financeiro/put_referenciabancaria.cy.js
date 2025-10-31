@@ -10,12 +10,11 @@ describe('API - Financeiro - PUT /v3/referenciabancaria', { env: { hideCredentia
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Exemplo de payload, ajuste conforme necessário:
-        // idCnpjCpf: "12345678901",
-        // idReferenciaBancaria: 1,
-        // banco: "123",
-        // agencia: "999",
-        // conta: "99999-9"
+        idCnpjCpf: "12345678901",
+        idReferenciaBancaria: 1,
+        banco: "123",
+        agencia: "999",
+        conta: "99999-9"
       }
     }).then((response) => {
       expect(response.status).to.eq(201);
@@ -33,7 +32,11 @@ describe('API - Financeiro - PUT /v3/referenciabancaria', { env: { hideCredentia
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Payload inválido
+        idCnpjCpf: "",
+        idReferenciaBancaria: 1,
+        banco: "123",
+        agencia: "999",
+        conta: "99999-9"
       }
     }).then((response) => {
       expect(response.status).to.eq(500);

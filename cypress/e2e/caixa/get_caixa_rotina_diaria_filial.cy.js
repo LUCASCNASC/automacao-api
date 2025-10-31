@@ -14,7 +14,7 @@ describe('API - Caixa Rotina Diária Filial', { env: { hideCredentials: true } }
     }).should((response) => {
       expect(response.status, 'Status code deve ser 200').to.equal(200);
       expect(response.duration, 'Tempo de resposta deve ser < 2s').to.be.lessThan(2000);
-      // Adicione aqui outras validações do corpo de resposta, caso existam
+      
     });
   });
 

@@ -13,7 +13,6 @@ describe('Assistência - POST /v3/movimento_assistencia_incluir/', { env: { hide
       headers: { Authorization: AUTHORIZATION },
       failOnStatusCode: false,
       body: {
-        // Payload de exemplo - ajuste conforme contrato da API
         Empresa: "empresaExemplo",
         Filial: "filialExemplo",
         ID_Registro_Nota: 123,

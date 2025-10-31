@@ -3,8 +3,8 @@ const PATH_API = '/Financeiro/v3_financeiro_historicocontacorrente';
 const Authorization = Cypress.env('API.PRAGMA');
 
 describe('API - Financeiro - GET /v3/historico_conta_corrente/{idTipoContaCorrente}', { env: { hideCredentials: true } }, () => {
-  const idTipoContaCorrente = ""; // number - OBRIGATÓRIO
-  const idContaCorrente = ""; // number
+  const idTipoContaCorrente = "123123123";
+  const idContaCorrente = "123123123";
 
   it('Deve retornar 200 e as propriedades do histórico de conta corrente', () => {
     cy.api({
