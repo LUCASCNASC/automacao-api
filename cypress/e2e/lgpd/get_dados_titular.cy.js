@@ -8,7 +8,7 @@
 const BASE_URL = Cypress.env('BASE_URL')
 const PATH_API = '/LGPD/v3_get_lgpd_dados_titular';
 const Authorization = Cypress.env('API.PRAGMA')
-const cpf = ""; //string - OBRIGATÓRIO
+const cpf = "123123123";
 
 describe('Recarga - GET - /v3/dados_titular/{cpf}', { env: { hideCredendials: true } }
   , () => {

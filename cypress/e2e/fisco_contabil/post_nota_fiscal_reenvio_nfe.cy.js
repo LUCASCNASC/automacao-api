@@ -15,7 +15,9 @@ describe('Fisco/Contábil - POST - /v3/nota_fiscal_reenvio_nfe/', { env: { hideC
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Serie": "string",
+        "Numero_Documento_Fiscal": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

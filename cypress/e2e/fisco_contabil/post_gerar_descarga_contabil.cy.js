@@ -16,7 +16,9 @@ describe('Fisco/Contábil - POST - /v3/gerar_descarga_contabil', { env: { hideCr
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Data_Inicial": "2024-01-01",
+        "Data_Final": "2024-01-31"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

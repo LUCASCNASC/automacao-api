@@ -6,8 +6,8 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Fisco/Contabil/v3_nota_fiscal_cancelar';
 const Authorization = Cypress.env('API.PRAGMA');
-const Filial = ""; // integer - OBRIGATÓRIO
-const RegistroNota = ""; // integer - OBRIGATÓRIO
+const Filial = "123123123";
+const RegistroNota = "123123123";
 
 describe('Fisco/Contábil - GET - /v3/nota_fiscal_cancelar/{Filial}/{RegistroNota}', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades do cancelamento de nota fiscal', () => {

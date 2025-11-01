@@ -15,7 +15,7 @@ describe('Fisco/Contábil - POST - /v3/validar_documento_diverso_entrada_incluir
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,  
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

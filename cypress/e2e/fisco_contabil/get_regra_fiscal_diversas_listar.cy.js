@@ -7,12 +7,12 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Fisco/Contabil/v3_regra_fiscal_diversas_get';
 const Authorization = Cypress.env('API.PRAGMA');
-const TipoBase = ""; // string - OBRIGATÓRIO
-const CFOP = ""; // integer - OBRIGATÓRIO
-const Identificador = ""; // string - OBRIGATÓRIO
-const Pessoa = ""; // string - OBRIGATÓRIO
-const Grupo = ""; // string - OBRIGATÓRIO
-const OrigemProduto = ""; // integer - OBRIGATÓRIO
+const TipoBase = "123123123";
+const CFOP = "123123123123123123"
+const Identificador = "";
+const Pessoa = "123123123";
+const Grupo = "123123123";
+const OrigemProduto = "123123123";
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_diversas_listar/{TipoBase}/{CFOP}/{Identificador}/{Pessoa}/{Grupo}/{OrigemProduto}', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da base fiscal diversas', () => {

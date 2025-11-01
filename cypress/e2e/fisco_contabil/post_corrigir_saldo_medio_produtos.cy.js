@@ -15,7 +15,10 @@ describe('Fisco/Contábil - POST - /v3/corrigir_saldo_medio_produtos', { env: { 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Produto": "string",
+        "Data_Inicial": "2024-01-01",
+        "Data_Final": "2024-01-31"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

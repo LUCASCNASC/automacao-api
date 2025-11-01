@@ -15,7 +15,9 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_uf_incluir', { env: { hideCr
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "UF": "string",
+        "Descricao_UF": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

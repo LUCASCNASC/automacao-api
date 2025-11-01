@@ -14,7 +14,9 @@ describe('Fisco/Contábil - POST - /v3/documento_outras_receitas_incluir', { env
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Serie": "string",
+        "Numero_Documento_Diverso": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

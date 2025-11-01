@@ -15,7 +15,9 @@ describe('Financeiro - PUT - /v3/regra_fiscal_uf_alterar', { env: { hideCredendi
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "IdBaseFiscalUF": 12345,
+        "IdRegraFiscal": 67890,
+        "IdUF": 12,
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

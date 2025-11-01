@@ -15,7 +15,9 @@ describe('Fisco/Contábil - POST - /v3/movimento_bens_patrimonio_incluir/', { en
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Numero_Registro_Nota": "string",
+        "Numero_Titulo": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

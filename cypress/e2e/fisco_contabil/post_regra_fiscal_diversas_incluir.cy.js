@@ -15,7 +15,8 @@ describe('Fisco/Contábil - POST - /v3/regra_fiscal_diversas_incluir', { env: { 
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Descricao_Diversas": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

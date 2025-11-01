@@ -7,10 +7,10 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Fisco/Contabil/v3_regra_fiscal_cfop_get';
 const Authorization = Cypress.env('API.PRAGMA');
-const UFOrigem = ""; // string - OBRIGATÓRIO
-const UFDestino = ""; // integer - OBRIGATÓRIO 
-const UFTomador = ""; // string 
-const OrigemProduto = ""; // string - OBRIGATÓRIO
+const UFOrigem = "123123123"; 
+const UFDestino = "123123123";
+const UFTomador = "123123123";
+const OrigemProduto = "123123123";
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_cfop_listar/{UFOrigem}/{UFDestino}/{UFTomador}/{OrigemProduto}', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da base fiscal CFOP', () => {

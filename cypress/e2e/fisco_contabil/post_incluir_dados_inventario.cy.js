@@ -16,7 +16,18 @@ describe('Fisco/Contábil - POST - /v3/incluir_dados_inventario', { env: { hideC
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Data_Inventario": "2024-01-31",
+        "Itens_Inventario": [
+          {
+            "Codigo_Produto": "string",
+            "Descricao_Produto": "string",
+            "Quantidade": 0,
+            "Unidade": "string",
+            "Valor_Unitario": 0,
+            "Valor_Total": 0
+          }
+        ]
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

@@ -15,7 +15,9 @@ describe('Financeiro - PUT - /v3/regra_fiscal_departamento_alterar', { env: { hi
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "Departamento": "string",
+        "Descricao_Departamento": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

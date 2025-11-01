@@ -15,7 +15,9 @@ describe('Financeiro - PUT - /v3/regra_fiscal_cfop_alterar', { env: { hideCreden
       headers: { Authorization },
       failOnStatusCode: false,
       body: {
-        // Adicione payload conforme necessário para o endpoint
+        "Filial": 123123123,
+        "CFOP": "string",
+        "Descricao_CFOP": "string"
       }
     }).then((response) => {
       expect(response.status).to.eq(200);

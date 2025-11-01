@@ -7,8 +7,8 @@
 const BASE_URL = Cypress.env('BASE_URL');
 const PATH_API = '/Fisco/Contabil/v3_regra_fiscal_uf_get';
 const Authorization = Cypress.env('API.PRAGMA');
-const UFOrigem = ""; // string - OBRIGATÓRIO
-const OrigemProduto = ""; // integer - OBRIGATÓRIO
+const UFOrigem = "123123123";
+const OrigemProduto = "123123123"; 
 
 describe('Fisco/Contábil - GET - /v3/regra_fiscal_uf_listar/{UFOrigem}/{OrigemProduto}', { env: { hideCredendials: true } }, () => {
   it('Deve retornar 200 e as propriedades da base fiscal UF', () => {
